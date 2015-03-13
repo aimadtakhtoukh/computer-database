@@ -1,14 +1,13 @@
 package main;
 
-import beans.Computer;
-import dao.ComputerDAO;
-import dao.ComputerDAOImpl;
+import cli.CommandLineGetter;
+
 
 public class Main {
 
 	public static void main(String[] args) {
-		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		/*
+		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		for (Computer c1 : dao.getAllComputers()) {
 			System.out.println(c1.getName() + '\t' + c1.getIntroduced() + '\t' + c1.getDiscontinued());
 		}
@@ -22,11 +21,12 @@ public class Main {
 		for (Computer c1 : dao.getAllComputers()) {
 			System.out.println(c1.getId() + "\t" + c1.getName() + '\t' + c1.getIntroduced() + '\t' + c1.getDiscontinued());
 		}
-		*/
 		dao.deleteComputer(577);
 		Computer c1 = dao.getComputer(577L);
 		System.out.println(c1.getId() + "\t" + c1.getName() + '\t' + c1.getIntroduced() + '\t' + c1.getDiscontinued());
 		
+		*/
+		new CommandLineGetter().execute();
 	}
 
 }

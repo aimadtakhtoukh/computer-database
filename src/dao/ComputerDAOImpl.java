@@ -66,12 +66,16 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public void updateComputer(long id, Computer computer) {
-		String query = "UPDATE " + TABLE_NAME + " SET " 
-				+ PARAM_NAME + "=?, "
-				+ PARAM_INTRODUCED + "=?, "
-				+ PARAM_DISCONTINUED + "=?, "
-				+ PARAM_COMPANY_ID + "=? "
-				+ "WHERE " + PARAM_ID + " = ?";
+		String query = new StringBuilder()
+						.append("UPDATE ")
+						.append(TABLE_NAME)
+						.append(" SET ") 
+						.append(PARAM_NAME + "=?, ")
+						.append(PARAM_INTRODUCED + "=?, ")
+						.append(PARAM_DISCONTINUED + "=?, ")
+						.append(PARAM_COMPANY_ID + "=? ")
+						.append("WHERE " + PARAM_ID + " = ?")
+						.toString();
 		Connection conn;
 		try {
 			conn = ComputerDatabaseConnectionFactory.getConnection();
@@ -100,7 +104,13 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public Computer getComputer(long id) {
-		String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + PARAM_ID + "= ?";
+		String query = new StringBuilder()
+						.append("SELECT * FROM ")
+						.append(TABLE_NAME)
+						.append(" WHERE ")
+						.append(PARAM_ID)
+						.append("= ?")
+						.toString();
 		Connection conn;
 		try {
 			conn = ComputerDatabaseConnectionFactory.getConnection();
@@ -131,7 +141,11 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public void deleteComputer(long id) {
-		String query = "DELETE FROM " + TABLE_NAME + " WHERE id = ?;";
+		String query = new StringBuilder()
+						.append("DELETE FROM ")
+						.append(TABLE_NAME)
+						.append(" WHERE id = ?;")
+						.toString();
 		Connection conn;
 		try {
 			conn = ComputerDatabaseConnectionFactory.getConnection();
@@ -147,7 +161,11 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public List<Computer> getAllComputers() {
-		String query = "SELECT * FROM " + TABLE_NAME + ";";
+		String query = new StringBuilder()
+						.append("SELECT * FROM ")
+						.append(TABLE_NAME)
+						.append(";")
+						.toString();
 		Connection conn;
 		List<Computer> list = new LinkedList<Computer>();
 		try {
