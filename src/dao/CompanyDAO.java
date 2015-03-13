@@ -43,6 +43,6 @@ public interface CompanyDAO {
 	 * 
 	 * @return
 	 */
-	List<Company> getCompanies();
+	List<Company> getAllCompanies();
 
 }

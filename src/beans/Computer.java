@@ -1,6 +1,6 @@
 package beans;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * That bean is an entity rempresenting a line of the Computer database.
