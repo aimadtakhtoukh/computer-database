@@ -13,7 +13,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 	INSTANCE;	
 
 	private static final String PARAM_ID = "id";
-	private static final String PARAM_NAME= "name";
+	private static final String PARAM_NAME = "name";
 	
 	private CompanyDAOImpl() {}
 	

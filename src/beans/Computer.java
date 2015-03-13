@@ -1,6 +1,6 @@
 package beans;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * That bean is an entity rempresenting a line of the Computer database.
@@ -12,8 +12,8 @@ public class Computer {
 	
 	private long id;
 	private String name;
-	private Date introduced;
-	private Date discontinued;
+	private LocalDateTime introduced;
+	private LocalDateTime discontinued;
 	private long companyId;
 	
 	public long getId() {
@@ -28,16 +28,16 @@ public class Computer {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getIntroduced() {
+	public LocalDateTime getIntroduced() {
 		return introduced;
 	}
-	public void setIntroduced(Date introduced) {
+	public void setIntroduced(LocalDateTime introduced) {
 		this.introduced = introduced;
 	}
-	public Date getDiscontinued() {
+	public LocalDateTime getDiscontinued() {
 		return discontinued;
 	}
-	public void setDiscontinued(Date discontinued) {
+	public void setDiscontinued(LocalDateTime discontinued) {
 		this.discontinued = discontinued;
 	}
 	public long getCompanyId() {
