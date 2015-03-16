@@ -60,10 +60,8 @@ public enum CompanyDAOImpl implements CompanyDAO {
 			conn.close();
 			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 
 }

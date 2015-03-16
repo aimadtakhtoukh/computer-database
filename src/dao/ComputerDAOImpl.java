@@ -59,8 +59,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("An error happened. " + e.getLocalizedMessage());
 		}
 	}
 
@@ -96,8 +95,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("An error happened. " + e.getLocalizedMessage());
 		}
 
 	}
@@ -132,11 +130,9 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			}
 			return null;
 		} catch (SQLException e) {
-			//TODO 
-			e.printStackTrace();
+			System.err.println("An error happened. " + e.getLocalizedMessage());
+			return null;
 		}
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -153,8 +149,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			ps.setLong(1, id);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			//TODO
-			e.printStackTrace();
+			System.err.println("An error happened. " + e.getLocalizedMessage());
 		}
 
 	}
@@ -189,10 +184,9 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			conn.close();
 			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("An error happened. " + e.getLocalizedMessage());
+			return null;
 		}
-		return null;
 	}
 
 }
