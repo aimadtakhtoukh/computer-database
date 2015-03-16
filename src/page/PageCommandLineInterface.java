@@ -2,11 +2,11 @@ package page;
 
 import java.util.Scanner;
 
-public class PageCommand {
+public class PageCommandLineInterface {
 	
 	private Page page;
 	
-	public PageCommand(Page p) {
+	public PageCommandLineInterface(Page p) {
 		page = p;
 	}
 	

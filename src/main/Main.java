@@ -1,6 +1,6 @@
 package main;
 
-import cli.CommandLineGetter;
+import cli.CommandLineInterface;
 
 
 public class Main {
@@ -26,7 +26,7 @@ public class Main {
 		System.out.println(c1.getId() + "\t" + c1.getName() + '\t' + c1.getIntroduced() + '\t' + c1.getDiscontinued());
 		
 		*/
-		new CommandLineGetter().execute();
+		new CommandLineInterface().execute();
 	}
 
 }
