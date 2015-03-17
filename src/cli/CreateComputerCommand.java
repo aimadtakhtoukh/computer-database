@@ -1,5 +1,6 @@
 package cli;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import dao.CompanyDAOImpl;
 import dao.ComputerDAO;
 import dao.ComputerDAOImpl;
 import beans.Computer;
@@ -48,9 +50,19 @@ public class CreateComputerCommand implements Command {
 			}
 		}
 		c.setDiscontinued(discontinued);
-		c.setCompanyId(Long.parseLong(args.get(3)));
-		dao.createComputer(c);
-		System.out.println("Computer created.");
+		try {
+			c.setCompany(CompanyDAOImpl.getInstance().getCompany(Long.parseLong(args.get(3))));
+		} catch (NumberFormatException e) {
+			System.err.println("The entered value isn't a long.");
+		} catch (SQLException e) {
+			c.setCompany(null);
+		}
+		try {
+			long id = dao.createComputer(c);
+			System.out.println("Computer " + id + " created.");
+		} catch (SQLException e) {
+			System.err.println("An error happened. " + e.getLocalizedMessage());
+		}
 
 	}
 

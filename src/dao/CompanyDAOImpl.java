@@ -1,19 +1,17 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.LinkedList;
 import java.util.List;
 
+import mappers.CompanyMapper;
 import beans.Company;
 
 public enum CompanyDAOImpl implements CompanyDAO {
-	INSTANCE;	
-
-	private static final String PARAM_ID = "id";
-	private static final String PARAM_NAME = "name";
+	INSTANCE;
 	
 	private CompanyDAOImpl() {}
 	
@@ -22,46 +20,41 @@ public enum CompanyDAOImpl implements CompanyDAO {
 	}	
 
 	@Override
-	public void createCompany(Company company) {
+	public long createCompany(Company company) {
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
 	@Override
-	public void updateCompany(long id, Company company) {
+	public long updateCompany(long id, Company company) {
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
 	@Override
-	public Company getCompany(long id) {
+	public Company getCompany(long id) throws SQLException {
+		String query = "SELECT * FROM company WHERE id = ?;";
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.setLong(1, id);
+		ResultSet rs = stmt.executeQuery();
+		Company company = CompanyMapper.getMappedResult(rs);
+		conn.close();
+		return company;
+	}
+
+	@Override
+	public long deleteCompany(long id) {
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
 	@Override
-	public void deleteCompany(long id) {
-		throw new UnsupportedOperationException("Not implemented yet");
-	}
-
-	@Override
-	public List<Company> getAllCompanies() {
+	public List<Company> getAllCompanies() throws SQLException {
 		String query = "SELECT * FROM company;";
-		Connection conn;
-		List<Company> list = new LinkedList<Company>();
-		try {
-			conn = ComputerDatabaseConnectionFactory.getConnection();
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-			
-			while(rs.next()) {
-				Company c = new Company();
-				c.setId(rs.getLong(PARAM_ID));
-				c.setName(rs.getString(PARAM_NAME));
-				list.add(c);
-			}
-			conn.close();
-			return list;
-		} catch (SQLException e) {
-			return null;
-		}
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(query);
+		List<Company> results = CompanyMapper.getMappedResults(rs);
+		conn.close();
+		return results;
 	}
 
 }

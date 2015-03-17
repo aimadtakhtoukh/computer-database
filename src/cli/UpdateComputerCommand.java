@@ -1,5 +1,6 @@
 package cli;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -8,9 +9,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import beans.Computer;
+import dao.CompanyDAOImpl;
 import dao.ComputerDAO;
 import dao.ComputerDAOImpl;
-import beans.Computer;
 
 public class UpdateComputerCommand implements Command {
 	
@@ -48,9 +50,23 @@ public class UpdateComputerCommand implements Command {
 			}
 		}
 		c.setDiscontinued(discontinued);
-		c.setCompanyId(Long.parseLong(args.get(4)));
-		dao.updateComputer(Long.parseLong(args.get(0)), c);
-		System.out.println("Computer " + Long.parseLong(args.get(0)) + " updated.");
+		try {
+			c.setCompany(CompanyDAOImpl.getInstance().getCompany(Long.parseLong(args.get(4))));
+		} catch (NumberFormatException e) {
+			System.err.println("The company id argument must be a number.");
+		} catch (SQLException e) {
+			System.err.println("An error happened. " + e.getLocalizedMessage());
+		} finally {
+			c.setCompany(null);
+		}
+		try {
+			long id = dao.updateComputer(Long.parseLong(args.get(0)), c);
+			System.out.println("Computer " + id + " updated.");
+		} catch (NumberFormatException e) {
+			System.err.println("The id argument must be a number.");
+		} catch (SQLException e) {
+			System.err.println("An error happened. " + e.getLocalizedMessage());
+		}
 	}
 
 }

@@ -1,5 +1,6 @@
 package cli;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,10 +17,15 @@ public class ReadAllComputersCommand implements Command {
 
 	@Override
 	public void doAction(List<String> args, Scanner sc) {		
-		List<Computer> computers = dao.getAllComputers();
-		if (!computers.isEmpty()) {
-			Page p = new ComputerPage(computers);
-			new PageCommandLineInterface(p).command(sc);
+		List<Computer> computers;
+		try {
+			computers = dao.getAllComputers();
+			if (!computers.isEmpty()) {
+				Page p = new ComputerPage(computers);
+				new PageCommandLineInterface(p).command(sc);
+			}
+		} catch (SQLException e) {
+			System.err.println("An error happened. " + e.getLocalizedMessage());
 		}
 	}
 

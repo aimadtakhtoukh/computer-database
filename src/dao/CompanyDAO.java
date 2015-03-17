@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import beans.Company;
@@ -16,33 +17,38 @@ public interface CompanyDAO {
 	/**
 	 * 
 	 * @param computer
+	 * @return 
 	 */
-	void createCompany(Company company);
+	long createCompany(Company company);
 	
 	/**
 	 * 
 	 * @param id
 	 * @param company
+	 * @return 
 	 */
-	void updateCompany(long id, Company company);
+	long updateCompany(long id, Company company);
 	
 	/**
 	 * 
 	 * @param id
 	 * @return
+	 * @throws SQLException 
 	 */
-	Company getCompany(long id);
+	Company getCompany(long id) throws SQLException;
 	
 	/**
 	 * 
 	 * @param id
+	 * @return 
 	 */
-	void deleteCompany(long id);
+	long deleteCompany(long id);
 	
 	/**
 	 * 
 	 * @return
+	 * @throws SQLException 
 	 */
-	List<Company> getAllCompanies();
+	List<Company> getAllCompanies() throws SQLException;
 
 }

@@ -1,19 +1,45 @@
 package dao;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
-public class ComputerDatabaseConnectionFactory {
-	
-	private static final String URL = "jdbc:mysql://localhost:3306/computer-database-db?zeroDateTimeBehavior=convertToNull";
-	private static final String LOGIN = "admincdb";
-	private static final String PASSWORD = "qwerty1234";
-	
-	private ComputerDatabaseConnectionFactory() {}
-	
-	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(URL, LOGIN, PASSWORD);
+public enum ComputerDatabaseConnectionFactory {
+	INSTANCE;
+
+	private String url;
+	private Properties properties;	
+
+	private ComputerDatabaseConnectionFactory() {
+		InputStream inputstream = null;
+		properties = new Properties();
+		try {
+			inputstream = new FileInputStream("db.properties");
+			properties.load(inputstream);
+			url = properties.getProperty("url");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (inputstream != null) {
+				try {
+					inputstream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public static ComputerDatabaseConnectionFactory getInstance() {
+		return INSTANCE;
+	}
+
+	public Connection getConnection() throws SQLException {
+		return DriverManager.getConnection(url, properties);
 	}
 
 }

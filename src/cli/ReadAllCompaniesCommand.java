@@ -1,5 +1,6 @@
 package cli;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,10 +16,15 @@ public class ReadAllCompaniesCommand implements Command {
 
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
-		List<Company> companies = companyDAO.getAllCompanies();
-		if (!companies.isEmpty()) {
-			Page p = new CompanyPage(companies);
-			new PageCommandLineInterface(p).command(sc);
-		}		
+		List<Company> companies;
+		try {
+			companies = companyDAO.getAllCompanies();
+			if (!companies.isEmpty()) {
+				Page p = new CompanyPage(companies);
+				new PageCommandLineInterface(p).command(sc);
+			}		
+		} catch (SQLException e) {
+			System.err.println("An error happened. " + e.getLocalizedMessage());
+		}
 	}
 }

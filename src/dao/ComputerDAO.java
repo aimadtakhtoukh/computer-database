@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import beans.Computer;
@@ -16,32 +17,40 @@ public interface ComputerDAO {
 	/**
 	 * 
 	 * @param computer
+	 * @return 
+	 * @throws SQLException 
 	 */
-	void createComputer(Computer computer);
+	long createComputer(Computer computer) throws SQLException;
 	
 	/**
 	 * 
 	 * @param id
 	 * @param computer
+	 * @return 
+	 * @throws SQLException 
 	 */
-	void updateComputer(long id, Computer computer);
+	long updateComputer(long id, Computer computer) throws SQLException;
 	
 	/**
 	 * 
 	 * @param id
 	 * @return
+	 * @throws SQLException 
 	 */
-	Computer getComputer(long id);
+	Computer getComputer(long id) throws SQLException;
 	
 	/**
 	 * 
 	 * @param id
+	 * @return 
+	 * @throws SQLException 
 	 */
-	void deleteComputer(long id);
+	long deleteComputer(long id) throws SQLException;
 	
 	/**
 	 * 
 	 * @return
+	 * @throws SQLException 
 	 */
-	List<Computer> getAllComputers();
+	List<Computer> getAllComputers() throws SQLException;
 }

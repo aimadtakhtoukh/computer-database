@@ -30,8 +30,7 @@ public class ComputerPage implements Page {
 	public void writeCurrentPage() {
 		for(Computer c : computers.get(currentPage)) {
 			if (c != null) {
-				System.out.println(c.getId() + "\t" + c.getName() + '\t' + c.getIntroduced() + '\t' 
-						+ c.getDiscontinued() + '\t' + c.getCompanyId());
+				System.out.println(c);
 			}
 		}
 		System.out.println((currentPage + 1) + "/" + computers.size());

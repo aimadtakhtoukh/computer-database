@@ -1,5 +1,6 @@
 package cli;
 
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,7 +28,10 @@ public class ReadComputerCommand implements Command {
 					System.out.println("The computer n° " + Long.parseLong(s) + " doesn't exist.");
 				}
 			} catch (NumberFormatException e) { 
-				System.out.println("Arguments must be numbers.");
+				System.err.println("Arguments must be numbers.");
+			} catch (SQLException e) {
+				//System.err.println("An error happened. " + e.getLocalizedMessage());
+				e.printStackTrace();
 			}
 		}
 		if (!computers.isEmpty()) {
