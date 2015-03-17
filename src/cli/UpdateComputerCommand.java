@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import beans.Company;
 import beans.Computer;
 import dao.CompanyDAOImpl;
 import dao.ComputerDAO;
@@ -51,12 +52,14 @@ public class UpdateComputerCommand implements Command {
 		}
 		c.setDiscontinued(discontinued);
 		try {
-			c.setCompany(CompanyDAOImpl.getInstance().getCompany(Long.parseLong(args.get(4))));
+			long id_company = Long.parseLong(args.get(4));
+			Company company = CompanyDAOImpl.getInstance().getCompany(id_company);
+			c.setCompany(company);
 		} catch (NumberFormatException e) {
 			System.err.println("The company id argument must be a number.");
+			c.setCompany(null);
 		} catch (SQLException e) {
 			System.err.println("An error happened. " + e.getLocalizedMessage());
-		} finally {
 			c.setCompany(null);
 		}
 		try {
@@ -65,7 +68,8 @@ public class UpdateComputerCommand implements Command {
 		} catch (NumberFormatException e) {
 			System.err.println("The id argument must be a number.");
 		} catch (SQLException e) {
-			System.err.println("An error happened. " + e.getLocalizedMessage());
+			System.err.println("An error happened.");
+			e.printStackTrace();
 		}
 	}
 
