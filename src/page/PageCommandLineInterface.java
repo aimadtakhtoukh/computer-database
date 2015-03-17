@@ -2,37 +2,37 @@ package page;
 
 import java.util.Scanner;
 
-public class PageCommandLineInterface {
+public class PageCommandLineInterface<T> {
 	
-	private Page page;
+	private Page<T> page;
 	
-	public PageCommandLineInterface(Page p) {
+	public PageCommandLineInterface(Page<T> p) {
 		page = p;
 	}
 	
 	public void command(Scanner sc) {
-		page.writeCurrentPage();
+		writeCurrentPage(page);
 		while(true) {
 			boolean correctCommand = false;
 			String command = sc.nextLine();
 			if (command.equals("")) {
 				correctCommand = true;
-				page.goToNextPage();
-				page.writeCurrentPage();
+				page.goToPage(page.getCurrentPageNumber() + 1);
+				writeCurrentPage(page);
 			}
 			if (command.equals("next")) {
 				correctCommand = true;
-				page.goToNextPage();
-				page.writeCurrentPage();
+				page.goToPage(page.getCurrentPageNumber() + 1);
+				writeCurrentPage(page);
 			}
 			if (command.equals("previous")) {
 				correctCommand = true;
-				page.goToPreviousPage();
-				page.writeCurrentPage();
+				page.goToPage(page.getCurrentPageNumber() - 1);
+				writeCurrentPage(page);
 			}
 			if (command.equals("write")) {
 				correctCommand = true;
-				page.writeCurrentPage();
+				writeCurrentPage(page);
 			}
 			if (command.equals("stop")) {
 				correctCommand = true;
@@ -42,6 +42,14 @@ public class PageCommandLineInterface {
 				System.out.println("Type stop to get out of the pagination mode.");
 			}
 		}	
+	}
+	
+	public void writeCurrentPage(Page<T> p) {
+		System.out.println(p.getOffset());
+		for (T t : p.getPageElements()) {
+			System.out.println(t);
+		}
+		System.out.println((p.getCurrentPageNumber() + 1) + "/" + p.getPageTotal());
 	}
 
 }

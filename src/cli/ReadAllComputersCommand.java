@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import page.ComputerPage;
 import page.Page;
 import page.PageCommandLineInterface;
 import beans.Computer;
@@ -21,8 +20,8 @@ public class ReadAllComputersCommand implements Command {
 		try {
 			computers = dao.getAllComputers();
 			if (!computers.isEmpty()) {
-				Page p = new ComputerPage(computers);
-				new PageCommandLineInterface(p).command(sc);
+				Page<Computer> p = new Page<Computer>(computers);
+				new PageCommandLineInterface<Computer>(p).command(sc);
 			}
 		} catch (SQLException e) {
 			System.err.println("An error happened. " + e.getLocalizedMessage());

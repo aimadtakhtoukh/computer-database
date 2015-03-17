@@ -58,9 +58,19 @@ public class Computer {
 
 	@Override
 	public String toString() {
-		return "Computer [id=" + id + ", name=" + name + ", introduced="
-				+ introduced + ", discontinued=" + discontinued + ", company="
-				+ company + "]";
+		return new StringBuffer()
+				.append("Computer [id=")
+				.append(id)
+				.append(", name=")
+				.append(name)
+				.append(", introduced=")
+				.append(introduced)
+				.append(", discontinued=")
+				.append(discontinued)
+				.append(", company=")
+				.append(company)
+				.append("]")
+				.toString();
 	}
 
 	@Override

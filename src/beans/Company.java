@@ -35,7 +35,13 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", name=" + name + "]";
+		return new StringBuffer()
+				.append("Company [id=")
+				.append(id)
+				.append(", name=")
+				.append(name)
+				.append("]")
+				.toString();
 	}
 
 	@Override

@@ -5,11 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-import dao.ComputerDAO;
-import dao.ComputerDAOImpl;
-import page.ComputerPage;
 import page.Page;
 import page.PageCommandLineInterface;
+import dao.ComputerDAO;
+import dao.ComputerDAOImpl;
 import beans.Computer;
 
 public class ReadComputerCommand implements Command {
@@ -35,8 +34,8 @@ public class ReadComputerCommand implements Command {
 			}
 		}
 		if (!computers.isEmpty()) {
-			Page p = new ComputerPage(computers);
-			new PageCommandLineInterface(p).command(sc);
+			Page<Computer> p = new Page<Computer>(computers);
+			new PageCommandLineInterface<Computer>(p).command(sc);
 		}
 	}
 
