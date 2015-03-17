@@ -18,7 +18,7 @@ public enum ComputerDatabaseConnectionFactory {
 		InputStream inputstream = null;
 		properties = new Properties();
 		try {
-			inputstream = new FileInputStream("db.properties");
+			inputstream = new FileInputStream("src/main/resources/db.properties");
 			properties.load(inputstream);
 			url = properties.getProperty("url");
 		} catch (IOException e) {

@@ -1,12 +1,15 @@
-package page;
+package cli.page;
 
 import java.util.Scanner;
 
-public class PageCommandLineInterface<T> {
+import page.Page;
+import dao.CRUDDAO;
+
+public class PageCommandLineInterface<D extends CRUDDAO<T>, T> {
 	
-	private Page<T> page;
+	private Page<D, T> page;
 	
-	public PageCommandLineInterface(Page<T> p) {
+	public PageCommandLineInterface(Page<D, T> p) {
 		page = p;
 	}
 	
@@ -44,12 +47,11 @@ public class PageCommandLineInterface<T> {
 		}	
 	}
 	
-	public void writeCurrentPage(Page<T> p) {
-		System.out.println(p.getOffset());
+	public void writeCurrentPage(Page<D, T> p) {
 		for (T t : p.getPageElements()) {
 			System.out.println(t);
 		}
-		System.out.println((p.getCurrentPageNumber() + 1) + "/" + p.getPageTotal());
+		System.out.println((p.getCurrentPageNumber() + 1) + "/" + ((p.getTotalCount() / p.getLimit()) + 1));
 	}
 
 }

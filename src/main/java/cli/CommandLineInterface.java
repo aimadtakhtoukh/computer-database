@@ -1,7 +1,9 @@
 package cli;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -13,7 +15,8 @@ public class CommandLineInterface {
 		READ_ALL_COMPUTERS("read_all", new ReadAllComputersCommand()),
 		UPDATE_COMPUTER("update", new UpdateComputerCommand()),
 		DELETE_COMPUTER("delete", new DeleteComputerCommand()),
-		READ_ALL_COMPANIES("all_companies", new ReadAllCompaniesCommand());
+		READ_ALL_COMPANIES("all_companies", new ReadAllCompaniesCommand()),
+		EXIT("exit", new ExitCommand());
 		
 		private String action;
 		private Command command;
@@ -31,6 +34,14 @@ public class CommandLineInterface {
 		
 	}
 	
+	private Map<String, ACTIONS> actions = new HashMap<>();
+	
+	public CommandLineInterface() {
+		for (ACTIONS a : ACTIONS.values()) {
+			actions.put(a.getAction(), a);
+		}
+	}
+	
 	public void execute() {
 		Scanner sc = new Scanner(System.in);
 		while(true) {
@@ -41,17 +52,10 @@ public class CommandLineInterface {
 			while (st.hasMoreTokens()) {
 				entry.add(st.nextToken());
 			}
-			for (ACTIONS a : ACTIONS.values()) {
-				if (a.getAction().equals(entry.get(0))) {
-					a.doAction(entry.subList(1, entry.size()), sc);
-				}
-			}
-			if (entry.get(0).equals("exit")) {
-				System.out.println("Program end.");
-				break;
+			if (actions.get(entry.get(0)) != null) {
+				actions.get(entry.get(0)).doAction(entry.subList(1, entry.size()), sc);
 			}
 		}
-		sc.close();
 	}
 	
 

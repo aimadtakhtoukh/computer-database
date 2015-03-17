@@ -30,7 +30,7 @@ public class ComputerMapper {
 			if (rs.getTimestamp(PARAM_DISCONTINUED) != null) {
 				c.setDiscontinued(rs.getTimestamp(PARAM_DISCONTINUED).toLocalDateTime());
 			}
-			c.setCompany(companies.getCompany(rs.getLong(PARAM_COMPANY_ID)));
+			c.setCompany(companies.get(rs.getLong(PARAM_COMPANY_ID)));
 			return c;
 		}
 		return null;
@@ -48,7 +48,7 @@ public class ComputerMapper {
 			if (rs.getTimestamp(PARAM_DISCONTINUED) != null) {
 				c.setDiscontinued(rs.getTimestamp(PARAM_DISCONTINUED).toLocalDateTime());
 			}
-			c.setCompany(companies.getCompany(rs.getLong(PARAM_COMPANY_ID)));
+			c.setCompany(companies.get(rs.getLong(PARAM_COMPANY_ID)));
 			list.add(c);
 		}
 		return list;

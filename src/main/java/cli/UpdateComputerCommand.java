@@ -1,6 +1,5 @@
 package cli;
 
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -9,27 +8,28 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import beans.Company;
+import beans.Computer;
 import dao.CompanyDAOImpl;
 import dao.ComputerDAO;
 import dao.ComputerDAOImpl;
-import beans.Computer;
 
-public class CreateComputerCommand implements Command {
+public class UpdateComputerCommand implements Command {
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
 	private ComputerDAO dao = ComputerDAOImpl.getInstance();
-	
+
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
-		Computer c = new Computer();
-		if (args.size() < 4) {
-			System.out.println("Command form : create (computer_name) (introduction_date) (discontinued_date) (company)");
+		if (args.size() < 5) {
+			System.out.println("Command form : update (id) (computer_name) (introduction_date) (discontinued_date) (company)");
 			System.out.println("You can write null instead of a date.");
 			return;
-		}
-		c.setName(args.get(0));
+		}				
+		Computer c = new Computer();
+		c.setName(args.get(1));
 		LocalDateTime introduced;
-		if (args.get(1).equals("null")) {
+		if (args.get(2).equals("null")) {
 			introduced = null;
 		} else {
 			try {
@@ -40,7 +40,7 @@ public class CreateComputerCommand implements Command {
 		}
 		c.setIntroduced(introduced);
 		LocalDateTime discontinued;
-		if (args.get(2).equals("null")) {
+		if (args.get(3).equals("null")) {
 			discontinued = null;
 		} else {
 			try {
@@ -51,19 +51,19 @@ public class CreateComputerCommand implements Command {
 		}
 		c.setDiscontinued(discontinued);
 		try {
-			c.setCompany(CompanyDAOImpl.getInstance().getCompany(Long.parseLong(args.get(3))));
+			long id_company = Long.parseLong(args.get(4));
+			Company company = CompanyDAOImpl.getInstance().get(id_company);
+			c.setCompany(company);
 		} catch (NumberFormatException e) {
-			System.err.println("The entered value isn't a long.");
-		} catch (SQLException e) {
+			System.err.println("The company id argument must be a number.");
 			c.setCompany(null);
 		}
 		try {
-			long id = dao.createComputer(c);
-			System.out.println("Computer " + id + " created.");
-		} catch (SQLException e) {
-			System.err.println("An error happened. " + e.getLocalizedMessage());
+			long id = dao.update(Long.parseLong(args.get(0)), c);
+			System.out.println("Computer " + id + " updated.");
+		} catch (NumberFormatException e) {
+			System.err.println("The id argument must be a number.");
 		}
-
 	}
 
 }
