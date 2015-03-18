@@ -31,9 +31,13 @@ public class CreateComputerCommand implements Command {
 		if (args.get(1).equals("null")) {
 			introduced = null;
 		} else {
-			try {
-				introduced = LocalDateTime.ofInstant(sdf.parse(args.get(1)).toInstant(), ZoneId.systemDefault());
-			} catch (ParseException e) {
+			if (DateVerifier.isTheRightDate(args.get(1))) {
+				try {
+					introduced = LocalDateTime.ofInstant(sdf.parse(args.get(1)).toInstant(), ZoneId.systemDefault());
+				} catch (ParseException e) {
+					introduced = null;
+				}
+			} else {
 				introduced = null;
 			}
 		}
@@ -42,9 +46,13 @@ public class CreateComputerCommand implements Command {
 		if (args.get(2).equals("null")) {
 			discontinued = null;
 		} else {
-			try {
-				discontinued = LocalDateTime.ofInstant(sdf.parse(args.get(2)).toInstant(), ZoneId.systemDefault());
-			} catch (ParseException e) {
+			if (DateVerifier.isTheRightDate(args.get(2))) {
+				try {
+					discontinued = LocalDateTime.ofInstant(sdf.parse(args.get(2)).toInstant(), ZoneId.systemDefault());
+				} catch (ParseException e) {
+					discontinued = null;
+				}
+			} else {
 				discontinued = null;
 			}
 		}

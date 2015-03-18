@@ -42,6 +42,9 @@ public class Page<D extends CRUDDAO<T>, T> {
 	}
 	
 	public void setLimit(int limit) {
+		if (limit < 0) {
+			limit = 0;
+		}
 		this.limit = limit;
 	}
 	
