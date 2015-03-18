@@ -29,6 +29,9 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public long create(Computer computer) {
+		if (computer == null) {
+			throw new IllegalArgumentException();
+		}
 		String insertQuery = new StringBuilder()
 						.append("INSERT INTO ")
 						.append(TABLE_NAME)
@@ -54,7 +57,11 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			} else {
 				ps.setTimestamp(3, null);
 			}
-			ps.setLong(4, computer.getCompany().getId());
+			if (computer.getCompany() != null) {
+				ps.setLong(4, computer.getCompany().getId());
+			} else {
+				ps.setObject(4, null);
+			}
 			ps.executeUpdate();
 			ResultSet key = ps.getGeneratedKeys();
 			long result = 0L;
@@ -70,6 +77,9 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public long update(long id, Computer computer) {
+		if (computer == null) {
+			throw new IllegalArgumentException();
+		}
 		String query = new StringBuilder()
 						.append("UPDATE ")
 						.append(TABLE_NAME)
@@ -98,7 +108,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			if (computer.getCompany() != null) {
 				ps.setLong(4, computer.getCompany().getId());
 			} else {
-				ps.setLong(4, 0);
+				ps.setObject(4, null);
 			}
 			ps.setLong(5, id);
 
