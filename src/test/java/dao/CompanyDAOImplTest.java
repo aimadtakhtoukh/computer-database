@@ -23,7 +23,7 @@ public class CompanyDAOImplTest {
 	
 	@Test
 	public void getACompanyWithNegativeIdReturnsNull() {
-		//GIVEN
+		//GIVENmatcher.matches()
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		Company c = dao.get(-1);

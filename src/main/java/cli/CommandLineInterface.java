@@ -7,7 +7,12 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CommandLineInterface {
+	
+	final Logger logger = LoggerFactory.getLogger(CommandLineInterface.class);
 	
 	public enum ACTIONS {
 		CREATE_COMPUTER("create", new CreateComputerCommand()),
@@ -17,6 +22,8 @@ public class CommandLineInterface {
 		DELETE_COMPUTER("delete", new DeleteComputerCommand()),
 		READ_ALL_COMPANIES("all_companies", new ReadAllCompaniesCommand()),
 		EXIT("exit", new ExitCommand());
+		
+		final Logger logger = LoggerFactory.getLogger(ACTIONS.class);
 		
 		private String action;
 		private Command command;
@@ -29,7 +36,9 @@ public class CommandLineInterface {
 		public String getAction() {return action;}
 		
 		public void doAction(List<String> args, Scanner sc) {
+			logger.trace("Command " + this.getAction() + " called.");
 			command.doAction(args, sc);
+			logger.trace("Command " + this.getAction() + " finished.");
 		}
 		
 	}

@@ -9,6 +9,10 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import mappers.ComputerMapper;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import beans.Computer;
 
 public enum ComputerDAOImpl implements ComputerDAO {
@@ -21,6 +25,8 @@ public enum ComputerDAOImpl implements ComputerDAO {
 	private static final String PARAM_DISCONTINUED = "discontinued";
 	private static final String PARAM_COMPANY_ID = "company_id";
 
+	final Logger logger = LoggerFactory.getLogger(ComputerDAOImpl.class);
+	
 	private ComputerDAOImpl() {}
 	
 	public static ComputerDAOImpl getInstance() {
@@ -62,6 +68,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			} else {
 				ps.setObject(4, null);
 			}
+			logger.trace("Query : " + ps.toString());
 			ps.executeUpdate();
 			ResultSet key = ps.getGeneratedKeys();
 			long result = 0L;
@@ -111,7 +118,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 				ps.setObject(4, null);
 			}
 			ps.setLong(5, id);
-
+			logger.trace("Query : " + ps.toString());
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
 			long result = 0L;
@@ -139,6 +146,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, id);
+			logger.trace("Query : " + ps.toString());
 			Computer computer = ComputerMapper.getMappedResult(ps.executeQuery());
 			conn.close();
 			return computer;
@@ -159,6 +167,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			ps.setLong(1, id);
+			logger.trace("Query : " + ps.toString());
 			ps.executeUpdate();
 			long result = 0L;
 			ResultSet rs = ps.getGeneratedKeys();
@@ -183,6 +192,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			Statement stmt = conn.createStatement();
+			logger.trace("Query : " + stmt.toString());
 			ResultSet rs = stmt.executeQuery(query);
 			List<Computer> result = ComputerMapper.getMappedResults(rs);
 			conn.close();
@@ -201,6 +211,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setInt(1, limit);
 			stmt.setInt(2, offset);
+			logger.trace("Query : " + stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 			List<Computer> results = ComputerMapper.getMappedResults(rs);
 			conn.close();
@@ -217,6 +228,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			Statement stmt = conn.createStatement();
+			logger.trace("Query : " + stmt.toString());
 			ResultSet rs = stmt.executeQuery(query);
 			int count = -1;
 			if (rs.next()) {

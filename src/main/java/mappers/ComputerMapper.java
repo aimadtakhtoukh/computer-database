@@ -2,9 +2,12 @@ package mappers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
+import beans.Company;
 import beans.Computer;
 import dao.CompanyDAO;
 import dao.CompanyDAOImpl;
@@ -30,7 +33,12 @@ public class ComputerMapper {
 			if (rs.getTimestamp(PARAM_DISCONTINUED) != null) {
 				c.setDiscontinued(rs.getTimestamp(PARAM_DISCONTINUED).toLocalDateTime());
 			}
-			c.setCompany(companies.get(rs.getLong(PARAM_COMPANY_ID)));
+			Long companyId = rs.getLong(PARAM_COMPANY_ID);
+			if (companyId != 0) {
+				c.setCompany(companies.get(companyId));
+			} else {
+				c.setCompany(null);
+			}
 			return c;
 		}
 		return null;
@@ -38,6 +46,7 @@ public class ComputerMapper {
 	
 	public static List<Computer> getMappedResults(ResultSet rs) throws SQLException {
 		List<Computer> list = new LinkedList<Computer>();
+		Map<Long, Company> cache = new HashMap<Long, Company>();
 		while(rs.next()) {
 			Computer c = new Computer();
 			c.setId(rs.getLong(PARAM_ID));
@@ -48,7 +57,15 @@ public class ComputerMapper {
 			if (rs.getTimestamp(PARAM_DISCONTINUED) != null) {
 				c.setDiscontinued(rs.getTimestamp(PARAM_DISCONTINUED).toLocalDateTime());
 			}
-			c.setCompany(companies.get(rs.getLong(PARAM_COMPANY_ID)));
+			Long companyId = rs.getLong(PARAM_COMPANY_ID);
+			if (companyId != 0) {
+				if (cache.get(companyId) == null) {
+					cache.put(companyId, companies.get(companyId));
+				}
+				c.setCompany(cache.get(companyId));
+			} else {
+				c.setCompany(null);
+			}
 			list.add(c);
 		}
 		return list;

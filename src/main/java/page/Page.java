@@ -67,7 +67,17 @@ public class Page<D extends CRUDDAO<T>, T> {
 	}
 	
 	public int getCurrentPageNumber() {
+		if (limit == 0) {
+			return offset;
+		}
 		return (offset / limit);
+	}
+	
+	public int getTotalPageNumber() {
+		if (limit == 0) {
+			return total;
+		}
+		return (total / limit);
 	}
 
 	public List<T> getPageElements() {

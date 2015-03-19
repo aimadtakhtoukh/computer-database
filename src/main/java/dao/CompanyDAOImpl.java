@@ -8,12 +8,18 @@ import java.sql.Statement;
 import java.util.List;
 
 import mappers.CompanyMapper;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import beans.Company;
 
 public enum CompanyDAOImpl implements CompanyDAO {
 	INSTANCE;
 	
 	private static final String TABLE_NAME = "company";
+	
+	final Logger logger = LoggerFactory.getLogger(CompanyDAOImpl.class);
 	
 	private CompanyDAOImpl() {}
 	
@@ -39,6 +45,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setLong(1, id);
+			logger.trace("Query : " + stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 			Company company = CompanyMapper.getMappedResult(rs);
 			conn.close();
@@ -60,6 +67,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			Statement stmt = conn.createStatement();
+			logger.trace("Query : " + stmt.toString());
 			ResultSet rs = stmt.executeQuery(query);
 			List<Company> results = CompanyMapper.getMappedResults(rs);
 			conn.close();
@@ -76,6 +84,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			PreparedStatement stmt = conn.prepareStatement(query);
+			logger.trace("Query : " + stmt.toString());
 			stmt.setInt(1, limit);
 			stmt.setInt(2, offset);
 			ResultSet rs = stmt.executeQuery();
@@ -94,6 +103,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			Statement stmt = conn.createStatement();
+			logger.trace("Query : " + stmt.toString());
 			ResultSet rs = stmt.executeQuery(query);
 			int count = -1;
 			if (rs.next()) {

@@ -51,7 +51,7 @@ public class PageCommandLineInterface<D extends CRUDDAO<T>, T> {
 		for (T t : p.getPageElements()) {
 			System.out.println(t);
 		}
-		System.out.println((p.getCurrentPageNumber() + 1) + "/" + ((p.getTotalCount() / p.getLimit()) + 1));
+		System.out.println((p.getCurrentPageNumber() + 1) + "/" + (p.getTotalPageNumber() + 1));
 	}
 
 }
