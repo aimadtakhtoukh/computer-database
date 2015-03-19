@@ -1,9 +1,9 @@
 package dao;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -15,10 +15,16 @@ public enum ComputerDatabaseConnectionFactory {
 	private Properties properties;	
 
 	private ComputerDatabaseConnectionFactory() {
-		InputStream inputstream = null;
+		try {
+			Driver monDriver = new com.mysql.jdbc.Driver();
+			DriverManager.registerDriver(monDriver);
+		} catch (SQLException e1) {
+			throw new PersistenceException("Erreur de chargement de classe", e1);
+		}
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		InputStream inputstream = cl.getResourceAsStream("./db.properties");
 		properties = new Properties();
 		try {
-			inputstream = new FileInputStream("src/main/resources/db.properties");
 			properties.load(inputstream);
 			url = properties.getProperty("url");
 		} catch (IOException e) {
