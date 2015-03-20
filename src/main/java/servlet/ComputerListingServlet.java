@@ -20,7 +20,7 @@ import dao.ComputerDAOImpl;
 /**
  * Servlet implementation class ComputerListingServlet
  */
-@WebServlet("/computer")
+@WebServlet("/dashboard")
 public class ComputerListingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
