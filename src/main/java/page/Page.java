@@ -56,7 +56,7 @@ public class Page<D extends CRUDDAO<T>, T> {
 		if (offset < 0) {
 			this.offset = 0;
 		} else {
-			if (this.offset + limit < total) {
+			if (offset + limit <= (total + (limit - (total % limit)))) {
 				this.offset = offset;
 			}
 		}
@@ -85,6 +85,8 @@ public class Page<D extends CRUDDAO<T>, T> {
 	}
 	
 	public void goToPage(int i) {
-		setOffset(getLimit() * i);
+		if (i >= 0 && i <= getTotalPageNumber()) {
+			setOffset(getLimit() * i);
+		}
 	}
 }

@@ -1,63 +1,13 @@
-14:49:57.474 [main] TRACE cli.CommandLineInterface$ACTIONS - Command read_all called.
-14:49:57.753 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.StatementImpl@6aaa5eb0
-14:49:57.790 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.StatementImpl@6b2fad11
-14:49:57.805 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@4e04a765: SELECT * FROM computer LIMIT 10 OFFSET 0;
-14:50:05.742 [main] TRACE cli.CommandLineInterface$ACTIONS - Command read_all finished.
-14:50:07.134 [main] TRACE cli.CommandLineInterface$ACTIONS - Command exit called.
-14:50:49.081 [main] TRACE cli.CommandLineInterface$ACTIONS - Command read_all called.
-14:50:49.350 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.StatementImpl@6aaa5eb0
-14:50:49.373 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@79698539: SELECT * FROM company WHERE id = 2;
-14:50:49.385 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@783e6358: SELECT * FROM company WHERE id = 1;
-14:50:49.393 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@5315b42e: SELECT * FROM company WHERE id = 3;
-14:50:49.398 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@4cb2c100: SELECT * FROM company WHERE id = 4;
-14:50:49.405 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@3567135c: SELECT * FROM company WHERE id = 5;
-14:50:49.409 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@6b143ee9: SELECT * FROM company WHERE id = 6;
-14:50:49.420 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@6537cf78: SELECT * FROM company WHERE id = 7;
-14:50:49.425 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@7225790e: SELECT * FROM company WHERE id = 8;
-14:50:49.429 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@52af6cff: SELECT * FROM company WHERE id = 9;
-14:50:49.434 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@737996a0: SELECT * FROM company WHERE id = 10;
-14:50:49.439 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@3dd3bcd: SELECT * FROM company WHERE id = 11;
-14:50:49.442 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@13a57a3b: SELECT * FROM company WHERE id = 12;
-14:50:49.446 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@6276ae34: SELECT * FROM company WHERE id = 13;
-14:50:49.450 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@32e6e9c3: SELECT * FROM company WHERE id = 14;
-14:50:49.456 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@7921b0a2: SELECT * FROM company WHERE id = 15;
-14:50:49.460 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@7c0e2abd: SELECT * FROM company WHERE id = 16;
-14:50:49.464 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@548b7f67: SELECT * FROM company WHERE id = 17;
-14:50:49.469 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@32d992b2: SELECT * FROM company WHERE id = 18;
-14:50:49.473 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@56f4468b: SELECT * FROM company WHERE id = 19;
-14:50:49.477 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@36d4b5c: SELECT * FROM company WHERE id = 22;
-14:50:49.482 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@7f9a81e8: SELECT * FROM company WHERE id = 20;
-14:50:49.487 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@5419f379: SELECT * FROM company WHERE id = 23;
-14:50:49.491 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@7c16905e: SELECT * FROM company WHERE id = 25;
-14:50:49.495 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@675d3402: SELECT * FROM company WHERE id = 26;
-14:50:49.499 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@4cc0edeb: SELECT * FROM company WHERE id = 24;
-14:50:49.503 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@6767c1fc: SELECT * FROM company WHERE id = 27;
-14:50:49.508 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@18be83e4: SELECT * FROM company WHERE id = 28;
-14:50:49.511 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@26be92ad: SELECT * FROM company WHERE id = 29;
-14:50:49.515 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@59fa1d9b: SELECT * FROM company WHERE id = 30;
-14:50:49.518 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@29774679: SELECT * FROM company WHERE id = 31;
-14:50:49.522 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@ae45eb6: SELECT * FROM company WHERE id = 32;
-14:50:49.526 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@66a3ffec: SELECT * FROM company WHERE id = 33;
-14:50:49.529 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@5e3a8624: SELECT * FROM company WHERE id = 34;
-14:50:49.533 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@6a41eaa2: SELECT * FROM company WHERE id = 35;
-14:50:49.537 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@7d9d1a19: SELECT * FROM company WHERE id = 36;
-14:50:49.541 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@53b32d7: SELECT * FROM company WHERE id = 37;
-14:50:49.545 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@204f30ec: SELECT * FROM company WHERE id = 38;
-14:50:49.549 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@464bee09: SELECT * FROM company WHERE id = 39;
-14:50:49.554 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@31ef45e3: SELECT * FROM company WHERE id = 41;
-14:50:49.563 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@4f7d0008: SELECT * FROM company WHERE id = 40;
-14:50:49.568 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@59ec2012: SELECT * FROM company WHERE id = 42;
-14:50:49.572 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@1ce92674: SELECT * FROM company WHERE id = 43;
-14:50:49.576 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.StatementImpl@3f49dace
-14:50:49.580 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@6e06451e: SELECT * FROM computer LIMIT 10 OFFSET 0;
-14:50:49.584 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@13805618: SELECT * FROM company WHERE id = 2;
-14:50:49.588 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@5702b3b1: SELECT * FROM company WHERE id = 1;
-14:50:54.366 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@5649fd9b: SELECT * FROM computer LIMIT 10 OFFSET 10;
-14:50:54.371 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@20322d26: SELECT * FROM company WHERE id = 1;
-14:50:54.374 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@dc24521: SELECT * FROM company WHERE id = 2;
-14:50:54.378 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@60c6f5b: SELECT * FROM company WHERE id = 3;
-14:50:54.382 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@71318ec4: SELECT * FROM company WHERE id = 4;
-14:50:55.307 [main] TRACE dao.ComputerDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@5ce81285: SELECT * FROM computer LIMIT 10 OFFSET 20;
-14:50:55.311 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@2ac273d3: SELECT * FROM company WHERE id = 1;
-14:50:57.590 [main] TRACE cli.CommandLineInterface$ACTIONS - Command read_all finished.
-14:50:58.894 [main] TRACE cli.CommandLineInterface$ACTIONS - Command exit called.
+11:59:07.556 [main] TRACE cli.CommandLineInterface$ACTIONS - Command all_companies called.
+11:59:07.822 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.StatementImpl@380fb434
+11:59:07.832 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.StatementImpl@38082d64
+11:59:07.847 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@180bc464: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:08.925 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@3f2a3a5: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:09.334 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@68837a77: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:09.727 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@15975490: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:10.110 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@2d3fcdbd: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:10.510 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@3cbbc1e0: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:11.030 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@3551a94: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:19.917 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@234bef66: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:21.749 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@12843fce: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;
+11:59:23.349 [main] TRACE dao.CompanyDAOImpl - Query : com.mysql.jdbc.JDBC4PreparedStatement@69d9c55: SELECT * FROM company LIMIT ** NOT SPECIFIED ** OFFSET ** NOT SPECIFIED **;

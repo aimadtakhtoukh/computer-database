@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="mylib" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html">
 <html>
@@ -78,7 +79,7 @@
 						<td><a href="editComputer.html" onclick="">${computer.name}</a></td>
 						<td>${computer.introduced}</td>
 						<td>${computer.discontinued}</td>
-						<td>${computer.company.name}</td>
+						<td>${computer.company}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -86,25 +87,57 @@
 	</div>
 
 	<footer class="navbar-fixed-bottom">
+		<mylib:pagination currentPageNumber="${currentPageNumber}" resultsPerPage="${resultsPerPage}" 
+		paginationStart="${paginationStart}"  paginationFinish="${paginationFinish}" ></mylib:pagination>
+		<!-- 
+		<div class="btn-group btn-group-sm pull-right" role="group">
+			<form action="" method="GET">
+				<input type="hidden" name="page" value="${currentPageNumber}"/>
+				<button type="submit" name="resultsPerPage" class="btn btn-default" value="10">10</button>
+				<button type="submit" name="resultsPerPage" class="btn btn-default" value="50" >50</button>
+				<button type="submit" name="resultsPerPage" class="btn btn-default" value="100">100</button>
+			</form>
+		</div>
 		<div class="container text-center">
 			<ul class="pagination">
-				<li><a href="#" aria-label="Previous"> <span
-						aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
+				<li>
+					<a href="
+					<c:url value="">
+						<c:param name="resultsPerPage" value="${resultsPerPage}" />
+						<c:if test="${currentPageNumber > 1}">
+							<c:param name="page" value="${currentPageNumber - 1}" />
+						</c:if>
+					</c:url>
+					"					
+					aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<c:forEach var="i" begin="${paginationStart}" end="${paginationFinish}">
+					<li>
+						<a href="
+							<c:url value="">
+								<c:param name="resultsPerPage" value="${resultsPerPage}" />
+								<c:param name="page" value="${i}" />
+							</c:url>"
+						>${i}
+						</a>
+					</li>
+				</c:forEach>
+				<li>
+					<a href="
+						<c:url value="">
+							<c:param name="resultsPerPage" value="${resultsPerPage}" />
+							<c:if test="${currentPageNumber < totalPageNumber}">
+								<c:param name="page" value="${currentPageNumber + 1}" />
+							</c:if>
+						</c:url>" 
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
 			</ul>
 		</div>
-		<div class="btn-group btn-group-sm pull-right" role="group">
-			<button type="button" class="btn btn-default">10</button>
-			<button type="button" class="btn btn-default">50</button>
-			<button type="button" class="btn btn-default">100</button>
-		</div>
+		 -->
 	</footer>
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
