@@ -1,11 +1,14 @@
-package cli;
+package validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DateVerifier {
+public class DateValidator {
 	
 	public static boolean isTheRightDate(String date) {
+		if (!StringValidator.isARightString(date)) {
+			return false;
+		}
 		Pattern primaryPattern = Pattern.compile("(\\d{2})-(\\d{2})-(\\d{4})");
 		Matcher primaryMatcher = primaryPattern.matcher(date);
 		if (!primaryMatcher.matches()) {

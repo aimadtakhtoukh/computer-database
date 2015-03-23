@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import validator.DateValidator;
 import beans.Computer;
 import dao.CompanyDAOImpl;
 import dao.ComputerDAO;
@@ -31,7 +32,7 @@ public class CreateComputerCommand implements Command {
 		if (args.get(1).equals("null")) {
 			introduced = null;
 		} else {
-			if (DateVerifier.isTheRightDate(args.get(1))) {
+			if (DateValidator.isTheRightDate(args.get(1))) {
 				try {
 					introduced = LocalDateTime.ofInstant(sdf.parse(args.get(1)).toInstant(), ZoneId.systemDefault());
 				} catch (ParseException e) {
@@ -46,7 +47,7 @@ public class CreateComputerCommand implements Command {
 		if (args.get(2).equals("null")) {
 			discontinued = null;
 		} else {
-			if (DateVerifier.isTheRightDate(args.get(2))) {
+			if (DateValidator.isTheRightDate(args.get(2))) {
 				try {
 					discontinued = LocalDateTime.ofInstant(sdf.parse(args.get(2)).toInstant(), ZoneId.systemDefault());
 				} catch (ParseException e) {
