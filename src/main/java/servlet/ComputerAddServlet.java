@@ -21,6 +21,8 @@ import beans.Company;
 import beans.Computer;
 import dao.CompanyDAO;
 import dao.CompanyDAOImpl;
+import dao.ComputerDAO;
+import dao.ComputerDAOImpl;
 
 /**
  * Servlet implementation class ComputerAddServlet
@@ -28,7 +30,8 @@ import dao.CompanyDAOImpl;
 @WebServlet("/addComputer")
 public class ComputerAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	private ComputerDAO computerDAO = ComputerDAOImpl.getInstance();
 	private CompanyDAO companyDAO = CompanyDAOImpl.getInstance();
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
@@ -60,9 +63,17 @@ public class ComputerAddServlet extends HttpServlet {
 		String companyId = request.getParameter("companyId");
 		
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/addComputer.jsp");
+		request.setAttribute("companies", companyDAO.getAll());
+		
 		Computer computer = new Computer();
 		if (StringValidator.isARightString(computerName)) {
 			computer.setName(computerName);
+		} else {
+			request.setAttribute("show", true);
+			request.setAttribute("showSuccess", false);
+			request.setAttribute("message", "Problème avec le nom de l'ordinateur. Est-il vide?");
+			rd.forward(request, response);
+			return;			
 		}
 		if (DateValidator.isTheRightDate(introduced)) {
 			try {
@@ -73,26 +84,25 @@ public class ComputerAddServlet extends HttpServlet {
 		}
 		if (DateValidator.isTheRightDate(discontinued)) {
 			try {
-				computer.setIntroduced(LocalDateTime.ofInstant(sdf.parse(discontinued).toInstant(), ZoneId.systemDefault()));
+				computer.setDiscontinued(LocalDateTime.ofInstant(sdf.parse(discontinued).toInstant(), ZoneId.systemDefault()));
 			} catch (ParseException e) {
-				computer.setIntroduced(null);
+				computer.setDiscontinued(null);
 			}			
 		}
 		if (NumberValidator.isARightNumber(companyId)) {
 			long companyLongId = Long.parseLong(companyId);
 			Company company = companyDAO.get(companyLongId);
 			if (company != null) {
-				
+				computer.setCompany(company);
 			}
 		}
-		request.setAttribute("show", true);
-		request.setAttribute("showSuccess", false);
-		request.setAttribute("message", "Raté...");
 		
-		request.setAttribute("companies", companyDAO.getAll());
+		long id = computerDAO.create(computer);
+		computer.setId(id);
+
+		request.setAttribute("show", true);
+		request.setAttribute("showSuccess", true);
+		request.setAttribute("message", "Ordinateur ajouté. " + computer.toString());
 		rd.forward(request, response);
 	}
-	
-	
-
 }

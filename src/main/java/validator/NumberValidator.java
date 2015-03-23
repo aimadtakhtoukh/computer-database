@@ -9,7 +9,7 @@ public class NumberValidator {
 		if (!StringValidator.isARightString(number)) {
 			return false;
 		}
-		Pattern primaryPattern = Pattern.compile("(\\d*");
+		Pattern primaryPattern = Pattern.compile("\\d*");
 		Matcher primaryMatcher = primaryPattern.matcher(number);
 		return primaryMatcher.matches();
 	}
