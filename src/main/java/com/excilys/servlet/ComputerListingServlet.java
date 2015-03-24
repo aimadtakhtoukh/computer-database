@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.excilys.beans.Computer;
 import com.excilys.page.Page;
 import com.excilys.services.ComputerServiceImpl;
@@ -22,6 +25,8 @@ import com.excilys.servlet.dto.ComputerDTO;
 @WebServlet("/dashboard")
 public class ComputerListingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	final Logger logger = LoggerFactory.getLogger(ComputerListingServlet.class);
 	
 	private static final int PAGE_NUMBER = 5;
 	
@@ -38,6 +43,7 @@ public class ComputerListingServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.trace("GET called on /dashboard : Showing dashboard, start up");
 		int currentResultsPerPage = verifyCurrentResultsPerPageParameter(request.getParameter("resultsPerPage"));
 		page.setLimit(currentResultsPerPage);
 		int currentPage = verifyCurrentPageParameter(request.getParameter("page"));
@@ -61,6 +67,7 @@ public class ComputerListingServlet extends HttpServlet {
 		request.setAttribute("resultsPerPage", currentResultsPerPage);
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
 		rd.forward(request, response);
+		logger.trace("GET called on /dashboard : Showing dashboard, response sent");
 	}
 	
 	private int verifyCurrentPageParameter(String param) {

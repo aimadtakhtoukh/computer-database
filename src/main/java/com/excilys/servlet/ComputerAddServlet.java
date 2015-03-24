@@ -14,9 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
+import com.excilys.services.CompanyService;
 import com.excilys.services.CompanyServiceImpl;
+import com.excilys.services.ComputerService;
 import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.DateValidator;
 import com.excilys.validator.NumberValidator;
@@ -28,9 +33,11 @@ import com.excilys.validator.StringValidator;
 @WebServlet("/addComputer")
 public class ComputerAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	final Logger logger = LoggerFactory.getLogger(ComputerAddServlet.class);
 
-	private ComputerServiceImpl computerService = ComputerServiceImpl.getInstance();
-	private CompanyServiceImpl companyService = CompanyServiceImpl.getInstance();
+	private ComputerService computerService = ComputerServiceImpl.getInstance();
+	private CompanyService companyService = CompanyServiceImpl.getInstance();
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
 	
@@ -45,16 +52,19 @@ public class ComputerAddServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.trace("GET called on /addComputer : Showing computer edit page, start up");
 		request.setAttribute("show", false);
 		request.setAttribute("companies", companyService.getAllCompanies());
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/addComputer.jsp");
 		rd.forward(request, response);
+		logger.trace("GET called on /addComputer : Showing computer edit page, response sent");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.trace("POST called on /addComputer : Adding new computer, start up");
 		String computerName = request.getParameter("computerName");
 		String introduced = request.getParameter("introduced");
 		String discontinued = request.getParameter("discontinued");
@@ -102,5 +112,6 @@ public class ComputerAddServlet extends HttpServlet {
 		request.setAttribute("showSuccess", true);
 		request.setAttribute("message", "Ordinateur ajouté. " + computer.toString());
 		rd.forward(request, response);
+		logger.trace("POST called on /addComputer : Adding new computer, done. Back to computer edit page.");
 	}
 }

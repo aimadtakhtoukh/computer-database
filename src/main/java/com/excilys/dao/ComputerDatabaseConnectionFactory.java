@@ -24,21 +24,13 @@ public enum ComputerDatabaseConnectionFactory {
 			throw new PersistenceException("Erreur de chargement de classe", e1);
 		}
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
-		InputStream inputstream = cl.getResourceAsStream("./db.properties");
-		properties = new Properties();
-		try {
+		
+		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
+			properties = new Properties();
 			properties.load(inputstream);
 			url = properties.getProperty("url");
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			if (inputstream != null) {
-				try {
-					inputstream.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 

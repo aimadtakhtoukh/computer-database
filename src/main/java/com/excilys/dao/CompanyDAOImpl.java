@@ -28,11 +28,13 @@ public enum CompanyDAOImpl implements CompanyDAO {
 
 	@Override
 	public long create(Company company) {
+		logger.error("Company DAO has been asked to create a company. Not implemented.");
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
 	@Override
 	public long update(long id, Company company) {
+		logger.error("Company DAO has been asked to update a company. Not implemented.");
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
@@ -47,7 +49,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.prepareStatement(query);
 			stmt.setLong(1, id);
-			logger.trace("Query : " + stmt.toString());
+			logger.trace("Company DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery();
 			company = CompanyMapper.getMappedResult(rs);
 		} catch (SQLException e) {
@@ -60,6 +62,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 
 	@Override
 	public long delete(long id) {
+		logger.error("Company DAO has been asked to delete a company. Not implemented.");
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
@@ -72,7 +75,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.createStatement();
-			logger.trace("Query : " + stmt.toString());
+			logger.trace("Company DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
 			List<Company> results = CompanyMapper.getMappedResults(rs);
 			conn.close();
@@ -93,7 +96,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.prepareStatement(query);
-			logger.trace("Query : " + stmt.toString());
+			logger.trace("Company DAO executed the query : " + stmt.toString());
 			stmt.setInt(1, limit);
 			stmt.setInt(2, offset);
 			rs = stmt.executeQuery();
@@ -116,7 +119,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		try {
 			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.createStatement();
-			logger.trace("Query : " + stmt.toString());
+			logger.trace("Company DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
 			int count = -1;
 			if (rs.next()) {
