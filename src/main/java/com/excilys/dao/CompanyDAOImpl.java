@@ -55,7 +55,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
 		}
 		return company;
 	}
@@ -83,7 +83,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
 		}
 	}
 
@@ -106,7 +106,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
 		}
 	}
 
@@ -130,7 +130,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
 		}
 	}
 

@@ -81,7 +81,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, key, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, key, ps);
 		}
 	}
 
@@ -135,7 +135,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, ps);
 		}
 	}
 
@@ -163,7 +163,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, ps);
 		}
 	}
 
@@ -193,7 +193,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, ps);
 		}
 	}
 
@@ -218,7 +218,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
 		}
 	}
 
@@ -241,7 +241,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
 		}
 	}
 
@@ -265,7 +265,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterCollection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
 		}
 	}
 

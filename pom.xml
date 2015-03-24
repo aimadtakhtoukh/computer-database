@@ -17,6 +17,8 @@
 		<logback.version>1.0.13</logback.version>
 		<jstl.version>1.2.1</jstl.version>
 		<taglib.version>1.1.2</taglib.version>
+		<h2driver.version>1.4.186</h2driver.version>
+        <dbunit.version>2.5.0</dbunit.version>
 	</properties>
 
 	<dependencies>
@@ -25,7 +27,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
-		</dependency>
+		</dependency>	
 		<!-- END_DATABASE -->
 		<!-- TESTS -->
 		<dependency>
@@ -59,6 +61,17 @@
 			<version>${selenium.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2driver.version}</version>
+			<scope>test</scope>
+		</dependency>	
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>${dbunit.version}</version>
+        </dependency>
 		<!-- END_TESTS -->
 		<!-- LOGGING -->
 		<dependency>

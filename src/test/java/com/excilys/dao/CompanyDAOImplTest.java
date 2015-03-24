@@ -1,17 +1,50 @@
 package com.excilys.dao;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
+import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.excilys.beans.Company;
+import com.excilys.dao.util.DatabaseTestUtil;
 
 public class CompanyDAOImplTest {
+	
+	@BeforeClass
+	public static void prepareTestBase() throws SQLException, IOException {
+		final InputStream is = ComputerDAOImplTest.class
+				.getClassLoader().getResourceAsStream("test.sql");
+		final BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+		final StringBuilder sb = new StringBuilder();
+		String str;
+		while ((str = br.readLine()) != null) {
+			sb.append(str + "\n ");
+		}
+		final Statement stmt = ComputerDatabaseConnectionFactory.getInstance().getConnection().createStatement();
+		stmt.execute(sb.toString());
+	}
+	
+	@After
+	public void cleanup() throws Exception {
+        DatabaseTestUtil.databaseTester.onTearDown();
+	}
 
 	@Test
-	public void getACompanyWithId2ReturnsACompany() {
+	public void getACompanyWithId2ReturnsACompany() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		Company c = dao.get(2);
@@ -22,8 +55,11 @@ public class CompanyDAOImplTest {
 	}
 	
 	@Test
-	public void getACompanyWithNegativeIdReturnsNull() {
-		//GIVENmatcher.matches()
+	public void getACompanyWithNegativeIdReturnsNull() throws Exception {
+		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		Company c = dao.get(-1);
@@ -32,8 +68,11 @@ public class CompanyDAOImplTest {
 	}
 	
 	@Test
-	public void getTheCompanyCountReturnsAPositiveInteger() {
+	public void getTheCompanyCountReturnsAPositiveInteger() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		Assert.assertTrue(dao.getCount() > 0);
@@ -41,8 +80,11 @@ public class CompanyDAOImplTest {
 	}
 	
 	@Test
-	public void getAListOfCompanysReturnsANonEmptyList() {
+	public void getAListOfCompanysReturnsANonEmptyList() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		List<Company> list = dao.getAll();
@@ -52,8 +94,11 @@ public class CompanyDAOImplTest {
 	}
 	
 	@Test
-	public void getAListOfCompaniesWithLimitAndOffsetReturnsAListOfLimitSizeMaximum() {
+	public void getAListOfCompaniesWithLimitAndOffsetReturnsAListOfLimitSizeMaximum() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		List<Company> list = dao.getAll(0, 10);
@@ -63,8 +108,11 @@ public class CompanyDAOImplTest {
 	}
 	
 	@Test
-	public void getAListOfCompaniesWithAnOffsetEqualToItsSizeReturnsAnEmptyList() {
+	public void getAListOfCompaniesWithAnOffsetEqualToItsSizeReturnsAnEmptyList() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		List<Company> list = dao.getAll(dao.getCount(), 10);
@@ -74,8 +122,11 @@ public class CompanyDAOImplTest {
 	}
 	
 	@Test
-	public void getAListOfCompaniesWithAnOffsetEqualToZeroAndALimitEqualToCompanyCountReturnsTheSameResultThanGetAll() {
+	public void getAListOfCompaniesWithAnOffsetEqualToZeroAndALimitEqualToCompanyCountReturnsTheSameResultThanGetAll() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
 		List<Company> list = dao.getAll(0, dao.getCount());

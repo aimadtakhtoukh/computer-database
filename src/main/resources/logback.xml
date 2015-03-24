@@ -18,7 +18,7 @@
 	<logger name="cli" level="TRACE"/>
 	<logger name="dao" level="TRACE"/>
 
-	<root level="debug">
+	<root level="trace">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</root>

@@ -1,17 +1,50 @@
 package com.excilys.dao;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
+import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.excilys.beans.Computer;
+import com.excilys.dao.util.DatabaseTestUtil;
 
 public class ComputerDAOImplTest {
+
+	@BeforeClass
+	public static void prepareTestBase() throws SQLException, IOException {
+		final InputStream is = ComputerDAOImplTest.class
+				.getClassLoader().getResourceAsStream("test.sql");
+		final BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+		final StringBuilder sb = new StringBuilder();
+		String str;
+		while ((str = br.readLine()) != null) {
+			sb.append(str + "\n ");
+		}
+		final Statement stmt = ComputerDatabaseConnectionFactory.getInstance().getConnection().createStatement();
+		stmt.execute(sb.toString());
+	}
 	
+	@After
+	public void cleanup() throws Exception {
+        DatabaseTestUtil.databaseTester.onTearDown();
+	}
+
 	@Test
-	public void getAComputerWithId2ReturnsAComputer() {
+	public void getAComputerWithId2ReturnsAComputer() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		Computer c = dao.get(2);
@@ -20,29 +53,38 @@ public class ComputerDAOImplTest {
 		Assert.assertNotEquals(c.getName(), null);
 		//THEN
 	}
-	
+
 	@Test
-	public void getAComputerWithNegativeIdReturnsNull() {
+	public void getAComputerWithNegativeIdReturnsNull() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		Computer c = dao.get(-1);
 		Assert.assertEquals(c, null);
 		//THEN
 	}
-	
+
 	@Test
-	public void getTheComputerCountReturnsAPositiveInteger() {
+	public void getTheComputerCountReturnsAPositiveInteger() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		Assert.assertTrue(dao.getCount() > 0);
 		//THEN
 	}
-	
+
 	@Test
-	public void getAListOfComputersReturnsANonEmptyList() {
+	public void getAListOfComputersReturnsANonEmptyList() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		List<Computer> list = dao.getAll();
@@ -50,10 +92,13 @@ public class ComputerDAOImplTest {
 		Assert.assertFalse(list.isEmpty());
 		//THEN
 	}
-	
+
 	@Test
-	public void getAListOfComputersWithLimitAndOffsetReturnsAListOfLimitSizeMaximum() {
+	public void getAListOfComputersWithLimitAndOffsetReturnsAListOfLimitSizeMaximum() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		List<Computer> list = dao.getAll(0, 10);
@@ -61,10 +106,13 @@ public class ComputerDAOImplTest {
 		Assert.assertTrue(list.size() <= 10);
 		//THEN
 	}
-	
+
 	@Test
-	public void getAListOfComputersWithAnOffsetEqualToItsSizeReturnsAnEmptyList() {
+	public void getAListOfComputersWithAnOffsetEqualToItsSizeReturnsAnEmptyList() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		List<Computer> list = dao.getAll(dao.getCount(), 10);
@@ -72,10 +120,13 @@ public class ComputerDAOImplTest {
 		Assert.assertTrue(list.isEmpty());
 		//THEN
 	}
-	
+
 	@Test
-	public void getAListOfComputersWithAnOffsetEqualToZeroAndALimitEqualToComputerCountReturnsTheSameResultThanGetAll() {
+	public void getAListOfComputersWithAnOffsetEqualToZeroAndALimitEqualToComputerCountReturnsTheSameResultThanGetAll() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		List<Computer> list = dao.getAll(0, dao.getCount());
@@ -83,10 +134,13 @@ public class ComputerDAOImplTest {
 		Assert.assertEquals(list.size(), dao.getAll().size());
 		//THEN
 	}
-	
+
 	@Test
-	public void insertAComputerAddsAComputerToTheList() {
+	public void insertAComputerAddsAComputerToTheList() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		Computer c = new Computer();
 		c.setName("test");
@@ -96,20 +150,26 @@ public class ComputerDAOImplTest {
 		//THEN
 		dao.delete(id);
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
-	public void insertNullAddsNothingToTheList() {
+	public void insertNullAddsNothingToTheList() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		//WHEN
 		long id = dao.create(null);
 		//THEN
 		dao.delete(id);
 	}
-	
+
 	@Test
-	public void updateAComputerChangesIt() {
+	public void updateAComputerChangesIt() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		Computer c = new Computer();
 		c.setName("test");
@@ -122,10 +182,13 @@ public class ComputerDAOImplTest {
 		//THEN
 		dao.delete(id);
 	}
-	
+
 	@Test
-	public void deleteAComputerRemovesIt() {
+	public void deleteAComputerRemovesIt() throws Exception {
 		//GIVEN
+		DatabaseTestUtil.cleanlyInsert(
+				new FlatXmlDataSetBuilder().build(new File(
+                "src/test/resources/datasets/computerDAO/get.xml")));
 		ComputerDAO dao = ComputerDAOImpl.getInstance();
 		Computer c = new Computer();
 		c.setName("test");

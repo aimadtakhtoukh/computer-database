@@ -29,8 +29,9 @@ public enum ComputerDatabaseConnectionFactory {
 			properties = new Properties();
 			properties.load(inputstream);
 			url = properties.getProperty("url");
+			System.out.println(url);
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new PersistenceException("Erreur de chargement du fichier de propriété", e);
 		}
 	}
 
@@ -38,11 +39,15 @@ public enum ComputerDatabaseConnectionFactory {
 		return INSTANCE;
 	}
 
-	public Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(url, properties);
+	public Connection getConnection() {
+		try {
+			return DriverManager.getConnection(url, properties);
+		} catch (SQLException e) {
+			throw new PersistenceException("Impossible to get a connection. ", e);
+		}
 	}
 	
-	public static void cleanAfterCollection(Connection conn, ResultSet rs, Statement s) {
+	public static void cleanAfterConnection(Connection conn, ResultSet rs, Statement s) {
 		if (conn != null) {
 			try {
 				conn.close();
