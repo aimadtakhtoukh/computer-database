@@ -82,5 +82,6 @@
 		paginationStart="${paginationStart}"  paginationFinish="${paginationFinish}" ></mylib:pagination>
 	</footer>
 	<%@ include file="/WEB-INF/partials/js.jsp" %>
+	<script src="../js/dashboard.js"></script>
 </body>
 </html>

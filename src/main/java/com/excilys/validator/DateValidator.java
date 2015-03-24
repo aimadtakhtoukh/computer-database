@@ -28,7 +28,7 @@ public class DateValidator {
 			return true;
 		}
 		if (month != 2) {
-			return (day == 30) || (((day == 31) && !(month == 4 || month == 6 || month == 9 || month == 11)));
+			return (day == 29) || (day == 30) || (((day == 31) && !(month == 4 || month == 6 || month == 9 || month == 11)));
 		} else {
 			if (day == 29) {
 				return ((year % 4 == 0) && !(year % 100 == 0)) || ((year % 400) == 0);
