@@ -9,7 +9,7 @@ public class DateValidator {
 		if (!StringValidator.isARightString(date)) {
 			return false;
 		}
-		Pattern primaryPattern = Pattern.compile("(\\d{2})-(\\d{2})-(\\d{4})");
+		Pattern primaryPattern = Pattern.compile("(\\d{1,2})-(\\d{1,2})-(\\d{1,4})");
 		Matcher primaryMatcher = primaryPattern.matcher(date);
 		if (!primaryMatcher.matches()) {
 			return false;

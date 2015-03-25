@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xml>
-
-<web-app id="WebApp_ID" version="3.0"
-	xmlns="http://java.sun.com/xml/ns/j2ee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee; http://java.sun.com/xml/ns/j2ee/web-app_3_0.xsd">
-	<display-name>Computer Database</display-name>
-	<error-page>
-		<error-code>403</error-code>
-		<location>/views/403.html</location>
-	</error-page>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/views/404.html</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/views/500.html</location>
-	</error-page>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee; http://java.sun.com/xml/ns/j2ee/web-app_3_0.xsd http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Computer Database</display-name>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/views/403.html</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/404.html</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/500.html</location>
+  </error-page>
 </web-app>

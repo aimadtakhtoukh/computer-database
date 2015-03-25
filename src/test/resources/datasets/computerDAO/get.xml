@@ -3,4 +3,25 @@
     <computer id="1" name="CM-200" introduced="1991-01-01 00:00:00"/>
     <computer id="2" name="CM-200a" introduced="1991-01-01 00:00:00"/>
     <computer id="3" name="CM-200b" introduced="1991-01-01 00:00:00"/>
+    <computer id="4" name="CM-200c" discontinued="1991-01-01 00:00:00"/>
+    <computer id="5" name="CM-200a" discontinued="1991-01-01 00:00:00"/>
+    <computer id="6" name="CM-200b" discontinued="1991-01-01 00:00:00"/>
+    <computer id="7" name="CM-200" discontinued="1991-01-01 00:00:00"/>
+    <computer id="8" name="CM-200a" introduced="1991-01-01 00:00:00"/>
+    <computer id="9" name="CM-200b" introduced="1991-01-01 00:00:00" discontinued="1992-01-01 00:00:00"/>
+    <computer id="10" name="CM-200" introduced="1991-01-01 00:00:00" discontinued="1992-01-01 00:00:00"/>
+    <computer id="11" name="CM-200a" introduced="1991-01-01 00:00:00" discontinued="1992-01-01 00:00:00"/>
+    <computer id="12" name="CM-200b" introduced="1991-01-01 00:00:00"/>
+    <computer id="13" name="CM-200" introduced="1991-01-01 00:00:00"/>
+    <computer id="14" name="CM-200a" introduced="1991-01-01 00:00:00"/>
+    <computer id="15" name="CM-200b" introduced="1991-01-01 00:00:00"/>
+    <computer id="16" name="CM-200" introduced="1991-01-01 00:00:00"/>
+    <computer id="17" name="CM-200a" introduced="1991-01-01 00:00:00"/>
+    <computer id="18" name="CM-200b" introduced="1991-01-01 00:00:00"/>
+    <computer id="19" name="CM-200" introduced="1991-01-01 00:00:00"/>
+    <computer id="20" name="CM-200a" introduced="1991-01-01 00:00:00"/>
+    <computer id="21" name="CM-200b" introduced="1991-01-01 00:00:00"/>
+    <computer id="22" name="CM-200" introduced="1991-01-01 00:00:00"/>
+    <computer id="23" name="CM-200a" introduced="1991-01-01 00:00:00"/>
+    <computer id="24" name="CM-200b" introduced="1991-01-01 00:00:00"/>
 </dataset>

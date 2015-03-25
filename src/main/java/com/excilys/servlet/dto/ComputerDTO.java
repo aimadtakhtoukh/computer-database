@@ -5,6 +5,7 @@ import com.excilys.beans.Computer;
 
 public class ComputerDTO {
 	
+	private long id;
 	private String name;
 	private String introduced;
 	private String discontinued;
@@ -15,6 +16,7 @@ public class ComputerDTO {
 	}
 	
 	public ComputerDTO(Computer computer) {
+		id = computer.getId();
 		name = computer.getName();
 		if (computer.getIntroduced() != null) {
 			introduced = computer.getIntroduced().toLocalDate().toString();
@@ -33,6 +35,14 @@ public class ComputerDTO {
 		}
 	}
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}

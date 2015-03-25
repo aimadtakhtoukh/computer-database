@@ -16,7 +16,7 @@ public class DashboardTest {
 	private static WebDriver driver = null;
 	
 	@BeforeClass
-	public void setUp() {
+	public static void setUp() {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}

@@ -30,10 +30,21 @@ public enum ComputerServiceImpl implements ComputerService {
 		logger.trace("Computer Service has been asked all computers.");
 		return computerDAO.getAll();
 	}
+	
+	public Computer getComputer(long id) {
+		logger.trace("Computer Service has been asked a computer with id : " + id);
+		return computerDAO.get(id);
+	}
 
 	public long createComputer(Computer computer) {
 		logger.trace("Computer Service has been asked to create a new computer : " + computer);
 		return computerDAO.create(computer);
+	}
+
+	@Override
+	public long updateComputer(Computer computer) {
+		logger.trace("Computer Service has been asked to update a computer : " + computer);
+		return computerDAO.update(computer.getId(), computer);
 	}
 
 }

@@ -16,7 +16,7 @@ var doesDateExist = function(day, month, year) {
 }
 
 var isDayInMonthAndYear = function(date) {
-	pattern = /^\d{2}-\d{2}-\d{4}$/;
+	pattern = /^\d{1,2}-\d{1,2}-\d{1,4}$/;
 	if(!pattern.test(date)) {
 		return false;
 	}

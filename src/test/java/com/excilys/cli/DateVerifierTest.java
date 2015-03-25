@@ -30,7 +30,7 @@ public class DateVerifierTest {
 	
 	@Test
 	public void test2Verifier() {
-		Assert.assertFalse(DateValidator.isTheRightDate("29-03-1993"));
+		Assert.assertFalse(DateValidator.isTheRightDate("29-02-1993"));
 	}
 	
 	@Test

@@ -1,0 +1,7 @@
+10:45:22.250 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read called.
+10:45:22.531 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@366e2eef: SELECT * FROM computer WHERE id= 581
+10:45:22.533 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read finished.
+10:45:38.319 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command delete called.
+10:45:38.328 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@52af6cff: DELETE FROM computer WHERE id = 581;
+10:45:38.337 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command delete finished.
+10:45:42.831 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.

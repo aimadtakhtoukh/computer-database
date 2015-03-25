@@ -24,18 +24,6 @@ public enum CompanyDAOImpl implements CompanyDAO {
 	
 	public static CompanyDAOImpl getInstance() {
 		return INSTANCE;
-	}	
-
-	@Override
-	public long create(Company company) {
-		logger.error("Company DAO has been asked to create a company. Not implemented.");
-		throw new UnsupportedOperationException("Not implemented yet");
-	}
-
-	@Override
-	public long update(long id, Company company) {
-		logger.error("Company DAO has been asked to update a company. Not implemented.");
-		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
 	@Override

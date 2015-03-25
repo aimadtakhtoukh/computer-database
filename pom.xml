@@ -19,6 +19,7 @@
 		<taglib.version>1.1.2</taglib.version>
 		<h2driver.version>1.4.186</h2driver.version>
         <dbunit.version>2.5.0</dbunit.version>
+        <tomcat.servlet.version>8.0.20</tomcat.servlet.version>
 	</properties>
 
 	<dependencies>
@@ -97,6 +98,15 @@
 			<version>${taglib.version}</version>
 		</dependency>
 		<!-- END_JSTL -->
+		<!-- SERVLETS -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-servlet-api</artifactId>
+			<version>${tomcat.servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- END_SERVLETS -->
 	</dependencies>
 
 	<build>

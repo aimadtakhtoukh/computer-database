@@ -1,5 +1,6 @@
 package com.excilys.cli;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -16,8 +17,12 @@ import com.excilys.validator.DateValidator;
 
 public class CreateComputerCommand implements Command {
 	
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
+	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
 	private ComputerDAO dao = ComputerDAOImpl.getInstance();
+	
+	public CreateComputerCommand() {
+		sdf.setLenient(true);
+	}
 	
 	@Override
 	public void doAction(List<String> args, Scanner sc) {

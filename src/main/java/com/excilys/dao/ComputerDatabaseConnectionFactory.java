@@ -29,7 +29,6 @@ public enum ComputerDatabaseConnectionFactory {
 			properties = new Properties();
 			properties.load(inputstream);
 			url = properties.getProperty("url");
-			System.out.println(url);
 		} catch (IOException e) {
 			throw new PersistenceException("Erreur de chargement du fichier de propriété", e);
 		}

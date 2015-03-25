@@ -4,18 +4,32 @@ import java.util.List;
 
 public interface CRUDDAO<T> {
 	
-	long create(T t);
+	default long create(T t) {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
 	
-	long update(long id, T t);
+	default long update(long id, T t) {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
 	
-	T get(long id);
+	default T get(long id) {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
 	
-	long delete(long id);
+	default long delete(long id) {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
 	
-	List<T> getAll();
+	default List<T> getAll() {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
 	
-	List<T> getAll(int offset, int limit);
+	default List<T> getAll(int offset, int limit) {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
 	
-	int getCount();
+	default int getCount() {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
 
 }
