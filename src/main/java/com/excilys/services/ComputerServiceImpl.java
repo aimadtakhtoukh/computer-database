@@ -20,22 +20,26 @@ public enum ComputerServiceImpl implements ComputerService {
 	}
 	
 	private ComputerDAO computerDAO = ComputerDAOImpl.getInstance();
-	
+
+	@Override
 	public Page<Computer> getComputerPage() {
 		logger.trace("Computer Service has been asked a new page.");
 		return new Page<Computer>(computerDAO);
 	}
-	
+
+	@Override
 	public List<Computer> getAllComputers() {
 		logger.trace("Computer Service has been asked all computers.");
 		return computerDAO.getAll();
 	}
-	
+
+	@Override
 	public Computer getComputer(long id) {
 		logger.trace("Computer Service has been asked a computer with id : " + id);
 		return computerDAO.get(id);
 	}
 
+	@Override
 	public long createComputer(Computer computer) {
 		logger.trace("Computer Service has been asked to create a new computer : " + computer);
 		return computerDAO.create(computer);
@@ -45,6 +49,12 @@ public enum ComputerServiceImpl implements ComputerService {
 	public long updateComputer(Computer computer) {
 		logger.trace("Computer Service has been asked to update a computer : " + computer);
 		return computerDAO.update(computer.getId(), computer);
+	}
+
+	@Override
+	public void deleteComputer(long id) {
+		logger.trace("Computer Service has been asked to delete the computer n°" + id);
+		computerDAO.delete(id);
 	}
 
 }

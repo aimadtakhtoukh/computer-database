@@ -17,4 +17,6 @@ public interface ComputerService {
 	
 	public long updateComputer(Computer computer);
 	
+	public void deleteComputer(long id);
+	
 }
