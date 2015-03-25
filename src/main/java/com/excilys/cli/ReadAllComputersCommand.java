@@ -17,7 +17,7 @@ public class ReadAllComputersCommand implements Command {
 	public void doAction(List<String> args, Scanner sc) {
 		List<Computer> computers = dao.getAll();
 		if (!computers.isEmpty()) {
-			Page<Computer> p = new Page<Computer>(ComputerDAOImpl.getInstance());
+			Page<Computer> p = new Page<Computer>(computers);
 			new PageCommandLineInterface<Computer>(p).command(sc);
 		}
 	}

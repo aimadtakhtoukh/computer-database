@@ -5,3 +5,95 @@
 10:45:38.328 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@52af6cff: DELETE FROM computer WHERE id = 581;
 10:45:38.337 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command delete finished.
 10:45:42.831 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
+16:22:58.825 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+16:22:59.093 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : com.mysql.jdbc.StatementImpl@3a03464
+16:22:59.115 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5a61f5df: SELECT * FROM company WHERE id = 1;
+16:22:59.122 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@61dc03ce: SELECT * FROM company WHERE id = 2;
+16:22:59.136 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@69d9c55: SELECT * FROM company WHERE id = 3;
+16:22:59.141 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@39fb3ab6: SELECT * FROM company WHERE id = 4;
+16:22:59.148 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@32e6e9c3: SELECT * FROM company WHERE id = 5;
+16:22:59.157 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5afa04c: SELECT * FROM company WHERE id = 6;
+16:22:59.163 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6a2bcfcb: SELECT * FROM company WHERE id = 7;
+16:22:59.168 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5ae9a829: SELECT * FROM company WHERE id = 8;
+16:22:59.172 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5f375618: SELECT * FROM company WHERE id = 9;
+16:22:59.177 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@23ceabc1: SELECT * FROM company WHERE id = 10;
+16:22:59.182 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@643b1d11: SELECT * FROM company WHERE id = 11;
+16:22:59.186 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@396a51ab: SELECT * FROM company WHERE id = 12;
+16:22:59.190 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@58651fd0: SELECT * FROM company WHERE id = 13;
+16:22:59.194 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@548a9f61: SELECT * FROM company WHERE id = 14;
+16:22:59.203 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@51565ec2: SELECT * FROM company WHERE id = 15;
+16:22:59.207 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5c7fa833: SELECT * FROM company WHERE id = 16;
+16:22:59.211 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@c038203: SELECT * FROM company WHERE id = 17;
+16:22:59.215 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4b9e13df: SELECT * FROM company WHERE id = 18;
+16:22:59.220 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@224edc67: SELECT * FROM company WHERE id = 19;
+16:22:59.224 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4501b7af: SELECT * FROM company WHERE id = 22;
+16:22:59.228 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5e5792a0: SELECT * FROM company WHERE id = 20;
+16:22:59.233 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@27efef64: SELECT * FROM company WHERE id = 23;
+16:22:59.237 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@1e88b3c: SELECT * FROM company WHERE id = 25;
+16:22:59.241 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@91161c7: SELECT * FROM company WHERE id = 26;
+16:22:59.245 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6d4b1c02: SELECT * FROM company WHERE id = 24;
+16:22:59.249 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@1794d431: SELECT * FROM company WHERE id = 27;
+16:22:59.254 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@548e7350: SELECT * FROM company WHERE id = 28;
+16:22:59.258 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@754ba872: SELECT * FROM company WHERE id = 29;
+16:22:59.261 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@13deb50e: SELECT * FROM company WHERE id = 30;
+16:22:59.264 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@3c0ecd4b: SELECT * FROM company WHERE id = 31;
+16:22:59.268 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@589838eb: SELECT * FROM company WHERE id = 32;
+16:22:59.272 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@2f686d1f: SELECT * FROM company WHERE id = 33;
+16:22:59.275 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6fd02e5: SELECT * FROM company WHERE id = 34;
+16:22:59.279 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@1e397ed7: SELECT * FROM company WHERE id = 35;
+16:22:59.282 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@59494225: SELECT * FROM company WHERE id = 36;
+16:22:59.286 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4566e5bd: SELECT * FROM company WHERE id = 37;
+16:22:59.290 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4b952a2d: SELECT * FROM company WHERE id = 38;
+16:22:59.295 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6adede5: SELECT * FROM company WHERE id = 39;
+16:22:59.300 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@64bfbc86: SELECT * FROM company WHERE id = 41;
+16:22:59.303 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6e1ec318: SELECT * FROM company WHERE id = 40;
+16:22:59.308 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@3c0f93f1: SELECT * FROM company WHERE id = 42;
+16:22:59.312 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@a67c67e: SELECT * FROM company WHERE id = 43;
+16:23:11.918 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
+16:23:13.750 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
+16:26:29.888 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+16:26:30.155 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : com.mysql.jdbc.StatementImpl@3a03464
+16:26:30.177 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5a61f5df: SELECT * FROM company WHERE id = 1;
+16:26:30.184 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@61dc03ce: SELECT * FROM company WHERE id = 2;
+16:26:30.197 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@69d9c55: SELECT * FROM company WHERE id = 3;
+16:26:30.203 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@39fb3ab6: SELECT * FROM company WHERE id = 4;
+16:26:30.209 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@32e6e9c3: SELECT * FROM company WHERE id = 5;
+16:26:30.218 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5afa04c: SELECT * FROM company WHERE id = 6;
+16:26:30.224 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6a2bcfcb: SELECT * FROM company WHERE id = 7;
+16:26:30.229 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5ae9a829: SELECT * FROM company WHERE id = 8;
+16:26:30.233 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5f375618: SELECT * FROM company WHERE id = 9;
+16:26:30.238 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@23ceabc1: SELECT * FROM company WHERE id = 10;
+16:26:30.243 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@643b1d11: SELECT * FROM company WHERE id = 11;
+16:26:30.247 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@396a51ab: SELECT * FROM company WHERE id = 12;
+16:26:30.251 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@58651fd0: SELECT * FROM company WHERE id = 13;
+16:26:30.255 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@548a9f61: SELECT * FROM company WHERE id = 14;
+16:26:30.261 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@51565ec2: SELECT * FROM company WHERE id = 15;
+16:26:30.266 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5c7fa833: SELECT * FROM company WHERE id = 16;
+16:26:30.270 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@c038203: SELECT * FROM company WHERE id = 17;
+16:26:30.274 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4b9e13df: SELECT * FROM company WHERE id = 18;
+16:26:30.279 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@224edc67: SELECT * FROM company WHERE id = 19;
+16:26:30.283 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4501b7af: SELECT * FROM company WHERE id = 22;
+16:26:30.287 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@5e5792a0: SELECT * FROM company WHERE id = 20;
+16:26:30.292 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@27efef64: SELECT * FROM company WHERE id = 23;
+16:26:30.296 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@1e88b3c: SELECT * FROM company WHERE id = 25;
+16:26:30.300 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@91161c7: SELECT * FROM company WHERE id = 26;
+16:26:30.304 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6d4b1c02: SELECT * FROM company WHERE id = 24;
+16:26:30.308 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@1794d431: SELECT * FROM company WHERE id = 27;
+16:26:30.313 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@548e7350: SELECT * FROM company WHERE id = 28;
+16:26:30.317 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@754ba872: SELECT * FROM company WHERE id = 29;
+16:26:30.321 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@13deb50e: SELECT * FROM company WHERE id = 30;
+16:26:30.327 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@3c0ecd4b: SELECT * FROM company WHERE id = 31;
+16:26:30.330 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@589838eb: SELECT * FROM company WHERE id = 32;
+16:26:30.335 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@2f686d1f: SELECT * FROM company WHERE id = 33;
+16:26:30.339 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6fd02e5: SELECT * FROM company WHERE id = 34;
+16:26:30.343 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@1e397ed7: SELECT * FROM company WHERE id = 35;
+16:26:30.346 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@59494225: SELECT * FROM company WHERE id = 36;
+16:26:30.350 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4566e5bd: SELECT * FROM company WHERE id = 37;
+16:26:30.353 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@4b952a2d: SELECT * FROM company WHERE id = 38;
+16:26:30.358 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6adede5: SELECT * FROM company WHERE id = 39;
+16:26:30.362 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@64bfbc86: SELECT * FROM company WHERE id = 41;
+16:26:30.366 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@6e1ec318: SELECT * FROM company WHERE id = 40;
+16:26:30.370 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@3c0f93f1: SELECT * FROM company WHERE id = 42;
+16:26:30.374 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@a67c67e: SELECT * FROM company WHERE id = 43;
+16:26:36.526 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
+16:26:37.422 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.

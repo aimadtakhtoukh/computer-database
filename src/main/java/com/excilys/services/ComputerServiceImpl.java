@@ -24,7 +24,7 @@ public enum ComputerServiceImpl implements ComputerService {
 	@Override
 	public Page<Computer> getComputerPage() {
 		logger.trace("Computer Service has been asked a new page.");
-		return new Page<Computer>(computerDAO);
+		return new Page<Computer>(computerDAO.getAll());
 	}
 
 	@Override

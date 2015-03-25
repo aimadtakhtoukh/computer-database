@@ -44,10 +44,15 @@ public class ComputerListingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.trace("GET called on /dashboard : Showing dashboard, start up");
-		int currentResultsPerPage = verifyCurrentResultsPerPageParameter(request.getParameter("resultsPerPage"));
-		page.setLimit(currentResultsPerPage);
-		int currentPage = verifyCurrentPageParameter(request.getParameter("page"));
-		page.goToPage(currentPage);
+		int currentResultsPerPage = page.getLimit();
+		if (request.getParameter("resultsPerPage") != null) {
+			currentResultsPerPage = verifyCurrentResultsPerPageParameter(request.getParameter("resultsPerPage"));
+			page.setLimit(currentResultsPerPage);
+		}
+		if (request.getParameter("currentPage") != null) {
+			int currentPage = verifyCurrentPageParameter(request.getParameter("page"));
+			page.goToPage(currentPage);
+		}
 		// Compte des ordinateurs
 		request.setAttribute("computerCount", page.getTotalCount());
 		// Ordinateurs de la page courante
@@ -71,9 +76,6 @@ public class ComputerListingServlet extends HttpServlet {
 	}
 	
 	private int verifyCurrentPageParameter(String param) {
-		if (param == null) {
-			return 0;
-		}
 		int result = Integer.parseInt(param);
 		if (result < 1) {return 0;}
 		if (result > page.getTotalPageNumber()) {return page.getTotalPageNumber();}
@@ -81,9 +83,6 @@ public class ComputerListingServlet extends HttpServlet {
 	}
 	
 	private int verifyCurrentResultsPerPageParameter(String param) {
-		if (param == null) {
-			return 10;
-		}
 		int result = Integer.parseInt(param);
 		if (result < 1) {return 10;}
 		if (result > page.getTotalCount()) {return page.getTotalCount();}

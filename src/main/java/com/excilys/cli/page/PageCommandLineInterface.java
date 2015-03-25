@@ -47,9 +47,7 @@ public class PageCommandLineInterface<T> {
 	}
 	
 	public void writeCurrentPage(Page<T> p) {
-		for (T t : p.getPageElements()) {
-			System.out.println(t);
-		}
+		p.getPageElements().stream().forEach(System.out::println);
 		System.out.println((p.getCurrentPageNumber() + 1) + "/" + (p.getTotalPageNumber() + 1));
 	}
 

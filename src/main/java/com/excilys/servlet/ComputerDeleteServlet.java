@@ -33,7 +33,6 @@ public class ComputerDeleteServlet extends HttpServlet {
      */
     public ComputerDeleteServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

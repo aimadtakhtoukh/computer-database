@@ -16,7 +16,7 @@ public class ReadAllCompaniesCommand implements Command {
 	public void doAction(List<String> args, Scanner sc) {
 		List<Company> companies = companyDAO.getAll();
 		if (!companies.isEmpty()) {
-			Page<Company> p = new Page<Company>(CompanyDAOImpl.getInstance());
+			Page<Company> p = new Page<Company>(companies);
 			new PageCommandLineInterface<Company>(p).command(sc);
 		}
 	}

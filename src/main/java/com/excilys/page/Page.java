@@ -1,8 +1,7 @@
 package com.excilys.page;
 
+import java.util.Comparator;
 import java.util.List;
-
-import com.excilys.dao.CRUDDAO;
 
 /**
  * The Page bean contains variables to define a page, by its offset,
@@ -15,24 +14,24 @@ public class Page<T> {
 	private final static int STANDARD_PAGE_LIMIT = 10;
 	private final static int STANDARD_PAGE_OFFSET = 0;
 	
-	private CRUDDAO<T> dao;
+	private List<T> list;
 	private int limit;
 	private int offset;
 	private int total;
 	
-	public Page(CRUDDAO<T> dao) {
+	public Page(List<T> list) {
 		super();
-		if (dao == null) {
-			throw new IllegalArgumentException("No DAO.");
+		if (list == null) {
+			throw new IllegalArgumentException("Empty list.");
 		}
-		this.dao = dao;
+		this.list = list;
 		this.limit = STANDARD_PAGE_LIMIT;
 		this.offset = STANDARD_PAGE_OFFSET;
-		this.total = dao.getCount();
+		this.total = list.size();
 	}
 	
-	public Page(CRUDDAO<T> dao, int limit, int offset) {
-		this(dao);
+	public Page(List<T> list, int limit, int offset) {
+		this(list);
 		this.limit = limit;
 		this.offset = offset;
 	}
@@ -81,12 +80,16 @@ public class Page<T> {
 	}
 
 	public List<T> getPageElements() {
-		return dao.getAll(offset, limit);
+		return list.subList(offset, offset + limit);
 	}
 	
 	public void goToPage(int i) {
 		if (i >= 0 && i <= getTotalPageNumber()) {
 			setOffset(getLimit() * i);
 		}
+	}
+	
+	public void sortList(Comparator<? super T> comparator) {
+		list.sort(comparator); 
 	}
 }
