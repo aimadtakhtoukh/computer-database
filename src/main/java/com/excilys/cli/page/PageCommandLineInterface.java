@@ -2,13 +2,13 @@ package com.excilys.cli.page;
 
 import java.util.Scanner;
 
-import com.excilys.page.Page;
+import com.excilys.page.PageImpl;
 
 public class PageCommandLineInterface<T> {
 	
-	private Page<T> page;
+	private PageImpl<T> page;
 	
-	public PageCommandLineInterface(Page<T> p) {
+	public PageCommandLineInterface(PageImpl<T> p) {
 		page = p;
 	}
 	
@@ -46,7 +46,7 @@ public class PageCommandLineInterface<T> {
 		}	
 	}
 	
-	public void writeCurrentPage(Page<T> p) {
+	public void writeCurrentPage(PageImpl<T> p) {
 		p.getPageElements().stream().forEach(System.out::println);
 		System.out.println((p.getCurrentPageNumber() + 1) + "/" + (p.getTotalPageNumber() + 1));
 	}

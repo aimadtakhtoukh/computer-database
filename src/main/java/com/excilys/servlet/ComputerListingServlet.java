@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.excilys.beans.Computer;
-import com.excilys.page.Page;
+import com.excilys.page.PageImpl;
 import com.excilys.page.comparators.ComputerComparator;
 import com.excilys.services.ComputerService;
 import com.excilys.services.ComputerServiceImpl;
@@ -36,11 +36,10 @@ public class ComputerListingServlet extends HttpServlet {
 	private static final int PAGE_NUMBER = 5;
 
 	private ComputerService computerService = ComputerServiceImpl.getInstance();
-	private Page<Computer> page = computerService.getComputerPage();
+	private PageImpl<Computer> page = computerService.getComputerPage();
 	
 	// Order By variables
 	private Map<String, Comparator<Computer>> comparators = new HashMap<>();
-	private boolean ascendantOrderBy = true;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -60,7 +59,7 @@ public class ComputerListingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.trace("GET called on /dashboard : Showing dashboard, start up");
 		if (page.getTotalCount() != computerService.getComputerPage().getTotalCount()) {
-			Page<Computer> newpage = computerService.getComputerPage();
+			PageImpl<Computer> newpage = computerService.getComputerPage();
 			newpage.setLimit(page.getLimit());
 			newpage.setOffset(page.getOffset());
 			page = newpage;
@@ -74,6 +73,7 @@ public class ComputerListingServlet extends HttpServlet {
 			int currentPage = verifyCurrentPageParameter(request.getParameter("page"));
 			page.goToPage(currentPage);
 		}
+		boolean ascendantOrderBy = page.isAscendent();
 		if (request.getParameter("asc") != null) {
 			if (request.getParameter("asc").equals("true")) {
 				ascendantOrderBy = true;
@@ -85,9 +85,10 @@ public class ComputerListingServlet extends HttpServlet {
 		if (request.getParameter("orderBy") != null) {
 			Comparator<Computer> comparator = comparators.get(request.getParameter("orderBy"));
 			if (comparator != null) {
-				page.orderBy(comparator, ascendantOrderBy);
+				page.setComparator(comparator, ascendantOrderBy);
 			}
 		}
+		page.order();
 		// Compte des ordinateurs
 		request.setAttribute("computerCount", page.getTotalCount());
 		// Ordinateurs de la page courante

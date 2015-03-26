@@ -18,7 +18,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
-import com.excilys.page.Page;
+import com.excilys.page.PageImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PageCommandLineInterfaceTest {
@@ -26,10 +26,10 @@ public class PageCommandLineInterfaceTest {
 	ByteArrayOutputStream myOut = new ByteArrayOutputStream();
 	
 	@Mock
-	Page<Computer> pageComputer;
+	PageImpl<Computer> pageComputer;
 	
 	@Mock
-	Page<Company> pageCompany;
+	PageImpl<Company> pageCompany;
 	
 	@Before
 	public void beforeTests() {

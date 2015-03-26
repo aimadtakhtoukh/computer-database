@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.excilys.beans.Computer;
 import com.excilys.dao.ComputerDAO;
 import com.excilys.dao.ComputerDAOImpl;
-import com.excilys.page.Page;
+import com.excilys.page.PageImpl;
 
 public enum ComputerServiceImpl implements ComputerService {
 	INSTANCE;
@@ -22,9 +22,9 @@ public enum ComputerServiceImpl implements ComputerService {
 	private ComputerDAO computerDAO = ComputerDAOImpl.getInstance();
 
 	@Override
-	public Page<Computer> getComputerPage() {
+	public PageImpl<Computer> getComputerPage() {
 		logger.trace("Computer Service has been asked a new page.");
-		return new Page<Computer>(computerDAO.getAll());
+		return new PageImpl<Computer>(computerDAO.getAll());
 	}
 
 	@Override

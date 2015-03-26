@@ -3,11 +3,11 @@ package com.excilys.services;
 import java.util.List;
 
 import com.excilys.beans.Computer;
-import com.excilys.page.Page;
+import com.excilys.page.PageImpl;
 
 public interface ComputerService {
 	
-	public Page<Computer> getComputerPage();
+	public PageImpl<Computer> getComputerPage();
 	
 	public Computer getComputer(long id);
 	

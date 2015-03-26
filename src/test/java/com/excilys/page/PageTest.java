@@ -48,7 +48,7 @@ public class PageTest {
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
 		//WHEN
-		Page<Computer> page = new Page<Computer>(ComputerDAOImpl.getInstance().getAll());
+		PageImpl<Computer> page = new PageImpl<Computer>(ComputerDAOImpl.getInstance().getAll());
 		Assert.assertEquals(page.getLimit(), 10);
 		//THEN
 	}
@@ -58,7 +58,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new Page<Computer>(ComputerDAOImpl.getInstance().getAll());
+		PageImpl<Computer> page = new PageImpl<Computer>(ComputerDAOImpl.getInstance().getAll());
 		//WHEN
 		page.setLimit(20);
 		Assert.assertEquals(page.getLimit(), 20);
@@ -70,7 +70,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new Page<Computer>(ComputerDAOImpl.getInstance().getAll());
+		PageImpl<Computer> page = new PageImpl<Computer>(ComputerDAOImpl.getInstance().getAll());
 		//WHEN
 		page.setLimit(-1);
 		Assert.assertEquals(page.getLimit(), 0);
@@ -83,7 +83,7 @@ public class PageTest {
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
 		//WHEN
-		Page<Computer> page = new Page<Computer>(ComputerDAOImpl.getInstance().getAll());
+		PageImpl<Computer> page = new PageImpl<Computer>(ComputerDAOImpl.getInstance().getAll());
 		Assert.assertEquals(page.getOffset(), 0);
 		//THEN
 	}
@@ -94,7 +94,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new Page<Computer>(ComputerDAOImpl.getInstance().getAll());
+		PageImpl<Computer> page = new PageImpl<Computer>(ComputerDAOImpl.getInstance().getAll());
 		//WHEN
 		page.setOffset(20);
 		Assert.assertEquals(20, page.getOffset());
@@ -106,7 +106,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new Page<Computer>(ComputerDAOImpl.getInstance().getAll());
+		PageImpl<Computer> page = new PageImpl<Computer>(ComputerDAOImpl.getInstance().getAll());
 		//WHEN
 		page.setLimit(-1);
 		Assert.assertEquals(page.getLimit(), 0);

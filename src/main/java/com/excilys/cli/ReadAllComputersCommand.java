@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.excilys.beans.Computer;
 import com.excilys.cli.page.PageCommandLineInterface;
-import com.excilys.page.Page;
+import com.excilys.page.PageImpl;
 import com.excilys.services.ComputerService;
 import com.excilys.services.ComputerServiceImpl;
 
@@ -22,7 +22,7 @@ public class ReadAllComputersCommand implements Command {
 	public void doAction(List<String> args, Scanner sc) {
 		List<Computer> computers = service.getAllComputers();
 		if (!computers.isEmpty()) {
-			Page<Computer> p = new Page<Computer>(computers);
+			PageImpl<Computer> p = new PageImpl<Computer>(computers);
 			new PageCommandLineInterface<Computer>(p).command(sc);
 		}
 	}
