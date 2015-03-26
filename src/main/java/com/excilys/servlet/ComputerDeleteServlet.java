@@ -38,8 +38,9 @@ public class ComputerDeleteServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		logger.trace("POST called on /deleteComputer : deleting computers, start up");
+		logger.trace("POST called on /dashboard : deleting computers, start up");
 		String ids = request.getParameter("selection");
 		Pattern idPattern = Pattern.compile("(\\d*,?)*");
 		Matcher idMatcher = idPattern.matcher(ids);
@@ -51,8 +52,8 @@ public class ComputerDeleteServlet extends HttpServlet {
 		while (st.hasMoreTokens()) {
 			computerService.deleteComputer(Long.parseLong(st.nextToken()));
 		}
-		logger.trace("POST called on /deleteComputer : deleting computers, finished");
-		response.sendRedirect("dashboard");		
+		logger.trace("POST called on /dashboard : deleting computers, finished");
+		response.sendRedirect("dashboard");
 	}
 
 }

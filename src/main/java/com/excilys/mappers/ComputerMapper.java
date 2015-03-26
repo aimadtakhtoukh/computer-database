@@ -45,8 +45,8 @@ public class ComputerMapper {
 	}
 	
 	public static List<Computer> getMappedResults(ResultSet rs) throws SQLException {
-		List<Computer> list = new LinkedList<Computer>();
-		Map<Long, Company> cache = new HashMap<Long, Company>();
+		List<Computer> list = new LinkedList<>();
+		Map<Long, Company> cache = new HashMap<>();
 		while(rs.next()) {
 			Computer c = new Computer();
 			c.setId(rs.getLong(PARAM_ID));

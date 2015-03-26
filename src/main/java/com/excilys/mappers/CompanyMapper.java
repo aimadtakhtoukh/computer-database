@@ -20,7 +20,7 @@ public class CompanyMapper {
 	}
 	
 	public static List<Company> getMappedResults(ResultSet rs) throws SQLException {
-		List<Company> list = new LinkedList<Company>();
+		List<Company> list = new LinkedList<>();
 		while(rs.next()) {
 			list.add(new Company(rs.getLong(PARAM_ID), rs.getString(PARAM_NAME)));
 		}

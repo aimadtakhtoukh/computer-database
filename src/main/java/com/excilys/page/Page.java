@@ -1,7 +1,11 @@
 package com.excilys.page;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Page bean contains variables to define a page, by its offset,
@@ -10,6 +14,8 @@ import java.util.List;
  *
  */
 public class Page<T> {
+	
+	final Logger logger = LoggerFactory.getLogger(Page.class);
 	
 	private final static int STANDARD_PAGE_LIMIT = 10;
 	private final static int STANDARD_PAGE_OFFSET = 0;
@@ -28,6 +34,7 @@ public class Page<T> {
 		this.limit = STANDARD_PAGE_LIMIT;
 		this.offset = STANDARD_PAGE_OFFSET;
 		this.total = list.size();
+		logger.trace("Page created.");
 	}
 	
 	public Page(List<T> list, int limit, int offset) {
@@ -45,6 +52,7 @@ public class Page<T> {
 			limit = 0;
 		}
 		this.limit = limit;
+		logger.trace("Limit set to " + this.limit + ".");
 	}
 	
 	public int getOffset() {
@@ -59,6 +67,7 @@ public class Page<T> {
 				this.offset = offset;
 			}
 		}
+		logger.trace("Offset set to " + this.offset + ".");
 	}
 	
 	public int getTotalCount() {
@@ -80,16 +89,22 @@ public class Page<T> {
 	}
 
 	public List<T> getPageElements() {
-		return list.subList(offset, offset + limit);
+		logger.trace("Eléments de " + offset + " à " + (offset + limit) + " envoyés.");
+		return list.subList(Math.max(0, offset), Math.min(offset + limit, list.size()));
 	}
 	
 	public void goToPage(int i) {
 		if (i >= 0 && i <= getTotalPageNumber()) {
 			setOffset(getLimit() * i);
 		}
+		logger.trace("Page set to the " + i + "th page.");
 	}
 	
-	public void sortList(Comparator<? super T> comparator) {
-		list.sort(comparator); 
+	public void orderBy(Comparator<? super T> comparator, boolean ascendant) {
+		list.sort(comparator);
+		if (!ascendant) {
+			Collections.reverse(list);
+		}
+		logger.trace("Elements sorted.");
 	}
 }

@@ -1,8 +1,11 @@
 package com.excilys.servlet;
 
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +19,8 @@ import org.slf4j.LoggerFactory;
 
 import com.excilys.beans.Computer;
 import com.excilys.page.Page;
+import com.excilys.page.comparators.ComputerComparator;
+import com.excilys.services.ComputerService;
 import com.excilys.services.ComputerServiceImpl;
 import com.excilys.servlet.dto.ComputerDTO;
 
@@ -29,14 +34,24 @@ public class ComputerListingServlet extends HttpServlet {
 	final Logger logger = LoggerFactory.getLogger(ComputerListingServlet.class);
 	
 	private static final int PAGE_NUMBER = 5;
+
+	private ComputerService computerService = ComputerServiceImpl.getInstance();
+	private Page<Computer> page = computerService.getComputerPage();
 	
-	private Page<Computer> page = ComputerServiceImpl.getInstance().getComputerPage();
+	// Order By variables
+	private Map<String, Comparator<Computer>> comparators = new HashMap<>();
+	private boolean ascendantOrderBy = true;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public ComputerListingServlet() {
         super();
+        comparators.put("id", ComputerComparator.COMPARE_BY_ID);
+        comparators.put("name", ComputerComparator.COMPARE_BY_NAME);
+        comparators.put("introduced", ComputerComparator.COMPARE_BY_INTRODUCED_DATE);
+        comparators.put("discontinued", ComputerComparator.COMPARE_BY_DISCONTINUED_DATE);
+        comparators.put("company", ComputerComparator.COMPARE_BY_COMPANY);
     }
 
 	/**
@@ -44,14 +59,34 @@ public class ComputerListingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.trace("GET called on /dashboard : Showing dashboard, start up");
+		if (page.getTotalCount() != computerService.getComputerPage().getTotalCount()) {
+			Page<Computer> newpage = computerService.getComputerPage();
+			newpage.setLimit(page.getLimit());
+			newpage.setOffset(page.getOffset());
+			page = newpage;
+		}
 		int currentResultsPerPage = page.getLimit();
 		if (request.getParameter("resultsPerPage") != null) {
 			currentResultsPerPage = verifyCurrentResultsPerPageParameter(request.getParameter("resultsPerPage"));
 			page.setLimit(currentResultsPerPage);
 		}
-		if (request.getParameter("currentPage") != null) {
+		if (request.getParameter("page") != null) {
 			int currentPage = verifyCurrentPageParameter(request.getParameter("page"));
 			page.goToPage(currentPage);
+		}
+		if (request.getParameter("asc") != null) {
+			if (request.getParameter("asc").equals("true")) {
+				ascendantOrderBy = true;
+			}
+			if (request.getParameter("asc").equals("false")) {
+				ascendantOrderBy = false;
+			}
+		}
+		if (request.getParameter("orderBy") != null) {
+			Comparator<Computer> comparator = comparators.get(request.getParameter("orderBy"));
+			if (comparator != null) {
+				page.orderBy(comparator, ascendantOrderBy);
+			}
 		}
 		// Compte des ordinateurs
 		request.setAttribute("computerCount", page.getTotalCount());
