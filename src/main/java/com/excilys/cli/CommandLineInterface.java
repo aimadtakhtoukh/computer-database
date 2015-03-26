@@ -21,6 +21,7 @@ public class CommandLineInterface {
 		UPDATE_COMPUTER("update", new UpdateComputerCommand()),
 		DELETE_COMPUTER("delete", new DeleteComputerCommand()),
 		READ_ALL_COMPANIES("all_companies", new ReadAllCompaniesCommand()),
+		DELETE_COMPANY_AND_RELATED_COMPUTERS("delete_company", new DeleteCompanyAndRelatedComputersCommand()),
 		EXIT("exit", new ExitCommand());
 		
 		final Logger logger = LoggerFactory.getLogger(ACTIONS.class);

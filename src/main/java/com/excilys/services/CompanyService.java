@@ -10,5 +10,6 @@ public interface CompanyService {
 	
 	public List<Company> getAllCompanies();
 
+	public void deleteCompanyAndRelatedComputers(long id);
 
 }

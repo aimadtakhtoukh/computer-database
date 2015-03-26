@@ -9,16 +9,21 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.excilys.beans.Computer;
 import com.excilys.dao.CompanyDAOImpl;
-import com.excilys.dao.ComputerDAO;
-import com.excilys.dao.ComputerDAOImpl;
+import com.excilys.services.ComputerService;
+import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.DateValidator;
 
 public class CreateComputerCommand implements Command {
 	
 	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
-	private ComputerDAO dao = ComputerDAOImpl.getInstance();
+	private ComputerService service = ComputerServiceImpl.getInstance();
+	
+	final Logger logger = LoggerFactory.getLogger(CreateComputerCommand.class);
 	
 	public CreateComputerCommand() {
 		sdf.setLenient(true);
@@ -28,8 +33,8 @@ public class CreateComputerCommand implements Command {
 	public void doAction(List<String> args, Scanner sc) {
 		Computer c = new Computer();
 		if (args.size() < 4) {
-			System.out.println("Command form : create (computer_name) (introduction_date) (discontinued_date) (company)");
-			System.out.println("You can write null instead of a date.");
+			logger.error("Command form : create (computer_name) (introduction_date) (discontinued_date) (company)");
+			logger.error("You can write null instead of a date.");
 			return;
 		}
 		c.setName(args.get(0));
@@ -66,10 +71,10 @@ public class CreateComputerCommand implements Command {
 		try {
 			c.setCompany(CompanyDAOImpl.getInstance().get(Long.parseLong(args.get(3))));
 		} catch (NumberFormatException e) {
-			System.err.println("The entered value isn't a long.");
+			logger.error("The entered value isn't a long.");
 		}
-		long id = dao.create(c);
-		System.out.println("Computer " + id + " created.");
+		long id = service.createComputer(c);
+		logger.info("Computer " + id + " created.");
 	}
 
 }

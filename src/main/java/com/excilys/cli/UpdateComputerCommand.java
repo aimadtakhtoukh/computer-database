@@ -9,17 +9,24 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
 import com.excilys.dao.CompanyDAOImpl;
-import com.excilys.dao.ComputerDAO;
-import com.excilys.dao.ComputerDAOImpl;
+import com.excilys.services.ComputerService;
+import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.DateValidator;
+import com.excilys.validator.NumberValidator;
+import com.excilys.validator.StringValidator;
 
 public class UpdateComputerCommand implements Command {
 	
+	final Logger logger = LoggerFactory.getLogger(UpdateComputerCommand.class);
+	
 	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
-	private ComputerDAO dao = ComputerDAOImpl.getInstance();
+	private ComputerService service = ComputerServiceImpl.getInstance();
 	
 	public UpdateComputerCommand() {
 		super();
@@ -34,7 +41,18 @@ public class UpdateComputerCommand implements Command {
 			return;
 		}				
 		Computer c = new Computer();
-		c.setName(args.get(1));
+		if (NumberValidator.isARightNumber(args.get(0))) {
+			c.setId(Long.parseLong(args.get(0)));
+		} else {
+			logger.error("The id argument must be a number.");
+			return;
+		}
+		if (StringValidator.isARightString(args.get(1))) {
+			c.setName(args.get(1));
+		} else {
+			logger.error("The name mustn't be empty.");
+			return;
+		}
 		LocalDateTime introduced;
 		if (args.get(2).equals("null")) {
 			introduced = null;
@@ -50,6 +68,7 @@ public class UpdateComputerCommand implements Command {
 			}
 		}
 		c.setIntroduced(introduced);
+		
 		LocalDateTime discontinued;
 		if (args.get(3).equals("null")) {
 			discontinued = null;
@@ -65,20 +84,17 @@ public class UpdateComputerCommand implements Command {
 			}
 		}
 		c.setDiscontinued(discontinued);
-		try {
+		
+		if (NumberValidator.isARightNumber(args.get(4))) {
 			long id_company = Long.parseLong(args.get(4));
 			Company company = CompanyDAOImpl.getInstance().get(id_company);
 			c.setCompany(company);
-		} catch (NumberFormatException e) {
-			System.err.println("The company id argument must be a number.");
+		} else {
+			logger.error("The company id argument must be a number.");
 			c.setCompany(null);
 		}
-		try {
-			long id = dao.update(Long.parseLong(args.get(0)), c);
-			System.out.println("Computer " + id + " updated.");
-		} catch (NumberFormatException e) {
-			System.err.println("The id argument must be a number.");
-		}
+		long id = service.updateComputer(c);
+		logger.info("Computer " + id + " updated.");
 	}
 
 }

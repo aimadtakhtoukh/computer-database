@@ -27,14 +27,52 @@ public enum CompanyDAOImpl implements CompanyDAO {
 	}
 
 	@Override
-	public Company get(long id){
+	public Company get(long id) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Company result = get(id, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public long delete(long id) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		long result = delete(id, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public List<Company> getAll() {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		List<Company> result = getAll(conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public List<Company> getAll(int offset, int limit) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		List<Company> result = getAll(offset, limit, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public int getCount() {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		int result = getCount(conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public Company get(long id, Connection conn) {
 		String query = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?;";
-		Connection conn = null;
 		Company company = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.prepareStatement(query);
 			stmt.setLong(1, id);
 			logger.trace("Company DAO executed the query : " + stmt.toString());
@@ -43,25 +81,44 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
 		}
 		return company;
 	}
 
 	@Override
-	public long delete(long id) {
-		logger.error("Company DAO has been asked to delete a company. Not implemented.");
-		throw new UnsupportedOperationException("Not implemented yet");
+	public long delete(long id, Connection conn) {
+		String query = new StringBuilder()
+		.append("DELETE FROM ")
+		.append(TABLE_NAME)
+		.append(" WHERE id = ?;")
+		.toString();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			ps.setLong(1, id);
+			logger.trace("Company DAO executed the query : " + ps.toString());
+			ps.executeUpdate();
+			long result = 0L;
+			rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				result = rs.getLong(1);
+			}
+			return result;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
+		}
 	}
 
 	@Override
-	public List<Company> getAll() {
+	public List<Company> getAll(Connection conn) {
 		String query = "SELECT * FROM " + TABLE_NAME + ";";
-		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.createStatement();
 			logger.trace("Company DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
@@ -71,18 +128,16 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
 		}
 	}
 
 	@Override
-	public List<Company> getAll(int offset, int limit) {
+	public List<Company> getAll(int offset, int limit, Connection conn) {
 		String query = "SELECT * FROM " + TABLE_NAME + " LIMIT ? OFFSET ?;";
-		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.prepareStatement(query);
 			logger.trace("Company DAO executed the query : " + stmt.toString());
 			stmt.setInt(1, limit);
@@ -94,18 +149,16 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
 		}
 	}
 
 	@Override
-	public int getCount() {
+	public int getCount(Connection conn) {
 		String query = "SELECT COUNT(*) FROM " + TABLE_NAME + ";";
-		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.createStatement();
 			logger.trace("Company DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
@@ -118,7 +171,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
 		}
 	}
 

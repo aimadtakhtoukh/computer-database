@@ -34,6 +34,62 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public long create(Computer computer) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		long result = create(computer, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public long update(long id, Computer computer) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		long result = update(id, computer, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public Computer get(long id) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Computer result = get(id, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public long delete(long id) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		long result = delete(id, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public List<Computer> getAll() {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		List<Computer> result = getAll(conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public List<Computer> getAll(int offset, int limit) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		List<Computer> result = getAll(offset, limit, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public int getCount() {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		int result = getCount(conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		return result;
+	}
+
+	@Override
+	public long create(Computer computer, Connection conn) {
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
@@ -47,11 +103,9 @@ public enum ComputerDAOImpl implements ComputerDAO {
 						.append(PARAM_COMPANY_ID)
 						.append(") VALUES (? ,? ,? ,? );")
 						.toString();
-		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet key = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			ps = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, computer.getName());
 			if (computer.getIntroduced() != null) {
@@ -76,17 +130,16 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			if (key.next()) {
 				result =  key.getLong(1);
 			}
-			conn.close();
 			return result;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, key, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(key, ps);
 		}
 	}
 
 	@Override
-	public long update(long id, Computer computer) {
+	public long update(long id, Computer computer, Connection conn) {
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
@@ -100,11 +153,9 @@ public enum ComputerDAOImpl implements ComputerDAO {
 						.append(PARAM_COMPANY_ID + "=? ")
 						.append("WHERE " + PARAM_ID + " = ?")
 						.toString();
-		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, computer.getName());
 			if (computer.getIntroduced() != null) {
@@ -130,17 +181,16 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			if (rs.next()) {
 				result = rs.getLong(1);
 			}
-			conn.close();
 			return result;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
 		}
 	}
 
 	@Override
-	public Computer get(long id) {
+	public Computer get(long id, Connection conn) {
 		String query = new StringBuilder()
 						.append("SELECT * FROM ")
 						.append(TABLE_NAME)
@@ -148,37 +198,32 @@ public enum ComputerDAOImpl implements ComputerDAO {
 						.append(PARAM_ID)
 						.append("= ?")
 						.toString();
-		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			ps = conn.prepareStatement(query);
 			ps.setLong(1, id);
 			logger.trace("Computer DAO executed the query : " + ps.toString());
 			rs = ps.executeQuery();
 			Computer computer = ComputerMapper.getMappedResult(rs);
-			conn.close();
 			return computer;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
 		}
 	}
 
 	@Override
-	public long delete(long id) {
+	public long delete(long id, Connection conn) {
 		String query = new StringBuilder()
 						.append("DELETE FROM ")
 						.append(TABLE_NAME)
 						.append(" WHERE id = ?;")
 						.toString();
-		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			ps.setLong(1, id);
 			logger.trace("Computer DAO executed the query : " + ps.toString());
@@ -188,71 +233,62 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			if (rs.next()) {
 				result = rs.getLong(1);
 			}
-			conn.close();
 			return result;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, ps);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
 		}
 	}
 
 	@Override
-	public List<Computer> getAll() {
+	public List<Computer> getAll(Connection conn) {
 		String query = new StringBuilder()
 						.append("SELECT * FROM ")
 						.append(TABLE_NAME)
 						.append(";")
 						.toString();
-		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.createStatement();
 			logger.trace("Computer DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
 			List<Computer> result = ComputerMapper.getMappedResults(rs);
-			conn.close();
 			return result;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
 		}
 	}
 
 	@Override
-	public List<Computer> getAll(int offset, int limit) {
+	public List<Computer> getAll(int offset, int limit, Connection conn) {
 		String query = "SELECT * FROM " + TABLE_NAME + " LIMIT ? OFFSET ?;";
-		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.prepareStatement(query);
 			stmt.setInt(1, limit);
 			stmt.setInt(2, offset);
 			logger.trace("Computer DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery();
 			List<Computer> results = ComputerMapper.getMappedResults(rs);
-			conn.close();
 			return results;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
 		}
 	}
 
 	@Override
-	public int getCount() {
+	public int getCount(Connection conn) {
 		String query = "SELECT COUNT(*) FROM " + TABLE_NAME + ";";
-		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 			stmt = conn.createStatement();
 			logger.trace("Computer DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
@@ -260,12 +296,11 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			if (rs.next()) {
 				count = rs.getInt(1);
 			}
-			conn.close();
 			return count;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(conn, rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
 		}
 	}
 

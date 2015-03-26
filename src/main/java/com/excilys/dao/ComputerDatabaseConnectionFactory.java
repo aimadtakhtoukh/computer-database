@@ -16,8 +16,6 @@ import com.jolbox.bonecp.BoneCPConfig;
 public enum ComputerDatabaseConnectionFactory {
 	INSTANCE;
 
-	//private String url;
-	private Properties properties;
 	private BoneCP pool;
 
 	private ComputerDatabaseConnectionFactory() {
@@ -29,7 +27,7 @@ public enum ComputerDatabaseConnectionFactory {
 		}
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
 		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
-			properties = new Properties();
+			Properties properties = new Properties();
 			properties.load(inputstream);
 			BoneCPConfig config = new BoneCPConfig(properties);
             pool = new BoneCP(config);
@@ -52,7 +50,7 @@ public enum ComputerDatabaseConnectionFactory {
 		}
 	}
 	
-	public static void cleanAfterConnection(Connection conn, ResultSet rs, Statement s) {
+	public static void cleanConnection(Connection conn) {
 		if (conn != null) {
 			try {
 				conn.close();
@@ -60,6 +58,9 @@ public enum ComputerDatabaseConnectionFactory {
 				// Nothing to do.
 			}
 		}
+	}
+	
+	public static void cleanAfterConnection(ResultSet rs, Statement s) {
 		if (rs != null) {
 			try {
 				rs.close();
@@ -75,5 +76,6 @@ public enum ComputerDatabaseConnectionFactory {
 			}
 		}
 	}
+
 
 }

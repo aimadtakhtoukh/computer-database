@@ -5,14 +5,19 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.excilys.beans.Computer;
-import com.excilys.dao.ComputerDAO;
-import com.excilys.dao.ComputerDAOImpl;
+import com.excilys.services.ComputerService;
+import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.NumberValidator;
 
 public class ReadComputerCommand implements Command {
+	
+	final Logger logger = LoggerFactory.getLogger(ReadComputerCommand.class);
 
-	private ComputerDAO dao = ComputerDAOImpl.getInstance();
+	private ComputerService service = ComputerServiceImpl.getInstance();
 	
 	List<Computer> computers = null;
 	
@@ -30,14 +35,14 @@ public class ReadComputerCommand implements Command {
 	private void forEachArgument(String s) {
 		if (NumberValidator.isARightNumber(s)) {
 			Long id = Long.parseLong(s);
-			Computer c = dao.get(id);
+			Computer c = service.getComputer(id);
 			if (c != null) {
 				computers.add(c);
 			} else {
-				System.err.println("The computer n° " + id + " doesn't exist.");
+				logger.error("The computer n° " + id + " doesn't exist.");
 			}
 		} else {
-			System.err.println(s + " isn't a number.");
+			logger.error(s + " isn't a number.");
 		}
 	}
 

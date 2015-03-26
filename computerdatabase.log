@@ -97,3 +97,237 @@
 16:26:30.374 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : com.mysql.jdbc.JDBC4PreparedStatement@a67c67e: SELECT * FROM company WHERE id = 43;
 16:26:36.526 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
 16:26:37.422 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
+17:09:54.530 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+17:09:54.534 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked all computers.
+17:09:54.911 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+17:09:54.929 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.931 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.938 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.940 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.942 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.943 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.944 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.944 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.945 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.946 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.947 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.948 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.949 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.950 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.951 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.952 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.953 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.954 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.955 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.955 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.956 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.958 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.959 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.960 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.960 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.961 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.963 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.964 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.965 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.966 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.966 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.967 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.968 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.969 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.970 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.971 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.972 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.974 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.975 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.976 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.977 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.978 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:09:54.980 [main] TRACE com.excilys.page.Page - Page created.
+17:09:54.981 [main] TRACE com.excilys.page.Page - Eléments de 0 à 10 envoyés.
+17:10:00.095 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
+17:10:14.671 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command delete_company called.
+17:10:14.672 [main] TRACE c.e.services.CompanyServiceImpl - Company Service has been asked to delete the company with the id : 1
+17:10:14.673 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+17:10:14.674 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.675 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.676 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.677 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.679 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.679 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.680 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.681 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.682 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.682 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.683 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.684 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.685 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.685 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.686 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.687 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.688 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.688 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.689 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.690 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.691 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.693 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.694 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.694 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.695 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.696 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.697 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.698 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.698 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.699 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.700 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.701 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.701 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.702 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.703 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.703 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.705 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.706 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.707 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.708 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.709 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.710 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:14.717 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.719 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.720 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.720 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.720 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.721 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.721 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.722 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.722 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.722 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.723 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.723 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.724 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.724 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.725 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.725 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.726 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.726 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.726 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.727 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.727 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.728 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.728 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.729 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.729 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.729 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.730 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.730 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.731 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.731 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.732 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.732 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.732 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.733 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.733 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.733 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.734 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.734 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.734 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : DELETE FROM computer WHERE id = ?;
+17:10:14.735 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : DELETE FROM company WHERE id = ?;
+17:10:14.739 [main] TRACE c.e.c.DeleteCompanyAndRelatedComputersCommand - Company 1 deleted.
+17:10:14.739 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command delete_company finished.
+17:10:20.191 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+17:10:20.191 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked all computers.
+17:10:20.191 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+17:10:20.193 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.194 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.195 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.196 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.196 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.197 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.198 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.199 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.200 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.200 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.201 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.202 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.203 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.204 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.204 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.205 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.206 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.206 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.207 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.208 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.209 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.209 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.210 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.211 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.211 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.212 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.213 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.213 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.214 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.215 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.215 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.216 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.217 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.217 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.218 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.219 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.220 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.220 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.221 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.222 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.222 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:10:20.223 [main] TRACE com.excilys.page.Page - Page created.
+17:10:20.223 [main] TRACE com.excilys.page.Page - Eléments de 0 à 10 envoyés.
+17:10:25.726 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
+17:10:27.159 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
+17:10:27.159 [main] INFO  com.excilys.cli.ExitCommand - Program end.
+17:13:28.850 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+17:13:28.853 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked all computers.
+17:13:29.233 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+17:13:29.251 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.253 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.259 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.261 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.263 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.264 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.266 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.266 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.267 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.268 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.270 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.270 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.271 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.272 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.273 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.275 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.276 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.276 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.277 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.278 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.279 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.282 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.282 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.283 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.284 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.285 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.287 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.288 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.289 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.290 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.290 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.291 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.292 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.293 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.294 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.295 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.296 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.298 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.299 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.300 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.302 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.303 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+17:13:29.305 [main] TRACE com.excilys.page.Page - Page created.
+17:13:29.305 [main] TRACE com.excilys.page.Page - Eléments de 0 à 10 envoyés.
+17:13:34.735 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
+17:13:36.479 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
+17:13:36.479 [main] INFO  com.excilys.cli.ExitCommand - Program end.

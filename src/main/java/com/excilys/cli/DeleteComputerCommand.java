@@ -3,20 +3,25 @@ package com.excilys.cli;
 import java.util.List;
 import java.util.Scanner;
 
-import com.excilys.dao.ComputerDAO;
-import com.excilys.dao.ComputerDAOImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.excilys.services.ComputerService;
+import com.excilys.services.ComputerServiceImpl;
 
 public class DeleteComputerCommand implements Command {
-	private ComputerDAO dao = ComputerDAOImpl.getInstance();
+	private ComputerService service = ComputerServiceImpl.getInstance();
+	
+	final Logger logger = LoggerFactory.getLogger(DeleteComputerCommand.class);
 
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
 		for (String s : args) {
 			try {
-				long id = dao.delete(Long.parseLong(s));
-				System.out.println("Computer " + id + " deleted.");
+				service.deleteComputer(Long.parseLong(s));
+				logger.info("Computer " + s + " deleted.");
 			} catch (NumberFormatException e) {
-				System.err.println("The entered number isn't a long.");
+				logger.error("The entered number isn't a long.");
 			}
 		}
 	}
