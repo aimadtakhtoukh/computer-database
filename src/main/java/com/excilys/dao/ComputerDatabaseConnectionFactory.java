@@ -31,17 +31,12 @@ public enum ComputerDatabaseConnectionFactory {
 		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
 			properties = new Properties();
 			properties.load(inputstream);
-			//url = properties.getProperty("url");
 			BoneCPConfig config = new BoneCPConfig(properties);
-            config.setMinConnectionsPerPartition(5);
-            config.setMaxConnectionsPerPartition(10);
-            config.setPartitionCount(2);
             pool = new BoneCP(config);
 		} catch (IOException e) {
 			throw new PersistenceException("Erreur de chargement du fichier de propriété", e);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new PersistenceException("Erreur de chargement de la configuration de BoneCP.", e);
 		}
 	}
 
