@@ -27,8 +27,8 @@ public class DatabaseTestUtil {
 			e.printStackTrace();
 		}
 		jdbcDriver = properties.getProperty("driver");
-		jdbcUrl = properties.getProperty("url");
-		user = properties.getProperty("user");
+		jdbcUrl = properties.getProperty("jdbcUrl");
+		user = properties.getProperty("username");
 		password = properties.getProperty("password");
 	}
 

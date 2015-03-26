@@ -10,11 +10,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import com.jolbox.bonecp.BoneCP;
+import com.jolbox.bonecp.BoneCPConfig;
+
 public enum ComputerDatabaseConnectionFactory {
 	INSTANCE;
 
-	private String url;
-	private Properties properties;	
+	//private String url;
+	private Properties properties;
+	private BoneCP pool;
 
 	private ComputerDatabaseConnectionFactory() {
 		try {
@@ -24,13 +28,20 @@ public enum ComputerDatabaseConnectionFactory {
 			throw new PersistenceException("Erreur de chargement de classe", e1);
 		}
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
-		
 		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
 			properties = new Properties();
 			properties.load(inputstream);
-			url = properties.getProperty("url");
+			//url = properties.getProperty("url");
+			BoneCPConfig config = new BoneCPConfig(properties);
+            config.setMinConnectionsPerPartition(5);
+            config.setMaxConnectionsPerPartition(10);
+            config.setPartitionCount(2);
+            pool = new BoneCP(config);
 		} catch (IOException e) {
 			throw new PersistenceException("Erreur de chargement du fichier de propriété", e);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -40,7 +51,7 @@ public enum ComputerDatabaseConnectionFactory {
 
 	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection(url, properties);
+			return pool.getConnection();
 		} catch (SQLException e) {
 			throw new PersistenceException("Impossible to get a connection. ", e);
 		}

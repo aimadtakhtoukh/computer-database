@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <%@ include file="/WEB-INF/partials/css.jsp" %>
-<link href="../css/dashboard.css" rel="stylesheet" media="screen">
 <title>Computer Database</title>
 </head>
 <body>
@@ -53,106 +52,82 @@
 					</th>
 					
 					<th>
-					Computer name
-					<div class="arrow-container">
-						<div class="arrow-asc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="name"/>
-								<c:param name="asc" value="true" />
-							</c:url>
-							">
-							<i class="fa fa-sort-asc"></i>
-							</a>
-						</div>
-						<div class="arrow-desc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="name"/>
-								<c:param name="asc" value="false" />
-							</c:url>
-							">
-							<i class="fa fa-sort-desc"></i>				
-							</a>
-						</div>
-					</div>
+					Computer name 
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="name"/>
+						<c:param name="asc" value="true" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-up"></i>
+					</a>
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="name"/>
+						<c:param name="asc" value="false" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-down"></i>				
+					</a>
 					</th>
 					<th>
 					Introduced date
-					<div class="arrow-container">
-						<div class="arrow-asc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="introduced"/>
-								<c:param name="asc" value="true" />
-							</c:url>
-							">
-							<i class="fa fa-sort-asc"></i>		
-							</a>
-						</div>
-						<div class="arrow-desc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="introduced"/>
-								<c:param name="asc" value="false" />
-							</c:url>
-							">
-							<i class="fa fa-sort-desc"></i>				
-							</a>
-						</div>
-					</div>
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="introduced"/>
+						<c:param name="asc" value="true" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-up"></i>		
+					</a>
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="introduced"/>
+						<c:param name="asc" value="false" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-down"></i>				
+					</a>
 					</th>
 					<!-- Table header for Discontinued Date -->
 					<th>
 					Discontinued date
-					<div class="arrow-container">
-						<div class="arrow-asc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="discontinued"/>
-								<c:param name="asc" value="true" />
-							</c:url>
-							">
-							<i class="fa fa-sort-asc"></i>		
-							</a>
-						</div>
-						<div class="arrow-desc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="discontinued"/>
-								<c:param name="asc" value="false" />
-							</c:url>
-							">
-							<i class="fa fa-sort-desc"></i>				
-							</a>
-						</div>
-					</div>
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="discontinued"/>
+						<c:param name="asc" value="true" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-up"></i>		
+					</a>
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="discontinued"/>
+						<c:param name="asc" value="false" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-down"></i>				
+					</a>
 					</th>
 					<!-- Table header for Company -->
 					<th>
 					Company
-					<div class="arrow-container">
-						<div class="arrow-asc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="company"/>
-								<c:param name="asc" value="true" />
-							</c:url>
-							">
-							<i class="fa fa-sort-asc"></i>		
-							</a>
-						</div>
-						<div class="arrow-desc">
-							<a href="
-							<c:url value="dashboard">
-								<c:param name="orderBy" value="company"/>
-								<c:param name="asc" value="false" />
-							</c:url>
-							">
-							<i class="fa fa-sort-desc"></i>				
-							</a>
-						</div>
-					</div>
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="company"/>
+						<c:param name="asc" value="true" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-up"></i>		
+					</a>
+					<a href="
+					<c:url value="dashboard">
+						<c:param name="orderBy" value="company"/>
+						<c:param name="asc" value="false" />
+					</c:url>
+					">
+					<i class="fa fa-long-arrow-down"></i>				
+					</a>
 					</th>
 				</tr>
 			</thead>
