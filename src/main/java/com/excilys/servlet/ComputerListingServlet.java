@@ -18,7 +18,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.excilys.beans.Computer;
-import com.excilys.page.PageImpl;
+import com.excilys.page.ComputerPage;
+import com.excilys.page.Page;
 import com.excilys.page.comparators.ComputerComparator;
 import com.excilys.services.ComputerService;
 import com.excilys.services.ComputerServiceImpl;
@@ -36,7 +37,7 @@ public class ComputerListingServlet extends HttpServlet {
 	private static final int PAGE_NUMBER = 5;
 
 	private ComputerService computerService = ComputerServiceImpl.getInstance();
-	private PageImpl<Computer> page = computerService.getComputerPage();
+	private Page<Computer> page = computerService.getComputerPage();
 	
 	// Order By variables
 	private Map<String, Comparator<Computer>> comparators = new HashMap<>();
@@ -58,12 +59,12 @@ public class ComputerListingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.trace("GET called on /dashboard : Showing dashboard, start up");
-		if (page.getTotalCount() != computerService.getComputerPage().getTotalCount()) {
-			PageImpl<Computer> newpage = computerService.getComputerPage();
-			newpage.setLimit(page.getLimit());
-			newpage.setOffset(page.getOffset());
-			page = newpage;
-		}
+		ComputerPage newpage = computerService.getComputerPage();
+		newpage.setLimit(page.getLimit());
+		newpage.setOffset(page.getOffset());
+		newpage.setComparator(page.getComparator(), page.isAscendent());
+		newpage.setSearchString(page.getSearchString());
+		page = newpage;
 		int currentResultsPerPage = page.getLimit();
 		if (request.getParameter("resultsPerPage") != null) {
 			currentResultsPerPage = verifyCurrentResultsPerPageParameter(request.getParameter("resultsPerPage"));
@@ -72,6 +73,9 @@ public class ComputerListingServlet extends HttpServlet {
 		if (request.getParameter("page") != null) {
 			int currentPage = verifyCurrentPageParameter(request.getParameter("page"));
 			page.goToPage(currentPage);
+		}
+		if (request.getParameter("search") != null) {
+			page.setSearchString(request.getParameter("search"));
 		}
 		boolean ascendantOrderBy = page.isAscendent();
 		if (request.getParameter("asc") != null) {
@@ -97,15 +101,20 @@ public class ComputerListingServlet extends HttpServlet {
 			items.add(new ComputerDTO(c));
 		}
 		request.setAttribute("items", items);
-		// Pages proches
+		// Pages proches de pagination
 		int current = page.getCurrentPageNumber();
 		int start = Math.max(1, current - PAGE_NUMBER);
 		int finish = Math.min(current + PAGE_NUMBER, page.getTotalPageNumber() + 1);
 		request.setAttribute("paginationStart", start);
+		logger.info("paginationStart " + start);
 		request.setAttribute("paginationFinish", finish);
+		logger.info("paginationFinish " + finish);
 		request.setAttribute("currentPageNumber", current + 1);
+		logger.info("currentPageNumber " + (current + 1));
 		request.setAttribute("totalPageNumber", page.getTotalPageNumber() + 1);
+		logger.info("totalPageNumber " + (page.getTotalPageNumber() + 1));
 		request.setAttribute("resultsPerPage", currentResultsPerPage);
+		logger.info("resultsPerPage " + currentResultsPerPage);
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
 		rd.forward(request, response);
 		logger.trace("GET called on /dashboard : Showing dashboard, response sent");
