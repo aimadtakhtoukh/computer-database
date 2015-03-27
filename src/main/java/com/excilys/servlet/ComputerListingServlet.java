@@ -101,7 +101,7 @@ public class ComputerListingServlet extends HttpServlet {
 			items.add(new ComputerDTO(c));
 		}
 		request.setAttribute("items", items);
-		// Pages proches de pagination
+		// Variables de pagination
 		int current = page.getCurrentPageNumber();
 		int start = Math.max(1, current - PAGE_NUMBER);
 		int finish = Math.min(current + PAGE_NUMBER, page.getTotalPageNumber() + 1);
@@ -110,6 +110,8 @@ public class ComputerListingServlet extends HttpServlet {
 		request.setAttribute("currentPageNumber", current + 1);
 		request.setAttribute("totalPageNumber", page.getTotalPageNumber() + 1);
 		request.setAttribute("resultsPerPage", currentResultsPerPage);
+		// Variables de recherche
+		request.setAttribute("searchString", page.getSearchString());
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
 		rd.forward(request, response);
 		logger.trace("GET called on /dashboard : Showing dashboard, response sent");
