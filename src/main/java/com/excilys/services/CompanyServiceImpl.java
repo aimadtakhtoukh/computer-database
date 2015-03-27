@@ -43,22 +43,15 @@ public enum CompanyServiceImpl implements CompanyService {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 		try {
 			conn.setAutoCommit(false);
-			computerDAO.getAll()
-			.stream()
-			.filter(computer -> computer.getCompany() != null)
-			.filter(computer -> (computer.getCompany().getId() == id))
-			.forEach(computer -> computerDAO.delete(computer.getId(), conn));
+			computerDAO.deleteByCompanyId(id, conn);
 			companyDAO.delete(id, conn);
 			conn.commit();
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} catch (PersistenceException e) {
+		} catch (SQLException | PersistenceException e) {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				throw e;
+				throw new PersistenceException(e);
 			}
-			throw e;
 		} finally {
 			ComputerDatabaseConnectionFactory.cleanConnection(conn);
 		}

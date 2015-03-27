@@ -20,6 +20,10 @@
 		<div id="actions" class="form-horizontal">
 			<div class="pull-left">
 				<form id="searchForm" action="dashboard" method="GET" class="form-inline">
+					<input type="hidden" name="resultsPerPage" value="${resultsPerPage}" />
+					<input type="hidden" name="page" value="${page}" />
+					<input type="hidden" name="orderBy" value="${orderBy}" />
+					<input type="hidden" name="asc" value="${asc}" />
 					<input type="search" id="searchbox" name="search" class="form-control" placeholder="Search name" value="${searchString}" />
 					<input type="submit" id="searchsubmit" value="Filter by name" class="btn btn-primary" />
 				</form>
@@ -54,37 +58,53 @@
 					<th>
 					Computer name 
 					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="name"/>
-						<c:param name="asc" value="true" />
-					</c:url>
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="name"  
+							ascendent="true"
+						/>
 					">
 					<i class="fa fa-long-arrow-up"></i>
 					</a>
-					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="name"/>
-						<c:param name="asc" value="false" />
-					</c:url>
+					<a href="		
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="name"  
+							ascendent="false"
+						/>
 					">
 					<i class="fa fa-long-arrow-down"></i>				
 					</a>
 					</th>
 					<th>
 					Introduced date
-					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="introduced"/>
-						<c:param name="asc" value="true" />
-					</c:url>
+					<a href="		
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="introduced"  
+							ascendent="true"
+						/>
 					">
 					<i class="fa fa-long-arrow-up"></i>		
 					</a>
-					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="introduced"/>
-						<c:param name="asc" value="false" />
-					</c:url>
+					<a href="		
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="introduced"  
+							ascendent="false"
+						/>
 					">
 					<i class="fa fa-long-arrow-down"></i>				
 					</a>
@@ -92,19 +112,27 @@
 					<!-- Table header for Discontinued Date -->
 					<th>
 					Discontinued date
-					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="discontinued"/>
-						<c:param name="asc" value="true" />
-					</c:url>
+					<a href="		
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="discontinued"  
+							ascendent="true"
+						/>
 					">
 					<i class="fa fa-long-arrow-up"></i>		
 					</a>
-					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="discontinued"/>
-						<c:param name="asc" value="false" />
-					</c:url>
+					<a href="		
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="discontinued"  
+							ascendent="false"
+						/>
 					">
 					<i class="fa fa-long-arrow-down"></i>				
 					</a>
@@ -112,19 +140,27 @@
 					<!-- Table header for Company -->
 					<th>
 					Company
-					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="company"/>
-						<c:param name="asc" value="true" />
-					</c:url>
+					<a href="		
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="company"  
+							ascendent="true"
+						/>
 					">
 					<i class="fa fa-long-arrow-up"></i>		
 					</a>
-					<a href="
-					<c:url value="dashboard">
-						<c:param name="orderBy" value="company"/>
-						<c:param name="asc" value="false" />
-					</c:url>
+					<a href="		
+						<mylib:link 
+							target="dashboard" 
+							resultsPerPage="${resultsPerPage}" 
+							search="${searchString}" 
+							page="${currentPageNumber}"  
+							orderBy="company"  
+							ascendent="false"
+						/>
 					">
 					<i class="fa fa-long-arrow-down"></i>				
 					</a>
@@ -137,11 +173,13 @@
 						<td class="editMode">
 							<input type="checkbox" name="cb" class="cb" value="${computer.id}">
 						</td>
-						<td><a href="
-						<c:url value="editComputer">
-							<c:param name="id" value="${computer.id}"/>
-						</c:url>						
-						">${computer.name}</a></td>
+						<td>
+						<a href="
+							<c:url value="editComputer">
+								<c:param name="id" value="${computer.id}"/>
+							</c:url>						
+						">
+						${computer.name}</a></td>
 						<td>${computer.introduced}</td>
 						<td>${computer.discontinued}</td>
 						<td>${computer.company}</td>

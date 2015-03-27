@@ -1,9 +1,12 @@
 package com.excilys.page;
 
-import java.util.Comparator;
 import java.util.List;
 
+import com.excilys.dao.CRUDDAO;
+
 public interface Page<T> {
+	
+	public CRUDDAO<T> getDAO();
 
 	public int getLimit();
 	
@@ -13,6 +16,16 @@ public interface Page<T> {
 	
 	public void setOffset(int offset);
 	
+	public boolean isAscendent();
+	
+	public String getOrderedColumn();
+	
+	public void setOrder(String column, boolean ascendent);
+	
+	public String getSearchString();
+	
+	public void setSearchString(String searchString);
+	
 	public int getTotalCount();
 	
 	public int getCurrentPageNumber();
@@ -21,20 +34,6 @@ public interface Page<T> {
 	
 	public List<T> getPageElements();
 	
-	public List<T> getAllElements();
-	
 	public void goToPage(int i);
-	
-	public Comparator<? super T> getComparator();
-	
-	public boolean isAscendent();
-	
-	public void setComparator(Comparator<? super T> comparator, boolean ascendent);
-	
-	public String getSearchString();
-	
-	public void setSearchString(String searchString);
-	
-	public void order();
 	
 }

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="mylib" tagdir="/WEB-INF/tags"%>
 
 <%@ attribute name="currentPageNumber" required="true"
 	type="java.lang.Integer" description="Sets the number of pages."%>
@@ -11,6 +12,25 @@
 <%@ attribute name="paginationFinish" required="true"
 	type="java.lang.Integer"
 	description="Sets at which page the pagination finishes."%>
+	
+	
+<c:choose>
+	<c:when test="${currentPageNumber > 1}">
+		<c:set var="lower" value="${currentPageNumber - 1}"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="lower" value="1"/>
+	</c:otherwise>
+</c:choose>
+	
+<c:choose>
+	<c:when test="${currentPageNumber < totalPageNumber}">
+		<c:set var="higher" value="${currentPageNumber + 1}"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="higher" value="${totalPageNumber}"/>
+	</c:otherwise>
+</c:choose>
 
 <div class="btn-group btn-group-sm pull-right" role="group">
 	<form action="" method="GET">
@@ -27,33 +47,43 @@
 	<ul class="pagination">
 		<li><a
 			href="
-					<c:url value="">
-						<c:param name="resultsPerPage" value="${resultsPerPage}" />
-						<c:if test="${currentPageNumber > 1}">
-							<c:param name="page" value="${currentPageNumber - 1}" />
-						</c:if>
-					</c:url>
-					"
+			<mylib:link 
+				target="dashboard" 
+				resultsPerPage="${resultsPerPage}" 
+				search="${searchString}" 
+				page="${lower}"  
+				orderBy="${orderBy}"  
+				ascendent="${asc}"
+			/>
+			"
 			aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 		</a></li>
 		<c:forEach var="i" begin="${paginationStart}"
 			end="${paginationFinish}">
 			<li><a
 				href="
-							<c:url value="">
-								<c:param name="resultsPerPage" value="${resultsPerPage}" />
-								<c:param name="page" value="${i}" />
-							</c:url>">${i}
+					<mylib:link 
+						target="dashboard" 
+						resultsPerPage="${resultsPerPage}" 
+						search="${searchString}" 
+						page="${i}"  
+						orderBy="${orderBy}"  
+						ascendent="${asc}"
+					/>
+				">${i}
 			</a></li>
 		</c:forEach>
 		<li><a
 			href="
-						<c:url value="">
-							<c:param name="resultsPerPage" value="${resultsPerPage}" />
-							<c:if test="${currentPageNumber < totalPageNumber}">
-								<c:param name="page" value="${currentPageNumber + 1}" />
-							</c:if>
-						</c:url>"
+				<mylib:link 
+					target="dashboard" 
+					resultsPerPage="${resultsPerPage}" 
+					search="${searchString}" 
+					page="${higher}"  
+					orderBy="${orderBy}"  
+					ascendent="${asc}"
+				/>
+				 "
 			aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 		</a></li>
 	</ul>

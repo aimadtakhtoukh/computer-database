@@ -1,11 +1,9 @@
 package com.excilys.page;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.excilys.dao.CRUDDAO;
 
 /**
  * The Page bean contains variables to define a page, by its offset,
@@ -13,39 +11,43 @@ import org.slf4j.LoggerFactory;
  * @author excilys
  *
  */
-public class PageImpl<T> implements Page<T> {
+public abstract class PageImpl<T> implements Page<T> {
 	
 	final Logger logger = LoggerFactory.getLogger(PageImpl.class);
 	
 	private final static int STANDARD_PAGE_LIMIT = 10;
 	private final static int STANDARD_PAGE_OFFSET = 0;
 	
-	private List<T> list;
+	private CRUDDAO<T> dao;
 	private int limit;
 	private int offset;
 	private int total;
 	//Order by variables
-	private Comparator<? super T> comparator;
+	private String column;
 	private boolean ascendent;
 	//Search variables
 	private String searchString;
 	
-	public PageImpl(List<T> list) {
+	public PageImpl(CRUDDAO<T> dao) {
 		super();
-		if (list == null) {
-			throw new IllegalArgumentException("Empty list.");
+		if (dao == null) {
+			throw new IllegalArgumentException("Null DAO.");
 		}
-		this.list = list;
+		this.dao = dao;
 		this.limit = STANDARD_PAGE_LIMIT;
 		this.offset = STANDARD_PAGE_OFFSET;
-		this.total = list.size();
+		this.total = dao.getCount();
 		logger.trace("Page created.");
 	}
 	
-	public PageImpl(List<T> list, int limit, int offset) {
-		this(list);
+	public PageImpl(CRUDDAO<T> dao, int limit, int offset, String order) {
+		this(dao);
 		this.limit = limit;
 		this.offset = offset;
+	}
+	
+	public CRUDDAO<T> getDAO() {
+		return dao;
 	}
 
 	public int getLimit() {
@@ -93,6 +95,7 @@ public class PageImpl<T> implements Page<T> {
 		return (total / limit);
 	}
 	
+	/*
 	public List<T> getPageElements() {
 		logger.trace("Elements from " + offset + " to " + (offset + limit) + " sent.");
 		return list.subList(Math.max(0, offset), Math.min(offset + limit, list.size()));
@@ -102,6 +105,8 @@ public class PageImpl<T> implements Page<T> {
 		logger.trace("All elements sent.");
 		return list;
 	}
+	*/
+	
 	
 	public void goToPage(int i) {
 		if (i >= 0 && i <= getTotalPageNumber()) {
@@ -109,18 +114,18 @@ public class PageImpl<T> implements Page<T> {
 		}
 		logger.trace("Page set to the " + i + "th page.");
 	}
-	
+	/*
 	public Comparator<? super T> getComparator() {
 		return comparator;
+	}
+	*/
+
+	public String getOrderedColumn() {
+		return column;
 	}
 	
 	public boolean isAscendent() {
 		return ascendent;
-	}
-	
-	public void setComparator(Comparator<? super T> comparator, boolean ascendent) {
-		this.comparator = comparator;
-		this.ascendent = ascendent;
 	}
 	
 	public String getSearchString() {
@@ -129,17 +134,5 @@ public class PageImpl<T> implements Page<T> {
 	
 	public void setSearchString(String searchString) {
 		this.searchString = searchString;
-	}
-	
-	public void order() {
-		if (comparator != null) {
-			list.sort(comparator);
-			if (!ascendent) {
-				Collections.reverse(list);
-			}
-			logger.trace("Elements sorted.");
-		} else {
-			logger.trace("No comparator set for Page Object.");
-		}
 	}
 }

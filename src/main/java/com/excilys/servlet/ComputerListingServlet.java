@@ -24,6 +24,7 @@ import com.excilys.page.comparators.ComputerComparator;
 import com.excilys.services.ComputerService;
 import com.excilys.services.ComputerServiceImpl;
 import com.excilys.servlet.dto.ComputerDTO;
+import com.excilys.validator.NumberValidator;
 
 /**
  * Servlet implementation class ComputerListingServlet
@@ -118,17 +119,25 @@ public class ComputerListingServlet extends HttpServlet {
 	}
 	
 	private int verifyCurrentPageParameter(String param) {
-		int result = Integer.parseInt(param);
-		if (result < 1) {return 0;}
-		if (result > page.getTotalPageNumber()) {return page.getTotalPageNumber();}
-		return result - 1;
+		if (NumberValidator.isARightNumber(param)) {
+			int result = Integer.parseInt(param);
+			if (result < 1) {return 0;}
+			if (result > page.getTotalPageNumber()) {return page.getTotalPageNumber();}
+			return result - 1;
+		} else {
+			return 1;
+		}
 	}
 	
 	private int verifyCurrentResultsPerPageParameter(String param) {
-		int result = Integer.parseInt(param);
-		if (result < 1) {return 10;}
-		if (result > page.getTotalCount()) {return page.getTotalCount();}
-		return result;
+		if (NumberValidator.isARightNumber(param)) {
+			int result = Integer.parseInt(param);
+			if (result < 1) {return 10;}
+			if (result > page.getTotalCount()) {return page.getTotalCount();}
+			return result;
+		} else {
+			return 10;
+		}
 	}
 
 }

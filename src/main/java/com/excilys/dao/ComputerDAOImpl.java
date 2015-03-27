@@ -33,6 +33,33 @@ public enum ComputerDAOImpl implements ComputerDAO {
 	}
 
 	@Override
+	public Computer get(long id) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		String query = new StringBuilder()
+			.append("SELECT * FROM ")
+			.append(TABLE_NAME)
+			.append(" WHERE ")
+			.append(PARAM_ID)
+			.append("= ?")
+			.toString();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setLong(1, id);
+			logger.trace("Computer DAO executed the query : " + ps.toString());
+			rs = ps.executeQuery();
+			Computer computer = ComputerMapper.getMappedResult(rs);
+			return computer;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
+			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		}
+	}
+
+	@Override
 	public long create(Computer computer) {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 		long result = create(computer, conn);
@@ -49,14 +76,6 @@ public enum ComputerDAOImpl implements ComputerDAO {
 	}
 
 	@Override
-	public Computer get(long id) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		Computer result = get(id, conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		return result;
-	}
-
-	@Override
 	public long delete(long id) {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 		long result = delete(id, conn);
@@ -67,25 +86,102 @@ public enum ComputerDAOImpl implements ComputerDAO {
 	@Override
 	public List<Computer> getAll() {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		List<Computer> result = getAll(conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		return result;
+		String query = new StringBuilder()
+		.append("SELECT * FROM ")
+		.append(TABLE_NAME)
+		.append(";")
+		.toString();
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = conn.createStatement();
+			logger.trace("Computer DAO executed the query : " + stmt.toString());
+			rs = stmt.executeQuery(query);
+			List<Computer> result = ComputerMapper.getMappedResults(rs);
+			return result;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		}
 	}
 
 	@Override
-	public List<Computer> getAll(int offset, int limit) {
+	public List<Computer> getAll(int offset, int limit, String orderBy, boolean ascendant, String searchString) {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		List<Computer> result = getAll(offset, limit, conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		return result;
+		StringBuilder queryBuilder = new StringBuilder();
+		boolean hasASearchString = false;
+		queryBuilder
+			.append("SELECT * FROM ")
+			.append(TABLE_NAME)
+			.append("LEFT JOIN company ON ")
+			.append("computer.company_id = company.id");
+		if (searchString != null) {
+			if (!searchString.trim().isEmpty()) {
+				hasASearchString = true;
+				queryBuilder.append(" WHERE ")
+					.append(PARAM_NAME)
+					.append(" LIKE ?")
+					.append("OR company.name LIKE ?");
+				;
+			}
+		}
+		if (orderBy != null) {
+			if (!orderBy.trim().isEmpty()) {
+				queryBuilder.append(" ORDER BY ");
+				queryBuilder.append(orderBy);
+				if (!ascendant) {
+					queryBuilder.append(" DESC");
+				}
+			}
+		}
+		queryBuilder.append(" LIMIT ? OFFSET ?;");
+		String query = queryBuilder.toString();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			int index = 0;
+			stmt = conn.prepareStatement(query);
+			if (hasASearchString) {
+				stmt.setString(++index, "%" + searchString + "%");
+				stmt.setString(++index, "%" + searchString + "%");
+			}
+			stmt.setInt(++index, limit);
+			stmt.setInt(++index, offset);
+			logger.trace("Computer DAO executed the query : " + stmt.toString());
+			rs = stmt.executeQuery();
+			List<Computer> results = ComputerMapper.getMappedResults(rs);
+			return results;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		}
 	}
 
 	@Override
 	public int getCount() {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		int result = getCount(conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		return result;
+		String query = "SELECT COUNT(*) FROM " + TABLE_NAME + ";";
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = conn.createStatement();
+			logger.trace("Computer DAO executed the query : " + stmt.toString());
+			rs = stmt.executeQuery(query);
+			int count = -1;
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+			return count;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+		}
 	}
 
 	@Override
@@ -190,31 +286,6 @@ public enum ComputerDAOImpl implements ComputerDAO {
 	}
 
 	@Override
-	public Computer get(long id, Connection conn) {
-		String query = new StringBuilder()
-						.append("SELECT * FROM ")
-						.append(TABLE_NAME)
-						.append(" WHERE ")
-						.append(PARAM_ID)
-						.append("= ?")
-						.toString();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			ps = conn.prepareStatement(query);
-			ps.setLong(1, id);
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			rs = ps.executeQuery();
-			Computer computer = ComputerMapper.getMappedResult(rs);
-			return computer;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
-		}
-	}
-
-	@Override
 	public long delete(long id, Connection conn) {
 		String query = new StringBuilder()
 						.append("DELETE FROM ")
@@ -242,66 +313,31 @@ public enum ComputerDAOImpl implements ComputerDAO {
 	}
 
 	@Override
-	public List<Computer> getAll(Connection conn) {
+	public void deleteByCompanyId(long companyId) {
+		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		delete(companyId, conn);
+		ComputerDatabaseConnectionFactory.cleanConnection(conn);
+	}
+
+	@Override
+	public void deleteByCompanyId(long companyId, Connection conn) {
 		String query = new StringBuilder()
-						.append("SELECT * FROM ")
-						.append(TABLE_NAME)
-						.append(";")
-						.toString();
-		Statement stmt = null;
-		ResultSet rs = null;
+			.append("DELETE FROM ")
+			.append(TABLE_NAME)
+			.append(" WHERE ")
+			.append(PARAM_COMPANY_ID)
+			.append(" = ?;")
+			.toString();
+		PreparedStatement ps = null;
 		try {
-			stmt = conn.createStatement();
-			logger.trace("Computer DAO executed the query : " + stmt.toString());
-			rs = stmt.executeQuery(query);
-			List<Computer> result = ComputerMapper.getMappedResults(rs);
-			return result;
+			ps = conn.prepareStatement(query);
+			ps.setLong(1, companyId);
+			logger.trace("Computer DAO executed the query : " + ps.toString());
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
+			ComputerDatabaseConnectionFactory.cleanAfterConnection(null, ps);
 		}
 	}
-
-	@Override
-	public List<Computer> getAll(int offset, int limit, Connection conn) {
-		String query = "SELECT * FROM " + TABLE_NAME + " LIMIT ? OFFSET ?;";
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		try {
-			stmt = conn.prepareStatement(query);
-			stmt.setInt(1, limit);
-			stmt.setInt(2, offset);
-			logger.trace("Computer DAO executed the query : " + stmt.toString());
-			rs = stmt.executeQuery();
-			List<Computer> results = ComputerMapper.getMappedResults(rs);
-			return results;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
-		}
-	}
-
-	@Override
-	public int getCount(Connection conn) {
-		String query = "SELECT COUNT(*) FROM " + TABLE_NAME + ";";
-		Statement stmt = null;
-		ResultSet rs = null;
-		try {
-			stmt = conn.createStatement();
-			logger.trace("Computer DAO executed the query : " + stmt.toString());
-			rs = stmt.executeQuery(query);
-			int count = -1;
-			if (rs.next()) {
-				count = rs.getInt(1);
-			}
-			return count;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
-		}
-	}
-
 }

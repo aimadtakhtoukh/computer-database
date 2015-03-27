@@ -55,7 +55,7 @@ public enum ComputerDatabaseConnectionFactory {
 			try {
 				conn.close();
 			} catch (SQLException e) {
-				// Nothing to do.
+				throw new PersistenceException(e);
 			}
 		}
 	}
@@ -65,14 +65,14 @@ public enum ComputerDatabaseConnectionFactory {
 			try {
 				rs.close();
 			} catch (SQLException e) {
-				// Nothing to do.
+				throw new PersistenceException(e);
 			}
 		}
 		if (s != null) {
 			try {
 				s.close();
 			} catch (SQLException e) {
-				// Nothing to do.
+				throw new PersistenceException(e);
 			}
 		}
 	}

@@ -4,27 +4,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.excilys.beans.Computer;
+import com.excilys.dao.CRUDDAO;
 
 public class ComputerPage extends PageImpl<Computer> implements Page<Computer> {
 	
-	List<Computer> resultList = null;
-
-	public ComputerPage(List<Computer> list) {
-		super(list);
-		setUpSearchResultList();
-	}
-
-	public ComputerPage(List<Computer> list, int limit, int offset) {
-		super(list, limit, offset);
-		setUpSearchResultList();
+	public ComputerPage(CRUDDAO<Computer> dao) {
+		super(dao);
 	}
 	
+	public ComputerPage(CRUDDAO<Computer> list, int limit, int offset,
+			String order) {
+		super(list, limit, offset, order);
+	}
+
+	List<Computer> resultList = null;
+	
 	public List<Computer> getPageElements() {
-		if (resultList == null) {
-			return super.getPageElements();
-		}
-		return resultList.subList(Math.max(0, this.getOffset()), 
-				Math.min(this.getOffset() + this.getLimit(), resultList.size()));
+		return super.getDAO().
 	}
 	
 	public int getTotalCount() {
@@ -78,5 +74,11 @@ public class ComputerPage extends PageImpl<Computer> implements Page<Computer> {
 			return false;
 		}
 		return computer.getCompany().getName().contains(searchString);
+	}
+
+	@Override
+	public void setOrder(String column, boolean ascendent) {
+		// TODO Auto-generated method stub
+		
 	}
 }
