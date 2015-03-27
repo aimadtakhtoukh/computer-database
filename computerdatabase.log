@@ -333,3 +333,584 @@
 17:13:36.479 [main] INFO  com.excilys.cli.ExitCommand - Program end.
 17:44:24.939 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
 17:44:24.942 [main] INFO  com.excilys.cli.ExitCommand - Program end.
+10:32:18.401 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:32:18.703 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:32:18.728 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.731 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.738 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.739 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.750 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.752 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.753 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.754 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.759 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.760 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.761 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.762 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.762 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.763 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.764 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.765 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.766 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.767 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.768 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.769 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.770 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.771 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.772 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.773 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.773 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.774 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.776 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.777 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.778 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.779 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.779 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.780 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.781 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.782 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.782 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.783 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.784 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.786 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.788 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.789 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.790 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.791 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.792 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+10:32:18.802 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, start up
+10:32:18.802 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:32:18.802 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:32:18.803 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.804 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.805 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.806 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.809 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.809 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.810 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.811 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.811 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.812 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.813 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.813 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.814 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.815 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.816 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.816 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.817 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.818 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.819 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.819 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.820 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.821 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.821 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.822 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.822 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.823 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.824 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.824 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.825 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.825 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.826 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.826 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.827 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.827 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.831 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.832 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.833 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.834 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.834 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.835 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.836 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.836 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:32:18.837 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+10:32:18.837 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Limit set to 10.
+10:32:18.837 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Offset set to 0.
+10:32:18.838 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - No comparator set for Page Object.
+10:32:18.838 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Elements from 0 to 10 sent.
+10:32:18.839 [http-bio-8080-exec-1] INFO  c.e.servlet.ComputerListingServlet - paginationStart 1
+10:32:18.840 [http-bio-8080-exec-1] INFO  c.e.servlet.ComputerListingServlet - paginationFinish 5
+10:32:18.840 [http-bio-8080-exec-1] INFO  c.e.servlet.ComputerListingServlet - currentPageNumber 1
+10:32:18.840 [http-bio-8080-exec-1] INFO  c.e.servlet.ComputerListingServlet - totalPageNumber 58
+10:32:18.840 [http-bio-8080-exec-1] INFO  c.e.servlet.ComputerListingServlet - resultsPerPage 10
+10:32:19.792 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, response sent
+10:35:05.947 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:35:06.245 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:35:06.270 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.273 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.280 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.281 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.283 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.284 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.285 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.286 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.287 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.288 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.289 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.289 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.291 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.292 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.294 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.295 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.296 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.297 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.298 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.299 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.300 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.302 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.303 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.303 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.304 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.305 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.307 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.308 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.309 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.310 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.311 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.312 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.312 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.313 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.314 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.314 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.316 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.323 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.325 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.325 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.327 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.327 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.329 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+10:35:06.338 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, start up
+10:35:06.339 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:35:06.339 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:35:06.340 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.341 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.342 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.343 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.344 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.345 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.346 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.346 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.347 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.348 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.348 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.349 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.349 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.350 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.351 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.351 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.352 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.353 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.353 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.354 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.355 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.356 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.357 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.357 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.358 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.358 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.359 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.360 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.361 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.361 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.362 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.363 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.363 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.364 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.364 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.365 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.366 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.367 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.368 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.368 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.369 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.370 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:06.371 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+10:35:06.371 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Limit set to 10.
+10:35:06.371 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Offset set to 0.
+10:35:06.372 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - No comparator set for Page Object.
+10:35:06.372 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Elements from 0 to 10 sent.
+10:35:06.459 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, response sent
+10:39:55.270 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:39:55.662 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:39:55.685 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.687 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.693 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.694 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.696 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.697 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.698 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.698 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.699 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.700 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.701 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.702 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.703 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.703 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.705 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.706 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.706 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.707 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.708 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.709 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.710 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.712 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.713 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.713 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.714 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.715 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.717 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.717 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.718 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.719 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.720 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.721 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.722 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.722 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.723 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.724 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.725 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.728 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.729 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.730 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.732 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.733 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.734 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+10:39:55.745 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, start up
+10:39:55.745 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:39:55.745 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:39:55.747 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.747 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.748 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.749 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.750 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.751 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.752 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.753 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.753 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.754 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.755 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.755 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.756 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.757 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.758 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.758 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.759 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.760 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.761 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.762 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.762 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.764 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.764 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.765 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.765 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.766 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.767 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.768 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.768 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.769 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.769 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.770 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.771 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.771 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.772 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.772 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.773 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.775 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.775 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.776 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.777 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.778 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:39:55.779 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+10:39:55.779 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Limit set to 10.
+10:39:55.779 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Offset set to 0.
+10:39:55.780 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - No comparator set for Page Object.
+10:39:55.780 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Elements from 0 to 10 sent.
+10:39:56.621 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, response sent
+11:02:29.262 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+11:02:29.548 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+11:02:29.575 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.577 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.584 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.585 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.587 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.588 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.589 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.590 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.591 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.592 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.593 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.594 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.595 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.595 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.597 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.598 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.599 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.599 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.600 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.601 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.602 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.604 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.605 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.606 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.607 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.608 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.610 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.610 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.612 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.613 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.613 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.614 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.615 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.616 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.616 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.617 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.618 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.620 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.621 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.622 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.624 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.625 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.626 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+11:02:29.636 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, start up
+11:02:29.637 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+11:02:29.637 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+11:02:29.638 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.639 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.640 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.641 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.642 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.642 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.643 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.644 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.645 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.646 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.646 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.647 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.647 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.648 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.649 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.650 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.650 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.651 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.652 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.652 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.653 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.659 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.661 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.662 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.663 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.663 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.664 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.665 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.666 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.666 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.667 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.668 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.668 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.669 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.669 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.670 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.671 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.672 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.673 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.674 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.675 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.676 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:02:29.677 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+11:02:29.677 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Limit set to 10.
+11:02:29.677 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Offset set to 0.
+11:02:29.678 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - No comparator set for Page Object.
+11:02:29.678 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Elements from 0 to 10 sent.
+11:02:30.627 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, response sent
+11:04:01.314 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+11:04:01.604 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+11:04:01.628 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.631 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.637 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.638 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.641 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.642 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.643 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.644 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.645 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.646 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.647 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.647 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.648 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.649 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.650 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.651 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.652 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.653 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.653 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.654 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.655 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.657 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.658 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.658 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.659 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.660 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.661 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.662 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.663 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.664 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.664 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.665 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.666 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.666 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.667 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.668 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.669 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.670 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.671 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.672 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.673 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.674 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.675 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+11:04:01.686 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, start up
+11:04:01.686 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+11:04:01.687 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+11:04:01.688 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.689 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.690 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.690 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.691 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.692 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.692 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.693 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.693 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.694 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.694 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.695 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.695 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.696 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.697 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.697 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.698 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.698 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.699 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.700 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.700 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.701 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.702 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.702 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.703 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.703 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.704 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.706 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.708 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.709 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.711 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.712 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.713 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.714 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.714 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.715 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.715 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.716 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.717 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.717 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.718 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.719 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:04:01.719 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+11:04:01.720 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Limit set to 10.
+11:04:01.720 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Offset set to 0.
+11:04:01.720 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - No comparator set for Page Object.
+11:04:01.720 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Elements from 0 to 10 sent.
+11:04:01.810 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, response sent
+11:06:42.780 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+11:06:43.070 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+11:06:43.094 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.102 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.108 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.110 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.116 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.117 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.118 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.118 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.121 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.123 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.124 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.124 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.125 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.126 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.128 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.129 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.130 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.130 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.131 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.132 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.133 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.135 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.135 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.136 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.136 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.137 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.139 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.140 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.140 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.141 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.142 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.142 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.143 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.144 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.146 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.147 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.148 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.150 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.151 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.152 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.153 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.153 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.155 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+11:06:43.165 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, start up
+11:06:43.165 [http-bio-8080-exec-1] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+11:06:43.165 [http-bio-8080-exec-1] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+11:06:43.167 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.168 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.169 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.169 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.170 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.173 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.175 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.175 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.176 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.176 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.177 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.178 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.179 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.179 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.180 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.181 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.181 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.182 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.182 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.183 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.183 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.184 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.185 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.186 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.186 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.187 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.187 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.188 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.188 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.189 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.190 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.190 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.191 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.191 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.192 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.192 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.193 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.194 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.195 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.196 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.197 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.197 [http-bio-8080-exec-1] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+11:06:43.198 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Page created.
+11:06:43.198 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Limit set to 10.
+11:06:43.198 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Offset set to 0.
+11:06:43.199 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - No comparator set for Page Object.
+11:06:43.199 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Elements from 0 to 10 sent.
+11:06:43.291 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, response sent

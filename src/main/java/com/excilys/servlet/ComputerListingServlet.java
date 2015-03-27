@@ -106,15 +106,10 @@ public class ComputerListingServlet extends HttpServlet {
 		int start = Math.max(1, current - PAGE_NUMBER);
 		int finish = Math.min(current + PAGE_NUMBER, page.getTotalPageNumber() + 1);
 		request.setAttribute("paginationStart", start);
-		logger.info("paginationStart " + start);
 		request.setAttribute("paginationFinish", finish);
-		logger.info("paginationFinish " + finish);
 		request.setAttribute("currentPageNumber", current + 1);
-		logger.info("currentPageNumber " + (current + 1));
 		request.setAttribute("totalPageNumber", page.getTotalPageNumber() + 1);
-		logger.info("totalPageNumber " + (page.getTotalPageNumber() + 1));
 		request.setAttribute("resultsPerPage", currentResultsPerPage);
-		logger.info("resultsPerPage " + currentResultsPerPage);
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
 		rd.forward(request, response);
 		logger.trace("GET called on /dashboard : Showing dashboard, response sent");
