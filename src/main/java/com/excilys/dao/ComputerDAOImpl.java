@@ -54,33 +54,139 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
-			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, ps);
 		}
 	}
 
 	@Override
 	public long create(Computer computer) {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		long result = create(computer, conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		return result;
+		if (computer == null) {
+			throw new IllegalArgumentException();
+		}
+		String insertQuery = new StringBuilder()
+						.append("INSERT INTO ")
+						.append(TABLE_NAME)
+						.append("(")
+						.append(PARAM_NAME + ", ")
+						.append(PARAM_INTRODUCED + ", ")
+						.append(PARAM_DISCONTINUED + ", ")
+						.append(PARAM_COMPANY_ID)
+						.append(") VALUES (? ,? ,? ,? );")
+						.toString();
+		PreparedStatement ps = null;
+		ResultSet key = null;
+		try {
+			ps = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, computer.getName());
+			if (computer.getIntroduced() != null) {
+				ps.setTimestamp(2, Timestamp.valueOf((computer.getIntroduced())));
+			} else {
+				ps.setTimestamp(2, null);
+			}
+			if (computer.getDiscontinued() != null) {
+				ps.setTimestamp(3, Timestamp.valueOf(computer.getDiscontinued()));
+			} else {
+				ps.setTimestamp(3, null);
+			}
+			if (computer.getCompany() != null) {
+				ps.setLong(4, computer.getCompany().getId());
+			} else {
+				ps.setObject(4, null);
+			}
+			logger.trace("Computer DAO executed the query : " + ps.toString());
+			ps.executeUpdate();
+			key = ps.getGeneratedKeys();
+			long result = 0L;
+			if (key.next()) {
+				result =  key.getLong(1);
+			}
+			return result;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.releaseRessources(key, ps);
+		}
 	}
 
 	@Override
 	public long update(long id, Computer computer) {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		long result = update(id, computer, conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		return result;
+		if (computer == null) {
+			throw new IllegalArgumentException();
+		}
+		String query = new StringBuilder()
+						.append("UPDATE ")
+						.append(TABLE_NAME)
+						.append(" SET ") 
+						.append(PARAM_NAME + "=?, ")
+						.append(PARAM_INTRODUCED + "=?, ")
+						.append(PARAM_DISCONTINUED + "=?, ")
+						.append(PARAM_COMPANY_ID + "=? ")
+						.append("WHERE " + PARAM_ID + " = ?")
+						.toString();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, computer.getName());
+			if (computer.getIntroduced() != null) {
+				ps.setTimestamp(2, Timestamp.valueOf((computer.getIntroduced())));
+			} else {
+				ps.setTimestamp(2, null);
+			}
+			if (computer.getDiscontinued() != null) {
+				ps.setTimestamp(3, Timestamp.valueOf(computer.getDiscontinued()));
+			} else {
+				ps.setTimestamp(3, null);
+			}
+			if (computer.getCompany() != null) {
+				ps.setLong(4, computer.getCompany().getId());
+			} else {
+				ps.setObject(4, null);
+			}
+			ps.setLong(5, id);
+			logger.trace("Computer DAO executed the query : " + ps.toString());
+			ps.executeUpdate();
+			rs = ps.getGeneratedKeys();
+			long result = 0L;
+			if (rs.next()) {
+				result = rs.getLong(1);
+			}
+			return result;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, ps);
+		}
 	}
 
 	@Override
 	public long delete(long id) {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		long result = delete(id, conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		return result;
+		String query = new StringBuilder()
+		.append("DELETE FROM ")
+		.append(TABLE_NAME)
+		.append(" WHERE id = ?;")
+		.toString();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			ps.setLong(1, id);
+			logger.trace("Computer DAO executed the query : " + ps.toString());
+			ps.executeUpdate();
+			long result = 0L;
+			rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				result = rs.getLong(1);
+			}
+			return result;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, ps);
+		}
 	}
 
 	@Override
@@ -102,8 +208,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
-			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
 		}
 	}
 
@@ -157,15 +262,18 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
-			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
 		}
 	}
 
 	@Override
 	public int getCount() {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		String query = "SELECT COUNT(*) FROM " + TABLE_NAME + ";";
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT COUNT(*) FROM ");
+		sb.append(TABLE_NAME);
+		sb.append(";");
+		String query =  sb.toString();
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
@@ -180,155 +288,20 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, stmt);
-			ComputerDatabaseConnectionFactory.cleanConnection(conn);
-		}
-	}
-
-	@Override
-	public long create(Computer computer, Connection conn) {
-		if (computer == null) {
-			throw new IllegalArgumentException();
-		}
-		String insertQuery = new StringBuilder()
-						.append("INSERT INTO ")
-						.append(TABLE_NAME)
-						.append("(")
-						.append(PARAM_NAME + ", ")
-						.append(PARAM_INTRODUCED + ", ")
-						.append(PARAM_DISCONTINUED + ", ")
-						.append(PARAM_COMPANY_ID)
-						.append(") VALUES (? ,? ,? ,? );")
-						.toString();
-		PreparedStatement ps = null;
-		ResultSet key = null;
-		try {
-			ps = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, computer.getName());
-			if (computer.getIntroduced() != null) {
-				ps.setTimestamp(2, Timestamp.valueOf((computer.getIntroduced())));
-			} else {
-				ps.setTimestamp(2, null);
-			}
-			if (computer.getDiscontinued() != null) {
-				ps.setTimestamp(3, Timestamp.valueOf(computer.getDiscontinued()));
-			} else {
-				ps.setTimestamp(3, null);
-			}
-			if (computer.getCompany() != null) {
-				ps.setLong(4, computer.getCompany().getId());
-			} else {
-				ps.setObject(4, null);
-			}
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			ps.executeUpdate();
-			key = ps.getGeneratedKeys();
-			long result = 0L;
-			if (key.next()) {
-				result =  key.getLong(1);
-			}
-			return result;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(key, ps);
-		}
-	}
-
-	@Override
-	public long update(long id, Computer computer, Connection conn) {
-		if (computer == null) {
-			throw new IllegalArgumentException();
-		}
-		String query = new StringBuilder()
-						.append("UPDATE ")
-						.append(TABLE_NAME)
-						.append(" SET ") 
-						.append(PARAM_NAME + "=?, ")
-						.append(PARAM_INTRODUCED + "=?, ")
-						.append(PARAM_DISCONTINUED + "=?, ")
-						.append(PARAM_COMPANY_ID + "=? ")
-						.append("WHERE " + PARAM_ID + " = ?")
-						.toString();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, computer.getName());
-			if (computer.getIntroduced() != null) {
-				ps.setTimestamp(2, Timestamp.valueOf((computer.getIntroduced())));
-			} else {
-				ps.setTimestamp(2, null);
-			}
-			if (computer.getDiscontinued() != null) {
-				ps.setTimestamp(3, Timestamp.valueOf(computer.getDiscontinued()));
-			} else {
-				ps.setTimestamp(3, null);
-			}
-			if (computer.getCompany() != null) {
-				ps.setLong(4, computer.getCompany().getId());
-			} else {
-				ps.setObject(4, null);
-			}
-			ps.setLong(5, id);
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			ps.executeUpdate();
-			rs = ps.getGeneratedKeys();
-			long result = 0L;
-			if (rs.next()) {
-				result = rs.getLong(1);
-			}
-			return result;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
-		}
-	}
-
-	@Override
-	public long delete(long id, Connection conn) {
-		String query = new StringBuilder()
-						.append("DELETE FROM ")
-						.append(TABLE_NAME)
-						.append(" WHERE id = ?;")
-						.toString();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			ps.setLong(1, id);
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			ps.executeUpdate();
-			long result = 0L;
-			rs = ps.getGeneratedKeys();
-			if (rs.next()) {
-				result = rs.getLong(1);
-			}
-			return result;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(rs, ps);
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
 		}
 	}
 
 	@Override
 	public void deleteByCompanyId(long companyId) {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
-		delete(companyId, conn);
-		ComputerDatabaseConnectionFactory.cleanConnection(conn);
-	}
-
-	@Override
-	public void deleteByCompanyId(long companyId, Connection conn) {
 		String query = new StringBuilder()
-			.append("DELETE FROM ")
-			.append(TABLE_NAME)
-			.append(" WHERE ")
-			.append(PARAM_COMPANY_ID)
-			.append(" = ?;")
-			.toString();
+		.append("DELETE FROM ")
+		.append(TABLE_NAME)
+		.append(" WHERE ")
+		.append(PARAM_COMPANY_ID)
+		.append(" = ?;")
+		.toString();
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(query);
@@ -338,7 +311,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanAfterConnection(null, ps);
+			ComputerDatabaseConnectionFactory.releaseRessources(null, ps);
 		}
 	}
 }

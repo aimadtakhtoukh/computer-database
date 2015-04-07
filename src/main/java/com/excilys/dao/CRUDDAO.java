@@ -1,6 +1,5 @@
 package com.excilys.dao;
 
-import java.sql.Connection;
 import java.util.List;
 
 public interface CRUDDAO<T> {
@@ -30,18 +29,6 @@ public interface CRUDDAO<T> {
 	}
 	
 	default long delete(long id) {
-		throw new UnsupportedOperationException("Not implemented yet");
-	}
-	
-	default long create(T t, Connection conn) {
-		throw new UnsupportedOperationException("Not implemented yet");
-	}
-	
-	default long update(long id, T t, Connection conn) {
-		throw new UnsupportedOperationException("Not implemented yet");
-	}
-	
-	default long delete(long id, Connection conn) {
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 

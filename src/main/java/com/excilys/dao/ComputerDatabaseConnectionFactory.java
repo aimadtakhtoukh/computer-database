@@ -15,16 +15,9 @@ public enum ComputerDatabaseConnectionFactory {
 	INSTANCE;
 
 	private BoneCP pool;
+	private ThreadLocal<Connection> localConnection = new ThreadLocal<Connection>();
 
 	private ComputerDatabaseConnectionFactory() {
-		/*
-		try {
-			Driver monDriver = new com.mysql.jdbc.Driver();
-			DriverManager.registerDriver(monDriver);
-		} catch (SQLException e1) {
-			throw new PersistenceException("Erreur de chargement de classe", e1);
-		}
-		*/
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
 		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
 			Properties properties = new Properties();
@@ -44,24 +37,28 @@ public enum ComputerDatabaseConnectionFactory {
 	}
 
 	public Connection getConnection() {
-		try {
-			return pool.getConnection();
-		} catch (SQLException e) {
-			throw new PersistenceException("Impossible to get a connection. ", e);
-		}
-	}
-	
-	public static void cleanConnection(Connection conn) {
-		if (conn != null) {
+		if (localConnection.get() == null) {
 			try {
-				conn.close();
+				localConnection.set(pool.getConnection());
 			} catch (SQLException e) {
-				throw new PersistenceException(e);
+				throw new PersistenceException("Impossible to get a connection. ", e);
 			}
 		}
+		return localConnection.get();
 	}
 	
-	public static void cleanAfterConnection(ResultSet rs, Statement s) {
+	public void cleanConnection() {
+		if (localConnection.get() != null) {
+			try {
+				localConnection.get().close();
+				localConnection.remove();
+			} catch (SQLException e) {
+				throw new PersistenceException("Impossible to delete the connection. ", e);
+			}
+		}		
+	}
+	
+	public static void releaseRessources(ResultSet rs, Statement s) {
 		if (rs != null) {
 			try {
 				rs.close();
@@ -77,6 +74,21 @@ public enum ComputerDatabaseConnectionFactory {
 			}
 		}
 	}
+	
+	public void commit() {
+		try {
+			localConnection.get().commit();
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		}
+	}
 
+	public void rollback() {
+		try {
+			localConnection.get().rollback();
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		}
+	}
 
 }

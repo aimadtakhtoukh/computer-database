@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.excilys.dao.CRUDDAO;
+import com.excilys.dao.ComputerDatabaseConnectionFactory;
 
 /**
  * The Page bean contains variables to define a page, by its offset,
@@ -42,7 +43,7 @@ public abstract class PageImpl<T> implements Page<T> {
 		logger.trace("Page created.");
 	}
 	
-	public PageImpl(CRUDDAO<T> dao, int limit, int offset, String order) {
+	public PageImpl(CRUDDAO<T> dao, int limit, int offset) {
 		this(dao);
 		this.limit = limit;
 		this.offset = offset;
@@ -53,7 +54,9 @@ public abstract class PageImpl<T> implements Page<T> {
 	}
 	
 	public List<T> getPageElements() {
-		return dao.getAll(getOffset(), getLimit(), getOrderedColumn(), isAscendent(), getSearchString());
+		List<T> result = dao.getAll(getOffset(), getLimit(), getOrderedColumn(), isAscendent(), getSearchString());
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		return result;
 	}
 
 	public int getLimit() {

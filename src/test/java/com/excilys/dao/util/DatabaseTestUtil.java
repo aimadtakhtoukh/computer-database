@@ -24,7 +24,7 @@ public class DatabaseTestUtil {
 	public static String user;
 	public static String password;
 
-	public static void setUpDatabase() {
+	public static void setUpDatabase() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 		final Properties properties = new Properties();
 		final InputStream propertiesIs = DatabaseTestUtil.class
 				.getClassLoader().getResourceAsStream("./db.properties");

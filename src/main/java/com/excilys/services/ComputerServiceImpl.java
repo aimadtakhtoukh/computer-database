@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.excilys.beans.Computer;
 import com.excilys.dao.ComputerDAO;
 import com.excilys.dao.ComputerDAOImpl;
+import com.excilys.dao.ComputerDatabaseConnectionFactory;
 import com.excilys.page.ComputerPage;
 
 public enum ComputerServiceImpl implements ComputerService {
@@ -30,31 +31,40 @@ public enum ComputerServiceImpl implements ComputerService {
 	@Override
 	public List<Computer> getAll() {
 		logger.trace("Computer Service has been asked all computers.");
-		return computerDAO.getAll();
+		List<Computer> result = computerDAO.getAll();
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();		
+		return result;
 	}
 
 	@Override
 	public Computer getComputer(long id) {
 		logger.trace("Computer Service has been asked a computer with id : " + id);
-		return computerDAO.get(id);
+		Computer c = computerDAO.get(id);
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();		
+		return c;
 	}
 
 	@Override
 	public long createComputer(Computer computer) {
 		logger.trace("Computer Service has been asked to create a new computer : " + computer);
-		return computerDAO.create(computer);
+		long l = computerDAO.create(computer);
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		return l;
 	}
 
 	@Override
 	public long updateComputer(Computer computer) {
 		logger.trace("Computer Service has been asked to update a computer : " + computer);
-		return computerDAO.update(computer.getId(), computer);
+		long l = computerDAO.update(computer.getId(), computer);
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		return l;
 	}
 
 	@Override
 	public void deleteComputer(long id) {
 		logger.trace("Computer Service has been asked to delete the computer n°" + id);
 		computerDAO.delete(id);
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
 	}
 
 }

@@ -9,8 +9,8 @@ public class CompanyPage extends PageImpl<Company> implements Page<Company> {
 		super(dao);
 	}
 	
-	public CompanyPage(CRUDDAO<Company> dao, int limit, int offset, String order) {
-		super(dao, limit, offset, order);
+	public CompanyPage(CRUDDAO<Company> dao, int limit, int offset) {
+		super(dao, limit, offset);
 	}
 
 }

@@ -9,20 +9,28 @@ public class ComputerPage extends PageImpl<Computer> implements Page<Computer> {
 		super(dao);
 	}
 	
-	public ComputerPage(CRUDDAO<Computer> list, int limit, int offset,
-			String order) {
-		super(list, limit, offset, order);
+	public ComputerPage(CRUDDAO<Computer> list, int limit, int offset) {
+		super(list, limit, offset);
 	}
 	
 	public int getTotalCount() {
-		return super.getTotalCount();
+		if (hasASearchString()) {
+			return super.getTotalCount();
+		}
+		return this.getDAO().getAll(0, super.getTotalCount(), null, false, this.getSearchString()).size();
 	}
 	
 	public int getTotalPageNumber() {
-		return super.getTotalPageNumber();
+		if (hasASearchString()) {
+			return super.getTotalPageNumber();
+		}
+		return (this.getTotalCount() / this.getLimit()); 
 	}
 	
-	public void setSearchString(String searchString) {
-		super.setSearchString(searchString);
+	private boolean hasASearchString() {
+		if (this.getSearchString() == null) {
+			return false;
+		}
+		return this.getSearchString().trim().equals("");
 	}
 }

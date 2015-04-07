@@ -30,12 +30,16 @@ public enum CompanyServiceImpl implements CompanyService {
 	
 	public Company getCompany(long id) {
 		logger.trace("Company Service has been asked a company of id " + id);
-		return companyDAO.get(id);
+		Company c = companyDAO.get(id);
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		return c;
 	}
 	
 	public List<Company> getAllCompanies() {
 		logger.trace("Company Service has been asked all companies");
-		return companyDAO.getAll();
+		List<Company> list = companyDAO.getAll();
+		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		return list;
 	}
 
 	@Override
@@ -44,17 +48,14 @@ public enum CompanyServiceImpl implements CompanyService {
 		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
 		try {
 			conn.setAutoCommit(false);
-			computerDAO.deleteByCompanyId(id, conn);
-			companyDAO.delete(id, conn);
-			conn.commit();
+			computerDAO.deleteByCompanyId(id);
+			companyDAO.delete(id);
+			ComputerDatabaseConnectionFactory.getInstance().commit();
 		} catch (SQLException | PersistenceException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				throw new PersistenceException(e);
-			}
+			ComputerDatabaseConnectionFactory.getInstance().rollback();
+			throw new PersistenceException(e);
 		} finally {
-			ComputerDatabaseConnectionFactory.cleanConnection(conn);
+			ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
 		}
 		
 	}
