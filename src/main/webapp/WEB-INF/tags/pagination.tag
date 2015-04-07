@@ -13,7 +13,6 @@
 	type="java.lang.Integer"
 	description="Sets at which page the pagination finishes."%>
 	
-	
 <c:choose>
 	<c:when test="${currentPageNumber > 1}">
 		<c:set var="lower" value="${currentPageNumber - 1}"/>
@@ -35,6 +34,9 @@
 <div class="btn-group btn-group-sm pull-right" role="group">
 	<form action="" method="GET">
 		<input type="hidden" name="page" value="${currentPageNumber}" />
+		<input type="hidden" name="search" value="${search}" />
+		<input type="hidden" name="orderBy" value="${orderBy}" />
+		<input type="hidden" name="asc" value="${asc}" />
 		<button type="submit" name="resultsPerPage" class="btn btn-default"
 			value="10">10</button>
 		<button type="submit" name="resultsPerPage" class="btn btn-default"
@@ -50,7 +52,7 @@
 			<mylib:link 
 				target="dashboard" 
 				resultsPerPage="${resultsPerPage}" 
-				search="${searchString}" 
+				search="${search}" 
 				page="${lower}"  
 				orderBy="${orderBy}"  
 				ascendent="${asc}"
@@ -65,7 +67,7 @@
 					<mylib:link 
 						target="dashboard" 
 						resultsPerPage="${resultsPerPage}" 
-						search="${searchString}" 
+						search="${search}" 
 						page="${i}"  
 						orderBy="${orderBy}"  
 						ascendent="${asc}"
@@ -78,7 +80,7 @@
 				<mylib:link 
 					target="dashboard" 
 					resultsPerPage="${resultsPerPage}" 
-					search="${searchString}" 
+					search="${search}" 
 					page="${higher}"  
 					orderBy="${orderBy}"  
 					ascendent="${asc}"

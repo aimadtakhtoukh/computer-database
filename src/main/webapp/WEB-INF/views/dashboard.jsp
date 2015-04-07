@@ -191,7 +191,7 @@
 
 	<footer class="navbar-fixed-bottom">
 		<mylib:pagination currentPageNumber="${currentPageNumber}" resultsPerPage="${resultsPerPage}" 
-		paginationStart="${paginationStart}"  paginationFinish="${paginationFinish}" ></mylib:pagination>
+		paginationStart="${paginationStart}"  paginationFinish="${paginationFinish}"></mylib:pagination>
 	</footer>
 	<%@ include file="/WEB-INF/partials/js.jsp" %>
 	<script src="../js/dashboard.js"></script>

@@ -1,5 +1,7 @@
 package com.excilys.page;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +33,7 @@ public abstract class PageImpl<T> implements Page<T> {
 	public PageImpl(CRUDDAO<T> dao) {
 		super();
 		if (dao == null) {
-			throw new IllegalArgumentException("Null DAO.");
+			throw new IllegalArgumentException("DAO is null.");
 		}
 		this.dao = dao;
 		this.limit = STANDARD_PAGE_LIMIT;
@@ -48,6 +50,10 @@ public abstract class PageImpl<T> implements Page<T> {
 	
 	public CRUDDAO<T> getDAO() {
 		return dao;
+	}
+	
+	public List<T> getPageElements() {
+		return dao.getAll(getOffset(), getLimit(), getOrderedColumn(), isAscendent(), getSearchString());
 	}
 
 	public int getLimit() {
@@ -95,30 +101,12 @@ public abstract class PageImpl<T> implements Page<T> {
 		return (total / limit);
 	}
 	
-	/*
-	public List<T> getPageElements() {
-		logger.trace("Elements from " + offset + " to " + (offset + limit) + " sent.");
-		return list.subList(Math.max(0, offset), Math.min(offset + limit, list.size()));
-	}
-	
-	public List<T> getAllElements() {
-		logger.trace("All elements sent.");
-		return list;
-	}
-	*/
-	
-	
 	public void goToPage(int i) {
 		if (i >= 0 && i <= getTotalPageNumber()) {
 			setOffset(getLimit() * i);
 		}
 		logger.trace("Page set to the " + i + "th page.");
 	}
-	/*
-	public Comparator<? super T> getComparator() {
-		return comparator;
-	}
-	*/
 
 	public String getOrderedColumn() {
 		return column;
@@ -134,5 +122,10 @@ public abstract class PageImpl<T> implements Page<T> {
 	
 	public void setSearchString(String searchString) {
 		this.searchString = searchString;
+	}
+
+	public void setOrder(String column, boolean ascendent) {
+		this.column = column;
+		this.ascendent = ascendent;
 	}
 }

@@ -13,6 +13,10 @@ public interface CRUDDAO<T> {
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 	
+	default List<T> getAll(int offset, int limit, String orderBy, boolean ascendant, String searchString) {
+		throw new UnsupportedOperationException("Not implemented yet");
+	}
+	
 	default int getCount() {
 		throw new UnsupportedOperationException("Not implemented yet");
 	}

@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -50,6 +51,7 @@ public class DashboardTest {
 	}
 	
 	@Test
+	@Ignore
 	public void theDashboardShouldShowSomething() {
 		driver.get("http://localhost:8080/dashboard");
 		List<WebElement> tables = driver.findElements(By.tagName("table"));

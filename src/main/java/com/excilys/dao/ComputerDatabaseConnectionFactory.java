@@ -3,8 +3,6 @@ package com.excilys.dao;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,16 +17,19 @@ public enum ComputerDatabaseConnectionFactory {
 	private BoneCP pool;
 
 	private ComputerDatabaseConnectionFactory() {
+		/*
 		try {
 			Driver monDriver = new com.mysql.jdbc.Driver();
 			DriverManager.registerDriver(monDriver);
 		} catch (SQLException e1) {
 			throw new PersistenceException("Erreur de chargement de classe", e1);
 		}
+		*/
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
 		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
 			Properties properties = new Properties();
 			properties.load(inputstream);
+			Class.forName(properties.getProperty("driver")).newInstance();
 			BoneCPConfig config = new BoneCPConfig(properties);
             pool = new BoneCP(config);
 		} catch (IOException e) {

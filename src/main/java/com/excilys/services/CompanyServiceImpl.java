@@ -14,6 +14,7 @@ import com.excilys.dao.ComputerDAO;
 import com.excilys.dao.ComputerDAOImpl;
 import com.excilys.dao.ComputerDatabaseConnectionFactory;
 import com.excilys.dao.PersistenceException;
+import com.excilys.page.CompanyPage;
 
 public enum CompanyServiceImpl implements CompanyService {
 	INSTANCE;
@@ -56,6 +57,11 @@ public enum CompanyServiceImpl implements CompanyService {
 			ComputerDatabaseConnectionFactory.cleanConnection(conn);
 		}
 		
+	}
+
+	@Override
+	public CompanyPage getCompanyPage() {
+		return new CompanyPage(companyDAO);
 	}
 
 }

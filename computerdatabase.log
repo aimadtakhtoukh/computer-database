@@ -914,3 +914,362 @@
 11:06:43.199 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - No comparator set for Page Object.
 11:06:43.199 [http-bio-8080-exec-1] TRACE com.excilys.page.PageImpl - Elements from 0 to 10 sent.
 11:06:43.291 [http-bio-8080-exec-1] TRACE c.e.servlet.ComputerListingServlet - GET called on /dashboard : Showing dashboard, response sent
+10:33:31.200 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+10:33:31.203 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:33:31.595 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:33:31.599 [main] TRACE com.excilys.page.PageImpl - Page created.
+10:33:31.610 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computerLEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:08.623 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+10:35:08.626 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+10:35:08.996 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+10:35:09.000 [main] TRACE com.excilys.page.PageImpl - Page created.
+10:35:09.012 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:09.014 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:09.016 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:10.637 [main] TRACE com.excilys.page.PageImpl - Offset set to 10.
+10:35:10.637 [main] TRACE com.excilys.page.PageImpl - Page set to the 1th page.
+10:35:10.637 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:10.638 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:10.641 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:10.643 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:10.644 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:11.452 [main] TRACE com.excilys.page.PageImpl - Offset set to 20.
+10:35:11.453 [main] TRACE com.excilys.page.PageImpl - Page set to the 2th page.
+10:35:11.453 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:11.459 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:11.868 [main] TRACE com.excilys.page.PageImpl - Offset set to 30.
+10:35:11.869 [main] TRACE com.excilys.page.PageImpl - Page set to the 3th page.
+10:35:11.869 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:11.871 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.116 [main] TRACE com.excilys.page.PageImpl - Offset set to 40.
+10:35:12.117 [main] TRACE com.excilys.page.PageImpl - Page set to the 4th page.
+10:35:12.117 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:12.118 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.119 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.121 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.332 [main] TRACE com.excilys.page.PageImpl - Offset set to 50.
+10:35:12.333 [main] TRACE com.excilys.page.PageImpl - Page set to the 5th page.
+10:35:12.333 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:12.334 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.335 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.336 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.336 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.337 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.338 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.516 [main] TRACE com.excilys.page.PageImpl - Offset set to 60.
+10:35:12.517 [main] TRACE com.excilys.page.PageImpl - Page set to the 6th page.
+10:35:12.517 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:12.518 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.519 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.520 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.521 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.521 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.522 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.708 [main] TRACE com.excilys.page.PageImpl - Offset set to 70.
+10:35:12.709 [main] TRACE com.excilys.page.PageImpl - Page set to the 7th page.
+10:35:12.709 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:12.710 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.711 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.908 [main] TRACE com.excilys.page.PageImpl - Offset set to 80.
+10:35:12.909 [main] TRACE com.excilys.page.PageImpl - Page set to the 8th page.
+10:35:12.909 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:12.910 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.911 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.912 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.912 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.913 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:12.914 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.084 [main] TRACE com.excilys.page.PageImpl - Offset set to 90.
+10:35:13.086 [main] TRACE com.excilys.page.PageImpl - Page set to the 9th page.
+10:35:13.087 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:13.088 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.268 [main] TRACE com.excilys.page.PageImpl - Offset set to 100.
+10:35:13.269 [main] TRACE com.excilys.page.PageImpl - Page set to the 10th page.
+10:35:13.269 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:13.270 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.271 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.452 [main] TRACE com.excilys.page.PageImpl - Offset set to 110.
+10:35:13.453 [main] TRACE com.excilys.page.PageImpl - Page set to the 11th page.
+10:35:13.453 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:13.621 [main] TRACE com.excilys.page.PageImpl - Offset set to 120.
+10:35:13.621 [main] TRACE com.excilys.page.PageImpl - Page set to the 12th page.
+10:35:13.621 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:13.622 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.622 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.796 [main] TRACE com.excilys.page.PageImpl - Offset set to 130.
+10:35:13.797 [main] TRACE com.excilys.page.PageImpl - Page set to the 13th page.
+10:35:13.797 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:13.988 [main] TRACE com.excilys.page.PageImpl - Offset set to 140.
+10:35:13.988 [main] TRACE com.excilys.page.PageImpl - Page set to the 14th page.
+10:35:13.988 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:13.989 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.990 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.991 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:13.992 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.172 [main] TRACE com.excilys.page.PageImpl - Offset set to 150.
+10:35:14.173 [main] TRACE com.excilys.page.PageImpl - Page set to the 15th page.
+10:35:14.173 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:14.174 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.175 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.176 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.348 [main] TRACE com.excilys.page.PageImpl - Offset set to 160.
+10:35:14.349 [main] TRACE com.excilys.page.PageImpl - Page set to the 16th page.
+10:35:14.349 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:14.350 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.350 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.351 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.532 [main] TRACE com.excilys.page.PageImpl - Offset set to 170.
+10:35:14.532 [main] TRACE com.excilys.page.PageImpl - Page set to the 17th page.
+10:35:14.532 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:14.534 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.535 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:14.708 [main] TRACE com.excilys.page.PageImpl - Offset set to 180.
+10:35:14.709 [main] TRACE com.excilys.page.PageImpl - Page set to the 18th page.
+10:35:14.709 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:14.876 [main] TRACE com.excilys.page.PageImpl - Offset set to 190.
+10:35:14.877 [main] TRACE com.excilys.page.PageImpl - Page set to the 19th page.
+10:35:14.877 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.068 [main] TRACE com.excilys.page.PageImpl - Offset set to 200.
+10:35:15.069 [main] TRACE com.excilys.page.PageImpl - Page set to the 20th page.
+10:35:15.069 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.070 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.568 [main] TRACE com.excilys.page.PageImpl - Offset set to 210.
+10:35:15.568 [main] TRACE com.excilys.page.PageImpl - Page set to the 21th page.
+10:35:15.569 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.618 [main] TRACE com.excilys.page.PageImpl - Offset set to 220.
+10:35:15.618 [main] TRACE com.excilys.page.PageImpl - Page set to the 22th page.
+10:35:15.618 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.619 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.620 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.620 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.668 [main] TRACE com.excilys.page.PageImpl - Offset set to 230.
+10:35:15.668 [main] TRACE com.excilys.page.PageImpl - Page set to the 23th page.
+10:35:15.669 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.670 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.718 [main] TRACE com.excilys.page.PageImpl - Offset set to 240.
+10:35:15.718 [main] TRACE com.excilys.page.PageImpl - Page set to the 24th page.
+10:35:15.718 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.719 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.720 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.720 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.721 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.768 [main] TRACE com.excilys.page.PageImpl - Offset set to 250.
+10:35:15.768 [main] TRACE com.excilys.page.PageImpl - Page set to the 25th page.
+10:35:15.768 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.769 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.770 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.818 [main] TRACE com.excilys.page.PageImpl - Offset set to 260.
+10:35:15.818 [main] TRACE com.excilys.page.PageImpl - Page set to the 26th page.
+10:35:15.818 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.818 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.819 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.820 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.868 [main] TRACE com.excilys.page.PageImpl - Offset set to 270.
+10:35:15.869 [main] TRACE com.excilys.page.PageImpl - Page set to the 27th page.
+10:35:15.869 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.870 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.870 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.871 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.872 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.918 [main] TRACE com.excilys.page.PageImpl - Offset set to 280.
+10:35:15.918 [main] TRACE com.excilys.page.PageImpl - Page set to the 28th page.
+10:35:15.919 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.919 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.920 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.967 [main] TRACE com.excilys.page.PageImpl - Offset set to 290.
+10:35:15.968 [main] TRACE com.excilys.page.PageImpl - Page set to the 29th page.
+10:35:15.968 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:15.969 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.969 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.971 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:15.971 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.018 [main] TRACE com.excilys.page.PageImpl - Offset set to 300.
+10:35:16.019 [main] TRACE com.excilys.page.PageImpl - Page set to the 30th page.
+10:35:16.019 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.020 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.020 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.068 [main] TRACE com.excilys.page.PageImpl - Offset set to 310.
+10:35:16.068 [main] TRACE com.excilys.page.PageImpl - Page set to the 31th page.
+10:35:16.068 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.069 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.070 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.070 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.071 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.118 [main] TRACE com.excilys.page.PageImpl - Offset set to 320.
+10:35:16.118 [main] TRACE com.excilys.page.PageImpl - Page set to the 32th page.
+10:35:16.118 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.119 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.119 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.167 [main] TRACE com.excilys.page.PageImpl - Offset set to 330.
+10:35:16.168 [main] TRACE com.excilys.page.PageImpl - Page set to the 33th page.
+10:35:16.168 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.169 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.169 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.218 [main] TRACE com.excilys.page.PageImpl - Offset set to 340.
+10:35:16.218 [main] TRACE com.excilys.page.PageImpl - Page set to the 34th page.
+10:35:16.218 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.219 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.219 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.268 [main] TRACE com.excilys.page.PageImpl - Offset set to 350.
+10:35:16.268 [main] TRACE com.excilys.page.PageImpl - Page set to the 35th page.
+10:35:16.268 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.317 [main] TRACE com.excilys.page.PageImpl - Offset set to 360.
+10:35:16.318 [main] TRACE com.excilys.page.PageImpl - Page set to the 36th page.
+10:35:16.318 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.319 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.367 [main] TRACE com.excilys.page.PageImpl - Offset set to 370.
+10:35:16.368 [main] TRACE com.excilys.page.PageImpl - Page set to the 37th page.
+10:35:16.368 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.418 [main] TRACE com.excilys.page.PageImpl - Offset set to 380.
+10:35:16.418 [main] TRACE com.excilys.page.PageImpl - Page set to the 38th page.
+10:35:16.418 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.419 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.468 [main] TRACE com.excilys.page.PageImpl - Offset set to 390.
+10:35:16.468 [main] TRACE com.excilys.page.PageImpl - Page set to the 39th page.
+10:35:16.468 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.469 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.518 [main] TRACE com.excilys.page.PageImpl - Offset set to 400.
+10:35:16.518 [main] TRACE com.excilys.page.PageImpl - Page set to the 40th page.
+10:35:16.519 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.520 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.568 [main] TRACE com.excilys.page.PageImpl - Offset set to 410.
+10:35:16.568 [main] TRACE com.excilys.page.PageImpl - Page set to the 41th page.
+10:35:16.568 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.569 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.570 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.618 [main] TRACE com.excilys.page.PageImpl - Offset set to 420.
+10:35:16.618 [main] TRACE com.excilys.page.PageImpl - Page set to the 42th page.
+10:35:16.618 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.619 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.668 [main] TRACE com.excilys.page.PageImpl - Offset set to 430.
+10:35:16.668 [main] TRACE com.excilys.page.PageImpl - Page set to the 43th page.
+10:35:16.668 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.669 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.669 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.670 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.718 [main] TRACE com.excilys.page.PageImpl - Offset set to 440.
+10:35:16.718 [main] TRACE com.excilys.page.PageImpl - Page set to the 44th page.
+10:35:16.718 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.719 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.720 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.768 [main] TRACE com.excilys.page.PageImpl - Offset set to 450.
+10:35:16.768 [main] TRACE com.excilys.page.PageImpl - Page set to the 45th page.
+10:35:16.768 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.769 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.817 [main] TRACE com.excilys.page.PageImpl - Offset set to 460.
+10:35:16.818 [main] TRACE com.excilys.page.PageImpl - Page set to the 46th page.
+10:35:16.818 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.819 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.867 [main] TRACE com.excilys.page.PageImpl - Offset set to 470.
+10:35:16.867 [main] TRACE com.excilys.page.PageImpl - Page set to the 47th page.
+10:35:16.867 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.868 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.869 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.918 [main] TRACE com.excilys.page.PageImpl - Offset set to 480.
+10:35:16.918 [main] TRACE com.excilys.page.PageImpl - Page set to the 48th page.
+10:35:16.918 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.967 [main] TRACE com.excilys.page.PageImpl - Offset set to 490.
+10:35:16.967 [main] TRACE com.excilys.page.PageImpl - Page set to the 49th page.
+10:35:16.967 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:16.968 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.969 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:16.969 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.018 [main] TRACE com.excilys.page.PageImpl - Offset set to 500.
+10:35:17.018 [main] TRACE com.excilys.page.PageImpl - Page set to the 50th page.
+10:35:17.018 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.019 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.068 [main] TRACE com.excilys.page.PageImpl - Offset set to 510.
+10:35:17.068 [main] TRACE com.excilys.page.PageImpl - Page set to the 51th page.
+10:35:17.068 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.069 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.118 [main] TRACE com.excilys.page.PageImpl - Offset set to 520.
+10:35:17.118 [main] TRACE com.excilys.page.PageImpl - Page set to the 52th page.
+10:35:17.118 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.119 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.119 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.120 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.120 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.121 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.168 [main] TRACE com.excilys.page.PageImpl - Offset set to 530.
+10:35:17.168 [main] TRACE com.excilys.page.PageImpl - Page set to the 53th page.
+10:35:17.169 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.170 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.170 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.218 [main] TRACE com.excilys.page.PageImpl - Offset set to 540.
+10:35:17.218 [main] TRACE com.excilys.page.PageImpl - Page set to the 54th page.
+10:35:17.218 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.219 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.268 [main] TRACE com.excilys.page.PageImpl - Offset set to 550.
+10:35:17.268 [main] TRACE com.excilys.page.PageImpl - Page set to the 55th page.
+10:35:17.268 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.269 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.317 [main] TRACE com.excilys.page.PageImpl - Offset set to 560.
+10:35:17.318 [main] TRACE com.excilys.page.PageImpl - Page set to the 56th page.
+10:35:17.318 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.318 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.319 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.319 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.368 [main] TRACE com.excilys.page.PageImpl - Offset set to 570.
+10:35:17.368 [main] TRACE com.excilys.page.PageImpl - Page set to the 57th page.
+10:35:17.368 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.369 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.370 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.418 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.418 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.419 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.419 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.468 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.468 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.469 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.469 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.518 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.519 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.520 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.520 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.568 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.568 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.569 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.569 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.618 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.618 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.619 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.619 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.667 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.668 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.669 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.670 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.718 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.718 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.719 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.720 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.767 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.767 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.768 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.769 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.818 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.818 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.819 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.819 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.867 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.868 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.869 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.869 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.917 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.918 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.919 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.919 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.967 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:17.968 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:17.968 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:17.969 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:18.018 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:18.018 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:18.019 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:18.019 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:18.068 [main] TRACE com.excilys.page.PageImpl - Page set to the 58th page.
+10:35:18.068 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+10:35:18.069 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:18.070 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+10:35:26.541 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
+10:35:28.300 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
+10:35:28.301 [main] INFO  com.excilys.cli.ExitCommand - Program end.

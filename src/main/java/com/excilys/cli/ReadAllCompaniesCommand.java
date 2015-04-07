@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.excilys.beans.Company;
 import com.excilys.cli.page.PageCommandLineInterface;
-import com.excilys.page.PageImpl;
+import com.excilys.page.Page;
 import com.excilys.services.CompanyService;
 import com.excilys.services.CompanyServiceImpl;
 
@@ -19,10 +19,7 @@ public class ReadAllCompaniesCommand implements Command {
 
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
-		List<Company> companies = companyService.getAllCompanies();
-		if (!companies.isEmpty()) {
-			PageImpl<Company> p = new PageImpl<Company>(companies);
-			new PageCommandLineInterface<Company>(p).command(sc);
-		}
+		Page<Company> p = companyService.getCompanyPage();
+		new PageCommandLineInterface<Company>(p).command(sc);
 	}
 }

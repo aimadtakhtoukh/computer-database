@@ -101,7 +101,7 @@ public class CompanyDAOImplTest {
                 "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		List<Company> list = dao.getAll(0, 10);
+		List<Company> list = dao.getAll(0, 10, null, false, null);
 		Assert.assertNotEquals(list, null);
 		Assert.assertTrue(list.size() <= 10);
 		//THEN
@@ -115,7 +115,7 @@ public class CompanyDAOImplTest {
                 "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		List<Company> list = dao.getAll(dao.getCount(), 10);
+		List<Company> list = dao.getAll(dao.getCount(), 10, null, false, null);
 		Assert.assertNotEquals(list, null);
 		Assert.assertTrue(list.isEmpty());
 		//THEN
@@ -129,7 +129,7 @@ public class CompanyDAOImplTest {
                 "src/test/resources/datasets/companyDAO/get.xml")));
 		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		List<Company> list = dao.getAll(0, dao.getCount());
+		List<Company> list = dao.getAll(0, dao.getCount(), null, false, null);
 		Assert.assertNotEquals(list, null);
 		Assert.assertEquals(list.size(), dao.getAll().size());
 		//THEN

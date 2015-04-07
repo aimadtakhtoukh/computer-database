@@ -115,21 +115,22 @@ public enum ComputerDAOImpl implements ComputerDAO {
 		queryBuilder
 			.append("SELECT * FROM ")
 			.append(TABLE_NAME)
-			.append("LEFT JOIN company ON ")
+			.append(" LEFT JOIN company ON ")
 			.append("computer.company_id = company.id");
 		if (searchString != null) {
 			if (!searchString.trim().isEmpty()) {
 				hasASearchString = true;
-				queryBuilder.append(" WHERE ")
+				queryBuilder.append(" WHERE company.")
 					.append(PARAM_NAME)
 					.append(" LIKE ?")
-					.append("OR company.name LIKE ?");
+					.append(" OR company.name LIKE ?");
 				;
 			}
 		}
 		if (orderBy != null) {
 			if (!orderBy.trim().isEmpty()) {
 				queryBuilder.append(" ORDER BY ");
+				queryBuilder.append("if(" + orderBy + " is null, 1 , 0), ");
 				queryBuilder.append(orderBy);
 				if (!ascendant) {
 					queryBuilder.append(" DESC");

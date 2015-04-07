@@ -11,7 +11,7 @@ public interface ComputerService {
 	
 	public Computer getComputer(long id);
 	
-	public List<Computer> getAllComputers();
+	public List<Computer> getAll();
 
 	public long createComputer(Computer computer);
 	
