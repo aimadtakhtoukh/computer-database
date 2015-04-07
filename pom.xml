@@ -16,17 +16,19 @@
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 		<selenium.version>2.45.0</selenium.version>
+		<h2driver.version>1.4.186</h2driver.version>
+		<dbunit.version>2.5.0</dbunit.version>
 		<!-- LOGGING -->
 		<slf4j.version>1.7.10</slf4j.version>
 		<logback.version>1.0.13</logback.version>
 		<!-- JSTL -->
 		<jstl.version>1.2.1</jstl.version>
 		<taglib.version>1.1.2</taglib.version>
-		<!-- TESTS -->
-		<h2driver.version>1.4.186</h2driver.version>
-		<dbunit.version>2.5.0</dbunit.version>
 		<!-- SERVLETS -->
 		<tomcat.servlet.version>8.0.20</tomcat.servlet.version>
+		<servlet.version>3.0.1</servlet.version>
+		<!-- SPRING -->
+		<spring.version>4.1.6.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
@@ -120,11 +122,26 @@
 	    <dependency>
 	      <groupId>javax.servlet</groupId>
 	      <artifactId>javax.servlet-api</artifactId>
-	      <version>3.0.1</version>
+	      <version>${servlet.version}</version>
 	      <scope>provided</scope>
-	    </dependency>	
-
+	    </dependency>
 		<!-- END_SERVLETS -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
