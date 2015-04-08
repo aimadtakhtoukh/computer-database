@@ -1,37 +1,32 @@
 package com.excilys.dao;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.excilys.beans.Company;
 import com.excilys.dao.util.DatabaseTestUtil;
 
 public class CompanyDAOImplTest {
 	
-	@BeforeClass
-	public static void prepareTestBase() throws SQLException, IOException {
-		final InputStream is = ComputerDAOImplTest.class
-				.getClassLoader().getResourceAsStream("test.sql");
-		final BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-		final StringBuilder sb = new StringBuilder();
-		String str;
-		while ((str = br.readLine()) != null) {
-			sb.append(str + "\n ");
-		}
-		final Statement stmt = ComputerDatabaseConnectionFactory.getInstance().getConnection().createStatement();
-		stmt.execute(sb.toString());
+	@Autowired
+	CompanyDAO companyDAO;
+	@Autowired
+	ComputerDatabaseConnectionFactory cdcf;
+	
+	@Before
+	public void prepareTestBase() throws SQLException, IOException {
+		DatabaseTestUtil.executeSqlFile(
+				"test.sql", 
+				cdcf.getConnection());
 	}
 	
 	@After
@@ -45,9 +40,8 @@ public class CompanyDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/companyDAO/get.xml")));
-		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		Company c = dao.get(2);
+		Company c = companyDAO.get(2);
 		Assert.assertNotEquals(c, null);
 		Assert.assertEquals(c.getId(), new Long(2));
 		Assert.assertNotEquals(c.getName(), null);
@@ -60,9 +54,8 @@ public class CompanyDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/companyDAO/get.xml")));
-		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		Company c = dao.get(-1);
+		Company c = companyDAO.get(-1);
 		Assert.assertEquals(c, null);
 		//THEN
 	}
@@ -73,9 +66,8 @@ public class CompanyDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/companyDAO/get.xml")));
-		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		Assert.assertTrue(dao.getCount() > 0);
+		Assert.assertTrue(companyDAO.getCount() > 0);
 		//THEN
 	}
 	
@@ -85,9 +77,8 @@ public class CompanyDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/companyDAO/get.xml")));
-		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		List<Company> list = dao.getAll();
+		List<Company> list = companyDAO.getAll();
 		Assert.assertNotEquals(list, null);
 		Assert.assertFalse(list.isEmpty());
 		//THEN
@@ -99,9 +90,8 @@ public class CompanyDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/companyDAO/get.xml")));
-		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		List<Company> list = dao.getAll(0, 10, null, false, null);
+		List<Company> list = companyDAO.getAll(0, 10, null, false, null);
 		Assert.assertNotEquals(list, null);
 		Assert.assertTrue(list.size() <= 10);
 		//THEN
@@ -113,9 +103,8 @@ public class CompanyDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/companyDAO/get.xml")));
-		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		List<Company> list = dao.getAll(dao.getCount(), 10, null, false, null);
+		List<Company> list = companyDAO.getAll(companyDAO.getCount(), 10, null, false, null);
 		Assert.assertNotEquals(list, null);
 		Assert.assertTrue(list.isEmpty());
 		//THEN
@@ -127,11 +116,10 @@ public class CompanyDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/companyDAO/get.xml")));
-		CompanyDAO dao = CompanyDAOImpl.getInstance();
 		//WHEN
-		List<Company> list = dao.getAll(0, dao.getCount(), null, false, null);
+		List<Company> list = companyDAO.getAll(0, companyDAO.getCount(), null, false, null);
 		Assert.assertNotEquals(list, null);
-		Assert.assertEquals(list.size(), dao.getAll().size());
+		Assert.assertEquals(list.size(), companyDAO.getAll().size());
 		//THEN
 	}
 	

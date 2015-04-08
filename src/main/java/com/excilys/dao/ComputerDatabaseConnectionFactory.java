@@ -1,43 +1,32 @@
 package com.excilys.dao;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import com.jolbox.bonecp.BoneCP;
-import com.jolbox.bonecp.BoneCPConfig;
 
 @Component
 public class ComputerDatabaseConnectionFactory {
 
-	private BoneCP pool;
 	private ThreadLocal<Connection> localConnection = new ThreadLocal<Connection>();
-
-	public ComputerDatabaseConnectionFactory() {
-		ClassLoader cl = Thread.currentThread().getContextClassLoader();
-		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
-			Properties properties = new Properties();
-			properties.load(inputstream);
-			Class.forName(properties.getProperty("driver")).newInstance();
-			BoneCPConfig config = new BoneCPConfig(properties);
-            pool = new BoneCP(config);
-		} catch (IOException e) {
-			throw new PersistenceException("Erreur de chargement du fichier de propriété", e);
-		} catch (Exception e) {
-			throw new PersistenceException("Erreur de chargement de la configuration de BoneCP.", e);
-		}
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
+	
 	public Connection getConnection() {
 		if (localConnection.get() == null) {
 			try {
-				localConnection.set(pool.getConnection());
+				localConnection.set(jdbcTemplate.getDataSource().getConnection());
 			} catch (SQLException e) {
 				throw new PersistenceException("Impossible to get a connection. ", e);
 			}

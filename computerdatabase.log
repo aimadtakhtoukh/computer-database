@@ -2285,3 +2285,13 @@
 14:44:39.759 [main] INFO  com.excilys.main.Main - Initializing Spring context.
 15:15:56.253 [main] INFO  com.excilys.main.Main - Initializing Spring context.
 15:16:00.532 [main] INFO  com.excilys.cli.ExitCommand - Program end.
+15:54:32.274 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+15:54:59.930 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+15:55:57.410 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+16:00:18.082 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+16:57:19.651 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+16:57:29.957 [main] INFO  com.excilys.cli.ExitCommand - Program end.
+17:00:53.532 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+17:02:40.142 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+17:04:04.417 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+17:04:11.414 [main] INFO  com.excilys.cli.ExitCommand - Program end.
