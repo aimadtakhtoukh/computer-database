@@ -9,26 +9,25 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.excilys.beans.Company;
 import com.excilys.mappers.CompanyMapper;
 
-public enum CompanyDAOImpl implements CompanyDAO {
-	INSTANCE;
+@Repository
+public class CompanyDAOImpl implements CompanyDAO {
 	
 	private static final String TABLE_NAME = "company";
 	
 	final Logger logger = LoggerFactory.getLogger(CompanyDAOImpl.class);
 	
-	private CompanyDAOImpl() {}
-	
-	public static CompanyDAOImpl getInstance() {
-		return INSTANCE;
-	}
+	@Autowired
+	private ComputerDatabaseConnectionFactory cdcf;
 
 	@Override
 	public Company get(long id) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?;";
 		Company company = null;
 		ResultSet rs = null;
@@ -49,7 +48,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 
 	@Override
 	public long delete(long id) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 		.append("DELETE FROM ")
 		.append(TABLE_NAME)
@@ -77,7 +76,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 
 	@Override
 	public List<Company> getAll() {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = "SELECT * FROM " + TABLE_NAME + ";";
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -97,7 +96,7 @@ public enum CompanyDAOImpl implements CompanyDAO {
 
 	@Override
 	public int getCount() {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = "SELECT COUNT(*) FROM " + TABLE_NAME + ";";
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -113,6 +112,8 @@ public enum CompanyDAOImpl implements CompanyDAO {
 			return count;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
 		}
 	}
 }

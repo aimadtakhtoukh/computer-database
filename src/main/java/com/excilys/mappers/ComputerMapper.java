@@ -7,11 +7,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
 import com.excilys.dao.CompanyDAO;
-import com.excilys.dao.CompanyDAOImpl;
 
+@Component
 public class ComputerMapper {
 	
 	private static final String PARAM_ID = "id";
@@ -20,9 +23,10 @@ public class ComputerMapper {
 	private static final String PARAM_DISCONTINUED = "discontinued";
 	private static final String PARAM_COMPANY_ID = "company_id";
 	
-	private static final CompanyDAO companies = CompanyDAOImpl.getInstance();
+	@Autowired
+	private CompanyDAO companies;
 
-	public static Computer getMappedResult(ResultSet rs) throws SQLException {
+	public Computer getMappedResult(ResultSet rs) throws SQLException {
 		if (rs.next()) {
 			Computer c = new Computer();
 			c.setId(rs.getLong(PARAM_ID));
@@ -44,7 +48,7 @@ public class ComputerMapper {
 		return null;
 	}
 	
-	public static List<Computer> getMappedResults(ResultSet rs) throws SQLException {
+	public List<Computer> getMappedResults(ResultSet rs) throws SQLException {
 		List<Computer> list = new LinkedList<>();
 		Map<Long, Company> cache = new HashMap<>();
 		while(rs.next()) {

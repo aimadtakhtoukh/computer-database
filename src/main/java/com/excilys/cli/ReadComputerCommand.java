@@ -7,17 +7,20 @@ import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
 import com.excilys.services.ComputerService;
-import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.NumberValidator;
 
+@Component
 public class ReadComputerCommand implements Command {
 	
 	final Logger logger = LoggerFactory.getLogger(ReadComputerCommand.class);
-
-	private ComputerService service = ComputerServiceImpl.getInstance();
+	
+	@Autowired
+	private ComputerService service;
 	
 	List<Computer> computers = null;
 	

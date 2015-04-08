@@ -10,12 +10,14 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.excilys.beans.Computer;
 import com.excilys.mappers.ComputerMapper;
 
-public enum ComputerDAOImpl implements ComputerDAO {
-	INSTANCE;
+@Repository
+public class ComputerDAOImpl implements ComputerDAO {
 	
 	private static final String TABLE_NAME = "computer";
 	private static final String PARAM_ID = "id";
@@ -26,15 +28,14 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	final Logger logger = LoggerFactory.getLogger(ComputerDAOImpl.class);
 	
-	private ComputerDAOImpl() {}
-	
-	public static ComputerDAOImpl getInstance() {
-		return INSTANCE;
-	}
+	@Autowired
+	private ComputerDatabaseConnectionFactory cdcf;
+	@Autowired
+	private ComputerMapper mapper;
 
 	@Override
 	public Computer get(long id) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 			.append("SELECT * FROM ")
 			.append(TABLE_NAME)
@@ -49,7 +50,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			ps.setLong(1, id);
 			logger.trace("Computer DAO executed the query : " + ps.toString());
 			rs = ps.executeQuery();
-			Computer computer = ComputerMapper.getMappedResult(rs);
+			Computer computer = mapper.getMappedResult(rs);
 			return computer;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
@@ -60,7 +61,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public long create(Computer computer) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
@@ -111,7 +112,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public long update(long id, Computer computer) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
@@ -163,7 +164,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public long delete(long id) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 		.append("DELETE FROM ")
 		.append(TABLE_NAME)
@@ -191,7 +192,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public List<Computer> getAll() {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 		.append("SELECT * FROM ")
 		.append(TABLE_NAME)
@@ -203,7 +204,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			stmt = conn.createStatement();
 			logger.trace("Computer DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
-			List<Computer> result = ComputerMapper.getMappedResults(rs);
+			List<Computer> result = mapper.getMappedResults(rs);
 			return result;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
@@ -214,7 +215,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public List<Computer> getAll(int offset, int limit, String orderBy, boolean ascendant, String searchString) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn =cdcf.getConnection();
 		StringBuilder queryBuilder = new StringBuilder();
 		boolean hasASearchString = false;
 		queryBuilder
@@ -257,7 +258,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 			stmt.setInt(++index, offset);
 			logger.trace("Computer DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery();
-			List<Computer> results = ComputerMapper.getMappedResults(rs);
+			List<Computer> results = mapper.getMappedResults(rs);
 			return results;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
@@ -268,7 +269,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public int getCount() {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT COUNT(*) FROM ");
 		sb.append(TABLE_NAME);
@@ -294,7 +295,7 @@ public enum ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public void deleteByCompanyId(long companyId) {
-		Connection conn = ComputerDatabaseConnectionFactory.getInstance().getConnection();
+		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 		.append("DELETE FROM ")
 		.append(TABLE_NAME)

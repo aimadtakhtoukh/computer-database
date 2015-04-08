@@ -11,22 +11,28 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
-import com.excilys.dao.CompanyDAOImpl;
+import com.excilys.services.CompanyService;
 import com.excilys.services.ComputerService;
-import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.DateValidator;
 import com.excilys.validator.NumberValidator;
 import com.excilys.validator.StringValidator;
 
+@Component
 public class UpdateComputerCommand implements Command {
 	
 	final Logger logger = LoggerFactory.getLogger(UpdateComputerCommand.class);
 	
 	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
-	private ComputerService service = ComputerServiceImpl.getInstance();
+	
+	@Autowired
+	private ComputerService service;
+	@Autowired
+	private CompanyService companyService;
 	
 	public UpdateComputerCommand() {
 		super();
@@ -87,7 +93,7 @@ public class UpdateComputerCommand implements Command {
 		
 		if (NumberValidator.isARightNumber(args.get(4))) {
 			long id_company = Long.parseLong(args.get(4));
-			Company company = CompanyDAOImpl.getInstance().get(id_company);
+			Company company = companyService.getCompany(id_company);
 			c.setCompany(company);
 		} else {
 			logger.error("The company id argument must be a number.");

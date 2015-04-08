@@ -5,18 +5,21 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
 import com.excilys.cli.page.PageCommandLineInterface;
 import com.excilys.page.Page;
 import com.excilys.services.ComputerService;
-import com.excilys.services.ComputerServiceImpl;
 
+@Component
 public class ReadAllComputersCommand implements Command {
 	
 	final Logger logger = LoggerFactory.getLogger(DeleteCompanyAndRelatedComputersCommand.class);
 	
-	private ComputerService service = ComputerServiceImpl.getInstance();
+	@Autowired
+	private ComputerService service;
 
 	@Override
 	public void doAction(List<String> args, Scanner sc) {

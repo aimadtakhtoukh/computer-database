@@ -4,23 +4,23 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.excilys.beans.Computer;
 import com.excilys.dao.ComputerDAO;
-import com.excilys.dao.ComputerDAOImpl;
 import com.excilys.dao.ComputerDatabaseConnectionFactory;
 import com.excilys.page.ComputerPage;
 
-public enum ComputerServiceImpl implements ComputerService {
-	INSTANCE;
+@Service
+public class ComputerServiceImpl implements ComputerService {
 	
 	final Logger logger = LoggerFactory.getLogger(ComputerServiceImpl.class);
 	
-	public static ComputerServiceImpl getInstance() {
-		return INSTANCE;
-	}
-	
-	private ComputerDAO computerDAO = ComputerDAOImpl.getInstance();
+	@Autowired
+	private ComputerDAO computerDAO;
+	@Autowired
+	private ComputerDatabaseConnectionFactory cdcf;
 
 	@Override
 	public ComputerPage getComputerPage() {
@@ -32,7 +32,7 @@ public enum ComputerServiceImpl implements ComputerService {
 	public List<Computer> getAll() {
 		logger.trace("Computer Service has been asked all computers.");
 		List<Computer> result = computerDAO.getAll();
-		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();		
+		cdcf.cleanConnection();		
 		return result;
 	}
 
@@ -40,7 +40,7 @@ public enum ComputerServiceImpl implements ComputerService {
 	public Computer getComputer(long id) {
 		logger.trace("Computer Service has been asked a computer with id : " + id);
 		Computer c = computerDAO.get(id);
-		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();		
+		cdcf.cleanConnection();		
 		return c;
 	}
 
@@ -48,7 +48,7 @@ public enum ComputerServiceImpl implements ComputerService {
 	public long createComputer(Computer computer) {
 		logger.trace("Computer Service has been asked to create a new computer : " + computer);
 		long l = computerDAO.create(computer);
-		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		cdcf.cleanConnection();
 		return l;
 	}
 
@@ -56,7 +56,7 @@ public enum ComputerServiceImpl implements ComputerService {
 	public long updateComputer(Computer computer) {
 		logger.trace("Computer Service has been asked to update a computer : " + computer);
 		long l = computerDAO.update(computer.getId(), computer);
-		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		cdcf.cleanConnection();
 		return l;
 	}
 
@@ -64,7 +64,7 @@ public enum ComputerServiceImpl implements ComputerService {
 	public void deleteComputer(long id) {
 		logger.trace("Computer Service has been asked to delete the computer n°" + id);
 		computerDAO.delete(id);
-		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		cdcf.cleanConnection();
 	}
 
 }

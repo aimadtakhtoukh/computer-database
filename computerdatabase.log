@@ -1273,3 +1273,27 @@
 10:35:26.541 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all finished.
 10:35:28.300 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command exit called.
 10:35:28.301 [main] INFO  com.excilys.cli.ExitCommand - Program end.
+10:09:52.276 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+10:42:47.124 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+10:55:49.093 [main] TRACE c.e.cli.CommandLineInterface$ACTIONS - Command read_all called.
+11:52:57.291 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:53:21.248 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:53:35.491 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:53:47.660 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:54:00.468 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:54:16.769 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:54:35.427 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:54:43.452 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a new page.
+11:54:43.454 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : null
+11:54:43.458 [main] TRACE com.excilys.page.PageImpl - Page created.
+11:54:43.469 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer LEFT JOIN company ON computer.company_id = company.id LIMIT ? OFFSET ?;
+11:57:55.966 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:58:14.880 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a computer with id : 1
+11:58:14.894 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer WHERE id= ?
+11:59:51.414 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+11:59:53.425 [main] TRACE c.e.services.ComputerServiceImpl - Computer Service has been asked a computer with id : 1
+11:59:53.440 [main] TRACE com.excilys.dao.ComputerDAOImpl - Computer DAO executed the query : SELECT * FROM computer WHERE id= ?
+11:59:53.441 [main] TRACE com.excilys.dao.CompanyDAOImpl - Company DAO executed the query : SELECT * FROM company WHERE id = ?;
+12:29:11.742 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+12:30:03.213 [main] INFO  com.excilys.main.Main - Initializing Spring context.
+12:31:09.267 [main] INFO  com.excilys.main.Main - Initializing Spring context.

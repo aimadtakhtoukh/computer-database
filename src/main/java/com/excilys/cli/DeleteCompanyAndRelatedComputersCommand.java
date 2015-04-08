@@ -5,16 +5,17 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.services.CompanyService;
-import com.excilys.services.CompanyServiceImpl;
 import com.excilys.validator.NumberValidator;
-
+@Component
 public class DeleteCompanyAndRelatedComputersCommand implements Command {
 	
 	final Logger logger = LoggerFactory.getLogger(DeleteCompanyAndRelatedComputersCommand.class);
-	
-	private CompanyService companyService = CompanyServiceImpl.getInstance();
+	@Autowired
+	private CompanyService companyService;
 
 	@Override
 	public void doAction(List<String> args, Scanner sc) {

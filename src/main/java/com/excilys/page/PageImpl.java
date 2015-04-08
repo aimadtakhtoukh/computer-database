@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.excilys.dao.CRUDDAO;
 import com.excilys.dao.ComputerDatabaseConnectionFactory;
@@ -17,6 +18,9 @@ import com.excilys.dao.ComputerDatabaseConnectionFactory;
 public abstract class PageImpl<T> implements Page<T> {
 	
 	final Logger logger = LoggerFactory.getLogger(PageImpl.class);
+	
+	@Autowired
+	private ComputerDatabaseConnectionFactory cdcf;
 	
 	private final static int STANDARD_PAGE_LIMIT = 10;
 	private final static int STANDARD_PAGE_OFFSET = 0;
@@ -55,7 +59,7 @@ public abstract class PageImpl<T> implements Page<T> {
 	
 	public List<T> getPageElements() {
 		List<T> result = dao.getAll(getOffset(), getLimit(), getOrderedColumn(), isAscendent(), getSearchString());
-		ComputerDatabaseConnectionFactory.getInstance().cleanConnection();
+		cdcf.cleanConnection();
 		return result;
 	}
 

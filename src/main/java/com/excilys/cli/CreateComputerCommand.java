@@ -11,17 +11,22 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
-import com.excilys.dao.CompanyDAOImpl;
+import com.excilys.services.CompanyService;
 import com.excilys.services.ComputerService;
-import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.DateValidator;
 
+@Component
 public class CreateComputerCommand implements Command {
 	
 	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
-	private ComputerService service = ComputerServiceImpl.getInstance();
+	@Autowired
+	private ComputerService service;
+	@Autowired
+	private CompanyService companyService;
 	
 	final Logger logger = LoggerFactory.getLogger(CreateComputerCommand.class);
 	
@@ -69,7 +74,7 @@ public class CreateComputerCommand implements Command {
 		}
 		c.setDiscontinued(discontinued);
 		try {
-			c.setCompany(CompanyDAOImpl.getInstance().get(Long.parseLong(args.get(3))));
+			c.setCompany(companyService.getCompany(Long.parseLong(args.get(3))));
 		} catch (NumberFormatException e) {
 			logger.error("The entered value isn't a long.");
 		}

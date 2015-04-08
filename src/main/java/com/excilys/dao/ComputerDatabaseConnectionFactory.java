@@ -8,16 +8,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import org.springframework.stereotype.Component;
+
 import com.jolbox.bonecp.BoneCP;
 import com.jolbox.bonecp.BoneCPConfig;
 
-public enum ComputerDatabaseConnectionFactory {
-	INSTANCE;
+@Component
+public class ComputerDatabaseConnectionFactory {
 
 	private BoneCP pool;
 	private ThreadLocal<Connection> localConnection = new ThreadLocal<Connection>();
 
-	private ComputerDatabaseConnectionFactory() {
+	public ComputerDatabaseConnectionFactory() {
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
 		try (InputStream inputstream = cl.getResourceAsStream("./db.properties");) {
 			Properties properties = new Properties();
@@ -30,10 +32,6 @@ public enum ComputerDatabaseConnectionFactory {
 		} catch (Exception e) {
 			throw new PersistenceException("Erreur de chargement de la configuration de BoneCP.", e);
 		}
-	}
-
-	public static ComputerDatabaseConnectionFactory getInstance() {
-		return INSTANCE;
 	}
 
 	public Connection getConnection() {
