@@ -19,8 +19,8 @@ public class Main {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./applicationContext.xml");
         CommandLineInterface cli = (CommandLineInterface) applicationContext.getBean(CommandLineInterface.class);
 		cli.execute();
-		((ConfigurableApplicationContext) applicationContext).close();
 		logger.info("Closing Spring context.");
+		((ConfigurableApplicationContext) applicationContext).close();
 	}
 
 }

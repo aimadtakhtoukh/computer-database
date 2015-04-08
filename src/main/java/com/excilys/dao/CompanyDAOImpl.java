@@ -24,6 +24,8 @@ public class CompanyDAOImpl implements CompanyDAO {
 	
 	@Autowired
 	private ComputerDatabaseConnectionFactory cdcf;
+	@Autowired
+	private CompanyMapper mapper;
 
 	@Override
 	public Company get(long id) {
@@ -37,13 +39,67 @@ public class CompanyDAOImpl implements CompanyDAO {
 			stmt.setLong(1, id);
 			logger.trace("Company DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery();
-			company = CompanyMapper.getMappedResult(rs);
+			company = mapper.getMappedResult(rs);
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
 		} finally {
 			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
 		}
 		return company;
+	}
+	
+	@Override
+	public List<Company> getAll(int offset, int limit, String orderBy, boolean ascendant, String searchString) {
+		Connection conn = cdcf.getConnection();
+		StringBuilder queryBuilder = new StringBuilder();
+		boolean hasASearchString = false;
+		queryBuilder
+			.append("SELECT * FROM ")
+			.append(TABLE_NAME);
+		/*
+		if (searchString != null) {
+			if (!searchString.trim().isEmpty()) {
+				hasASearchString = true;
+				queryBuilder.append(" WHERE company.")
+					.append(PARAM_NAME)
+					.append(" LIKE ?")
+					.append(" OR company.name LIKE ?");
+				;
+			}
+		}
+		*/
+		if (orderBy != null) {
+			if (!orderBy.trim().isEmpty()) {
+				queryBuilder.append(" ORDER BY ");
+				queryBuilder.append("if(" + orderBy + " is null, 1 , 0), ");
+				queryBuilder.append(orderBy);
+				if (!ascendant) {
+					queryBuilder.append(" DESC");
+				}
+			}
+		}
+		queryBuilder.append(" LIMIT ? OFFSET ?;");
+		String query = queryBuilder.toString();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			int index = 0;
+			stmt = conn.prepareStatement(query);
+			if (hasASearchString) {
+				stmt.setString(++index, "%" + searchString + "%");
+				stmt.setString(++index, "%" + searchString + "%");
+			}
+			stmt.setInt(++index, limit);
+			stmt.setInt(++index, offset);
+			logger.trace("Computer DAO executed the query : " + stmt.toString());
+			rs = stmt.executeQuery();
+			List<Company> results = mapper.getMappedResults(rs);
+			return results;
+		} catch (SQLException e) {
+			throw new PersistenceException(e);
+		} finally {
+			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
+		}
 	}
 
 	@Override
@@ -84,8 +140,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 			stmt = conn.createStatement();
 			logger.trace("Company DAO executed the query : " + stmt.toString());
 			rs = stmt.executeQuery(query);
-			List<Company> results = CompanyMapper.getMappedResults(rs);
-			conn.close();
+			List<Company> results = mapper.getMappedResults(rs);
 			return results;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);
@@ -108,7 +163,6 @@ public class CompanyDAOImpl implements CompanyDAO {
 			if (rs.next()) {
 				count = rs.getInt(1);
 			}
-			conn.close();
 			return count;
 		} catch (SQLException e) {
 			throw new PersistenceException(e);

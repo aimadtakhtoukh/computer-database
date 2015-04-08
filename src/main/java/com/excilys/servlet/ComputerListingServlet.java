@@ -15,17 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
 import com.excilys.page.ComputerPage;
 import com.excilys.services.ComputerService;
-import com.excilys.services.ComputerServiceImpl;
 import com.excilys.servlet.dto.ComputerDTO;
 import com.excilys.validator.NumberValidator;
 
 /**
  * Servlet implementation class ComputerListingServlet
  */
+@Component
 @WebServlet("/dashboard")
 public class ComputerListingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +36,8 @@ public class ComputerListingServlet extends HttpServlet {
 	
 	private static final int PAGE_NUMBER = 5;
 
-	private ComputerService computerService = ComputerServiceImpl.getInstance();
+	@Autowired
+	private ComputerService computerService;
 	private Map<String, String> orderByStrings = new HashMap<>();
 	
     /**

@@ -215,7 +215,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public List<Computer> getAll(int offset, int limit, String orderBy, boolean ascendant, String searchString) {
-		Connection conn =cdcf.getConnection();
+		Connection conn = cdcf.getConnection();
 		StringBuilder queryBuilder = new StringBuilder();
 		boolean hasASearchString = false;
 		queryBuilder

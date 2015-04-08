@@ -68,7 +68,7 @@ public class CommandLineInterface {
 	
 	private Map<String, Command> actions = new HashMap<>();
 	
-	public CommandLineInterface() {
+	public void execute() {
 		actions.put("create", createComputerCommand);
 		actions.put("read", readComputerCommand);
 		actions.put("read_all", readAllComputersCommand);
@@ -77,11 +77,7 @@ public class CommandLineInterface {
 		actions.put("all_companies", readAllCompaniesCommand);
 		actions.put("delete_company", deleteCompanyAndRelatedComputersCommand);
 		actions.put("exit", exitCommand);
-	}
-
-	
-	
-	public void execute() {
+		
 		Scanner sc = new Scanner(System.in);
 		while(true) {
 			System.out.println("Enter your command.");
@@ -92,6 +88,7 @@ public class CommandLineInterface {
 				entry.add(st.nextToken());
 			}
 			if (actions.get(entry.get(0)) != null) {
+				logger.trace(entry.get(0));
 				logger.trace("Command " + entry.get(0) + " called.");
 				actions.get(entry.get(0)).doAction(entry.subList(1, entry.size()), sc);
 				logger.trace("Command " + entry.get(0) + " finished.");

@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
 import com.excilys.services.CompanyService;
-import com.excilys.services.CompanyServiceImpl;
 import com.excilys.services.ComputerService;
-import com.excilys.services.ComputerServiceImpl;
 import com.excilys.validator.DateValidator;
 import com.excilys.validator.NumberValidator;
 import com.excilys.validator.StringValidator;
@@ -31,14 +31,17 @@ import com.excilys.validator.StringValidator;
 /**
  * Servlet implementation class ComputerAddServlet
  */
+@Component
 @WebServlet("/addComputer")
 public class ComputerAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	final Logger logger = LoggerFactory.getLogger(ComputerAddServlet.class);
 
-	private ComputerService computerService = ComputerServiceImpl.getInstance();
-	private CompanyService companyService = CompanyServiceImpl.getInstance();
+	@Autowired
+	private ComputerService computerService;
+	@Autowired
+	private CompanyService companyService;
 	
 	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
 	
