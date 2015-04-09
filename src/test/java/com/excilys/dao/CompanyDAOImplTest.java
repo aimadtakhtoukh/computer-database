@@ -1,20 +1,25 @@
 package com.excilys.dao;
 
 import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
+import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.excilys.beans.Company;
 import com.excilys.dao.util.DatabaseTestUtil;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class CompanyDAOImplTest {
 	
 	@Autowired
@@ -22,8 +27,13 @@ public class CompanyDAOImplTest {
 	@Autowired
 	ComputerDatabaseConnectionFactory cdcf;
 	
+	@BeforeClass
+	public static void beforeClass() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		DatabaseTestUtil.setUpDatabase();
+	}
+	
 	@Before
-	public void prepareTestBase() throws SQLException, IOException {
+	public void prepareTestBase() throws DataSetException, Exception {
 		DatabaseTestUtil.executeSqlFile(
 				"test.sql", 
 				cdcf.getConnection());
@@ -122,5 +132,4 @@ public class CompanyDAOImplTest {
 		Assert.assertEquals(list.size(), companyDAO.getAll().size());
 		//THEN
 	}
-	
 }

@@ -38,7 +38,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-		<!-- 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
@@ -48,9 +47,8 @@
             		<groupId>commons-logging</groupId>
             		<artifactId>commons-logging</artifactId>
             	</exclusion>
-            </exclusions>			
-		</dependency>
-	    -->
+            </exclusions>
+        </dependency>
 		<!-- END_DATABASE -->
 		<!-- TESTS -->
 		<dependency>
@@ -100,6 +98,11 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>

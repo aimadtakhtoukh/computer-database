@@ -1,37 +1,41 @@
 package com.excilys.services;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.sql.SQLException;
-import java.sql.Statement;
 
+import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.excilys.dao.ComputerDAOImplTest;
 import com.excilys.dao.ComputerDatabaseConnectionFactory;
 import com.excilys.dao.util.DatabaseTestUtil;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class CompanyServiceImplTest {
 	
+	@Autowired
+	ComputerDatabaseConnectionFactory cdcf;
+	@Autowired
+	CompanyService companyService;
+	
 	@BeforeClass
-	public static void prepareTestBase() throws SQLException, IOException {
-		final InputStream is = ComputerDAOImplTest.class
-				.getClassLoader().getResourceAsStream("test.sql");
-		final BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-		final StringBuilder sb = new StringBuilder();
-		String str;
-		while ((str = br.readLine()) != null) {
-			sb.append(str + "\n ");
-		}
-		final Statement stmt = ComputerDatabaseConnectionFactory.getInstance().getConnection().createStatement();
-		stmt.execute(sb.toString());
+	public static void beforeClass() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		DatabaseTestUtil.setUpDatabase();
+	}
+	
+	@Before
+	public void prepareTestBase() throws DataSetException, Exception {
+		DatabaseTestUtil.executeSqlFile(
+				"test.sql", 
+				cdcf.getConnection());
 	}
 	
 	@After
@@ -45,7 +49,6 @@ public class CompanyServiceImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/general/get.xml")));
-		CompanyService companyService = CompanyServiceImpl.getInstance();
 		//WHEN
 		companyService.deleteCompanyAndRelatedComputers(1);
 		//THEN

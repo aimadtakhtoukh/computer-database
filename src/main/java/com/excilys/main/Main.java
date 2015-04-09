@@ -2,9 +2,8 @@ package com.excilys.main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.excilys.cli.CommandLineInterface;
@@ -16,7 +15,10 @@ public class Main {
 	
 	public static void main(String[] args) {
         logger.info("Initializing Spring context.");
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./applicationContext.xml");
+        GenericXmlApplicationContext applicationContext = new GenericXmlApplicationContext();
+        applicationContext.getEnvironment().setActiveProfiles("DEV");
+        applicationContext.load("applicationContext.xml");
+        applicationContext.refresh();
         CommandLineInterface cli = (CommandLineInterface) applicationContext.getBean(CommandLineInterface.class);
 		cli.execute();
 		logger.info("Closing Spring context.");

@@ -32,10 +32,10 @@ public class DatabaseTestUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		jdbcDriver = properties.getProperty("driver");
-		jdbcUrl = properties.getProperty("url");
-		user = properties.getProperty("username");
-		password = properties.getProperty("password");
+		jdbcDriver = properties.getProperty("jdbc.driver");
+		jdbcUrl = properties.getProperty("jdbc.url");
+		user = properties.getProperty("jdbc.username");
+		password = properties.getProperty("jdbc.password");
 	}
 
 	public static void cleanlyInsert(IDataSet dataSet) throws Exception {

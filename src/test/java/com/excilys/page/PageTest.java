@@ -1,39 +1,42 @@
 package com.excilys.page;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.sql.SQLException;
-import java.sql.Statement;
 
+import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.excilys.beans.Computer;
-import com.excilys.dao.ComputerDAOImpl;
-import com.excilys.dao.ComputerDAOImplTest;
 import com.excilys.dao.ComputerDatabaseConnectionFactory;
 import com.excilys.dao.util.DatabaseTestUtil;
+import com.excilys.services.ComputerService;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class PageTest {
 
+	@Autowired
+	ComputerDatabaseConnectionFactory cdcf;
+	@Autowired
+	ComputerService service;
+
 	@BeforeClass
-	public static void prepareTestBase() throws SQLException, IOException {
-		final InputStream is = ComputerDAOImplTest.class
-				.getClassLoader().getResourceAsStream("test.sql");
-		final BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-		final StringBuilder sb = new StringBuilder();
-		String str;
-		while ((str = br.readLine()) != null) {
-			sb.append(str + "\n ");
-		}
-		final Statement stmt = ComputerDatabaseConnectionFactory.getInstance().getConnection().createStatement();
-		stmt.execute(sb.toString());
+	public static void beforeClass() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		DatabaseTestUtil.setUpDatabase();
+	}
+	
+	@Before
+	public void prepareTestBase() throws DataSetException, Exception {
+		DatabaseTestUtil.executeSqlFile(
+				"test.sql", 
+				cdcf.getConnection());
 	}
 	
 	@After
@@ -47,8 +50,8 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
+		ComputerPage page = service.getComputerPage();
 		//WHEN
-		Page<Computer> page = new ComputerPage(ComputerDAOImpl.getInstance());
 		Assert.assertEquals(page.getLimit(), 10);
 		//THEN
 	}
@@ -58,7 +61,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new ComputerPage(ComputerDAOImpl.getInstance());
+		ComputerPage page = service.getComputerPage();
 		//WHEN
 		page.setLimit(20);
 		Assert.assertEquals(page.getLimit(), 20);
@@ -70,7 +73,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new ComputerPage(ComputerDAOImpl.getInstance());
+		ComputerPage page = service.getComputerPage();
 		//WHEN
 		page.setLimit(-1);
 		Assert.assertEquals(page.getLimit(), 0);
@@ -82,8 +85,8 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
+		ComputerPage page = service.getComputerPage();
 		//WHEN
-		Page<Computer> page = new ComputerPage(ComputerDAOImpl.getInstance());
 		Assert.assertEquals(page.getOffset(), 0);
 		//THEN
 	}
@@ -94,7 +97,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new ComputerPage(ComputerDAOImpl.getInstance());
+		ComputerPage page = service.getComputerPage();
 		//WHEN
 		page.setOffset(20);
 		Assert.assertEquals(20, page.getOffset());
@@ -106,7 +109,7 @@ public class PageTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Page<Computer> page = new ComputerPage(ComputerDAOImpl.getInstance());
+		ComputerPage page = service.getComputerPage();
 		//WHEN
 		page.setLimit(-1);
 		Assert.assertEquals(page.getLimit(), 0);
