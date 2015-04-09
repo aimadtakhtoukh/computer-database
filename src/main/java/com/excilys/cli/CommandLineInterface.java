@@ -16,38 +16,6 @@ import org.springframework.stereotype.Component;
 public class CommandLineInterface {
 	
 	final Logger logger = LoggerFactory.getLogger(CommandLineInterface.class);
-	/*
-	public enum ACTIONS {
-		CREATE_COMPUTER("create", new CreateComputerCommand()),
-		READ_COMPUTER("read", new ReadComputerCommand()),
-		READ_ALL_COMPUTERS("read_all", new ReadAllComputersCommand()),
-		UPDATE_COMPUTER("update", new UpdateComputerCommand()),
-		DELETE_COMPUTER("delete", new DeleteComputerCommand()),
-		READ_ALL_COMPANIES("all_companies", new ReadAllCompaniesCommand()),
-		DELETE_COMPANY_AND_RELATED_COMPUTERS("delete_company", new DeleteCompanyAndRelatedComputersCommand()),
-		EXIT("exit", new ExitCommand());
-		
-		final Logger logger = LoggerFactory.getLogger(ACTIONS.class);
-		
-		private String action;
-		
-		private Command command;
-		
-		ACTIONS(String a, Command c) {
-			action = a;
-			command = c;
-		}
-		
-		public String getAction() {return action;}
-		
-		public void doAction(List<String> args, Scanner sc) {
-			logger.trace("Command " + this.getAction() + " called.");
-			command.doAction(args, sc);
-			logger.trace("Command " + this.getAction() + " finished.");
-		}
-		
-	}
-	*/
 
 	@Autowired
 	CreateComputerCommand createComputerCommand;

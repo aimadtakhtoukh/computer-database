@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
 import com.excilys.page.ComputerPage;
@@ -27,7 +26,6 @@ import com.excilys.validator.NumberValidator;
 /**
  * Servlet implementation class ComputerListingServlet
  */
-@Component
 @WebServlet("/dashboard")
 public class ComputerListingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

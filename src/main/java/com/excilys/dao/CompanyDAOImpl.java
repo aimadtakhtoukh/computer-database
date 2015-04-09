@@ -56,18 +56,15 @@ public class CompanyDAOImpl implements CompanyDAO {
 		queryBuilder
 			.append("SELECT * FROM ")
 			.append(TABLE_NAME);
-		/*
 		if (searchString != null) {
 			if (!searchString.trim().isEmpty()) {
 				hasASearchString = true;
 				queryBuilder.append(" WHERE company.")
-					.append(PARAM_NAME)
-					.append(" LIKE ?")
-					.append(" OR company.name LIKE ?");
+					.append("name")
+					.append(" LIKE % ? %")
 				;
 			}
 		}
-		*/
 		if (orderBy != null) {
 			if (!orderBy.trim().isEmpty()) {
 				queryBuilder.append(" ORDER BY ");

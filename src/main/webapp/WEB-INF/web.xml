@@ -8,6 +8,26 @@
 	http://java.sun.com/xml/ns/j2ee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>Computer Database</display-name>
+	
+	<servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+ 
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+ 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+	</context-param>
+	
+	<import resource="applicationContext.xml"/>
 
 	<error-page>
 		<error-code>403</error-code>

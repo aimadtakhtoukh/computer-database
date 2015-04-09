@@ -5,7 +5,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.dao.CRUDDAO;
 import com.excilys.dao.ComputerDatabaseConnectionFactory;
@@ -16,7 +15,6 @@ import com.excilys.dao.ComputerDatabaseConnectionFactory;
  * @author excilys
  *
  */
-@Component
 public abstract class PageImpl<T> implements Page<T> {
 	
 	final Logger logger = LoggerFactory.getLogger(PageImpl.class);

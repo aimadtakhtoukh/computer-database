@@ -15,10 +15,10 @@
 		</encoder>
 	</appender>
 	
-	<logger name="cli" level="DEBUG"/>
-	<logger name="dao" level="DEBUG"/>
+	<logger name="cli" level="ERROR"/>
+	<logger name="dao" level="ERROR"/>
 
-	<root level="info">
+	<root level="error">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</root>

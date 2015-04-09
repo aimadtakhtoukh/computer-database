@@ -4,11 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
 import com.excilys.cli.CommandLineInterface;
 
-@Component
 public class Main {
 	
 	final static Logger logger = LoggerFactory.getLogger(Main.class);

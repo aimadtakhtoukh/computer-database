@@ -14,14 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.services.ComputerService;
 
 /**
  * Servlet implementation class ComputerDeleteServlet
  */
-@Component
 @WebServlet("/deleteComputer")
 public class ComputerDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

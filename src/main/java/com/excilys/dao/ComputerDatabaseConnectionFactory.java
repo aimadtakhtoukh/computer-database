@@ -5,8 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,12 +16,12 @@ public class ComputerDatabaseConnectionFactory {
 	private ThreadLocal<Connection> localConnection = new ThreadLocal<Connection>();
 	
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private DataSource dataSource;
 	
 	public Connection getConnection() {
 		if (localConnection.get() == null) {
 			try {
-				localConnection.set(jdbcTemplate.getDataSource().getConnection());
+				localConnection.set(dataSource.getConnection());
 			} catch (SQLException e) {
 				throw new PersistenceException("Impossible to get a connection. ", e);
 			}
