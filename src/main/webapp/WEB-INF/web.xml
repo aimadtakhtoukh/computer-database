@@ -26,8 +26,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
 	</context-param>
-	
-	<import resource="applicationContext.xml"/>
 
 	<error-page>
 		<error-code>403</error-code>

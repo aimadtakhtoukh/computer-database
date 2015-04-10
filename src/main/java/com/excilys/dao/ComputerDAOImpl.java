@@ -226,7 +226,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 		if (searchString != null) {
 			if (!searchString.trim().isEmpty()) {
 				hasASearchString = true;
-				queryBuilder.append(" WHERE company.")
+				queryBuilder.append(" WHERE computer.")
 					.append(PARAM_NAME)
 					.append(" LIKE ?")
 					.append(" OR company.name LIKE ?");
