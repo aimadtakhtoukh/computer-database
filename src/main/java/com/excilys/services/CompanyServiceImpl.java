@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.excilys.beans.Company;
 import com.excilys.dao.CompanyDAO;
 import com.excilys.dao.ComputerDAO;
-import com.excilys.dao.ComputerDatabaseConnectionFactory;
 import com.excilys.dao.PersistenceException;
 import com.excilys.page.CompanyPage;
 
@@ -25,21 +24,15 @@ public class CompanyServiceImpl implements CompanyService {
 	private CompanyDAO companyDAO;
 	@Autowired
 	private ComputerDAO computerDAO;
-	@Autowired
-	private ComputerDatabaseConnectionFactory cdcf;
 	
 	public Company getCompany(long id) {
 		logger.trace("Company Service has been asked a company of id " + id);
-		Company c = companyDAO.get(id);
-		cdcf.cleanConnection();
-		return c;
+		return companyDAO.get(id);
 	}
 	
 	public List<Company> getAllCompanies() {
 		logger.trace("Company Service has been asked all companies");
-		List<Company> list = companyDAO.getAll();
-		cdcf.cleanConnection();
-		return list;
+		return companyDAO.getAll();
 	}
 
 	@Override
@@ -48,7 +41,6 @@ public class CompanyServiceImpl implements CompanyService {
 		logger.trace("Company Service has been asked to delete the company with the id : " + id);
 		computerDAO.deleteByCompanyId(id);
 		companyDAO.delete(id);
-		cdcf.cleanConnection();
 	}
 
 	@Override

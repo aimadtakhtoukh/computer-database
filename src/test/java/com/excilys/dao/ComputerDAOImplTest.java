@@ -16,6 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.excilys.beans.Computer;
+import com.excilys.dao.util.ComputerDatabaseConnectionFactory;
 import com.excilys.dao.util.DatabaseTestUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)

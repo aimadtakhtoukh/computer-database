@@ -6104,3 +6104,5 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 16:39:58.974 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [applicationContext.xml]
 16:39:59.162 [main] INFO  o.s.c.s.GenericXmlApplicationContext - Refreshing org.springframework.context.support.GenericXmlApplicationContext@42d3bd8b: startup date [Thu Apr 09 16:39:59 CEST 2015]; root of context hierarchy
 16:39:59.272 [main] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [db.properties]
+11:35:15.004 [main] ERROR com.excilys.cli.ReadComputerCommand - The computer n° 576 doesn't exist.
+11:36:11.761 [main] ERROR com.excilys.cli.ReadComputerCommand - The computer n° 575 doesn't exist.

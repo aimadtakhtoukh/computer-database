@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.excilys.dao.CRUDDAO;
-import com.excilys.dao.ComputerDatabaseConnectionFactory;
 
 /**
  * The Page bean contains variables to define a page, by its offset,
@@ -18,9 +16,6 @@ import com.excilys.dao.ComputerDatabaseConnectionFactory;
 public abstract class PageImpl<T> implements Page<T> {
 	
 	final Logger logger = LoggerFactory.getLogger(PageImpl.class);
-	
-	@Autowired
-	private ComputerDatabaseConnectionFactory cdcf;
 	
 	private final static int STANDARD_PAGE_LIMIT = 10;
 	private final static int STANDARD_PAGE_OFFSET = 0;

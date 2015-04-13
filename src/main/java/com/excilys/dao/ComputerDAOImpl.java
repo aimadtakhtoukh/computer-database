@@ -2,15 +2,20 @@ package com.excilys.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.sql.Types;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.excilys.beans.Computer;
@@ -27,15 +32,14 @@ public class ComputerDAOImpl implements ComputerDAO {
 	private static final String PARAM_COMPANY_ID = "company_id";
 
 	final Logger logger = LoggerFactory.getLogger(ComputerDAOImpl.class);
-	
+
 	@Autowired
-	private ComputerDatabaseConnectionFactory cdcf;
+	private JdbcTemplate jdbcTemplate;
 	@Autowired
 	private ComputerMapper mapper;
 
 	@Override
 	public Computer get(long id) {
-		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 			.append("SELECT * FROM ")
 			.append(TABLE_NAME)
@@ -43,29 +47,17 @@ public class ComputerDAOImpl implements ComputerDAO {
 			.append(PARAM_ID)
 			.append("= ?")
 			.toString();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			ps = conn.prepareStatement(query);
-			ps.setLong(1, id);
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			rs = ps.executeQuery();
-			Computer computer = mapper.getMappedResult(rs);
-			return computer;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(rs, ps);
-		}
+		List<Computer> result = jdbcTemplate.query(query, new Object[] {id} , mapper);
+		logger.trace("Computer DAO executed the query : " + query);
+		return result.isEmpty() ? null : result.get(0);
 	}
 
 	@Override
 	public long create(Computer computer) {
-		Connection conn = cdcf.getConnection();
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
-		String insertQuery = new StringBuilder()
+		String query = new StringBuilder()
 						.append("INSERT INTO ")
 						.append(TABLE_NAME)
 						.append("(")
@@ -75,44 +67,44 @@ public class ComputerDAOImpl implements ComputerDAO {
 						.append(PARAM_COMPANY_ID)
 						.append(") VALUES (? ,? ,? ,? );")
 						.toString();
-		PreparedStatement ps = null;
-		ResultSet key = null;
-		try {
-			ps = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, computer.getName());
-			if (computer.getIntroduced() != null) {
-				ps.setTimestamp(2, Timestamp.valueOf((computer.getIntroduced())));
-			} else {
-				ps.setTimestamp(2, null);
-			}
-			if (computer.getDiscontinued() != null) {
-				ps.setTimestamp(3, Timestamp.valueOf(computer.getDiscontinued()));
-			} else {
-				ps.setTimestamp(3, null);
-			}
-			if (computer.getCompany() != null) {
-				ps.setLong(4, computer.getCompany().getId());
-			} else {
-				ps.setObject(4, null);
-			}
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			ps.executeUpdate();
-			key = ps.getGeneratedKeys();
-			long result = 0L;
-			if (key.next()) {
-				result =  key.getLong(1);
-			}
-			return result;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(key, ps);
+		final Timestamp introduced;
+		final Timestamp discontinued;
+		if (computer.getIntroduced() != null) {
+			introduced = Timestamp.valueOf(computer.getIntroduced());
+		} else {
+			introduced = null;
 		}
+		if (computer.getDiscontinued() != null) {
+			discontinued = Timestamp.valueOf(computer.getDiscontinued());
+		} else {
+			discontinued = null;
+		}
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		jdbcTemplate.update(
+				new PreparedStatementCreator() {
+					public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+						PreparedStatement ps =
+								connection.prepareStatement(query, 
+										Statement.RETURN_GENERATED_KEYS);
+						int paramIndex = 0;
+						ps.setString(++paramIndex, computer.getName());
+						ps.setTimestamp(++paramIndex, introduced);
+						ps.setTimestamp(++paramIndex, discontinued);
+						if (computer.getCompany() != null) {
+							ps.setLong(++paramIndex, computer.getCompany().getId());
+						} else {
+							ps.setNull(++paramIndex, Types.BIGINT);
+						}
+						return ps;
+					}
+				},
+				keyHolder);
+		logger.trace("Computer DAO executed the query : " + query);
+		return keyHolder.getKey().longValue();
 	}
 
 	@Override
 	public long update(long id, Computer computer) {
-		Connection conn = cdcf.getConnection();
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
@@ -126,103 +118,81 @@ public class ComputerDAOImpl implements ComputerDAO {
 						.append(PARAM_COMPANY_ID + "=? ")
 						.append("WHERE " + PARAM_ID + " = ?")
 						.toString();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, computer.getName());
-			if (computer.getIntroduced() != null) {
-				ps.setTimestamp(2, Timestamp.valueOf((computer.getIntroduced())));
-			} else {
-				ps.setTimestamp(2, null);
-			}
-			if (computer.getDiscontinued() != null) {
-				ps.setTimestamp(3, Timestamp.valueOf(computer.getDiscontinued()));
-			} else {
-				ps.setTimestamp(3, null);
-			}
-			if (computer.getCompany() != null) {
-				ps.setLong(4, computer.getCompany().getId());
-			} else {
-				ps.setObject(4, null);
-			}
-			ps.setLong(5, id);
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			ps.executeUpdate();
-			rs = ps.getGeneratedKeys();
-			long result = 0L;
-			if (rs.next()) {
-				result = rs.getLong(1);
-			}
-			return result;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(rs, ps);
+		final Timestamp introduced;
+		final Timestamp discontinued;
+		if (computer.getIntroduced() != null) {
+			introduced = Timestamp.valueOf(computer.getIntroduced());
+		} else {
+			introduced = null;
+		}
+		if (computer.getDiscontinued() != null) {
+			discontinued = Timestamp.valueOf(computer.getDiscontinued());
+		} else {
+			discontinued = null;
+		}
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		jdbcTemplate.update(
+				new PreparedStatementCreator() {
+					public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+						PreparedStatement ps =
+								connection.prepareStatement(query, 
+										Statement.RETURN_GENERATED_KEYS);
+						int paramIndex = 0;
+						ps.setString(++paramIndex, computer.getName());
+						ps.setTimestamp(++paramIndex, introduced);
+						ps.setTimestamp(++paramIndex, discontinued);
+						if (computer.getCompany() != null) {
+							ps.setLong(++paramIndex, computer.getCompany().getId());
+						} else {
+							ps.setNull(++paramIndex, Types.BIGINT);
+						}
+						ps.setLong(++paramIndex, id);
+						return ps;
+					}
+				},
+				keyHolder);
+		logger.trace("Computer DAO executed the query : " + query);
+		if (keyHolder.getKey() != null) {
+			return keyHolder.getKey().longValue();
+		} else {
+			return 0;
 		}
 	}
 
 	@Override
 	public long delete(long id) {
-		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 		.append("DELETE FROM ")
 		.append(TABLE_NAME)
 		.append(" WHERE id = ?;")
 		.toString();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			ps.setLong(1, id);
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			ps.executeUpdate();
-			long result = 0L;
-			rs = ps.getGeneratedKeys();
-			if (rs.next()) {
-				result = rs.getLong(1);
-			}
-			return result;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(rs, ps);
-		}
+
+		jdbcTemplate.update(query, id);
+		logger.trace("Computer DAO executed the query : " + query);
+		return id;
 	}
 
 	@Override
 	public List<Computer> getAll() {
-		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 		.append("SELECT * FROM ")
 		.append(TABLE_NAME)
 		.append(";")
 		.toString();
-		Statement stmt = null;
-		ResultSet rs = null;
-		try {
-			stmt = conn.createStatement();
-			logger.trace("Computer DAO executed the query : " + stmt.toString());
-			rs = stmt.executeQuery(query);
-			List<Computer> result = mapper.getMappedResults(rs);
-			return result;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
-		}
+		logger.trace("Computer DAO executed the query : " + query);
+		return jdbcTemplate.query(query , mapper);
 	}
 
 	@Override
 	public List<Computer> getAll(int offset, int limit, String orderBy, boolean ascendant, String searchString) {
-		Connection conn = cdcf.getConnection();
 		StringBuilder queryBuilder = new StringBuilder();
-		boolean hasASearchString = false;
 		queryBuilder
 			.append("SELECT * FROM ")
 			.append(TABLE_NAME)
 			.append(" LEFT JOIN company ON ")
 			.append("computer.company_id = company.id");
+		
+		boolean hasASearchString = false;
 		if (searchString != null) {
 			if (!searchString.trim().isEmpty()) {
 				hasASearchString = true;
@@ -245,57 +215,30 @@ public class ComputerDAOImpl implements ComputerDAO {
 		}
 		queryBuilder.append(" LIMIT ? OFFSET ?;");
 		String query = queryBuilder.toString();
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		try {
-			int index = 0;
-			stmt = conn.prepareStatement(query);
-			if (hasASearchString) {
-				stmt.setString(++index, "%" + searchString + "%");
-				stmt.setString(++index, "%" + searchString + "%");
-			}
-			stmt.setInt(++index, limit);
-			stmt.setInt(++index, offset);
-			logger.trace("Computer DAO executed the query : " + stmt.toString());
-			rs = stmt.executeQuery();
-			List<Computer> results = mapper.getMappedResults(rs);
-			return results;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
+		logger.trace("Computer DAO executed the query : " + query);
+		List<Object> params = new ArrayList<Object>();
+		if (hasASearchString) {
+			params.add("%" + searchString + "%");
+			params.add("%" + searchString + "%");
 		}
+		params.add(limit);
+		params.add(offset);
+		return jdbcTemplate.query(query, params.toArray(), mapper);
 	}
 
 	@Override
 	public int getCount() {
-		Connection conn = cdcf.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT COUNT(*) FROM ");
 		sb.append(TABLE_NAME);
 		sb.append(";");
 		String query =  sb.toString();
-		Statement stmt = null;
-		ResultSet rs = null;
-		try {
-			stmt = conn.createStatement();
-			logger.trace("Computer DAO executed the query : " + stmt.toString());
-			rs = stmt.executeQuery(query);
-			int count = -1;
-			if (rs.next()) {
-				count = rs.getInt(1);
-			}
-			return count;
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(rs, stmt);
-		}
+		logger.trace("Company DAO executed the query : " + query);		
+		return jdbcTemplate.queryForObject(query, Integer.class);
 	}
 
 	@Override
 	public void deleteByCompanyId(long companyId) {
-		Connection conn = cdcf.getConnection();
 		String query = new StringBuilder()
 		.append("DELETE FROM ")
 		.append(TABLE_NAME)
@@ -303,16 +246,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 		.append(PARAM_COMPANY_ID)
 		.append(" = ?;")
 		.toString();
-		PreparedStatement ps = null;
-		try {
-			ps = conn.prepareStatement(query);
-			ps.setLong(1, companyId);
-			logger.trace("Computer DAO executed the query : " + ps.toString());
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			throw new PersistenceException(e);
-		} finally {
-			ComputerDatabaseConnectionFactory.releaseRessources(null, ps);
-		}
+		logger.trace("Computer DAO executed the query : " + query);
+		jdbcTemplate.update(query, companyId);
 	}
 }

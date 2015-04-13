@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.excilys.dao.ComputerDatabaseConnectionFactory;
+import com.excilys.dao.util.ComputerDatabaseConnectionFactory;
 import com.excilys.dao.util.DatabaseTestUtil;
 import com.excilys.services.ComputerService;
 

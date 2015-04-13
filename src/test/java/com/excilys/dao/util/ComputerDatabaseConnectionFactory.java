@@ -1,4 +1,4 @@
-package com.excilys.dao;
+package com.excilys.dao.util;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.excilys.dao.PersistenceException;
 
 @Component
 public class ComputerDatabaseConnectionFactory {
