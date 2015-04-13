@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="mylib" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html">
 <html>
@@ -9,14 +10,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <%@ include file="/WEB-INF/partials/css.jsp" %>
-<title>Computer Database</title>
+<title><spring:message code="application.page_title"/></title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/partials/header.jsp" %>
 
 	<section id="main"></section>
 	<div class="container">
-		<h1 id="homeTitle">${computerCount} Computers found</h1>
+		<h1 id="homeTitle">${computerCount} <spring:message code="dashboard.computer_found"/></h1>
 		<div id="actions" class="form-horizontal">
 			<div class="pull-left">
 				<form id="searchForm" action="dashboard" method="GET" class="form-inline">
@@ -24,13 +25,14 @@
 					<input type="hidden" name="page" value="${page}" />
 					<input type="hidden" name="orderBy" value="${orderBy}" />
 					<input type="hidden" name="asc" value="${asc}" />
-					<input type="search" id="searchbox" name="search" class="form-control" placeholder="Search name" value="${searchString}" />
-					<input type="submit" id="searchsubmit" value="Filter by name" class="btn btn-primary" />
+					<input type="search" id="searchbox" name="search" class="form-control" 
+					placeholder="<spring:message code="dashboard.search_placeholder"/>" value="${searchString}" />
+					<input type="submit" id="searchsubmit" value="<spring:message code="dashboard.filter_by_name"/>" class="btn btn-primary" />
 				</form>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-success" id="addComputer" href="addComputer">Add Computer</a> 
-				<a class="btn btn-default" id="editComputer" href="#" onclick="$.fn.toggleEditMode();">Edit</a>
+				<a class="btn btn-success" id="addComputer" href="addComputer"><spring:message code="dashboard.add_computer"/></a> 
+				<a class="btn btn-default" id="editComputer" href="#" onclick="$.fn.toggleEditMode();"><spring:message code="dashboard.edit"/></a>
 			</div>
 		</div>
 	</div>
@@ -56,7 +58,7 @@
 					</th>
 					
 					<th>
-					Computer name 
+					<spring:message code="computer_name"/> 
 					<a href="
 						<mylib:link 
 							target="dashboard" 
@@ -83,7 +85,7 @@
 					</a>
 					</th>
 					<th>
-					Introduced date
+					<spring:message code="introduced_date"/>
 					<a href="		
 						<mylib:link 
 							target="dashboard" 
@@ -111,7 +113,7 @@
 					</th>
 					<!-- Table header for Discontinued Date -->
 					<th>
-					Discontinued date
+					<spring:message code="discontinued_date"/>
 					<a href="		
 						<mylib:link 
 							target="dashboard" 
@@ -139,7 +141,7 @@
 					</th>
 					<!-- Table header for Company -->
 					<th>
-					Company
+					<spring:message code="company"/>
 					<a href="		
 						<mylib:link 
 							target="dashboard" 
