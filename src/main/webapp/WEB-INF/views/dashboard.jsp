@@ -195,7 +195,7 @@
 		<mylib:pagination currentPageNumber="${currentPageNumber}" resultsPerPage="${resultsPerPage}" 
 		paginationStart="${paginationStart}"  paginationFinish="${paginationFinish}"></mylib:pagination>
 	</footer>
-	<%@ include file="/WEB-INF/partials/js.jsp" %>
-	<script src="../js/dashboard.js"></script>
+<%@ include file="/WEB-INF/partials/js.jsp" %>
+<%@ include file="/WEB-INF/partials/dashboard.jsp" %>
 </body>
 </html>

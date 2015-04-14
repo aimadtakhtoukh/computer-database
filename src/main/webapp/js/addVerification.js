@@ -34,7 +34,7 @@ $("#computerName").keyup(function() {
 		$("#computerNameMessage").text("");
 	} else {
 		$("#computerNameMessage").css("color", "red");
-		$("#computerNameMessage").text("Le nom doit être complété pour valider la création.");
+		$("#computerNameMessage").text(message_validation_wrong_name_format);
 	}
 	
 });
@@ -42,10 +42,10 @@ $("#computerName").keyup(function() {
 $("#introduced").keyup(function() {
 	if (isDayInMonthAndYear($(this).val())) {
 		$("#introducedMessage").css("color", "green");
-		$("#introducedMessage").text("La date est au bon format.");
+		$("#introducedMessage").text(message_validation_right_date_format);
 	} else {
 		$("#introducedMessage").css("color", "red");
-		$("#introducedMessage").text("La date n'est pas au format dd-MM-yyyy.");
+		$("#introducedMessage").text(message_validation_wrong_date_format);
 	}
 });
 
@@ -53,9 +53,9 @@ $("#introduced").keyup(function() {
 $("#discontinued").keyup(function() {
 	if (isDayInMonthAndYear($(this).val())) {
 		$("#discontinuedMessage").css("color", "green");
-		$("#discontinuedMessage").text("La date est au bon format.");
+		$("#discontinuedMessage").text(message_validation_right_date_format);
 	} else {
 		$("#discontinuedMessage").css("color", "red");
-		$("#discontinuedMessage").text("La date n'est pas au format dd-MM-yyyy.");
+		$("#discontinuedMessage").text(message_validation_wrong_date_format);
 	}
 });

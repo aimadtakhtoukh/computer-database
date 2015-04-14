@@ -2,9 +2,8 @@ package com.excilys.servlet.dto;
 
 import com.excilys.beans.Computer;
 
-
 public class ComputerDTO {
-	
+
 	private long id;
 	private String name;
 	private String introduced;

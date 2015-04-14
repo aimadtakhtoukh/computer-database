@@ -72,8 +72,7 @@
 			</div>
 		</div>
 	</section>
-	<%@ include file="/WEB-INF/partials/js.jsp" %>
-	<script src="../js/addVerification.js"></script>
-
+<%@ include file="/WEB-INF/partials/js.jsp" %>
+<%@ include file="/WEB-INF/partials/addVerification.jsp" %>
 </body>
 </html>
