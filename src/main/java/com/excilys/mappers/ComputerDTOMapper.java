@@ -1,30 +1,26 @@
 package com.excilys.mappers;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Locale;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
+import com.excilys.controller.dto.ComputerDTO;
 import com.excilys.dao.CompanyDAO;
-import com.excilys.servlet.dto.ComputerDTO;
+import com.excilys.validator.DateValidation;
 
 @Component
 public class ComputerDTOMapper {
-
-	final Logger logger = LoggerFactory.getLogger(ComputerDTOMapper.class);
 	
 	@Autowired
 	private CompanyDAO companyDAO;
-	
-	private static DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
+	@Autowired
+	private DateValidation dateValidator;
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	
 	public ComputerDTO toComputerDTO(Computer bean) {
 		if (bean == null) {
@@ -34,10 +30,10 @@ public class ComputerDTOMapper {
 		dto.setId(bean.getId());
 		dto.setName(bean.getName());
 		if (bean.getIntroduced() != null) {
-			dto.setIntroduced(bean.getIntroduced().toLocalDate().toString());
+			dto.setIntroduced(bean.getIntroduced().format(formatter));
 		}
 		if (bean.getDiscontinued() != null) {
-			dto.setDiscontinued(bean.getDiscontinued().toLocalDate().toString());
+			dto.setDiscontinued(bean.getDiscontinued().format(formatter));
 		}
 		if (bean.getCompany() != null) {
 			dto.setCompanyId(bean.getCompany().getId());
@@ -57,18 +53,18 @@ public class ComputerDTOMapper {
 		bean.setId(dto.getId());
 		bean.setName(dto.getName());
 		if (dto.getIntroduced() != null) {
-			try {
-				bean.setIntroduced(LocalDateTime.ofInstant(sdf.parse(dto.getIntroduced()).toInstant(), ZoneId.systemDefault()));
-			} catch (ParseException e) {
+			if (dateValidator.isACorrectDate(dto.getIntroduced())) {
+				bean.setIntroduced(LocalDateTime.of(LocalDate.parse(dto.getIntroduced(), formatter), LocalTime.MIDNIGHT));
+			} else {
 				bean.setIntroduced(null);
 			}
 		} else {
 			bean.setIntroduced(null);
 		}
 		if (dto.getDiscontinued() != null) {
-			try {
-				bean.setDiscontinued(LocalDateTime.ofInstant(sdf.parse(dto.getDiscontinued()).toInstant(), ZoneId.systemDefault()));
-			} catch (ParseException e) {
+			if (dateValidator.isACorrectDate(dto.getDiscontinued())) {
+				bean.setDiscontinued(LocalDateTime.of(LocalDate.parse(dto.getDiscontinued(), formatter), LocalTime.MIDNIGHT));
+			} else {
 				bean.setDiscontinued(null);
 			}
 		} else {
@@ -81,5 +77,5 @@ public class ComputerDTOMapper {
 		}
 		return bean;
 	}
-
+	
 }

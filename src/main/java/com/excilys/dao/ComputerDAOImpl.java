@@ -31,7 +31,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 	private static final String PARAM_DISCONTINUED = "discontinued";
 	private static final String PARAM_COMPANY_ID = "company_id";
 
-	final Logger logger = LoggerFactory.getLogger(ComputerDAOImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(ComputerDAOImpl.class);
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

@@ -1,17 +1,18 @@
-package com.excilys.servlet.dto;
+package com.excilys.controller.dto;
+
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class ComputerDTO {
-
+	@NotNull
 	private Long id;
+	@NotEmpty
 	private String name;
 	private String introduced;
 	private String discontinued;
 	private Long companyId;
 	private String companyName;
-	
-	public ComputerDTO() {
-		
-	}
 	
 	public Long getId() {
 		return id;

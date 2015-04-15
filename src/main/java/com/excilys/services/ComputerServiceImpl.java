@@ -14,7 +14,7 @@ import com.excilys.page.ComputerPage;
 @Service
 public class ComputerServiceImpl implements ComputerService {
 	
-	final Logger logger = LoggerFactory.getLogger(ComputerServiceImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(ComputerServiceImpl.class);
 	
 	@Autowired
 	private ComputerDAO computerDAO;

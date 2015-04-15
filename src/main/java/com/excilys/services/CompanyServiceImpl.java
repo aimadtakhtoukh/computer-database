@@ -18,7 +18,7 @@ import com.excilys.page.CompanyPage;
 @Component
 public class CompanyServiceImpl implements CompanyService {
 	
-	final Logger logger = LoggerFactory.getLogger(CompanyServiceImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(CompanyServiceImpl.class);
 	
 	@Autowired
 	private CompanyDAO companyDAO;

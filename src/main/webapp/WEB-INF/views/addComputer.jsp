@@ -3,7 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<spring:message code="placeholder.computer_name" var="computerName" />
+<spring:message code="placeholder.introduced_date" var="introducedDate" />
+<spring:message code="placeholder.discontinued_date" var="discontinuedDate" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,21 +36,21 @@
 								<form:label path="name" for="computerName"><spring:message code="computer_name"/></form:label> 
 								<form:input path="name" 
 									type="text" class="form-control" id="computerName"
-									name="computerName" placeholder="Computer name"></form:input>
+									name="computerName" placeholder="${computerName}"></form:input>
 								<span id="computerNameMessage"></span>
 							</div>
 							<div class="form-group">
 								<form:label path="introduced" for="introduced"><spring:message code="introduced_date"/></form:label> 
 								<form:input path="introduced"
 									type="date" class="form-control" id="introduced"
-									name="introduced" placeholder="Introduced date"></form:input>
+									name="introduced" placeholder="${introducedDate}"></form:input>
 								<span id="introducedMessage"></span>
 							</div>
 							<div class="form-group">
 								<form:label path="discontinued" for="discontinued"><spring:message code="discontinued_date"/></form:label> 
 								<form:input path="discontinued"
 									type="date" class="form-control" id="discontinued"
-									name="discontinued" placeholder="Discontinued date"></form:input>
+									name="discontinued" placeholder="${discontinuedDate}"></form:input>
 								<span id="discontinuedMessage"></span>
 							</div>
 							<div class="form-group">

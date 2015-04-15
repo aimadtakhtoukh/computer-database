@@ -31,6 +31,7 @@
     
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 	
+	<context:component-scan base-package="com.excilys.validator"/>
     <context:component-scan base-package="com.excilys.dao"/>
     <context:component-scan base-package="com.excilys.services"/>
     <context:component-scan base-package="com.excilys.mappers"/>

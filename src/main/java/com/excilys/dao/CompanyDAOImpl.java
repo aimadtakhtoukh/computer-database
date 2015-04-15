@@ -17,7 +17,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 	
 	private static final String TABLE_NAME = "company";
 	
-	final Logger logger = LoggerFactory.getLogger(CompanyDAOImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(CompanyDAOImpl.class);
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

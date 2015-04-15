@@ -15,7 +15,7 @@ import com.excilys.dao.CRUDDAO;
  */
 public abstract class PageImpl<T> implements Page<T> {
 	
-	final Logger logger = LoggerFactory.getLogger(PageImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(PageImpl.class);
 	
 	private final static int STANDARD_PAGE_LIMIT = 10;
 	private final static int STANDARD_PAGE_OFFSET = 0;

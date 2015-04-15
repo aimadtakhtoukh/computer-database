@@ -6,21 +6,22 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.services.CompanyService;
-import com.excilys.validator.NumberValidator;
-@Component
+import com.excilys.validator.NumberValidation;
+
 public class DeleteCompanyAndRelatedComputersCommand implements Command {
 	
-	final Logger logger = LoggerFactory.getLogger(DeleteCompanyAndRelatedComputersCommand.class);
+	private final Logger logger = LoggerFactory.getLogger(DeleteCompanyAndRelatedComputersCommand.class);
 	@Autowired
 	private CompanyService companyService;
-
+	@Autowired
+	private NumberValidation numberValidator;
+	
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
 		for (String s : args) {
-			if (NumberValidator.isACorrectNumber(s)) {
+			if (numberValidator.isACorrectNumber(s)) {
 				companyService.deleteCompanyAndRelatedComputers(Long.parseLong(s));
 				logger.trace("Company " + s + " deleted.");
 			} else {

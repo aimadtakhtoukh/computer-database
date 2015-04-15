@@ -1,42 +1,43 @@
 package com.excilys.cli;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
 import com.excilys.services.CompanyService;
 import com.excilys.services.ComputerService;
-import com.excilys.validator.DateValidator;
-import com.excilys.validator.NumberValidator;
-import com.excilys.validator.StringValidator;
+import com.excilys.validator.DateValidation;
+import com.excilys.validator.NumberValidation;
+import com.excilys.validator.StringValidation;
 
-@Component
 public class UpdateComputerCommand implements Command {
 	
-	final Logger logger = LoggerFactory.getLogger(UpdateComputerCommand.class);
-	
-	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
+	private final Logger logger = LoggerFactory.getLogger(UpdateComputerCommand.class);
 	
 	@Autowired
 	private ComputerService service;
 	@Autowired
 	private CompanyService companyService;
+	@Autowired
+	private NumberValidation numberValidator;
+	@Autowired
+	private StringValidation stringValidator;
+	@Autowired
+	private DateValidation dateValidator;
+	
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	
 	public UpdateComputerCommand() {
 		super();
-		sdf.setLenient(true);
 	}
 
 	@Override
@@ -47,13 +48,13 @@ public class UpdateComputerCommand implements Command {
 			return;
 		}				
 		Computer c = new Computer();
-		if (NumberValidator.isACorrectNumber(args.get(0))) {
+		if (numberValidator.isACorrectNumber(args.get(0))) {
 			c.setId(Long.parseLong(args.get(0)));
 		} else {
 			logger.error("The id argument must be a number.");
 			return;
 		}
-		if (StringValidator.isACorrectString(args.get(1))) {
+		if (stringValidator.isACorrectString(args.get(1))) {
 			c.setName(args.get(1));
 		} else {
 			logger.error("The name mustn't be empty.");
@@ -63,12 +64,8 @@ public class UpdateComputerCommand implements Command {
 		if (args.get(2).equals("null")) {
 			introduced = null;
 		} else {
-			if (DateValidator.isACorrectDate(args.get(2))) {
-				try {
-					introduced = LocalDateTime.ofInstant(sdf.parse(args.get(1)).toInstant(), ZoneId.systemDefault());
-				} catch (ParseException e) {
-					introduced = null;
-				}
+			if (dateValidator.isACorrectDate(args.get(2))) {
+				introduced = LocalDateTime.of(LocalDate.parse(args.get(1), formatter), LocalTime.MIDNIGHT);
 			} else {
 				introduced = null;
 			}
@@ -79,19 +76,15 @@ public class UpdateComputerCommand implements Command {
 		if (args.get(3).equals("null")) {
 			discontinued = null;
 		} else {
-			if (DateValidator.isACorrectDate(args.get(3))) {
-				try {
-					discontinued = LocalDateTime.ofInstant(sdf.parse(args.get(2)).toInstant(), ZoneId.systemDefault());
-				} catch (ParseException e) {
-					discontinued = null;
-				}
+			if (dateValidator.isACorrectDate(args.get(3))) {
+				discontinued = LocalDateTime.of(LocalDate.parse(args.get(2), formatter), LocalTime.MIDNIGHT);
 			} else {
 				discontinued = null;
 			}
 		}
 		c.setDiscontinued(discontinued);
 		
-		if (NumberValidator.isACorrectNumber(args.get(4))) {
+		if (numberValidator.isACorrectNumber(args.get(4))) {
 			long id_company = Long.parseLong(args.get(4));
 			Company company = companyService.getCompany(id_company);
 			c.setCompany(company);

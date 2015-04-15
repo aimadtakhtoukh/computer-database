@@ -8,19 +8,19 @@ import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
 import com.excilys.services.ComputerService;
-import com.excilys.validator.NumberValidator;
+import com.excilys.validator.NumberValidation;
 
-@Component
 public class ReadComputerCommand implements Command {
 	
-	final Logger logger = LoggerFactory.getLogger(ReadComputerCommand.class);
+	private final Logger logger = LoggerFactory.getLogger(ReadComputerCommand.class);
 	
 	@Autowired
 	private ComputerService service;
+	@Autowired
+	private NumberValidation numberValidator;
 	
 	List<Computer> computers = null;
 	
@@ -36,7 +36,7 @@ public class ReadComputerCommand implements Command {
 	}
 	
 	private void forEachArgument(String s) {
-		if (NumberValidator.isACorrectNumber(s)) {
+		if (numberValidator.isACorrectNumber(s)) {
 			Long id = Long.parseLong(s);
 			Computer c = service.getComputer(id);
 			if (c != null) {

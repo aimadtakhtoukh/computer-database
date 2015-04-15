@@ -6,19 +6,17 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Company;
 import com.excilys.cli.page.PageCommandLineInterface;
 import com.excilys.page.Page;
 import com.excilys.services.CompanyService;
 
-@Component
 public class ReadAllCompaniesCommand implements Command {
 	@Autowired
 	private CompanyService companyService;
 	
-	final Logger logger = LoggerFactory.getLogger(ReadAllCompaniesCommand.class);
+	private final Logger logger = LoggerFactory.getLogger(ReadAllCompaniesCommand.class);
 
 	@Override
 	public void doAction(List<String> args, Scanner sc) {

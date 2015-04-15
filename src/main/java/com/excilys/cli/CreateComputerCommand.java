@@ -1,38 +1,33 @@
 package com.excilys.cli;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
 import com.excilys.services.CompanyService;
 import com.excilys.services.ComputerService;
-import com.excilys.validator.DateValidator;
+import com.excilys.validator.DateValidation;
 
-@Component
 public class CreateComputerCommand implements Command {
 	
-	private DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
 	@Autowired
 	private ComputerService service;
 	@Autowired
 	private CompanyService companyService;
+	@Autowired
+	private DateValidation dateValidator;
 	
-	final Logger logger = LoggerFactory.getLogger(CreateComputerCommand.class);
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	
-	public CreateComputerCommand() {
-		sdf.setLenient(true);
-	}
+	private final Logger logger = LoggerFactory.getLogger(CreateComputerCommand.class);
 	
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
@@ -47,12 +42,8 @@ public class CreateComputerCommand implements Command {
 		if (args.get(1).equals("null")) {
 			introduced = null;
 		} else {
-			if (DateValidator.isACorrectDate(args.get(1))) {
-				try {
-					introduced = LocalDateTime.ofInstant(sdf.parse(args.get(1)).toInstant(), ZoneId.systemDefault());
-				} catch (ParseException e) {
-					introduced = null;
-				}
+			if (dateValidator.isACorrectDate(args.get(1))) {
+				introduced = LocalDateTime.of(LocalDate.parse(args.get(1), formatter), LocalTime.MIDNIGHT);
 			} else {
 				introduced = null;
 			}
@@ -62,12 +53,8 @@ public class CreateComputerCommand implements Command {
 		if (args.get(2).equals("null")) {
 			discontinued = null;
 		} else {
-			if (DateValidator.isACorrectDate(args.get(2))) {
-				try {
-					discontinued = LocalDateTime.ofInstant(sdf.parse(args.get(2)).toInstant(), ZoneId.systemDefault());
-				} catch (ParseException e) {
-					discontinued = null;
-				}
+			if (dateValidator.isACorrectDate(args.get(2))) {
+				discontinued = LocalDateTime.of(LocalDate.parse(args.get(2), formatter), LocalTime.MIDNIGHT);
 			} else {
 				discontinued = null;
 			}
