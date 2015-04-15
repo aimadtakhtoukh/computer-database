@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.excilys.mappers.ComputerDTOMapper;
 import com.excilys.page.ComputerPage;
 import com.excilys.services.ComputerService;
-import com.excilys.servlet.dto.ComputerDTO;
 
 @Controller
 @RequestMapping("/dashboard")
@@ -26,6 +26,9 @@ public class ComputerListingController {
 	
 	@Autowired
 	private ComputerService computerService;
+	@Autowired
+	private ComputerDTOMapper mapper;
+	
 	private Map<String, String> orderByStrings = new HashMap<>();
 	
     public ComputerListingController() {
@@ -69,7 +72,7 @@ public class ComputerListingController {
 			}
 		}
 		model.addAttribute("computerCount", computerPage.getTotalCount());
-		model.addAttribute("items", computerPage.getPageElements().stream().map(ComputerDTO::new).collect(Collectors.toList()));
+		model.addAttribute("items", computerPage.getPageElements().stream().map(c -> mapper.toComputerDTO(c)).collect(Collectors.toList()));
 		// Navigation attributes
 		int current = computerPage.getCurrentPageNumber();
 		model.addAttribute("paginationStart", Math.max(1, current - PAGE_NUMBER));

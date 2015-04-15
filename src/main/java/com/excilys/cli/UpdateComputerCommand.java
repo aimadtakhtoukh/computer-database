@@ -47,13 +47,13 @@ public class UpdateComputerCommand implements Command {
 			return;
 		}				
 		Computer c = new Computer();
-		if (NumberValidator.isARightNumber(args.get(0))) {
+		if (NumberValidator.isACorrectNumber(args.get(0))) {
 			c.setId(Long.parseLong(args.get(0)));
 		} else {
 			logger.error("The id argument must be a number.");
 			return;
 		}
-		if (StringValidator.isARightString(args.get(1))) {
+		if (StringValidator.isACorrectString(args.get(1))) {
 			c.setName(args.get(1));
 		} else {
 			logger.error("The name mustn't be empty.");
@@ -63,7 +63,7 @@ public class UpdateComputerCommand implements Command {
 		if (args.get(2).equals("null")) {
 			introduced = null;
 		} else {
-			if (DateValidator.isTheRightDate(args.get(2))) {
+			if (DateValidator.isACorrectDate(args.get(2))) {
 				try {
 					introduced = LocalDateTime.ofInstant(sdf.parse(args.get(1)).toInstant(), ZoneId.systemDefault());
 				} catch (ParseException e) {
@@ -79,7 +79,7 @@ public class UpdateComputerCommand implements Command {
 		if (args.get(3).equals("null")) {
 			discontinued = null;
 		} else {
-			if (DateValidator.isTheRightDate(args.get(3))) {
+			if (DateValidator.isACorrectDate(args.get(3))) {
 				try {
 					discontinued = LocalDateTime.ofInstant(sdf.parse(args.get(2)).toInstant(), ZoneId.systemDefault());
 				} catch (ParseException e) {
@@ -91,7 +91,7 @@ public class UpdateComputerCommand implements Command {
 		}
 		c.setDiscontinued(discontinued);
 		
-		if (NumberValidator.isARightNumber(args.get(4))) {
+		if (NumberValidator.isACorrectNumber(args.get(4))) {
 			long id_company = Long.parseLong(args.get(4));
 			Company company = companyService.getCompany(id_company);
 			c.setCompany(company);

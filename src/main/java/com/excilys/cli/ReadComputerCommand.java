@@ -36,7 +36,7 @@ public class ReadComputerCommand implements Command {
 	}
 	
 	private void forEachArgument(String s) {
-		if (NumberValidator.isARightNumber(s)) {
+		if (NumberValidator.isACorrectNumber(s)) {
 			Long id = Long.parseLong(s);
 			Computer c = service.getComputer(id);
 			if (c != null) {

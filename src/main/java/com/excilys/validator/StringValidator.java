@@ -2,7 +2,7 @@ package com.excilys.validator;
 
 public class StringValidator {
 	
-	public static boolean isARightString(String s) {
+	public static boolean isACorrectString(String s) {
 		if (s == null) {
 			return false;
 		}

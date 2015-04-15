@@ -19,7 +19,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.excilys.beans.Computer;
-import com.excilys.mappers.ComputerMapper;
+import com.excilys.mappers.ComputerDatabaseMapper;
 
 @Repository
 public class ComputerDAOImpl implements ComputerDAO {
@@ -36,7 +36,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
-	private ComputerMapper mapper;
+	private ComputerDatabaseMapper mapper;
 
 	@Override
 	public Computer get(long id) {

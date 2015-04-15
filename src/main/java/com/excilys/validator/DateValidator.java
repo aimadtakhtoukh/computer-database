@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class DateValidator {
 	
-	public static boolean isTheRightDate(String date) {
-		if (!StringValidator.isARightString(date)) {
+	public static boolean isACorrectDate(String date) {
+		if (!StringValidator.isACorrectString(date)) {
 			return false;
 		}
 		Pattern primaryPattern = Pattern.compile("(\\d{1,2})-(\\d{1,2})-(\\d{1,4})");

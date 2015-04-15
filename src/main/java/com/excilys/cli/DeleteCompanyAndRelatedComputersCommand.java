@@ -20,7 +20,7 @@ public class DeleteCompanyAndRelatedComputersCommand implements Command {
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
 		for (String s : args) {
-			if (NumberValidator.isARightNumber(s)) {
+			if (NumberValidator.isACorrectNumber(s)) {
 				companyService.deleteCompanyAndRelatedComputers(Long.parseLong(s));
 				logger.trace("Company " + s + " deleted.");
 			} else {

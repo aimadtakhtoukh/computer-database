@@ -28,7 +28,7 @@ public class ComputerDeleteController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String deleteComputers(@RequestParam String selection, Model model) {
 		logger.trace("POST called on /dashboard : deleting computers, start up");
-		if (!StringValidator.isARightString(selection)) {
+		if (!StringValidator.isACorrectString(selection)) {
 			logger.trace("Empty selection");
 			return "redirect:/dashboard";
 		}

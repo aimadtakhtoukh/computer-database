@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.excilys.beans.Company;
-import com.excilys.mappers.CompanyMapper;
+import com.excilys.mappers.CompanyDatabaseMapper;
 
 @Repository
 public class CompanyDAOImpl implements CompanyDAO {
@@ -22,7 +22,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
-	private CompanyMapper mapper;
+	private CompanyDatabaseMapper mapper;
 
 	@Override
 	public Company get(long id) {
