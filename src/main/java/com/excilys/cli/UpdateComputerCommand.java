@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
@@ -21,6 +22,7 @@ import com.excilys.validator.DateValidation;
 import com.excilys.validator.NumberValidation;
 import com.excilys.validator.StringValidation;
 
+@Component
 public class UpdateComputerCommand implements Command {
 	
 	private final Logger logger = LoggerFactory.getLogger(UpdateComputerCommand.class);

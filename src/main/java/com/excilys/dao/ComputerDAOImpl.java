@@ -9,6 +9,13 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +42,15 @@ public class ComputerDAOImpl implements ComputerDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	@PersistenceContext(unitName = "ComputerDatabasePU")
+	private EntityManager em;
 	@Autowired
 	private ComputerDatabaseMapper mapper;
 
 	@Override
 	public Computer get(long id) {
+		return em.find(Computer.class, id);
+		/*
 		String query = new StringBuilder()
 			.append("SELECT * FROM ")
 			.append(TABLE_NAME)
@@ -50,6 +61,8 @@ public class ComputerDAOImpl implements ComputerDAO {
 		List<Computer> result = jdbcTemplate.query(query, new Object[] {id} , mapper);
 		logger.trace("Computer DAO executed the query : " + query);
 		return result.isEmpty() ? null : result.get(0);
+		*/
+		
 	}
 
 	@Override
@@ -174,6 +187,19 @@ public class ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public List<Computer> getAll() {
+		logger.trace("Creating Criteria Builder...");
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		logger.trace("Creating Criteria Query...");
+		CriteriaQuery<Computer> cq = cb.createQuery(Computer.class);
+		logger.trace("Creating Criteria Root...");
+		Root<Computer> from = cq.from(Computer.class);
+		logger.trace("Selecting...");
+		cq.select(from);
+		logger.trace("Creating Typed Query...");
+		TypedQuery<Computer> q = em.createQuery(cq);
+		logger.trace("Creating Result list...");
+		return q.getResultList();
+		/*
 		String query = new StringBuilder()
 		.append("SELECT * FROM ")
 		.append(TABLE_NAME)
@@ -181,6 +207,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 		.toString();
 		logger.trace("Computer DAO executed the query : " + query);
 		return jdbcTemplate.query(query , mapper);
+		*/
 	}
 
 	@Override

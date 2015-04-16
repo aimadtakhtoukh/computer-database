@@ -21,6 +21,13 @@
 		<property name="password" value="${jdbc.password}" />		
 	</bean>
 	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    	<!-- <property name="persistenceXmlLocation" value="classpath:persistence.xml"/> -->
+    	<!-- <property name="persistenceUnitName" value="ComputerDatabasePU" /> -->
+    	<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
     	<property name="dataSource" ref="dataSource"/>
     </bean>

@@ -1,6 +1,18 @@
 package com.excilys.beans;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.excilys.dao.LocalDateTimeToTimestampConverter;
 
 /**
  * That bean is an entity representing a line of the Computer database.
@@ -8,12 +20,21 @@ import java.time.LocalDateTime;
  *
  */
 
-public class Computer {
+@Entity
+@Table(name = "computer")
+public class Computer implements Serializable {
+	private static final long serialVersionUID = -7266523565236529512L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	@Convert(converter = LocalDateTimeToTimestampConverter.class)
 	private LocalDateTime introduced;
+	@Convert(converter = LocalDateTimeToTimestampConverter.class)
 	private LocalDateTime discontinued;
+	@ManyToOne
+	@JoinColumn(name = "company_id", unique = false, nullable = true, insertable = true, updatable = true)
 	private Company company;
 	
 	public Long getId() {

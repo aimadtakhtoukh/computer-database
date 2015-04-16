@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,15 +19,32 @@ public class CommandLineInterface {
 	
 	private Map<String, Command> actions = new HashMap<>();
 	
+	@Autowired
+	CreateComputerCommand createComputerCommand;
+	@Autowired
+	ReadComputerCommand readComputerCommand;
+	@Autowired
+	ReadAllComputersCommand readAllComputersCommand;
+	@Autowired
+	UpdateComputerCommand updateComputerCommand;
+	@Autowired
+	DeleteComputerCommand deleteComputerCommand;
+	@Autowired
+	ReadAllCompaniesCommand readAllCompaniesCommand;
+	@Autowired
+	DeleteCompanyAndRelatedComputersCommand deleteCompanyAndRelatedComputersCommand;
+	@Autowired
+	ExitCommand exitCommand;
+	
 	public void execute() {
-		actions.put("create", new CreateComputerCommand());
-		actions.put("read", new ReadComputerCommand());
-		actions.put("read_all", new ReadAllComputersCommand());
-		actions.put("update", new UpdateComputerCommand());
-		actions.put("delete", new DeleteComputerCommand());
-		actions.put("all_companies", new ReadAllCompaniesCommand());
-		actions.put("delete_company", new DeleteCompanyAndRelatedComputersCommand());
-		actions.put("exit", new ExitCommand());
+		actions.put("create", createComputerCommand);
+		actions.put("read", readComputerCommand);
+		actions.put("read_all", readAllComputersCommand);
+		actions.put("update", updateComputerCommand);
+		actions.put("delete", deleteComputerCommand);
+		actions.put("all_companies", readAllCompaniesCommand);
+		actions.put("delete_company", deleteCompanyAndRelatedComputersCommand);
+		actions.put("exit", exitCommand);
 		
 		Scanner sc = new Scanner(System.in);
 		while(true) {

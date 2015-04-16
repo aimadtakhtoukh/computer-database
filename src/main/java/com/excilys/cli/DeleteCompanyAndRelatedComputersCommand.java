@@ -6,10 +6,12 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.excilys.services.CompanyService;
 import com.excilys.validator.NumberValidation;
 
+@Component
 public class DeleteCompanyAndRelatedComputersCommand implements Command {
 	
 	private final Logger logger = LoggerFactory.getLogger(DeleteCompanyAndRelatedComputersCommand.class);

@@ -1,12 +1,26 @@
 package com.excilys.beans;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * That bean is an entity representing a line in the Company database.
  * @author excilys
  *
  */
-public class Company {
+
+@Entity
+@Table(name = "company")
+public class Company implements Serializable {
+	private static final long serialVersionUID = -1302047317794536556L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	
