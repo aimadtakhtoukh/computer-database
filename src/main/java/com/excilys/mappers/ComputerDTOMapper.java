@@ -6,6 +6,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 import com.excilys.beans.Computer;
@@ -20,12 +22,17 @@ public class ComputerDTOMapper {
 	private CompanyDAO companyDAO;
 	@Autowired
 	private DateValidation dateValidator;
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	@Autowired
+	private MessageSource messageSource;
 	
 	public ComputerDTO toComputerDTO(Computer bean) {
 		if (bean == null) {
 			return null;
 		}
+
+		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		
 		ComputerDTO dto = new ComputerDTO();
 		dto.setId(bean.getId());
 		dto.setName(bean.getName());
@@ -49,6 +56,8 @@ public class ComputerDTOMapper {
 		if (dto == null) {
 			return null;
 		}
+		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 		Computer bean = new Computer();
 		bean.setId(dto.getId());
 		bean.setName(dto.getName());

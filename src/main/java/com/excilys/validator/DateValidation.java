@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.validator.routines.DateValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,16 +14,18 @@ public class DateValidation {
 	
 	@Autowired
 	private StringValidation stringValidator;
-	
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	@Autowired
+	private MessageSource messageSource;
 	
 	public boolean isACorrectDate(String date) {
 		if (!stringValidator.isACorrectString(date)) {
 			return false;
 		}
-		if (!DateValidator.getInstance().isValid(date, "dd-MM-yyyy")) {
+		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
+		if (!DateValidator.getInstance().isValid(date, pattern)) {
 			return false;
 		}
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 		LocalDate temp = LocalDate.parse(date, formatter);
 		return isDayFromMonthAndYear(temp.getDayOfMonth(), temp.getMonthValue(), temp.getYear());
 	}

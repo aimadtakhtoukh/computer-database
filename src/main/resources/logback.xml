@@ -15,8 +15,8 @@
 		</encoder>
 	</appender>
 	
-	<logger name="cli" level="ERROR"/>
-	<logger name="dao" level="ERROR"/>
+	<logger name="cli" level="TRACE"/>
+	<logger name="dao" level="TRACE"/>
 
 	<root level="error">
 		<appender-ref ref="STDOUT" />

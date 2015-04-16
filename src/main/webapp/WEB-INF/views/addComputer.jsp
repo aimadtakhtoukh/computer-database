@@ -19,10 +19,18 @@
 	<%@ include file="/WEB-INF/partials/header.jsp" %>
 	
 	<c:if test="${show && showSuccess}">
-		<div class="col-xs-8 col-xs-offset-2 alert alert-info" role="alert">${message}</div>
+		<div class="col-xs-8 col-xs-offset-2 alert alert-info" role="alert">
+			<c:forEach items="${message}" var="m" >
+				<p>${m}</p>
+			</c:forEach>
+		</div>
 	</c:if>
 	<c:if test="${show && !showSuccess}">
-		<div class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">${message}</div>
+		<div class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
+			<c:forEach items="${message}" var="m" >
+				<p>${m}</p>
+			</c:forEach>
+		</div>
 	</c:if>
 
 	<section id="main">

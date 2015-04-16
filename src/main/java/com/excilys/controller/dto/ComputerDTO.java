@@ -1,11 +1,9 @@
 package com.excilys.controller.dto;
 
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class ComputerDTO {
-	@NotNull
+	//Never used by the view, it doesn't need to be validated
 	private Long id;
 	@NotEmpty
 	private String name;

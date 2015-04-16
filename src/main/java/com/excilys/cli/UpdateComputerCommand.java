@@ -10,6 +10,8 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 
 import com.excilys.beans.Company;
 import com.excilys.beans.Computer;
@@ -33,8 +35,8 @@ public class UpdateComputerCommand implements Command {
 	private StringValidation stringValidator;
 	@Autowired
 	private DateValidation dateValidator;
-	
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	@Autowired
+	private MessageSource messageSource;
 	
 	public UpdateComputerCommand() {
 		super();
@@ -46,7 +48,9 @@ public class UpdateComputerCommand implements Command {
 			System.out.println("Command form : update (id) (computer_name) (introduction_date) (discontinued_date) (company)");
 			System.out.println("You can write null instead of a date.");
 			return;
-		}				
+		}
+		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 		Computer c = new Computer();
 		if (numberValidator.isACorrectNumber(args.get(0))) {
 			c.setId(Long.parseLong(args.get(0)));

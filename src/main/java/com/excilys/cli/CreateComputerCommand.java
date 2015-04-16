@@ -10,6 +10,8 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 
 import com.excilys.beans.Computer;
 import com.excilys.services.CompanyService;
@@ -24,13 +26,15 @@ public class CreateComputerCommand implements Command {
 	private CompanyService companyService;
 	@Autowired
 	private DateValidation dateValidator;
-	
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	@Autowired
+	private MessageSource messageSource;
 	
 	private final Logger logger = LoggerFactory.getLogger(CreateComputerCommand.class);
 	
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
+		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 		Computer c = new Computer();
 		if (args.size() < 4) {
 			logger.error("Command form : create (computer_name) (introduction_date) (discontinued_date) (company)");
