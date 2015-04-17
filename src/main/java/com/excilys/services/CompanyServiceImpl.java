@@ -1,6 +1,5 @@
 package com.excilys.services;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -12,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.excilys.beans.Company;
 import com.excilys.dao.CompanyDAO;
 import com.excilys.dao.ComputerDAO;
-import com.excilys.dao.PersistenceException;
 import com.excilys.page.CompanyPage;
 
 @Component
@@ -36,7 +34,7 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	@Transactional(rollbackFor={SQLException.class, PersistenceException.class})
+	@Transactional
 	public void deleteCompanyAndRelatedComputers(long id) {
 		logger.trace("Company Service has been asked to delete the company with the id : " + id);
 		computerDAO.deleteByCompanyId(id);
