@@ -1,29 +1,26 @@
 package com.excilys.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.sql.Types;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.excilys.beans.Computer;
 import com.excilys.mappers.ComputerDatabaseMapper;
@@ -37,6 +34,8 @@ public class ComputerDAOImpl implements ComputerDAO {
 	private static final String PARAM_INTRODUCED = "introduced";
 	private static final String PARAM_DISCONTINUED = "discontinued";
 	private static final String PARAM_COMPANY_ID = "company_id";
+	
+	private Map<String, String[]> orderByStrings = new HashMap<String, String[]>();
 
 	private final Logger logger = LoggerFactory.getLogger(ComputerDAOImpl.class);
 
@@ -46,6 +45,14 @@ public class ComputerDAOImpl implements ComputerDAO {
 	private EntityManager em;
 	@Autowired
 	private ComputerDatabaseMapper mapper;
+	
+	public ComputerDAOImpl() {
+        orderByStrings.put("computer.id", new String[] {"id"});
+        orderByStrings.put("computer.name", new String[] {"name"});
+        orderByStrings.put("computer.introduced", new String[] {"introduced"});
+        orderByStrings.put("computer.discontinued", new String[] {"discontinued"});
+        orderByStrings.put("company.name", new String[] {"company", "name"});
+	}
 
 	@Override
 	public Computer get(long id) {
@@ -66,10 +73,14 @@ public class ComputerDAOImpl implements ComputerDAO {
 	}
 
 	@Override
+	@Transactional
 	public long create(Computer computer) {
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
+		em.persist(computer);
+		return computer.getId();
+		/*
 		String query = new StringBuilder()
 						.append("INSERT INTO ")
 						.append(TABLE_NAME)
@@ -113,14 +124,24 @@ public class ComputerDAOImpl implements ComputerDAO {
 				},
 				keyHolder);
 		logger.trace("Computer DAO executed the query : " + query);
-		return keyHolder.getKey().longValue();
+		return keyHolder.getKey().longValue();arg0
+		*/
 	}
 
 	@Override
+	@Transactional
 	public long update(long id, Computer computer) {
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
+		Computer c = em.find(Computer.class, id);
+		c.setId(id);
+		c.setName(computer.getName());
+		c.setIntroduced(computer.getIntroduced());
+		c.setDiscontinued(computer.getDiscontinued());
+		c.setCompany(computer.getCompany());
+		return c.getId();
+		/*
 		String query = new StringBuilder()
 						.append("UPDATE ")
 						.append(TABLE_NAME)
@@ -170,10 +191,13 @@ public class ComputerDAOImpl implements ComputerDAO {
 		} else {
 			return 0;
 		}
+		*/
 	}
 
 	@Override
+	@Transactional
 	public long delete(long id) {
+		/*
 		String query = new StringBuilder()
 		.append("DELETE FROM ")
 		.append(TABLE_NAME)
@@ -182,22 +206,18 @@ public class ComputerDAOImpl implements ComputerDAO {
 
 		jdbcTemplate.update(query, id);
 		logger.trace("Computer DAO executed the query : " + query);
+		*/
+		em.remove(em.find(Computer.class, id));
 		return id;
 	}
 
 	@Override
 	public List<Computer> getAll() {
-		logger.trace("Creating Criteria Builder...");
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		logger.trace("Creating Criteria Query...");
 		CriteriaQuery<Computer> cq = cb.createQuery(Computer.class);
-		logger.trace("Creating Criteria Root...");
 		Root<Computer> from = cq.from(Computer.class);
-		logger.trace("Selecting...");
 		cq.select(from);
-		logger.trace("Creating Typed Query...");
 		TypedQuery<Computer> q = em.createQuery(cq);
-		logger.trace("Creating Result list...");
 		return q.getResultList();
 		/*
 		String query = new StringBuilder()
@@ -212,6 +232,51 @@ public class ComputerDAOImpl implements ComputerDAO {
 
 	@Override
 	public List<Computer> getAll(int offset, int limit, String orderBy, boolean ascendant, String searchString) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Computer> cq = cb.createQuery(Computer.class);
+		Root<Computer> from = cq.from(Computer.class);
+		Predicate searchPredicate = cb.and();
+		if (searchString != null) {
+			if (!searchString.trim().isEmpty()) {
+				String searchLikeString = "%" + searchString + "%";
+				Predicate searchComputerNamePredicate = cb.like(from.get("name"), searchLikeString);
+				Predicate searchCompanyNamePredicate = cb.like(from.get("company").get("name"), searchLikeString);
+				searchPredicate = cb.or(searchComputerNamePredicate, searchCompanyNamePredicate);
+			}
+		}
+		cq.where(searchPredicate);
+		cq.select(from);
+		if (orderBy != null) {
+			if (!orderBy.trim().isEmpty()) {
+				String[] strings = orderByStrings.get(orderBy);
+				if (strings != null) {
+					Path<Computer> path = from.get(strings[0]);
+					for (int i = 1; i < strings.length; i++) {
+						path = path.get(strings[i]);
+					}
+					Order o;
+					if (ascendant) {
+						o = cb.asc(path);
+					} else {
+						o = cb.desc(path);
+					}
+					cq.orderBy(o);
+				}
+			}
+		}
+		TypedQuery<Computer> q = em.createQuery(cq);
+		q.setFirstResult(offset);
+		q.setMaxResults(limit);
+		return q.getResultList();
+		/*
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Computer> cq = cb.createQuery(Computer.class);
+		Root<Computer> from = cq.from(Computer.class);
+		cq.select(from);
+		TypedQuery<Computer> q = em.createQuery(cq);
+		return q.getResultList();
+		*/
+		/*
 		StringBuilder queryBuilder = new StringBuilder();
 		queryBuilder
 			.append("SELECT * FROM ")
@@ -242,7 +307,6 @@ public class ComputerDAOImpl implements ComputerDAO {
 		}
 		queryBuilder.append(" LIMIT ? OFFSET ?;");
 		String query = queryBuilder.toString();
-		logger.trace("Computer DAO executed the query : " + query);
 		List<Object> params = new ArrayList<Object>();
 		if (hasASearchString) {
 			params.add("%" + searchString + "%");
@@ -250,11 +314,19 @@ public class ComputerDAOImpl implements ComputerDAO {
 		}
 		params.add(limit);
 		params.add(offset);
+		logger.trace("Computer DAO executed the query : " + query);
 		return jdbcTemplate.query(query, params.toArray(), mapper);
+		*/
 	}
 
 	@Override
 	public int getCount() {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+		cq.select(cb.count(cq.from(Computer.class)));
+		return em.createQuery(cq).getSingleResult().intValue();
+		/*
+		
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT COUNT(*) FROM ");
 		sb.append(TABLE_NAME);
@@ -262,10 +334,17 @@ public class ComputerDAOImpl implements ComputerDAO {
 		String query =  sb.toString();
 		logger.trace("Company DAO executed the query : " + query);		
 		return jdbcTemplate.queryForObject(query, Integer.class);
+		*/
 	}
 
 	@Override
 	public void deleteByCompanyId(long companyId) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaDelete<Computer> delete = cb.createCriteriaDelete(Computer.class);
+		Root<Computer> from = delete.from(Computer.class);
+		delete.where(cb.equal(from.get("company").get("id"), companyId));
+		em.createQuery(delete).executeUpdate();
+		/*
 		String query = new StringBuilder()
 		.append("DELETE FROM ")
 		.append(TABLE_NAME)
@@ -275,5 +354,6 @@ public class ComputerDAOImpl implements ComputerDAO {
 		.toString();
 		logger.trace("Computer DAO executed the query : " + query);
 		jdbcTemplate.update(query, companyId);
+		*/
 	}
 }

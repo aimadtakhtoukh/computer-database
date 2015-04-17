@@ -13,10 +13,6 @@ public class JpaMain {
 		GenericXmlApplicationContext applicationContext = new GenericXmlApplicationContext();
         applicationContext.load("applicationContext.xml");
         applicationContext.refresh();
-        /*
-        EntityManagerFactory emf = applicationContext.getBean(EntityManagerFactory.class) ;
-        EntityManager em = emf.createEntityManager() ;
-        */
         
         ComputerDAO dao = applicationContext.getBean(ComputerDAO.class);
         List<Computer> computers = dao.getAll();
