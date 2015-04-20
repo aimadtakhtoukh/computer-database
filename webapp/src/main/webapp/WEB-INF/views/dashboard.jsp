@@ -18,6 +18,7 @@
 	<section id="main"></section>
 	<div class="container">
 		<h1 id="homeTitle">${computerCount} <spring:message code="dashboard.computer_found"/></h1>
+		<a href="/admin">Admin</a>
 		<div id="actions" class="form-horizontal">
 			<div class="pull-left">
 				<form id="searchForm" action="dashboard" method="GET" class="form-inline">
