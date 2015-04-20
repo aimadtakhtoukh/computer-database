@@ -44,5 +44,9 @@
 			<groupId>computerDatabase</groupId>
 			<artifactId>service</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>computerDatabase</groupId>
+			<artifactId>binding</artifactId>
+		</dependency>
 	</dependencies>
 </project>

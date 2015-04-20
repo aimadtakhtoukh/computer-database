@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.excilys.binding.mappers.ComputerDTOMapper;
 import com.excilys.core.beans.Computer;
+import com.excilys.core.dto.ComputerDTO;
 import com.excilys.core.validator.ComputerDTOValidator;
 import com.excilys.core.validator.StringValidation;
 import com.excilys.persistence.page.ComputerPage;
 import com.excilys.service.services.CompanyService;
 import com.excilys.service.services.ComputerService;
-import com.excilys.webapp.core.dto.ComputerDTO;
 
 @Controller
 public class ComputerController {

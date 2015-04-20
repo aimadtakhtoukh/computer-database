@@ -11,9 +11,9 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 import com.excilys.core.beans.Computer;
+import com.excilys.core.dto.ComputerDTO;
 import com.excilys.core.validator.DateValidation;
 import com.excilys.service.services.CompanyService;
-import com.excilys.webapp.core.dto.ComputerDTO;
 
 @Component
 public class ComputerDTOMapper {

@@ -13,7 +13,7 @@ public class Main {
 	public static void main(String[] args) {
         logger.info("Initializing Spring context.");
         GenericXmlApplicationContext applicationContext = new GenericXmlApplicationContext();
-        applicationContext.load("applicationContext.xml");
+        applicationContext.load("applicationContext-console.xml");
         applicationContext.refresh();
         CommandLineInterface cli = (CommandLineInterface) applicationContext.getBean(CommandLineInterface.class);
 		cli.execute();
