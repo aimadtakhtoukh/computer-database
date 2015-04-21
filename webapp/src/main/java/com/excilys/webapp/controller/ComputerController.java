@@ -54,7 +54,7 @@ public class ComputerController {
         orderByStrings.put("company", "company.name");
     }
 	
-	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/dashboard"}, method = RequestMethod.GET)
 	public String showDashboard(@RequestParam(required = false) Integer resultsPerPage, 
 								@RequestParam(required = false) Integer page, 
 								@RequestParam(required = false) String search, 
