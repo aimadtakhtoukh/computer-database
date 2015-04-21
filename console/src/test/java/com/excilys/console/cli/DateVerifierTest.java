@@ -1,4 +1,4 @@
-package com.excilys.cli;
+package com.excilys.console.cli;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.excilys.validator.DateValidation;
+import com.excilys.core.validator.DateValidation;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(locations = "classpath:applicationContext-console.xml")
 public class DateVerifierTest {
 	
 	@Autowired

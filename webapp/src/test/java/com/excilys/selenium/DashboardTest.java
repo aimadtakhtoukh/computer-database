@@ -16,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.excilys.dao.util.DatabaseTestUtil;
+import com.excilys.persistence.dao.util.DatabaseTestUtil;
 
 public class DashboardTest {
 	

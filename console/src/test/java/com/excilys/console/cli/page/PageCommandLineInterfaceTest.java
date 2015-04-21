@@ -1,4 +1,4 @@
-package com.excilys.cli.page;
+package com.excilys.console.cli.page;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -16,9 +16,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.excilys.beans.Company;
-import com.excilys.beans.Computer;
-import com.excilys.page.PageImpl;
+import com.excilys.core.beans.Company;
+import com.excilys.core.beans.Computer;
+import com.excilys.persistence.page.PageImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PageCommandLineInterfaceTest {

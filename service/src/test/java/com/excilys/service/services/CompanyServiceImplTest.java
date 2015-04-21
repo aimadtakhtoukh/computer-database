@@ -1,4 +1,4 @@
-package com.excilys.services;
+package com.excilys.service.services;
 
 import java.io.File;
 
@@ -14,11 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.excilys.dao.util.ComputerDatabaseConnectionFactory;
-import com.excilys.dao.util.DatabaseTestUtil;
+import com.excilys.persistence.dao.util.ComputerDatabaseConnectionFactory;
+import com.excilys.persistence.dao.util.DatabaseTestUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(locations = "classpath:applicationContext-service.xml")
 public class CompanyServiceImplTest {
 	
 	@Autowired
