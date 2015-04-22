@@ -38,6 +38,8 @@
 		<validation.api.version>1.1.0.Final</validation.api.version>
 		<hibernate.validator.version>5.1.3.Final</hibernate.validator.version>
 		<commons.validator.version>1.4.1</commons.validator.version>
+		<!-- WEB SERVICES -->
+		<resteasy.version>2.2.1.GA</resteasy.version>
 	</properties>
 	
 	<dependencyManagement>
@@ -247,6 +249,38 @@
 				<version>${commons.validator.version}</version>
 			</dependency>		
 			<!-- END_VALIDATION -->
+			<!-- WEB SERVICES -->
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-spring</artifactId>
+				<version>${resteasy.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.jboss.resteasy</groupId>
+						<artifactId>resteasy-jaxb-provider</artifactId>
+					</exclusion>
+					<exclusion>
+						<artifactId>resteasy-jettison-provider</artifactId>
+						<groupId>org.jboss.resteasy</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jackson-provider</artifactId>
+				<version>${resteasy.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.codehaus.jackson</groupId>
+						<artifactId>jackson-core-asl</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.codehaus.jackson</groupId>
+						<artifactId>jackson-mapper-asl</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- END WEB SERVICES -->
 			<dependency>
 				<groupId>computerDatabase</groupId>
 				<artifactId>binding</artifactId>

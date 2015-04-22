@@ -47,6 +47,7 @@
 <!-- 		<http-basic /> -->
 		<form-login/>
 		<logout logout-url="/logout" />
+		<custom-filter ref="digestFilter" after="BASIC_AUTH_FILTER"/>
 	</http>
 	
 </beans:beans>
