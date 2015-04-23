@@ -18,7 +18,7 @@ import com.excilys.service.services.ComputerService;
 public class ComputerRestController {
 	
 	@Autowired
-	private ComputerService service;// = SpringApplicationContext.getBean(ComputerService.class);
+	private ComputerService service;
 	
 	@GET
 	@Path("/all")

@@ -41,6 +41,7 @@
 		<!-- WEB SERVICES -->
 		<resteasy.version>3.0.11.Final</resteasy.version>
 		<rs.api.version>2.0.1</rs.api.version>
+		<jackson.version>2.5.2</jackson.version>
 	</properties>
 	
 	<dependencyManagement>
@@ -321,7 +322,16 @@
 				<artifactId>resteasy-client</artifactId>
 			    <version>${resteasy.version}</version>
 			</dependency>
-			
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
 			<!-- END WEB SERVICES -->
 			<dependency>
 				<groupId>computerDatabase</groupId>

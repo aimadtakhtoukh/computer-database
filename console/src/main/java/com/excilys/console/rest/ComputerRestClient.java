@@ -14,7 +14,7 @@ public class ComputerRestClient {
 		List<Computer> c = 
 				client.target("http://localhost:8080/webservices/rest/computer/all")
 				.request("application/json")
-				.get(List.class);
+				.get(ComputerList.class);
 		System.out.println(c);
 	}
 

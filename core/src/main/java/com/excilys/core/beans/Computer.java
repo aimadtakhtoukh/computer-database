@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.excilys.core.converter.LocalDateTimeToTimestampConverter;
+import com.excilys.core.serializer.CustomLocalDateTimeDeserializer;
+import com.excilys.core.serializer.CustomLocalDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * That bean is an entity representing a line of the Computer database.
@@ -29,9 +33,13 @@ public class Computer implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	@Convert(converter = LocalDateTimeToTimestampConverter.class)
+	@Convert(converter = LocalDateTimeToTimestampConverter.class)    
+	@JsonSerialize(using = CustomLocalDateTimeSerializer.class)
+	@JsonDeserialize(using = CustomLocalDateTimeDeserializer.class)
 	private LocalDateTime introduced;
 	@Convert(converter = LocalDateTimeToTimestampConverter.class)
+	@JsonSerialize(using = CustomLocalDateTimeSerializer.class)
+	@JsonDeserialize(using = CustomLocalDateTimeDeserializer.class)
 	private LocalDateTime discontinued;
 	@ManyToOne
 	@JoinColumn(name = "company_id", unique = false, nullable = true, insertable = true, updatable = true)

@@ -18,7 +18,7 @@ import com.excilys.service.services.CompanyService;
 public class CompanyRestController {
 	
 	@Autowired
-	private CompanyService service; // = SpringApplicationContext.getBean(CompanyService.class);
+	private CompanyService service;
 	
 	@GET
 	@Path("/all")
@@ -32,8 +32,6 @@ public class CompanyRestController {
 	@Produces("application/json")
 	public Company getCompanies(@PathParam("param") Long id) {
 		return service.getCompany(id);
-	}
-
-	
+	}	
 	
 }
