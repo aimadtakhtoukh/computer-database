@@ -10,28 +10,30 @@ import javax.ws.rs.Produces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.excilys.core.beans.Computer;
-import com.excilys.service.services.ComputerService;
+import com.excilys.core.beans.Company;
+import com.excilys.service.services.CompanyService;
 
 @Component
-@Path("/computer")
-public class ComputerRestController {
+@Path("company")
+public class CompanyRestController {
 	
 	@Autowired
-	private ComputerService service;// = SpringApplicationContext.getBean(ComputerService.class);
+	private CompanyService service; // = SpringApplicationContext.getBean(CompanyService.class);
 	
 	@GET
 	@Path("/all")
 	@Produces("application/json")
-	public List<Computer> getAllComputers() {
-		return service.getAll();
+	public List<Company> getAllCompanies() {
+		return service.getAllCompanies();
 	}
 	
 	@GET
 	@Path("/{param}")
 	@Produces("application/json")
-	public Computer getComputer(@PathParam("param") Long id) {
-		return service.getComputer(id);
+	public Company getCompanies(@PathParam("param") Long id) {
+		return service.getCompany(id);
 	}
 
+	
+	
 }

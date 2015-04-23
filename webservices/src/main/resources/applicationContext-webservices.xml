@@ -18,10 +18,8 @@
     <import resource="classpath:applicationContext-persistence.xml"/>
     <import resource="classpath:applicationContext-service.xml"/>
 	
-<!-- 	<context:component-scan base-package="com.excilys.webservices.service" /> 	  -->
+	<context:component-scan base-package="com.excilys.webservices.service" />
 
-	<bean class="com.excilys.webservices.service.SpringApplicationContext"/>
-
-	<bean id="computerRestController" class="com.excilys.webservices.service.ComputerRestController"/>
+<!-- 	<bean class="com.excilys.webservices.service.SpringApplicationContext"/> -->
 
 </beans>

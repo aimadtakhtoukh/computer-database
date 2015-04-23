@@ -1,0 +1,19 @@
+11:09:29.467 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [applicationContext-webservices.xml]
+11:09:29.565 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+11:09:29.652 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [applicationContext-persistence.xml]
+11:09:29.702 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [applicationContext-service.xml]
+11:09:29.734 [main] INFO  o.s.c.s.GenericXmlApplicationContext - Refreshing org.springframework.context.support.GenericXmlApplicationContext@153f5a29: startup date [Thu Apr 23 11:09:29 CEST 2015]; root of context hierarchy
+11:09:29.857 [main] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [db.properties]
+11:09:29.967 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'ComputerDatabasePU'
+11:09:29.994 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: ComputerDatabasePU
+	...]
+11:09:30.075 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+11:09:30.077 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+11:09:30.078 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+11:09:30.237 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+11:09:30.648 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+11:09:30.769 [main] INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+11:09:30.810 [main] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+11:09:31.334 [main] INFO  o.s.c.s.GenericXmlApplicationContext - Closing org.springframework.context.support.GenericXmlApplicationContext@153f5a29: startup date [Thu Apr 23 11:09:29 CEST 2015]; root of context hierarchy
+11:09:31.335 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'ComputerDatabasePU'
