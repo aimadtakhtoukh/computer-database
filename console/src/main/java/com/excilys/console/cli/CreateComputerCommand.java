@@ -11,21 +11,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+import com.excilys.console.rest.CompanyRestClient;
+import com.excilys.console.rest.ComputerRestClient;
 import com.excilys.core.beans.Computer;
 import com.excilys.core.validator.DateValidation;
-import com.excilys.service.services.CompanyService;
-import com.excilys.service.services.ComputerService;
 
 @Component
 public class CreateComputerCommand implements Command {
 	
 	@Autowired
-	private ComputerService service;
+	private ComputerRestClient client;
 	@Autowired
-	private CompanyService companyService;
+	private CompanyRestClient companyClient;
 	@Autowired
 	private DateValidation dateValidator;
 	@Autowired
@@ -35,8 +34,7 @@ public class CreateComputerCommand implements Command {
 	
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
-		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		Computer c = new Computer();
 		if (args.size() < 4) {
 			logger.error("Command form : create (computer_name) (introduction_date) (discontinued_date) (company)");
@@ -67,11 +65,11 @@ public class CreateComputerCommand implements Command {
 		}
 		c.setDiscontinued(discontinued);
 		try {
-			c.setCompany(companyService.getCompany(Long.parseLong(args.get(3))));
+			c.setCompany(companyClient.getCompany(Long.parseLong(args.get(3))));
 		} catch (NumberFormatException e) {
 			logger.error("The entered value isn't a long.");
 		}
-		long id = service.createComputer(c);
+		long id = client.addComputer(c);
 		logger.info("Computer " + id + " created.");
 	}
 

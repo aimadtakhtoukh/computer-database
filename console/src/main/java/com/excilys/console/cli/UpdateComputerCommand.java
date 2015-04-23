@@ -14,13 +14,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+import com.excilys.console.rest.CompanyRestClient;
+import com.excilys.console.rest.ComputerRestClient;
 import com.excilys.core.beans.Company;
 import com.excilys.core.beans.Computer;
 import com.excilys.core.validator.DateValidation;
 import com.excilys.core.validator.NumberValidation;
 import com.excilys.core.validator.StringValidation;
-import com.excilys.service.services.CompanyService;
-import com.excilys.service.services.ComputerService;
 
 @Component
 public class UpdateComputerCommand implements Command {
@@ -28,9 +28,9 @@ public class UpdateComputerCommand implements Command {
 	private final Logger logger = LoggerFactory.getLogger(UpdateComputerCommand.class);
 	
 	@Autowired
-	private ComputerService service;
+	private ComputerRestClient client;
 	@Autowired
-	private CompanyService companyService;
+	private CompanyRestClient companyClient;
 	@Autowired
 	private NumberValidation numberValidator;
 	@Autowired
@@ -92,13 +92,13 @@ public class UpdateComputerCommand implements Command {
 		
 		if (numberValidator.isACorrectNumber(args.get(4))) {
 			long id_company = Long.parseLong(args.get(4));
-			Company company = companyService.getCompany(id_company);
+			Company company = companyClient.getCompany(id_company);
 			c.setCompany(company);
 		} else {
 			logger.error("The company id argument must be a number.");
 			c.setCompany(null);
 		}
-		long id = service.updateComputer(c);
+		long id = client.editComputer(c);
 		logger.info("Computer " + id + " updated.");
 	}
 

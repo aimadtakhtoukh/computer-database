@@ -8,15 +8,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.excilys.console.rest.CompanyRestClient;
 import com.excilys.core.validator.NumberValidation;
-import com.excilys.service.services.CompanyService;
 
 @Component
 public class DeleteCompanyAndRelatedComputersCommand implements Command {
 	
 	private final Logger logger = LoggerFactory.getLogger(DeleteCompanyAndRelatedComputersCommand.class);
 	@Autowired
-	private CompanyService companyService;
+	private CompanyRestClient companyRestClient;
 	@Autowired
 	private NumberValidation numberValidator;
 	
@@ -24,7 +24,7 @@ public class DeleteCompanyAndRelatedComputersCommand implements Command {
 	public void doAction(List<String> args, Scanner sc) {
 		for (String s : args) {
 			if (numberValidator.isACorrectNumber(s)) {
-				companyService.deleteCompanyAndRelatedComputers(Long.parseLong(s));
+				companyRestClient.deleteCompany(Long.parseLong(s));
 				logger.trace("Company " + s + " deleted.");
 			} else {
 				logger.error("The entered string, " + s + " isn't a long.");

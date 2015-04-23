@@ -8,13 +8,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.excilys.service.services.ComputerService;
+import com.excilys.console.rest.ComputerRestClient;
 
 @Component
 public class DeleteComputerCommand implements Command {
 	
 	@Autowired
-	private ComputerService service;
+	private ComputerRestClient client;
 	
 	private final Logger logger = LoggerFactory.getLogger(DeleteComputerCommand.class);
 
@@ -22,7 +22,7 @@ public class DeleteComputerCommand implements Command {
 	public void doAction(List<String> args, Scanner sc) {
 		for (String s : args) {
 			try {
-				service.deleteComputer(Long.parseLong(s));
+				client.deleteComputer(Long.parseLong(s));
 				logger.info("Computer " + s + " deleted.");
 			} catch (NumberFormatException e) {
 				logger.error("The entered number isn't a long.");

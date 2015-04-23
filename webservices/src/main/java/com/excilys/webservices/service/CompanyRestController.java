@@ -2,6 +2,8 @@ package com.excilys.webservices.service;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -32,6 +34,13 @@ public class CompanyRestController {
 	@Produces("application/json")
 	public Company getCompanies(@PathParam("param") Long id) {
 		return service.getCompany(id);
-	}	
+	}
+	
+	@DELETE
+	@Path("/{param}")
+	@Consumes("application/json")
+	public void deleteCompany(@PathParam("param") Long id) {
+		service.deleteCompanyAndRelatedComputers(id);
+	}
 	
 }

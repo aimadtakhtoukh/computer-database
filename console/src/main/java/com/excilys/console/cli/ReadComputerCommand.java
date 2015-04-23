@@ -10,9 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.excilys.console.rest.ComputerRestClient;
 import com.excilys.core.beans.Computer;
 import com.excilys.core.validator.NumberValidation;
-import com.excilys.service.services.ComputerService;
 
 @Component
 public class ReadComputerCommand implements Command {
@@ -20,7 +20,7 @@ public class ReadComputerCommand implements Command {
 	private final Logger logger = LoggerFactory.getLogger(ReadComputerCommand.class);
 	
 	@Autowired
-	private ComputerService service;
+	private ComputerRestClient client;
 	@Autowired
 	private NumberValidation numberValidator;
 	
@@ -40,7 +40,7 @@ public class ReadComputerCommand implements Command {
 	private void forEachArgument(String s) {
 		if (numberValidator.isACorrectNumber(s)) {
 			Long id = Long.parseLong(s);
-			Computer c = service.getComputer(id);
+			Computer c = client.getComputer(id);
 			if (c != null) {
 				computers.add(c);
 			} else {

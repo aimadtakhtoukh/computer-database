@@ -186,3 +186,9 @@ Caused by: java.io.FileNotFoundException: class path resource [applicationContex
 	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:172) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
 	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:330) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
 	... 37 common frames omitted
+17:04:18.089 [main] ERROR c.e.c.cli.CreateComputerCommand - Command form : create (computer_name) (introduction_date) (discontinued_date) (company)
+17:04:18.091 [main] ERROR c.e.c.cli.CreateComputerCommand - You can write null instead of a date.
+17:17:55.908 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 575 doesn't exist.
+17:18:22.378 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 588 doesn't exist.
+17:18:25.612 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 587 doesn't exist.
+17:18:56.474 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 585 doesn't exist.
