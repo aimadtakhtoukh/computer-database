@@ -42,6 +42,7 @@
 	<http use-expressions="false" auto-config="true" entry-point-ref="digestEntryPoint"> 
 		<intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/dashboard" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/rest**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/**" access="ROLE_USER" />
 		<access-denied-handler error-page="/403" />
 <!-- 		<http-basic /> -->
