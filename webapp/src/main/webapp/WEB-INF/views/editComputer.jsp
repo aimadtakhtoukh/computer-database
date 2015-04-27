@@ -29,28 +29,34 @@
 					<form:form action="editComputer" method="POST" commandName="computerDTO">
 						<form:input path="id" type="hidden"/>
 						<fieldset>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="name" for="computerName"><spring:message code="computer_name"/></form:label> 
 								<form:input path="name" 
 									type="text" class="form-control" id="computerName"
 									name="computerName" placeholder="${computerName}"></form:input>
-								<span id="computerNameMessage"></span>
+								<div id="computerNameMessageDiv" class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
+									<span id="computerNameMessage">${nameErrorMessage}</span>
+								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="introduced" for="introduced"><spring:message code="introduced_date"/></form:label> 
 								<form:input path="introduced"
 									type="date" class="form-control" id="introduced"
 									name="introduced" placeholder="${introducedDate}"></form:input>
-								<span id="introducedMessage"></span>
+								<div id="introducedMessageDiv" class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
+									<span id="introducedMessage">${introducedErrorMessage}</span>
+								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="discontinued" for="discontinued"><spring:message code="discontinued_date"/></form:label> 
 								<form:input path="discontinued"
 									type="date" class="form-control" id="discontinued"
 									name="discontinued" placeholder="${discontinuedDate}"></form:input>
-								<span id="discontinuedMessage"></span>
+								<div id="discontinuedMessageDiv" class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
+									<span id="discontinuedMessage">${discontinuedErrorMessage}</span>
+								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="companyId" for="companyId"><spring:message code="company"/></form:label> 
 								<form:select path="companyId"
 									class="form-control" id="companyId" name="companyId">

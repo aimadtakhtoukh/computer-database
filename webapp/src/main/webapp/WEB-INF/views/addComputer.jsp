@@ -25,13 +25,6 @@
 			</c:forEach>
 		</div>
 	</c:if>
-	<c:if test="${show && !showSuccess}">
-		<div class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
-			<c:forEach items="${message}" var="m" >
-				<p>${m}</p>
-			</c:forEach>
-		</div>
-	</c:if>
 
 	<section id="main">
 		<div class="container">
@@ -40,28 +33,34 @@
 					<h1><spring:message code="addComputer.add_computer"/></h1>
 					<form:form action="addComputer" method="POST" commandName="computerDTO">
 						<fieldset>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="name" for="computerName"><spring:message code="computer_name"/></form:label> 
 								<form:input path="name" 
 									type="text" class="form-control" id="computerName"
 									name="computerName" placeholder="${computerName}"></form:input>
-								<span id="computerNameMessage"></span>
+								<div id="computerNameMessageDiv" class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
+									<span id="computerNameMessage">${nameErrorMessage}</span>
+								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="introduced" for="introduced"><spring:message code="introduced_date"/></form:label> 
 								<form:input path="introduced"
 									type="date" class="form-control" id="introduced"
 									name="introduced" placeholder="${introducedDate}"></form:input>
-								<span id="introducedMessage"></span>
+								<div id="introducedMessageDiv" class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
+									<span id="introducedMessage">${introducedErrorMessage}</span>
+								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="discontinued" for="discontinued"><spring:message code="discontinued_date"/></form:label> 
 								<form:input path="discontinued"
 									type="date" class="form-control" id="discontinued"
 									name="discontinued" placeholder="${discontinuedDate}"></form:input>
-								<span id="discontinuedMessage"></span>
+								<div id="discontinuedMessageDiv" class="col-xs-8 col-xs-offset-2 alert alert-danger" role="alert">
+									<span id="discontinuedMessage">${discontinuedErrorMessage}</span>
+								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group row">
 								<form:label path="companyId" for="companyId"><spring:message code="company"/></form:label> 
 								<form:select path="companyId"
 									class="form-control" id="companyId" name="companyId">
@@ -79,49 +78,6 @@
 							<a href="dashboard" class="btn btn-default"><spring:message code="application.cancel"/></a>
 						</div>
 					</form:form>
-					<!-- 
-					<form action="addComputer" method="POST">
-						<fieldset>
-							<div class="form-group">
-								<label for="computerName"><spring:message code="computer_name"/></label> 
-								<input
-									type="text" class="form-control" id="computerName"
-									name="computerName" placeholder="Computer name">
-								<span id="computerNameMessage"></span>
-							</div>
-							<div class="form-group">
-								<label for="introduced"><spring:message code="introduced_date"/></label> 
-								<input
-									type="date" class="form-control" id="introduced"
-									name="introduced" placeholder="Introduced date">
-								<span id="introducedMessage"></span>
-							</div>
-							<div class="form-group">
-								<label for="discontinued"><spring:message code="discontinued_date"/></label> 
-								<input
-									type="date" class="form-control" id="discontinued"
-									name="discontinued" placeholder="Discontinued date">
-								<span id="discontinuedMessage"></span>
-							</div>
-							<div class="form-group">
-								<label for="companyId"><spring:message code="company"/></label> 
-								<select
-									class="form-control" id="companyId" name="companyId">
-									<option value="0">--</option>
-									<c:forEach items="${companies}" var="company">
-										<option value="${company.id}">${company.name}</option>
-									</c:forEach>
-								</select>
-								<span id="companyMessage"></span>
-							</div>
-						</fieldset>
-						<div class="actions pull-right">
-							<input type="submit" value="<spring:message code="addComputer.add"/>" class="btn btn-primary">
-							<spring:message code="application.or"/> 
-							<a href="dashboard" class="btn btn-default"><spring:message code="application.cancel"/></a>
-						</div>
-					</form>
-					 -->
 				</div>
 			</div>
 		</div>

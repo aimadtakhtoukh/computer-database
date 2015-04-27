@@ -136,6 +136,10 @@
 			<groupId>computerDatabase</groupId>
 			<artifactId>binding</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>computerDatabase</groupId>
+			<artifactId>persistence</artifactId>
+		</dependency>
 	</dependencies>
 	<packaging>war</packaging>
 </project>

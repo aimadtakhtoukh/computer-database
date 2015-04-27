@@ -129,7 +129,15 @@ public class ComputerController {
     	} else {
 			model.addAttribute("show", true);
 			model.addAttribute("showSuccess", false);
-    		model.addAttribute("message", bindingResult.getAllErrors());
+    		if (bindingResult.hasFieldErrors("name")) {
+    			model.addAttribute("nameErrorMessage", bindingResult.getFieldError("name").getDefaultMessage());
+    		}
+    		if (bindingResult.hasFieldErrors("introduced")) {
+    			model.addAttribute("introducedErrorMessage", bindingResult.getFieldError("introduced").getDefaultMessage());
+    		}
+    		if (bindingResult.hasFieldErrors("discontinued")) {
+    			model.addAttribute("discontinuedErrorMessage", bindingResult.getFieldError("discontinued").getDefaultMessage());
+    		}
     	}
     	return "addComputer";
     }
@@ -165,7 +173,15 @@ public class ComputerController {
     	} else {
 			model.addAttribute("show", true);
 			model.addAttribute("showSuccess", false);
-    		model.addAttribute("message", bindingResult.getAllErrors());
+    		if (bindingResult.hasFieldErrors("name")) {
+    			model.addAttribute("nameErrorMessage", bindingResult.getFieldError("name").getDefaultMessage());
+    		}
+    		if (bindingResult.hasFieldErrors("introduced")) {
+    			model.addAttribute("introducedErrorMessage", bindingResult.getFieldError("introduced").getDefaultMessage());
+    		}
+    		if (bindingResult.hasFieldErrors("discontinued")) {
+    			model.addAttribute("discontinuedErrorMessage", bindingResult.getFieldError("discontinued").getDefaultMessage());
+    		}
     	}
 		logger.trace("POST called on /editComputer : Editing computer, response sent");		
 		return "redirect:/dashboard";
