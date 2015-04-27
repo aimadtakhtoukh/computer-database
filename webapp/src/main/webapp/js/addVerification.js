@@ -3,13 +3,13 @@ var isDayInMonthAndYear = function(date) {
 	return pattern.test(date);
 }
 
-if ($("#computerName").val() != "") {
+if($("#computerNameMessage").val() == "") {
 	$("#computerNameMessageDiv").css("display", "none");	
 }
-if ($("#introduced").val() == "") {
+if ($("#introducedMessage").val() == "") {
 	$("#introducedMessageDiv").css("display", "none");	
 }
-if ($("#discontinued").val() == "") {
+if ($("#discontinuedMessage").val() == "") {
 	$("#discontinuedMessageDiv").css("display", "none")
 }
 
