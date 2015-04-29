@@ -35,13 +35,12 @@ public class CreateComputerCommand implements Command {
 	@Override
 	public void doAction(List<String> args, Scanner sc) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		Computer c = new Computer();
 		if (args.size() < 4) {
 			logger.error("Command form : create (computer_name) (introduction_date) (discontinued_date) (company)");
 			logger.error("You can write null instead of a date.");
 			return;
 		}
-		c.setName(args.get(0));
+		Computer.Builder builder = Computer.builder().name(args.get(0));
 		LocalDateTime introduced;
 		if (args.get(1).equals("null")) {
 			introduced = null;
@@ -52,7 +51,7 @@ public class CreateComputerCommand implements Command {
 				introduced = null;
 			}
 		}
-		c.setIntroduced(introduced);
+		builder.introduced(introduced);
 		LocalDateTime discontinued;
 		if (args.get(2).equals("null")) {
 			discontinued = null;
@@ -63,13 +62,13 @@ public class CreateComputerCommand implements Command {
 				discontinued = null;
 			}
 		}
-		c.setDiscontinued(discontinued);
+		builder.discontinued(discontinued);
 		try {
-			c.setCompany(companyClient.getCompany(Long.parseLong(args.get(3))));
+			builder.company(companyClient.getCompany(Long.parseLong(args.get(3))));
 		} catch (NumberFormatException e) {
 			logger.error("The entered value isn't a long.");
 		}
-		long id = client.addComputer(c);
+		long id = client.addComputer(builder.build());
 		logger.info("Computer " + id + " created.");
 	}
 

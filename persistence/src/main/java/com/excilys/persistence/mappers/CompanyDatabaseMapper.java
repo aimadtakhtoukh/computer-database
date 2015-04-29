@@ -16,7 +16,7 @@ public class CompanyDatabaseMapper implements RowMapper<Company>{
 	
 	@Override
 	public Company mapRow(ResultSet rs, int rowNumber) throws SQLException {
-		return new Company(rs.getLong(PARAM_ID), rs.getString(PARAM_NAME));
+		return Company.builder().id(rs.getLong(PARAM_ID)).name(rs.getString(PARAM_NAME)).build();
 	}
 
 }

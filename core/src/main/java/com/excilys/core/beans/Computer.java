@@ -149,7 +149,50 @@ public class Computer implements Serializable {
 			return false;
 		return true;
 	}
+
 	
+	public class Builder {
+		
+		private Computer computer;
+		
+		public Builder() {
+			computer = new Computer();
+		}
+		
+		public Builder id(Long id) {
+			computer.id = id;
+			return this;
+		}
+		
+		public Builder name(String name) {
+			computer.name = name;
+			return this;
+		}
+		
+		public Builder introduced(LocalDateTime introduced) {
+			computer.introduced = introduced;
+			return this;
+		}
+		
+		public Builder discontinued(LocalDateTime discontinued) {
+			computer.discontinued = discontinued;
+			return this;
+		}
+		
+		public Builder company(Company company) {
+			computer.company = company;
+			return this;
+		}
+		
+		public Computer build() {
+			return computer;
+		}
+		
+	}
+	
+	public static Builder builder() {
+		return new Computer().new Builder();
+	}
 	
 
 }

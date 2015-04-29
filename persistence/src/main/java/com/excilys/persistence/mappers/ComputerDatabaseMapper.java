@@ -24,22 +24,20 @@ public class ComputerDatabaseMapper implements RowMapper<Computer>{
 	
 	@Override
 	public Computer mapRow(ResultSet rs, int rownumber) throws SQLException {
-		Computer c = new Computer();
-		c.setId(rs.getLong(PARAM_ID));
-		c.setName(rs.getString(PARAM_NAME));
+		Computer.Builder builder =  Computer.builder()
+				.id(rs.getLong(PARAM_ID))
+				.name(rs.getString(PARAM_NAME));
 		if (rs.getTimestamp(PARAM_INTRODUCED) != null) { 
-			c.setIntroduced(rs.getTimestamp(PARAM_INTRODUCED).toLocalDateTime());
+			builder.introduced(rs.getTimestamp(PARAM_INTRODUCED).toLocalDateTime());
 		}
 		if (rs.getTimestamp(PARAM_DISCONTINUED) != null) {
-			c.setDiscontinued(rs.getTimestamp(PARAM_DISCONTINUED).toLocalDateTime());
+			builder.discontinued(rs.getTimestamp(PARAM_DISCONTINUED).toLocalDateTime());
 		}
 		Long companyId = rs.getLong(PARAM_COMPANY_ID);
 		if (companyId != 0) {
-			c.setCompany(companies.get(companyId));
-		} else {
-			c.setCompany(null);
-		}
-		return c;
+			builder.company(companies.get(companyId));
+		}			
+		return builder.build();
 	}
 
 }

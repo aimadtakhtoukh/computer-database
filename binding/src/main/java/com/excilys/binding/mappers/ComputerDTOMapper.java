@@ -58,33 +58,21 @@ public class ComputerDTOMapper {
 		}
 		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		Computer bean = new Computer();
-		bean.setId(dto.getId());
-		bean.setName(dto.getName());
+		Computer.Builder builder = Computer.builder().id(dto.getId()).name(dto.getName());
 		if (dto.getIntroduced() != null) {
 			if (dateValidator.isACorrectDate(dto.getIntroduced())) {
-				bean.setIntroduced(LocalDateTime.of(LocalDate.parse(dto.getIntroduced(), formatter), LocalTime.MIDNIGHT));
-			} else {
-				bean.setIntroduced(null);
+				builder.introduced(LocalDateTime.of(LocalDate.parse(dto.getIntroduced(), formatter), LocalTime.MIDNIGHT));
 			}
-		} else {
-			bean.setIntroduced(null);
 		}
 		if (dto.getDiscontinued() != null) {
 			if (dateValidator.isACorrectDate(dto.getDiscontinued())) {
-				bean.setDiscontinued(LocalDateTime.of(LocalDate.parse(dto.getDiscontinued(), formatter), LocalTime.MIDNIGHT));
-			} else {
-				bean.setDiscontinued(null);
+				builder.discontinued(LocalDateTime.of(LocalDate.parse(dto.getDiscontinued(), formatter), LocalTime.MIDNIGHT));
 			}
-		} else {
-			bean.setDiscontinued(null);
 		}
 		if (dto.getCompanyId() != null) {
-			bean.setCompany(companyService.getCompany(dto.getCompanyId()));
-		} else {
-			bean.setCompany(null);
-		}
-		return bean;
+			builder.company(companyService.getCompany(dto.getCompanyId()));
+		} 
+		return builder.build();
 	}
 	
 }

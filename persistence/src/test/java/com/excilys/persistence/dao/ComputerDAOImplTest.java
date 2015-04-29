@@ -140,8 +140,7 @@ public class ComputerDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Computer c = new Computer();
-		c.setName("test");
+		Computer c = Computer.builder().name("test").build();
 		//WHEN
 		long id = dao.create(c);
 		Assert.assertNotEquals(dao.get(id), null);
@@ -167,8 +166,7 @@ public class ComputerDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Computer c = new Computer();
-		c.setName("test");
+		Computer c = Computer.builder().name("test").build();
 		long id = dao.create(c);
 		//WHEN
 		c.setName("test2");
@@ -185,8 +183,7 @@ public class ComputerDAOImplTest {
 		DatabaseTestUtil.cleanlyInsert(
 				new FlatXmlDataSetBuilder().build(new File(
                 "src/test/resources/datasets/computerDAO/get.xml")));
-		Computer c = new Computer();
-		c.setName("test");
+		Computer c = Computer.builder().name("test").build();
 		long id = dao.create(c);
 		//WHEN
 		dao.delete(id);

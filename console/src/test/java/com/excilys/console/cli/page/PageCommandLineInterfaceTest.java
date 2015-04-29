@@ -70,7 +70,7 @@ public class PageCommandLineInterfaceTest {
 		//GIVEN
 		PageCommandLineInterface<Computer> pcli = new PageCommandLineInterface<Computer>(pageComputer);
 		List<Computer> computers = new LinkedList<Computer>();
-		Computer c = new Computer();
+		Computer c = Computer.builder().id(1L).name("test").build();
 		c.setId(1L);
 		c.setName("test");
 		for (int i = 0; i < 10; i++) {
@@ -95,9 +95,7 @@ public class PageCommandLineInterfaceTest {
 		PageCommandLineInterface<Company> pcli 
 			= new PageCommandLineInterface<Company>(pageCompany);
 		List<Company> companies = new LinkedList<Company>();
-		Company c = new Company();
-		c.setId(1L);
-		c.setName("test");
+		Company c = Company.builder().id(1L).name("test").build();
 		for (int i = 0; i < 10; i++) {
 			companies.add(c);
 		}

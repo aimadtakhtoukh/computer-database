@@ -24,16 +24,6 @@ public class Company implements Serializable {
 	private Long id;
 	private String name;
 	
-	public Company() {
-		super();
-	}
-	
-	public Company(Long id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-	
 	public Long getId() {
 		return id;
 	}
@@ -86,6 +76,32 @@ public class Company implements Serializable {
 		return true;
 	}
 	
+	public class Builder {
+		
+		private Company company;
+		
+		public Builder() {
+			company = new Company();
+		}
+		
+		public Builder id(Long id) {
+			company.id = id;
+			return this;
+		}
+		
+		public Builder name(String name) {
+			company.name = name;
+			return this;
+		}
+		
+		public Company build() {
+			return company;
+		}
+		
+	}
 	
+	public static Builder builder() {
+		return new Company().new Builder();
+	}
 
 }

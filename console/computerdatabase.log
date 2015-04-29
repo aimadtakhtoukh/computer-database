@@ -192,3 +192,4 @@ Caused by: java.io.FileNotFoundException: class path resource [applicationContex
 17:18:22.378 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 588 doesn't exist.
 17:18:25.612 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 587 doesn't exist.
 17:18:56.474 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 585 doesn't exist.
+17:20:39.333 [main] ERROR c.e.console.cli.ReadComputerCommand - The computer n° 575 doesn't exist.

@@ -43,10 +43,7 @@
 	
     <import resource="/spring-security.xml"/>
     
-    <import resource="classpath:applicationContext-core.xml"/>
-    <import resource="classpath:applicationContext-persistence.xml"/>
-    <import resource="classpath:applicationContext-service.xml"/>
-    <import resource="classpath:applicationContext-binding.xml"/>
+    <import resource="classpath:applicationContext-webapp.xml"/>
 	
 	<context:component-scan base-package="com.excilys.webapp.controller" />
 	<context:component-scan base-package="com.excilys.webapp.controller.rest" />

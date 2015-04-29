@@ -53,15 +53,15 @@ public class UpdateComputerCommand implements Command {
 		}
 		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		Computer c = new Computer();
+		Computer.Builder builder = Computer.builder();
 		if (numberValidator.isACorrectNumber(args.get(0))) {
-			c.setId(Long.parseLong(args.get(0)));
+			builder.id(Long.parseLong(args.get(0)));
 		} else {
 			logger.error("The id argument must be a number.");
 			return;
 		}
 		if (stringValidator.isACorrectString(args.get(1))) {
-			c.setName(args.get(1));
+			builder.name(args.get(1));
 		} else {
 			logger.error("The name mustn't be empty.");
 			return;
@@ -76,7 +76,7 @@ public class UpdateComputerCommand implements Command {
 				introduced = null;
 			}
 		}
-		c.setIntroduced(introduced);
+		builder.introduced(introduced);
 		
 		LocalDateTime discontinued;
 		if (args.get(3).equals("null")) {
@@ -88,17 +88,17 @@ public class UpdateComputerCommand implements Command {
 				discontinued = null;
 			}
 		}
-		c.setDiscontinued(discontinued);
+		builder.discontinued(discontinued);
 		
 		if (numberValidator.isACorrectNumber(args.get(4))) {
 			long id_company = Long.parseLong(args.get(4));
 			Company company = companyClient.getCompany(id_company);
-			c.setCompany(company);
+			builder.company(company);
 		} else {
 			logger.error("The company id argument must be a number.");
-			c.setCompany(null);
+			builder.company(null);
 		}
-		long id = client.editComputer(c);
+		long id = client.editComputer(builder.build());
 		logger.info("Computer " + id + " updated.");
 	}
 
