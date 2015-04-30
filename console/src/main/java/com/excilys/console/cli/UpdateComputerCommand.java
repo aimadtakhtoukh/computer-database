@@ -14,13 +14,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+import com.excilys.binding.validator.DateValidation;
+import com.excilys.binding.validator.NumberValidation;
+import com.excilys.binding.validator.StringValidation;
 import com.excilys.console.rest.CompanyRestClient;
 import com.excilys.console.rest.ComputerRestClient;
 import com.excilys.core.beans.Company;
 import com.excilys.core.beans.Computer;
-import com.excilys.core.validator.DateValidation;
-import com.excilys.core.validator.NumberValidation;
-import com.excilys.core.validator.StringValidation;
 
 @Component
 public class UpdateComputerCommand implements Command {

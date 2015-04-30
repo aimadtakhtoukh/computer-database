@@ -1,6 +1,7 @@
 package com.excilys.webservices.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -12,8 +13,9 @@ import javax.ws.rs.Produces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.excilys.core.beans.Company;
 import com.excilys.service.services.CompanyService;
+import com.excilys.webservices.dto.CompanyDTO;
+import com.excilys.webservices.dto.converter.CompanyDTOConverter;
 
 @Component
 @Path("company")
@@ -25,15 +27,15 @@ public class CompanyRestController {
 	@GET
 	@Path("/all")
 	@Produces("application/json")
-	public List<Company> getAllCompanies() {
-		return service.getAllCompanies();
+	public List<CompanyDTO> getAllCompanies() {
+		return service.getAllCompanies().stream().map(CompanyDTOConverter::from).collect(Collectors.toList());
 	}
 	
 	@GET
 	@Path("/{param}")
 	@Produces("application/json")
-	public Company getCompanies(@PathParam("param") Long id) {
-		return service.getCompany(id);
+	public CompanyDTO getCompanies(@PathParam("param") Long id) {
+		return CompanyDTOConverter.from(service.getCompany(id));
 	}
 	
 	@DELETE

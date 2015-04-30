@@ -16,7 +16,8 @@ import org.springframework.stereotype.Component;
 import com.excilys.console.rest.CompanyRestClient;
 import com.excilys.console.rest.ComputerRestClient;
 import com.excilys.core.beans.Computer;
-import com.excilys.core.validator.DateValidation;
+
+import com.excilys.binding.validator.DateValidation;
 
 @Component
 public class CreateComputerCommand implements Command {

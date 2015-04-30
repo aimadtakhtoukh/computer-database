@@ -26,10 +26,6 @@
 		<dependency>
 			<groupId>computerDatabase</groupId>
 			<artifactId>core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>computerDatabase</groupId>
-			<artifactId>service</artifactId>
 		</dependency>		
 	</dependencies>
 </project>

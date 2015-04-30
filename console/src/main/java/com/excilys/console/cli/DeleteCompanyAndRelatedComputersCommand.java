@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.excilys.binding.validator.NumberValidation;
 import com.excilys.console.rest.CompanyRestClient;
-import com.excilys.core.validator.NumberValidation;
 
 @Component
 public class DeleteCompanyAndRelatedComputersCommand implements Command {

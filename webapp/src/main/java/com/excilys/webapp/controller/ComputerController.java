@@ -1,4 +1,4 @@
-package com.excilys.core.controller;
+package com.excilys.webapp.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.excilys.binding.mappers.ComputerDTOMapper;
+import com.excilys.binding.validator.StringValidation;
 import com.excilys.core.beans.Computer;
-import com.excilys.core.dto.ComputerDTO;
-import com.excilys.core.validator.ComputerDTOValidator;
-import com.excilys.core.validator.StringValidation;
 import com.excilys.persistence.page.ComputerPage;
 import com.excilys.service.services.CompanyService;
 import com.excilys.service.services.ComputerService;
+import com.excilys.webapp.dto.ComputerDTO;
+import com.excilys.webapp.mappers.ComputerDTOMapper;
+import com.excilys.webapp.validator.ComputerDTOValidator;
 
 @Controller
 public class ComputerController {
@@ -86,7 +86,7 @@ public class ComputerController {
 			}
 		}
 		model.addAttribute("computerCount", computerPage.getTotalCount());
-		model.addAttribute("items", computerPage.getPageElements().stream().map(c -> mapper.toComputerDTO(c)).collect(Collectors.toList()));
+		model.addAttribute("items", computerPage.getPageElements().stream().map(mapper::to).collect(Collectors.toList()));
 		// Navigation attributes
 		int current = computerPage.getCurrentPageNumber();
 		model.addAttribute("paginationStart", Math.max(1, current - PAGE_NUMBER));
@@ -119,7 +119,7 @@ public class ComputerController {
     		Model model) {
     	computerDTOValidator.validate(dto, bindingResult);
     	if (!bindingResult.hasErrors()) {
-    		Computer computer = mapper.toComputer(dto);
+    		Computer computer = mapper.from(dto);
     		computerService.createComputer(computer);
     		model.addAttribute("show", true);
     		model.addAttribute("showSuccess", true);
@@ -150,7 +150,7 @@ public class ComputerController {
 			return "redirect:/dashboard";
 		}
 		Computer computer = computerService.getComputer(id);
-		model.addAttribute("computerDTO", mapper.toComputerDTO(computer));
+		model.addAttribute("computerDTO", mapper.to(computer));
 		model.addAttribute("companies", companyService.getAllCompanies());
 		logger.trace("GET called on /editComputer : Showing computer edit page,  response sent");		
 		return "editComputer";		
@@ -164,7 +164,7 @@ public class ComputerController {
 		logger.trace("POST called on /editComputer : Editing computer, start up");
     	computerDTOValidator.validate(dto, bindingResult);
     	if (!bindingResult.hasErrors()) {
-    		Computer computer = mapper.toComputer(dto);
+    		Computer computer = mapper.from(dto);
     		computerService.updateComputer(computer);
     		model.addAttribute("show", true);
     		model.addAttribute("showSuccess", true);

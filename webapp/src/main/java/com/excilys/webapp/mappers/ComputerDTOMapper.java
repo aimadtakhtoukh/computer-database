@@ -1,4 +1,4 @@
-package com.excilys.binding.mappers;
+package com.excilys.webapp.mappers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,10 +10,11 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+import com.excilys.binding.validator.DateValidation;
 import com.excilys.core.beans.Computer;
-import com.excilys.core.dto.ComputerDTO;
-import com.excilys.core.validator.DateValidation;
 import com.excilys.service.services.CompanyService;
+import com.excilys.webapp.dto.CompanyDTO;
+import com.excilys.webapp.dto.ComputerDTO;
 
 @Component
 public class ComputerDTOMapper {
@@ -25,34 +26,36 @@ public class ComputerDTOMapper {
 	@Autowired
 	private MessageSource messageSource;
 	
-	public ComputerDTO toComputerDTO(Computer bean) {
+	public ComputerDTO to(Computer bean) {
 		if (bean == null) {
 			return null;
 		}
-
 		String pattern = messageSource.getMessage("validation.date.format", null, LocaleContextHolder.getLocale());
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 		
-		ComputerDTO dto = new ComputerDTO();
-		dto.setId(bean.getId());
-		dto.setName(bean.getName());
+		ComputerDTO.Builder builder = 
+				new ComputerDTO().builder()
+				.id(bean.getId())
+				.name(bean.getName());
+
 		if (bean.getIntroduced() != null) {
-			dto.setIntroduced(bean.getIntroduced().format(formatter));
+			builder.introduced(bean.getIntroduced().format(formatter));
 		}
 		if (bean.getDiscontinued() != null) {
-			dto.setDiscontinued(bean.getDiscontinued().format(formatter));
+			builder.discontinued(bean.getDiscontinued().format(formatter));
 		}
 		if (bean.getCompany() != null) {
-			dto.setCompanyId(bean.getCompany().getId());
-			dto.setCompanyName(bean.getCompany().getName());
-		} else {
-			dto.setCompanyId(null);
-			dto.setCompanyName(null);
+			builder
+			.company(CompanyDTO.builder()
+					.id(bean.getCompany().getId())
+					.name(bean.getCompany().getName())
+					.build())			
+			.build();
 		}
-		return dto;
+		return builder.build();
 	}
 	
-	public Computer toComputer(ComputerDTO dto) {
+	public Computer from(ComputerDTO dto) {
 		if (dto == null) {
 			return null;
 		}
@@ -69,10 +72,11 @@ public class ComputerDTOMapper {
 				builder.discontinued(LocalDateTime.of(LocalDate.parse(dto.getDiscontinued(), formatter), LocalTime.MIDNIGHT));
 			}
 		}
-		if (dto.getCompanyId() != null) {
-			builder.company(companyService.getCompany(dto.getCompanyId()));
+		if (dto.getCompany() != null) {
+			if (dto.getCompany().getId() != null) {
+				builder.company(companyService.getCompany(dto.getCompany().getId()));
+			}
 		} 
 		return builder.build();
 	}
-	
 }

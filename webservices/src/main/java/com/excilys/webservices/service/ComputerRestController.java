@@ -1,6 +1,7 @@
 package com.excilys.webservices.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -14,8 +15,9 @@ import javax.ws.rs.Produces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.excilys.core.beans.Computer;
 import com.excilys.service.services.ComputerService;
+import com.excilys.webservices.dto.ComputerDTO;
+import com.excilys.webservices.dto.converter.ComputerDTOConverter;
 
 @Component
 @Path("/computer")
@@ -27,31 +29,31 @@ public class ComputerRestController {
 	@GET
 	@Path("/all")
 	@Produces("application/json")
-	public List<Computer> getAllComputers() {
-		return service.getAll();
+	public List<ComputerDTO> getAllComputers() {
+		return service.getAll().stream().map(ComputerDTOConverter::from).collect(Collectors.toList());
 	}
 	
 	@GET
 	@Path("/{param}")
 	@Produces("application/json")
-	public Computer getComputer(@PathParam("param") long id) {
-		return service.getComputer(id);
+	public ComputerDTO getComputer(@PathParam("param") long id) {
+		return ComputerDTOConverter.from(service.getComputer(id));
 	}
 	
 	@POST
 	@Path("/")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Long addComputer(Computer computer) {
-		return service.createComputer(computer);
+	public Long addComputer(ComputerDTO computer) {
+		return service.createComputer(ComputerDTOConverter.to(computer));
 	}
 	
 	@PUT
 	@Path("/")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Long editComputer(Computer computer) {
-		return service.updateComputer(computer);
+	public Long editComputer(ComputerDTO computer) {
+		return service.updateComputer(ComputerDTOConverter.to(computer));
 	}
 	
 	@DELETE

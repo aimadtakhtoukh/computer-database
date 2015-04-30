@@ -1,4 +1,4 @@
-package com.excilys.core.validator;
+package com.excilys.binding.validator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -17,4 +17,8 @@
     <import resource="classpath:applicationContext-service.xml"/>
     <import resource="classpath:applicationContext-binding.xml"/>
     
+    
+	<context:component-scan base-package="com.excilys.webapp.mappers" />
+	<context:component-scan base-package="com.excilys.webapp.validator" />
+    
 </beans>

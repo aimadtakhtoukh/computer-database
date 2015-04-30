@@ -1,80 +1,51 @@
-package com.excilys.core.beans;
+package com.excilys.webservices.dto;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
-/**
- * That bean is an entity representing a line of the Computer database.
- * @author excilys
- *
- */
-
-public class Computer implements Serializable {
-	private static final long serialVersionUID = -7266523565236529512L;
+public class ComputerDTO {
 	
 	private Long id;
 	private String name;
-	private LocalDateTime introduced;
-	private LocalDateTime discontinued;
-	private Company company;
+	private String introduced;
+	private String discontinued;
+	private CompanyDTO company;
 	
 	public Long getId() {
 		return id;
 	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	public String getName() {
 		return name;
 	}
-	
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public LocalDateTime getIntroduced() {
+	public String getIntroduced() {
 		return introduced;
 	}
-	
-	public void setIntroduced(LocalDateTime introduced) {
+	public void setIntroduced(String introduced) {
 		this.introduced = introduced;
 	}
-	
-	public LocalDateTime getDiscontinued() {
+	public String getDiscontinued() {
 		return discontinued;
 	}
-	
-	public void setDiscontinued(LocalDateTime discontinued) {
+	public void setDiscontinued(String discontinued) {
 		this.discontinued = discontinued;
 	}
-	
-	public Company getCompany() {
+	public CompanyDTO getCompany() {
 		return company;
 	}
-	
-	public void setCompany(Company company) {
+	public void setCompany(CompanyDTO company) {
 		this.company = company;
 	}
-
+	
 	@Override
 	public String toString() {
-		return new StringBuffer()
-				.append("Computer [id=")
-				.append(id)
-				.append(", name=")
-				.append(name)
-				.append(", introduced=")
-				.append(introduced)
-				.append(", discontinued=")
-				.append(discontinued)
-				.append(", company=")
-				.append(company)
-				.append("]")
-				.toString();
+		return "ComputerDTO [id=" + id + ", name=" + name + ", introduced="
+				+ introduced + ", discontinued=" + discontinued + ", company="
+				+ company + "]";
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -82,13 +53,13 @@ public class Computer implements Serializable {
 		result = prime * result + ((company == null) ? 0 : company.hashCode());
 		result = prime * result
 				+ ((discontinued == null) ? 0 : discontinued.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
 				+ ((introduced == null) ? 0 : introduced.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -97,7 +68,7 @@ public class Computer implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Computer other = (Computer) obj;
+		ComputerDTO other = (ComputerDTO) obj;
 		if (company == null) {
 			if (other.company != null)
 				return false;
@@ -108,7 +79,10 @@ public class Computer implements Serializable {
 				return false;
 		} else if (!discontinued.equals(other.discontinued))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (introduced == null) {
 			if (other.introduced != null)
@@ -122,14 +96,13 @@ public class Computer implements Serializable {
 			return false;
 		return true;
 	}
-
 	
 	public class Builder {
 		
-		private Computer computer;
+		private ComputerDTO computer;
 		
 		public Builder() {
-			computer = new Computer();
+			computer = new ComputerDTO();
 		}
 		
 		public Builder id(Long id) {
@@ -142,29 +115,28 @@ public class Computer implements Serializable {
 			return this;
 		}
 		
-		public Builder introduced(LocalDateTime introduced) {
+		public Builder introduced(String introduced) {
 			computer.introduced = introduced;
 			return this;
 		}
 		
-		public Builder discontinued(LocalDateTime discontinued) {
+		public Builder discontinued(String discontinued) {
 			computer.discontinued = discontinued;
 			return this;
 		}
 		
-		public Builder company(Company company) {
+		public Builder company(CompanyDTO company) {
 			computer.company = company;
 			return this;
 		}
 		
-		public Computer build() {
+		public ComputerDTO build() {
 			return computer;
-		}
-		
+		}		
 	}
 	
 	public static Builder builder() {
-		return new Computer().new Builder();
+		return new ComputerDTO().new Builder();
 	}
-
+	
 }

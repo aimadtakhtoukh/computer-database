@@ -57,13 +57,13 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<form:label path="companyId" for="companyId"><spring:message code="company"/></form:label> 
-								<form:select path="companyId"
+								<form:label path="company.id" for="companyId"><spring:message code="company"/></form:label> 
+								<form:select path="company.id"
 									class="form-control" id="companyId" name="companyId">
 									<option value="0">--</option>
 									<c:forEach items="${companies}" var="company">
 										<c:choose>
-											<c:when test="${company.id == computerDTO.companyId}">
+											<c:when test="${company.id == computerDTO.company.id}">
 												<option value="${company.id}" selected="selected">${company.name}</option>
 											</c:when>
 											<c:otherwise>

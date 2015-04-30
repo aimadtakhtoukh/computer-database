@@ -1,4 +1,4 @@
-package com.excilys.core.validator;
+package com.excilys.webapp.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.excilys.core.dto.ComputerDTO;
+import com.excilys.binding.validator.DateValidation;
+import com.excilys.binding.validator.StringValidation;
+import com.excilys.webapp.dto.ComputerDTO;
 
 @Component
 public class ComputerDTOValidator implements Validator {

@@ -1,4 +1,4 @@
-package com.excilys.core.validator;
+package com.excilys.binding.validator;
 
 import org.springframework.stereotype.Component;
 

@@ -1,16 +1,17 @@
-package com.excilys.core.dto;
+package com.excilys.webapp.dto;
+
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class ComputerDTO {
-	//Never used by the view, it doesn't need to be validated
 	private Long id;
+	@NotNull
 	@NotEmpty
 	private String name;
 	private String introduced;
 	private String discontinued;
-	private Long companyId;
-	private String companyName;
+	private CompanyDTO company;
 	
 	public Long getId() {
 		return id;
@@ -43,28 +44,19 @@ public class ComputerDTO {
 	public void setDiscontinued(String discontinued) {
 		this.discontinued = discontinued;
 	}
-	
-	public Long getCompanyId() {
-		return companyId;
-	}
-	
-	public void setCompanyId(Long companyId) {
-		this.companyId = companyId;
+
+	public CompanyDTO getCompany() {
+		return company;
 	}
 
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCompany(CompanyDTO company) {
+		this.company = company;
 	}
 
 	@Override
 	public String toString() {
-		return "ComputerDTO [id=" + id + ", name=" + name + ", introduced="
-				+ introduced + ", discontinued=" + discontinued
-				+ ", companyId=" + companyId + ", companyName=" + companyName
+		return "ComputerDTO [id=" + id + ", name=" + name + ", introduced=" + introduced
+				+ ", discontinued=" + discontinued + ", company=" + company
 				+ "]";
 	}
 
@@ -72,10 +64,7 @@ public class ComputerDTO {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((companyId == null) ? 0 : companyId.hashCode());
-		result = prime * result
-				+ ((companyName == null) ? 0 : companyName.hashCode());
+		result = prime * result + ((company == null) ? 0 : company.hashCode());
 		result = prime * result
 				+ ((discontinued == null) ? 0 : discontinued.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -94,15 +83,10 @@ public class ComputerDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		ComputerDTO other = (ComputerDTO) obj;
-		if (companyId == null) {
-			if (other.companyId != null)
+		if (company == null) {
+			if (other.company != null)
 				return false;
-		} else if (!companyId.equals(other.companyId))
-			return false;
-		if (companyName == null) {
-			if (other.companyName != null)
-				return false;
-		} else if (!companyName.equals(other.companyName))
+		} else if (!company.equals(other.company))
 			return false;
 		if (discontinued == null) {
 			if (other.discontinued != null)
@@ -126,7 +110,43 @@ public class ComputerDTO {
 			return false;
 		return true;
 	}
+
+	public class Builder {		
+		ComputerDTO dto = new ComputerDTO();
 	
+		public Builder id(Long id) {
+			dto.id = id;
+			return this;
+		}
+		
+		public Builder name(String name) {
+			dto.name = name;
+			return this;
+		}
+		
+		public Builder introduced(String introduced) {
+			dto.introduced = introduced;
+			return this;
+		}
+		
+		public Builder discontinued(String discontinued) {
+			dto.discontinued = discontinued;
+			return this;
+		}
+		
+		public Builder company(CompanyDTO company) {
+			dto.company = company;
+			return this;
+		}
+		
+		public ComputerDTO build() {
+			return dto;
+		}
+		
+	}
 	
+	public Builder builder() {
+		return new ComputerDTO().new Builder();
+	}
 
 }
