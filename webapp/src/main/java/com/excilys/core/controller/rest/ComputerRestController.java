@@ -1,4 +1,4 @@
-package com.excilys.webapp.controller.rest;
+package com.excilys.core.controller.rest;
 
 import java.util.List;
 

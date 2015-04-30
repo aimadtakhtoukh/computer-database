@@ -1,4 +1,4 @@
-package com.excilys.webapp.controller;
+package com.excilys.core.controller;
 
 import java.util.HashMap;
 import java.util.Map;

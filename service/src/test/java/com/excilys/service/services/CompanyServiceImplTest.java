@@ -1,26 +1,13 @@
 package com.excilys.service.services;
 
-import java.io.File;
-
-import org.dbunit.dataset.DataSetException;
-import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.excilys.persistence.dao.util.ComputerDatabaseConnectionFactory;
-import com.excilys.persistence.dao.util.DatabaseTestUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext-service.xml")
 public class CompanyServiceImplTest {
-	
+	/*
 	@Autowired
 	ComputerDatabaseConnectionFactory cdcf;
 	@Autowired
@@ -54,5 +41,5 @@ public class CompanyServiceImplTest {
 		//THEN
 		Assert.assertEquals(companyService.getCompany(1), null);
 	}
-	
+	*/
 }

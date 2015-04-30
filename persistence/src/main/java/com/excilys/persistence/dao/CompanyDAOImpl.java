@@ -1,6 +1,7 @@
 package com.excilys.persistence.dao;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,12 +14,12 @@ import javax.persistence.criteria.Root;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.excilys.core.beans.Company;
-import com.excilys.persistence.mappers.CompanyDatabaseMapper;
+import com.excilys.persistence.converter.CompanyEntityConverter;
+import com.excilys.persistence.entity.CompanyEntity;
 
 @Repository
 public class CompanyDAOImpl implements CompanyDAO {
@@ -27,13 +28,11 @@ public class CompanyDAOImpl implements CompanyDAO {
 	
 	@PersistenceContext(unitName = "ComputerDatabasePU")
 	private EntityManager em;
-	@Autowired
-	private CompanyDatabaseMapper mapper;
 
 	@Override
 	public Company get(long id) {
 		logger.trace("CompanyDAO doit récupérer le Company d'id " + id);
-		return em.find(Company.class, id);
+		return CompanyEntityConverter.to(em.find(CompanyEntity.class, id));
 	}
 	
 	@Override
@@ -43,8 +42,8 @@ public class CompanyDAOImpl implements CompanyDAO {
 		logger.trace("Ascendant : " + ascendant);
 		logger.trace("Search String : " + searchString);
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Company> cq = cb.createQuery(Company.class);
-		Root<Company> from = cq.from(Company.class);
+		CriteriaQuery<CompanyEntity> cq = cb.createQuery(CompanyEntity.class);
+		Root<CompanyEntity> from = cq.from(CompanyEntity.class);
 		Predicate searchPredicate = cb.and();
 		if (searchString != null) {
 			if (!searchString.trim().isEmpty()) {
@@ -65,17 +64,17 @@ public class CompanyDAOImpl implements CompanyDAO {
 				cq.orderBy(o);
 			}
 		}
-		TypedQuery<Company> q = em.createQuery(cq);
+		TypedQuery<CompanyEntity> q = em.createQuery(cq);
 		q.setFirstResult(offset);
 		q.setMaxResults(limit);
-		return q.getResultList();
+		return q.getResultList().stream().map(CompanyEntityConverter::to).collect(Collectors.toList());
 	}
 
 	@Override
 	@Transactional
 	public long delete(long id) {
 		logger.trace("CompanyDAO supprime la Company d'id " + id);
-		em.remove(em.find(Company.class, id));
+		em.remove(em.find(CompanyEntity.class, id));
 		return id;
 	}
 
@@ -83,11 +82,11 @@ public class CompanyDAOImpl implements CompanyDAO {
 	public List<Company> getAll() {
 		logger.trace("Company DAO récupère toutes les Companies.");
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Company> cq = cb.createQuery(Company.class);
-		Root<Company> from = cq.from(Company.class);
+		CriteriaQuery<CompanyEntity> cq = cb.createQuery(CompanyEntity.class);
+		Root<CompanyEntity> from = cq.from(CompanyEntity.class);
 		cq.select(from);
-		TypedQuery<Company> q = em.createQuery(cq);
-		return q.getResultList();
+		TypedQuery<CompanyEntity> q = em.createQuery(cq);
+		return q.getResultList().stream().map(CompanyEntityConverter::to).collect(Collectors.toList());
 	}
 
 	@Override
@@ -95,7 +94,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 		logger.trace("CompanyDAO renvoie le nombre de Companies.");
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Long> cq = cb.createQuery(Long.class);
-		cq.select(cb.count(cq.from(Company.class)));
+		cq.select(cb.count(cq.from(CompanyEntity.class)));
 		return em.createQuery(cq).getSingleResult().intValue();
 	}
 }

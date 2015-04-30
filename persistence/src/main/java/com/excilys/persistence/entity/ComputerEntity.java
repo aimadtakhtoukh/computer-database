@@ -1,31 +1,28 @@
-package com.excilys.core.beans;
+package com.excilys.persistence.entity;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
-import com.excilys.core.serializer.CustomLocalDateTimeDeserializer;
-import com.excilys.core.serializer.CustomLocalDateTimeSerializer;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-/**
- * That bean is an entity representing a line of the Computer database.
- * @author excilys
- *
- */
+@Entity
+@Table(name = "computer")
+public class ComputerEntity {
 
-public class Computer implements Serializable {
-	private static final long serialVersionUID = -7266523565236529512L;
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	@JsonSerialize(using = CustomLocalDateTimeSerializer.class)
-	@JsonDeserialize(using = CustomLocalDateTimeDeserializer.class)
-	private LocalDateTime introduced;
-	@JsonSerialize(using = CustomLocalDateTimeSerializer.class)
-	@JsonDeserialize(using = CustomLocalDateTimeDeserializer.class)
-	private LocalDateTime discontinued;
-	private Company company;
+	private Timestamp introduced;
+	private Timestamp discontinued;
+	@ManyToOne
+	@JoinColumn(name = "company_id", unique = false, nullable = true, insertable = true, updatable = true)
+	private CompanyEntity company;
 	
 	public Long getId() {
 		return id;
@@ -43,45 +40,35 @@ public class Computer implements Serializable {
 		this.name = name;
 	}
 	
-	public LocalDateTime getIntroduced() {
+	public Timestamp getIntroduced() {
 		return introduced;
 	}
 	
-	public void setIntroduced(LocalDateTime introduced) {
+	public void setIntroduced(Timestamp introduced) {
 		this.introduced = introduced;
 	}
 	
-	public LocalDateTime getDiscontinued() {
+	public Timestamp getDiscontinued() {
 		return discontinued;
 	}
 	
-	public void setDiscontinued(LocalDateTime discontinued) {
+	public void setDiscontinued(Timestamp discontinued) {
 		this.discontinued = discontinued;
 	}
 	
-	public Company getCompany() {
+	public CompanyEntity getCompanyEntity() {
 		return company;
 	}
 	
-	public void setCompany(Company company) {
+	public void setCompanyEntity(CompanyEntity company) {
 		this.company = company;
 	}
 
 	@Override
 	public String toString() {
-		return new StringBuffer()
-				.append("Computer [id=")
-				.append(id)
-				.append(", name=")
-				.append(name)
-				.append(", introduced=")
-				.append(introduced)
-				.append(", discontinued=")
-				.append(discontinued)
-				.append(", company=")
-				.append(company)
-				.append("]")
-				.toString();
+		return "CompanyEntity [id=" + id + ", name=" + name + ", introduced="
+				+ introduced + ", discontinued=" + discontinued + ", company="
+				+ company + "]";
 	}
 
 	@Override
@@ -91,7 +78,7 @@ public class Computer implements Serializable {
 		result = prime * result + ((company == null) ? 0 : company.hashCode());
 		result = prime * result
 				+ ((discontinued == null) ? 0 : discontinued.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
 				+ ((introduced == null) ? 0 : introduced.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -106,7 +93,7 @@ public class Computer implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Computer other = (Computer) obj;
+		ComputerEntity other = (ComputerEntity) obj;
 		if (company == null) {
 			if (other.company != null)
 				return false;
@@ -117,7 +104,10 @@ public class Computer implements Serializable {
 				return false;
 		} else if (!discontinued.equals(other.discontinued))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (introduced == null) {
 			if (other.introduced != null)
@@ -135,10 +125,10 @@ public class Computer implements Serializable {
 	
 	public class Builder {
 		
-		private Computer computer;
+		private ComputerEntity computer;
 		
 		public Builder() {
-			computer = new Computer();
+			computer = new ComputerEntity();
 		}
 		
 		public Builder id(Long id) {
@@ -151,29 +141,31 @@ public class Computer implements Serializable {
 			return this;
 		}
 		
-		public Builder introduced(LocalDateTime introduced) {
+		public Builder introduced(Timestamp introduced) {
 			computer.introduced = introduced;
 			return this;
 		}
 		
-		public Builder discontinued(LocalDateTime discontinued) {
+		public Builder discontinued(Timestamp discontinued) {
 			computer.discontinued = discontinued;
 			return this;
 		}
 		
-		public Builder company(Company company) {
+		public Builder company(CompanyEntity company) {
 			computer.company = company;
 			return this;
 		}
 		
-		public Computer build() {
+		public ComputerEntity build() {
 			return computer;
 		}
 		
 	}
 	
 	public static Builder builder() {
-		return new Computer().new Builder();
+		return new ComputerEntity().new Builder();
 	}
-
+	
+	
+	
 }

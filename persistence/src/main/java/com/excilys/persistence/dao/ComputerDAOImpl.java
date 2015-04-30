@@ -1,8 +1,10 @@
 package com.excilys.persistence.dao;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,12 +19,13 @@ import javax.persistence.criteria.Root;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.excilys.core.beans.Computer;
-import com.excilys.persistence.mappers.ComputerDatabaseMapper;
+import com.excilys.persistence.converter.CompanyEntityConverter;
+import com.excilys.persistence.converter.ComputerEntityConverter;
+import com.excilys.persistence.entity.ComputerEntity;
 
 @Repository
 public class ComputerDAOImpl implements ComputerDAO {
@@ -33,8 +36,6 @@ public class ComputerDAOImpl implements ComputerDAO {
 	
 	@PersistenceContext(unitName = "ComputerDatabasePU")
 	private EntityManager em;
-	@Autowired
-	private ComputerDatabaseMapper mapper;
 	
 	public ComputerDAOImpl() {
         orderByStrings.put("computer.id", new String[] {"id"});
@@ -47,7 +48,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 	@Override
 	public Computer get(long id) {
 		logger.trace("ComputerDAO doit récupérer le Computer d'id " + id);
-		return em.find(Computer.class, id);		
+		return ComputerEntityConverter.to(em.find(ComputerEntity.class, id));		
 	}
 
 	@Override
@@ -57,8 +58,9 @@ public class ComputerDAOImpl implements ComputerDAO {
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
-		em.persist(computer);
-		return computer.getId();
+		ComputerEntity entity = ComputerEntityConverter.from(computer);
+		em.persist(entity);
+		return entity.getId();
 	}
 
 	@Override
@@ -68,12 +70,24 @@ public class ComputerDAOImpl implements ComputerDAO {
 		if (computer == null) {
 			throw new IllegalArgumentException();
 		}
-		Computer c = em.find(Computer.class, id);
+		ComputerEntity c = em.find(ComputerEntity.class, id);
 		c.setId(id);
 		c.setName(computer.getName());
-		c.setIntroduced(computer.getIntroduced());
-		c.setDiscontinued(computer.getDiscontinued());
-		c.setCompany(computer.getCompany());
+		if (computer.getIntroduced() != null) {
+			c.setIntroduced(Timestamp.valueOf(computer.getIntroduced()));
+		} else {
+			c.setIntroduced(null);
+		}
+		if (computer.getDiscontinued() != null) {
+			c.setDiscontinued(Timestamp.valueOf(computer.getDiscontinued()));
+		} else {
+			c.setDiscontinued(null);
+		}
+		if (computer.getCompany() != null) {
+			c.setCompanyEntity(CompanyEntityConverter.from(computer.getCompany()));
+		} else {
+			c.setCompanyEntity(null);
+		}
 		return c.getId();
 	}
 
@@ -81,7 +95,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 	@Transactional
 	public long delete(long id) {
 		logger.trace("ComputerDAO supprime le Computer d'id " + id);
-		em.remove(em.find(Computer.class, id));
+		em.remove(em.find(ComputerEntity.class, id));
 		return id;
 	}
 
@@ -89,11 +103,11 @@ public class ComputerDAOImpl implements ComputerDAO {
 	public List<Computer> getAll() {
 		logger.trace("ComputerDAO recupère tous les Computers.");
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Computer> cq = cb.createQuery(Computer.class);
-		Root<Computer> from = cq.from(Computer.class);
+		CriteriaQuery<ComputerEntity> cq = cb.createQuery(ComputerEntity.class);
+		Root<ComputerEntity> from = cq.from(ComputerEntity.class);
 		cq.select(from);
-		TypedQuery<Computer> q = em.createQuery(cq);
-		return q.getResultList();
+		TypedQuery<ComputerEntity> q = em.createQuery(cq);
+		return q.getResultList().stream().map(ComputerEntityConverter::to).collect(Collectors.toList());
 	}
 
 	@Override
@@ -103,8 +117,8 @@ public class ComputerDAOImpl implements ComputerDAO {
 		logger.trace("Ascendant : " + ascendant);
 		logger.trace("Search String : " + searchString);
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Computer> cq = cb.createQuery(Computer.class);
-		Root<Computer> from = cq.from(Computer.class);
+		CriteriaQuery<ComputerEntity> cq = cb.createQuery(ComputerEntity.class);
+		Root<ComputerEntity> from = cq.from(ComputerEntity.class);
 		Predicate searchPredicate = cb.and();
 		if (searchString != null) {
 			if (!searchString.trim().isEmpty()) {
@@ -134,10 +148,10 @@ public class ComputerDAOImpl implements ComputerDAO {
 				}
 			}
 		}
-		TypedQuery<Computer> q = em.createQuery(cq);
+		TypedQuery<ComputerEntity> q = em.createQuery(cq);
 		q.setFirstResult(offset);
 		q.setMaxResults(limit);
-		return q.getResultList();
+		return q.getResultList().stream().map(ComputerEntityConverter::to).collect(Collectors.toList());
 	}
 
 	@Override
@@ -145,7 +159,7 @@ public class ComputerDAOImpl implements ComputerDAO {
 		logger.trace("ComputerDAO renvoie le nombre de Computers.");
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Long> cq = cb.createQuery(Long.class);
-		cq.select(cb.count(cq.from(Computer.class)));
+		cq.select(cb.count(cq.from(ComputerEntity.class)));
 		return em.createQuery(cq).getSingleResult().intValue();
 	}
 
@@ -153,8 +167,8 @@ public class ComputerDAOImpl implements ComputerDAO {
 	public void deleteByCompanyId(long companyId) {
 		logger.trace("ComputerDAO supprime tous les Computers de companyId " + companyId);
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaDelete<Computer> delete = cb.createCriteriaDelete(Computer.class);
-		Root<Computer> from = delete.from(Computer.class);
+		CriteriaDelete<ComputerEntity> delete = cb.createCriteriaDelete(ComputerEntity.class);
+		Root<ComputerEntity> from = delete.from(ComputerEntity.class);
 		delete.where(cb.equal(from.get("company").get("id"), companyId));
 		em.createQuery(delete).executeUpdate();
 	}

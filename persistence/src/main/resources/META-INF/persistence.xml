@@ -5,8 +5,8 @@
    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="ComputerDatabasePU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>com.excilys.core.beans.Company</class>
-		<class>com.excilys.core.beans.Computer</class>
+		<class>com.excilys.persistence.entity.CompanyEntity</class>
+		<class>com.excilys.persistence.entity.ComputerEntity</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

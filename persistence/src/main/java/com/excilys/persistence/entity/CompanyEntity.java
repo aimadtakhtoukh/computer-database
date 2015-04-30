@@ -1,16 +1,17 @@
-package com.excilys.core.beans;
+package com.excilys.persistence.entity;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-/**
- * That bean is an entity representing a line in the Company database.
- * @author excilys
- *
- */
-
-public class Company implements Serializable {
-	private static final long serialVersionUID = -1302047317794536556L;
+@Entity
+@Table(name = "company")
+public class CompanyEntity {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	
@@ -26,27 +27,21 @@ public class Company implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	@Override
 	public String toString() {
-		return new StringBuffer()
-				.append("Company [id=")
-				.append(id)
-				.append(", name=")
-				.append(name)
-				.append("]")
-				.toString();
+		return "CompanyEntity [id=" + id + ", name=" + name + "]";
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -55,8 +50,11 @@ public class Company implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Company other = (Company) obj;
-		if (id != other.id)
+		CompanyEntity other = (CompanyEntity) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -67,11 +65,10 @@ public class Company implements Serializable {
 	}
 	
 	public class Builder {
-		
-		private Company company;
+		private CompanyEntity company;
 		
 		public Builder() {
-			company = new Company();
+			company = new CompanyEntity();
 		}
 		
 		public Builder id(Long id) {
@@ -84,14 +81,13 @@ public class Company implements Serializable {
 			return this;
 		}
 		
-		public Company build() {
+		public CompanyEntity build() {
 			return company;
 		}
-		
 	}
 	
 	public static Builder builder() {
-		return new Company().new Builder();
+		return new CompanyEntity().new Builder();
 	}
-
+	
 }

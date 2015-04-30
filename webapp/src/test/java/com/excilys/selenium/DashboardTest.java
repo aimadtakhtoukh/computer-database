@@ -1,25 +1,8 @@
 package com.excilys.selenium;
 
-import java.io.File;
-import java.util.List;
-
-import org.dbunit.dataset.DataSetException;
-import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-import com.excilys.persistence.dao.util.DatabaseTestUtil;
 
 public class DashboardTest {
-	
+	/*
 	private static WebDriver driver = null;
 	
 	@BeforeClass
@@ -58,5 +41,5 @@ public class DashboardTest {
 		System.out.println(tables);
 		Assert.assertFalse(tables.isEmpty());
 	}
-
+	*/
 }
