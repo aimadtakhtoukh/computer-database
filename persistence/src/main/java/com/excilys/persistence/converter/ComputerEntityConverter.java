@@ -5,8 +5,18 @@ import java.sql.Timestamp;
 import com.excilys.core.beans.Computer;
 import com.excilys.persistence.entity.ComputerEntity;
 
+/**
+ * Converts a computer entity into a crossplatform bean, and the opposite..
+ * @author excilys
+ *
+ */
 public class ComputerEntityConverter {
 	
+	/**
+	 * Turns the computer entity into an equivalent computer bean.
+	 * @param entity
+	 * @return
+	 */	
 	public static Computer to(ComputerEntity entity) {
 		if (entity == null) {
 			return null;
@@ -25,7 +35,12 @@ public class ComputerEntityConverter {
 		}
 		return builder.build();
 	}
-	
+
+	/**
+	 * Turns the computer bean into an equivalent computer entity.
+	 * @param entity
+	 * @return
+	 */
 	public static ComputerEntity from(Computer bean) {
 		if (bean == null) {
 			return null;

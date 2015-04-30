@@ -11,6 +11,11 @@ import org.springframework.stereotype.Component;
 import com.excilys.binding.validator.NumberValidation;
 import com.excilys.console.rest.CompanyRestClient;
 
+/**
+ * CLI Command to delete a company(s), and all computers with that company or these companies.
+ * @author excilys
+ *
+ */
 @Component
 public class DeleteCompanyAndRelatedComputersCommand implements Command {
 	

@@ -22,6 +22,11 @@ import com.excilys.console.rest.ComputerRestClient;
 import com.excilys.core.beans.Company;
 import com.excilys.core.beans.Computer;
 
+/**
+ * CLI command to update a computer.
+ * @author excilys
+ *
+ */
 @Component
 public class UpdateComputerCommand implements Command {
 	

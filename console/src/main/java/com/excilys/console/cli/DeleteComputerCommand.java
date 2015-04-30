@@ -10,6 +10,11 @@ import org.springframework.stereotype.Component;
 
 import com.excilys.console.rest.ComputerRestClient;
 
+/**
+ * CLI Command deletes a computer(s).
+ * @author excilys
+ *
+ */
 @Component
 public class DeleteComputerCommand implements Command {
 	

@@ -3,8 +3,11 @@ package com.excilys.core.beans;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.excilys.core.serialization.CustomLocalDateTimeDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
- * That bean is an entity representing a line of the Computer database.
+ * That bean is used to represent a Computer through the whole platform.
  * @author excilys
  *
  */
@@ -14,7 +17,9 @@ public class Computer implements Serializable {
 	
 	private Long id;
 	private String name;
+	@JsonDeserialize(using = CustomLocalDateTimeDeserializer.class)
 	private LocalDateTime introduced;
+	@JsonDeserialize(using = CustomLocalDateTimeDeserializer.class)
 	private LocalDateTime discontinued;
 	private Company company;
 	

@@ -10,6 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * The bean represents a line in the Computer database.
+ * @author excilys
+ *
+ */
 @Entity
 @Table(name = "computer")
 public class ComputerEntity {

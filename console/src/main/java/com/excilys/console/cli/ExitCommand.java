@@ -7,6 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * CLI command to exit the program, effectively stopping the CLI loop.
+ * @author excilys
+ *
+ */
 @Component
 public class ExitCommand implements Command {
 	

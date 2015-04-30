@@ -9,6 +9,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+/**
+ * The class validates strings. They're tested as true if 
+ * dates given are valid in the localized format, and if
+ * the date exists and can be handled by the Timestamp SQL type.
+ * @author excilys
+ *
+ */
 @Component
 public class DateValidation {
 	
@@ -16,6 +23,12 @@ public class DateValidation {
 	private StringValidation stringValidator;
 	@Autowired
 	private MessageSource messageSource;
+	
+	/**
+	 * Tests if the string is well formed and represents a date.
+	 * @param date, a string
+	 * @return true if the string represents an existing date.
+	 */
 	
 	public boolean isACorrectDate(String date) {
 		if (!stringValidator.isACorrectString(date)) {
@@ -30,7 +43,11 @@ public class DateValidation {
 		return isDayFromMonthAndYear(temp.getDayOfMonth(), temp.getMonthValue(), temp.getYear());
 	}
 	
-	public boolean isDayFromMonthAndYear(int day, int month, int year) {
+	private boolean isDayFromMonthAndYear(int day, int month, int year) {
+		// Limits of the Timestamp sql type.
+		if (year < 1970 || year > 2037) {
+			return false;
+		}
 		if (month < 1 || month > 12) {
 			return false;
 		}		

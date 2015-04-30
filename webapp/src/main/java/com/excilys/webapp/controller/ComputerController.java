@@ -27,6 +27,11 @@ import com.excilys.webapp.dto.ComputerDTO;
 import com.excilys.webapp.mappers.ComputerDTOMapper;
 import com.excilys.webapp.validator.ComputerDTOValidator;
 
+/**
+ * Web controller for Computers.
+ * @author excilys
+ *
+ */
 @Controller
 public class ComputerController {
 	private final Logger logger = LoggerFactory.getLogger(ComputerController.class);
@@ -54,6 +59,16 @@ public class ComputerController {
         orderByStrings.put("company", "company.name");
     }
 	
+    /**
+     * Shows a list of Computers, manipulated.
+     * @param resultsPerPage
+     * @param page
+     * @param search
+     * @param orderBy
+     * @param asc
+     * @param model
+     * @return
+     */
 	@RequestMapping(value = {"/", "/dashboard"}, method = RequestMethod.GET)
 	public String showDashboard(@RequestParam(required = false) Integer resultsPerPage, 
 								@RequestParam(required = false) Integer page, 
@@ -102,6 +117,11 @@ public class ComputerController {
 		return "dashboard";
 	}
 
+	/**
+	 * Form to add computers to the database.
+	 * @param model
+	 * @return
+	 */
     @RequestMapping(value = "/addComputer", method = RequestMethod.GET)
     public String showPage(Model model) {
 		logger.trace("GET called on /addComputer : Showing computer add page, start up");
@@ -112,6 +132,13 @@ public class ComputerController {
     	return "addComputer";
     }
     
+    /**
+     * Adds a computer when added through a request.
+     * @param dto
+     * @param bindingResult
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/addComputer", method = RequestMethod.POST)
     public String addComputer(
     		@ModelAttribute ComputerDTO dto,
@@ -142,6 +169,12 @@ public class ComputerController {
     	return "addComputer";
     }
     
+    /**
+     * Precompleted form to edit a computer.
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/editComputer", method = RequestMethod.GET)
 	public String showEditedComputerPage(@RequestParam Long id, Model model) {
 		logger.trace("GET called on /editComputer : Showing computer edit page, start up");
@@ -156,6 +189,13 @@ public class ComputerController {
 		return "editComputer";		
 	}
 	
+    /**
+     * Edits a computer given through a request.
+     * @param dto
+     * @param bindingResult
+     * @param model
+     * @return
+     */
 	@RequestMapping(value = "/editComputer", method = RequestMethod.POST)
 	public String editComputer(
 			@ModelAttribute ComputerDTO dto,
@@ -187,6 +227,12 @@ public class ComputerController {
 		return "redirect:/dashboard";
 	}
 	
+	/**
+	 * Deletes all computers with ids in the request array.
+	 * @param selection
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/deleteComputer", method = RequestMethod.POST)
 	public String deleteComputers(@RequestParam String selection, Model model) {
 		logger.trace("POST called on /dashboard : deleting computers, start up");

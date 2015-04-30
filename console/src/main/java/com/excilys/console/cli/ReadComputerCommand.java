@@ -13,7 +13,11 @@ import org.springframework.stereotype.Component;
 import com.excilys.binding.validator.NumberValidation;
 import com.excilys.console.rest.ComputerRestClient;
 import com.excilys.core.beans.Computer;
-
+/**
+ * CLI command to read a computer(s).
+ * @author excilys
+ *
+ */
 @Component
 public class ReadComputerCommand implements Command {
 	

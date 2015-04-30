@@ -13,6 +13,11 @@ import com.excilys.core.beans.Company;
 import com.excilys.persistence.page.Page;
 import com.excilys.service.services.CompanyService;
 
+/**
+ * CLI command showing a list of companies, paged.
+ * @author excilys
+ *
+ */
 @Component
 public class ReadAllCompaniesCommand implements Command {
 	@Autowired

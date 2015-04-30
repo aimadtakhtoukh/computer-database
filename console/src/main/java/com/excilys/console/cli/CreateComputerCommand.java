@@ -19,6 +19,11 @@ import com.excilys.core.beans.Computer;
 
 import com.excilys.binding.validator.DateValidation;
 
+/**
+ * CLI command to create a computer in the database.
+ * @author excilys
+ *
+ */
 @Component
 public class CreateComputerCommand implements Command {
 	

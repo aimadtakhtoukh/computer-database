@@ -3,7 +3,7 @@ package com.excilys.core.beans;
 import java.io.Serializable;
 
 /**
- * That bean is an entity representing a line in the Company database.
+ * That bean is used to represent a Company through the whole platform.
  * @author excilys
  *
  */

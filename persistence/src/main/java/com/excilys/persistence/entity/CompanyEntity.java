@@ -6,6 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * The bean represents a line in the Company database.
+ * @author excilys
+ *
+ */
 @Entity
 @Table(name = "company")
 public class CompanyEntity {

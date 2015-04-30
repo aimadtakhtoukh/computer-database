@@ -3,7 +3,13 @@ package com.excilys.console.cli.page;
 import java.util.Scanner;
 
 import com.excilys.persistence.page.Page;
-
+/**
+ * This class uses a Page to show a paged list of T beans.
+ * 
+ * @author excilys
+ *
+ * @param <T>
+ */
 public class PageCommandLineInterface<T> {
 	
 	private Page<T> page;

@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.excilys.persistence.dao.CRUDDAO;
 
+/**
+ * The class represents a paged list of beans. 
+ * @author excilys
+ *
+ * @param <T>
+ */
 public interface Page<T> {
 	
 	public CRUDDAO<T> getDAO();

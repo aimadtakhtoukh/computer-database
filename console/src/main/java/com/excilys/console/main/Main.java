@@ -6,6 +6,11 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.excilys.console.cli.CommandLineInterface;
 
+/**
+ * Starts the command line interface.
+ * @author excilys
+ *
+ */
 public class Main {
 	
 	private final static Logger logger = LoggerFactory.getLogger(Main.class);
