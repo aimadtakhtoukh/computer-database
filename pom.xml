@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>computerDatabase</groupId>
 	<artifactId>computerDatabase</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0-RELEASE</version>
 	<name>Computer Database</name>
 	<description>An application managing a computer database.</description>
 	<packaging>pom</packaging>
 
 	<properties>
-		<version.root>1.0.0-SNAPSHOT</version.root>
+		<version.root>1.0.0-RELEASE</version.root>
 		<commons.logging.version>99-empty</commons.logging.version>
 		<!-- DATABASE -->
 		<mysql.version>5.1.34</mysql.version>
@@ -57,7 +57,6 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>${commons.logging.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- TESTS -->
 		<dependency>
@@ -83,7 +82,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -323,12 +321,6 @@
 			<dependency>
 			    <groupId>org.jboss.resteasy</groupId>
 			    <artifactId>jaxrs-api</artifactId>
-			    <version>${resteasy.version}</version>
-			</dependency>
-			
-			<dependency>
-			    <groupId>org.jboss.resteasy</groupId>
-			    <artifactId>resteasy-jaxb-provider</artifactId>
 			    <version>${resteasy.version}</version>
 			</dependency>
 			
